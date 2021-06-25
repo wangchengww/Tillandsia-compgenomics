@@ -27,11 +27,9 @@ sniffles -t 48 -m $pacbio_bam -v $output`
 Using rasusa, I randomly selected reads to ensure an average 5x, 10x, 20x coverage for each file. The original data was sequenced at 50x.
 
 First I estimated the genome size:
+`grep -v ">" Tillandsia_leiboldiana_26_scaffolds.fasta | wc | awk '{print $3-$1}'`
 
-`grep -v ">" Tillandsia_leiboldiana_26_scaffolds.fasta | wc | awk '{print $3-$1}'
-`
 This resulted in 906,467,929 bp. Subsets based on coverage were then created like so:
-
 `rasusa --coverage 20x --genome-size 906467929 --input Tfas_Illumina_50x_trimmed_pair1.fq Tfas_Illumina_50x_trimmed_pair2.fq --output Tfas_Illumina_50x_trimmed_pair1.fq Tfas_Illumina_50x_trimmed_pair2.fq`
 
 # Calling SV with Delly
