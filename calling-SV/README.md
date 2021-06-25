@@ -19,6 +19,7 @@ Sniffles was run to have some form of control within the PacBio methods. Though 
 `pacbio_bam=/gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/calling_SV/sniffles/DTG-DNA-541.subreads.ngmlr.coordsorted.bam
 output=StrucVar_Tfas_to_Tlei_sniffles.vcf
 wd=/gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/calling_SV/SVIM
+
 cd $wd
 sniffles -t 48 -m $pacbio_bam -v $output`
 
@@ -26,10 +27,28 @@ sniffles -t 48 -m $pacbio_bam -v $output`
 
 Using rasusa, I randomly selected reads to ensure an average 5x, 10x, 20x coverage for each file. The original data was sequenced at 50x.
 
-First I estimated the genome size:
- `grep -v ">" Tillandsia_leiboldiana_26_scaffolds.fasta | wc | awk '{print $3-$1}'`
+First I estimated the genome size:  
+`grep -v ">" Tillandsia_leiboldiana_26_scaffolds.fasta | wc | awk '{print $3-$1}'`
 
-This resulted in 906,467,929 bp. Subsets based on coverage were then created like so:
- `rasusa --coverage 20x --genome-size 906467929 --input Tfas_Illumina_50x_trimmed_pair1.fq Tfas_Illumina_50x_trimmed_pair2.fq --output Tfas_Illumina_50x_trimmed_pair1.fq Tfas_Illumina_50x_trimmed_pair2.fq`
+This resulted in 906,467,929 bp. Subsets based on coverage were then created like so:  
+`rasusa --coverage 20x --genome-size 906467929 --input Tfas_Illumina_50x_trimmed_pair1.fq Tfas_Illumina_50x_trimmed_pair2.fq --output Tfas_Illumina_50x_trimmed_pair1.fq Tfas_Illumina_50x_trimmed_pair2.fq`
 
 # Calling SV with Delly
+
+Preparation:
+
+`bwa mem -t 8 $ref_genome $pair1 $pair2 | samtools view -Sb - | samtools sort -@4 - -o Tfas_illumina_to_Tlei_ref.10x.sorted.bam  
+for file in $filedir ; do  
+  filename="$(basename $file)"  
+  echo $filename  
+  #picard AddOrReplaceReadGroups I=$file o="$(basename $file)".RG.bam RGLB=WGD RGPL=illumina RGPU=Lib1 RGSM=T.fasciculata_B1840 RGID=T.fasciculata_B1840  
+  #picard MarkDuplicates  I=$filename o=${filename%.bam}.Dup.bam M=${filename%.bam}.Dup.bam_metrics.txt  
+  # Sort both alignments  
+  samtools sort -o ${filename%.bam}.Dup.sorted.bam ${filename%.bam}.Dup.bam  
+  #index  
+  samtools index ${filename%.bam}.Dup.sorted.bam  
+done`  
+
+Running Delly:
+
+`$delly call -g $ref_genome -o $output.bcf $bam`
