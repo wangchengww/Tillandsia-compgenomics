@@ -39,9 +39,9 @@ Preparation:
 I prep the input files by aligning them, add read groups, marking duplicates, sorting and indexing.
 
 `bwa mem -t 8 $ref_genome $pair1 $pair2 | samtools view -Sb - | samtools sort -@4 - -o Tfas_illumina_to_Tlei_ref.10x.sorted.bam \
-for file in $filedir ; do \
- 	filename="$(basename $file)" \
-	echo $filename \
+for file in $filedir ; do  
+ 	filename="$(basename $file)"  
+	echo $filename  
 	picard AddOrReplaceReadGroups I=$file o="$(basename $file)".RG.bam RGLB=WGD RGPL=illumina RGPU=Lib1 RGSM=T.fasciculata_B1840 RGID=T.fasciculata_B1840 \
 	picard MarkDuplicates  I=$filename o=${filename%.bam}.Dup.bam M=${filename%.bam}.Dup.bam_metrics.txt \
 	samtools sort -o ${filename%.bam}.Dup.sorted.bam ${filename%.bam}.Dup.bam \
