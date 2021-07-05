@@ -42,15 +42,10 @@ I prep the input files by aligning them, add read groups, marking duplicates, so
 for file in $filedir ; do\
  	filename="$(basename $file)"\
 	echo $filename\
-
-	picard AddOrReplaceReadGroups I=$file o="$(basename $file)".RG.bam RGLB=WGD RGPL=illumina RGPU=Lib1 RGSM=T.fasciculata_B1840 RGID=T.fasciculata_B1840
-
-	picard MarkDuplicates  I=$filename o=${filename%.bam}.Dup.bam M=${filename%.bam}.Dup.bam_metrics.txt
-
-	samtools sort -o ${filename%.bam}.Dup.sorted.bam ${filename%.bam}.Dup.bam
-
-	samtools index ${filename%.bam}.Dup.sorted.bam
-
+	picard AddOrReplaceReadGroups I=$file o="$(basename $file)".RG.bam RGLB=WGD RGPL=illumina RGPU=Lib1 RGSM=T.fasciculata_B1840 RGID=T.fasciculata_B1840\
+	picard MarkDuplicates  I=$filename o=${filename%.bam}.Dup.bam M=${filename%.bam}.Dup.bam_metrics.txt\
+	samtools sort -o ${filename%.bam}.Dup.sorted.bam ${filename%.bam}.Dup.bam\
+	samtools index ${filename%.bam}.Dup.sorted.bam\
 done`  
 
 Running Delly:
