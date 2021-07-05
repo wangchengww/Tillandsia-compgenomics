@@ -1,10 +1,10 @@
 # Calling structural variants and comparing caller softwares
 
-To study gene family evolution in the subgenus Tillandsia, one possible strategy would be to call family sizes in several Tillandsia species, including *T. leiboldiana* and *T. fasciculata*. In order to do this, we would have to call structural variants, which include deletions and duplications, and find variants that overlap with genes.
+To study gene family evolution in the subgenus *Tillandsia*, one possible strategy would be to call family sizes in several  species, including *T. leiboldiana* and *T. fasciculata*. In order to do this, we would have to call structural variants, which include deletions and duplications, and find variants that overlap with genes.
 
-However, our available data mostly consists of 10x-20x illumina data, and I first wanted to see how reliable structural variant callers were using such data. I therefore made a comparative analysis between two PacBio SV callers and three illumina-based callers using the same reference (T. leiboldiana) and the same sample (T. fasciculata), for which we luckily had both types of data.
+However, our available data mostly consists of 10x-20x illumina data, and I first wanted to see how reliable structural variant callers were using such data. I therefore made a comparative analysis between two PacBio SV callers and three illumina-based callers using the same reference (*T. leiboldiana*) and the same sample (*T. fasciculata*), for which we luckily had both types of data.
 
-Our Pacbio data was about 35x coverage, and illumina data was 50x coverage. I also wanted to see the effect of different coverage levels, so structural variants were called with illumina data at 5x, 10x, 20x and 50x.
+Our Pacbio data was about 35x coverage, and illumina data was 50x coverage. I also wanted to see the effect of different coverage levels in illumina data, so structural variants were called with illumina data at 5x, 10x, 20x and 50x.
 
 # Calling structural variants with SVIM
 
@@ -39,13 +39,13 @@ Preparation:
 I prep the input files by aligning them, add read groups, marking duplicates, sorting and indexing.
 
 `bwa mem -t 8 $ref_genome $pair1 $pair2 | samtools view -Sb - | samtools sort -@4 - -o Tfas_illumina_to_Tlei_ref.10x.sorted.bam  
-for file in $filedir ; do  
- 	filename="$(basename $file)"  
-	echo $filename  
-	picard AddOrReplaceReadGroups I=$file o="$(basename $file)".RG.bam RGLB=WGD RGPL=illumina RGPU=Lib1 RGSM=T.fasciculata_B1840 RGID=T.fasciculata_B1840  
-	picard MarkDuplicates  I=$filename o=${filename%.bam}.Dup.bam M=${filename%.bam}.Dup.bam_metrics.txt  
-	samtools sort -o ${filename%.bam}.Dup.sorted.bam ${filename%.bam}.Dup.bam  
-	samtools index ${filename%.bam}.Dup.sorted.bam  
+: for file in $filedir ; do  
+:: 	filename="$(basename $file)"  
+::	echo $filename  
+::	picard AddOrReplaceReadGroups I=$file o="$(basename $file)".RG.bam RGLB=WGD RGPL=illumina RGPU=Lib1 RGSM=T.fasciculata_B1840 RGID=T.fasciculata_B1840  
+::	picard MarkDuplicates  I=$filename o=${filename%.bam}.Dup.bam M=${filename%.bam}.Dup.bam_metrics.txt  
+::	samtools sort -o ${filename%.bam}.Dup.sorted.bam ${filename%.bam}.Dup.bam  
+::	samtools index ${filename%.bam}.Dup.sorted.bam  
 done`  
 
 Running Delly:
