@@ -8,13 +8,13 @@ Our Pacbio data was about 35x coverage, and illumina data was 50x coverage. I al
 
 # Calling structural variants with SVIM
 
-SVIM is able to call interspersed duplications, making it quite an interesting software. I ran SVIM with the following command:
+[SVIM](https://github.com/eldariont/svim) is able to call interspersed duplications, making it quite an interesting software. I ran SVIM with the following command:
 
 `svim reads Tfas_Pacbio_to_Tlei DTG-DNA-541.subreads.fasta Tillandsia_leiboldiana_26_scaffolds.fasta`
 
 # Calling structural variants with Sniffles
 
-Sniffles was run to have some form of control within the PacBio methods. Though we assume PacBio SV calling will be more accurate, I realized after an initial run that some of the output of SVIM was a bit irregular (overlapping deletions), so I included a second software:
+[Sniffles](https://github.com/fritzsedlazeck/Sniffles) was run to have some form of control within the PacBio methods. Though we assume PacBio SV calling will be more accurate, I realized after an initial run that some of the output of SVIM was a bit irregular (overlapping deletions), so I included a second software:
 
 `pacbio_bam=/gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/calling_SV/sniffles/DTG-DNA-541.subreads.ngmlr.coordsorted.bam
 output=StrucVar_Tfas_to_Tlei_sniffles.vcf
@@ -25,7 +25,7 @@ sniffles -t 48 -m $pacbio_bam -v $output`
 
 # Subsetting coverage of illumina fastq files
 
-Using rasusa, I randomly selected reads to ensure an average 5x, 10x, 20x coverage for each file. The original data was sequenced at 50x.
+Using [rasusa](https://github.com/mbhall88/rasusa), I randomly selected reads to ensure an average 5x, 10x, 20x coverage for each file. The original data was sequenced at 50x.
 
 First I estimated the genome size:  
 `grep -v ">" Tillandsia_leiboldiana_26_scaffolds.fasta | wc | awk '{print $3-$1}'`
@@ -48,7 +48,7 @@ I prep the input files by aligning them, add read groups, marking duplicates, so
         samtools index ${filename%.bam}.Dup.sorted.bam \
     done
 
-Running Delly:
+Running [Delly](https://github.com/dellytools/delly):
 
 `$delly call -g $ref_genome -o $output.bcf $bam`
 
@@ -73,12 +73,12 @@ First, I aligned the separate fastq files, added read groups and removed duplica
         samtools sort -o ${bam%.bam}.splitters.sorted.bam ${bam%.bam}.splitters.unsorted.bam
     done
 
-I ran lumpy-express, which is a fast wrapper of lumpy:  
+I ran [lumpy](https://github.com/arq5x/lumpy-sv)-express, which is a fast wrapper of lumpy:  
 `~/software/lumpy-sv/bin/lumpyexpress -B $bam -S $splitters -D $discordants -o $output`
 
 # Calling SV with Manta
 
-First step is configuration and setup:
+[Manta](https://github.com/Illumina/manta): First step is configuration and setup:
 
     cd $wd
     for bam in $input ; do
@@ -129,3 +129,5 @@ Overlap with our gene models (GFF file) was obtained by running bedtools interse
 	    echo $i
 	    bedtools intersect -wo -f 0.8 -a $gff -b $i > $i.genes.overlap.txt
     done
+
+# Conclusion
