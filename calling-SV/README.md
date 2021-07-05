@@ -74,12 +74,13 @@ do
   samtools sort -o ${bam%.bam}.splitters.sorted.bam ${bam%.bam}.splitters.unsorted.bam
 done`
 
-I ran lumpy-express, which is a fast wrapper of lumpy:
+I ran lumpy-express, which is a fast wrapper of lumpy:  
 `~/software/lumpy-sv/bin/lumpyexpress -B $bam -S $splitters -D $discordants -o $output`
 
 # Calling SV with Manta
 
 First step is configuration and setup:
+
 `cd $wd
 for bam in $input ; do
 	echo $bam
