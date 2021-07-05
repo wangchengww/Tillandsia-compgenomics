@@ -96,3 +96,18 @@ Filtering for SVIM was straightforward and done with a one-liner:
 `awk '/^#/ || $6 >= 10 && $7 != "hom_ref" {print $0}' SVIM_variants.vcf > SVIM_variants.filtered.score10.NoHom.vcf`
 
 All other filtering was done with custom-made python scripts (filter_delly.py, filter_sniffles.py, filter_lumpy.py, filter_manta.py)
+
+# Calculating overlap between callers
+
+I obtained a merged VCF file reporting overlap between callers using [SURVIVOR](https://github.com/fritzsedlazeck/SURVIVOR/wiki). Survivor will merge calls from multiple VCF files if they are found within a certain distance and qualify certain criteria. In my case, I only wanted variants > 50 bp within 100 bp merged, as long as they are called by at least 1 software. I wanted the intersection of all VCF files, so I didn't limit the merging to calls of the same variant type or on the same strand. The input files for survivor are a text file listing all the vcf files you want to merge, in my case these text files were names 'list_10x.txt', etc.
+
+    files=/gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/calling_SV/filter_vcf_files/list_*
+    cd $wd
+    for file in $files
+    do
+	    var=$(date) # Capture date and time
+	    echo "$var - Merging $file" # prints date and time
+	    $survivor merge $file 100 1 0 0 0 50 $file.merged.100bpDist50bpLength.OneCaller.vcf
+    done
+
+# Inferring overlap between SV calls and gene models
