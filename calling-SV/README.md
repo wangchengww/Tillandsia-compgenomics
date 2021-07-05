@@ -87,3 +87,12 @@ First step is configuration and setup:
         $manta --bam $bam --referenceFasta $ref --runDir /gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/calling_SV/manta/manta_$cov
         cd $wd
     done
+
+# Filtering SV VCF files
+
+I tried to filter all output by more or less similar criteria, though this varied slightly for method to method. Generally, for illumina-based methods, variants had to have both split-read and paired-end support of 40 % of the expected coverage (i.e. for 50x data, a variant had to be supported by 20 PE and SR). For Pacbio, read support had to be > 10. For all methods, we removed variants that were called despite Genotype being homozygous for the reference.
+
+Filtering for SVIM was straightforward and done with a one-liner:  
+`awk '/^#/ || $6 >= 10 && $7 != "hom_ref" {print $0}' SVIM_variants.vcf > SVIM_variants.filtered.score10.NoHom.vcf`
+
+All other filtering was done with custom-made python scripts (filter_delly.py, filter_sniffles.py, filter_lumpy.py, filter_manta.py)
