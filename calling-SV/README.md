@@ -38,13 +38,10 @@ This resulted in 906,467,929 bp. Subsets based on coverage were then created lik
 Preparation:
 I prep the input files by aligning them, add read groups, marking duplicates, sorting and indexing.
 
-`bwa mem -t 8 $ref_genome $pair1 $pair2 | samtools view -Sb - | samtools sort -@4 - -o Tfas_illumina_to_Tlei_ref.10x.sorted.bam
-
-for file in $filedir ; do
-
- 	filename="$(basename $file)"
-
-	echo $filename
+`bwa mem -t 8 $ref_genome $pair1 $pair2 | samtools view -Sb - | samtools sort -@4 - -o Tfas_illumina_to_Tlei_ref.10x.sorted.bam\
+for file in $filedir ; do\
+ 	filename="$(basename $file)"\
+	echo $filename\
 
 	picard AddOrReplaceReadGroups I=$file o="$(basename $file)".RG.bam RGLB=WGD RGPL=illumina RGPU=Lib1 RGSM=T.fasciculata_B1840 RGID=T.fasciculata_B1840
 
