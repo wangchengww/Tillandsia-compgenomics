@@ -46,7 +46,7 @@ I prep the input files by aligning them, add read groups, marking duplicates, so
         picard MarkDuplicates  I=$filename o=${filename%.bam}.Dup.bam M=${filename%.bam}.Dup.bam_metrics.txt \
         samtools sort -o ${filename%.bam}.Dup.sorted.bam ${filename%.bam}.Dup.bam \
         samtools index ${filename%.bam}.Dup.sorted.bam \
-    done 
+    done
 
 Running Delly:
 
@@ -57,22 +57,21 @@ Running Delly:
 Preparation:
 First, I aligned the separate fastq files, added read groups and removed duplicates as recommended by the manial. The discordant and split-read alignments were extracted. Then this was all sorted and indexed.
 
-`for ((i=0;i<=${#pair1[@]};i++))
-do
-  Name=$(basename ${pair1[i]})
-  Name=${Name%_trimmed_pair1.fq}
-  echo $Name
-  bwa mem -t 48 -R "@RG\tID:$sample_id\tSM:$sample_id\tLB:lib1" -o ${Name}.sam $refgenome "${pair1[i]}" "${pair2[i]}"
-  samblaster --excludeDups --addMateTags --maxSplitCount 2 --minNonOverlap 20 -i ${Name}.sam | samtools view -S -b - > $Name.RG.NoDup.bam
-  bam=$Name.RG.NoDup.bam
-  samtools view -b -F 1294 $bam > ${bam%.bam}.discordants.unsorted.bam
-  samtools view -h $bam \
-	| /home/fs71400/grootcrego/software/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin \
-    | samtools view -Sb - \
-    > ${bam%.bam}.splitters.unsorted.bam
-  samtools sort -o ${bam%.bam}.discordants.sorted.bam ${bam%.bam}.discordants.unsorted.bam
-  samtools sort -o ${bam%.bam}.splitters.sorted.bam ${bam%.bam}.splitters.unsorted.bam
-done`
+    for ((i=0;i<=${#pair1[@]};i++))
+    do
+        Name=$(basename ${pair1[i]})
+		Name=${Name%_trimmed_pair1.fq}
+		echo $Name
+		bwa mem -t 48 -R "@RG\tID:$sample_id\tSM:$sample_id\tLB:lib1" -o ${Name}.sam $refgenome "${pair1[i]}" "${pair2[i]}"
+		samblaster --excludeDups --addMateTags --maxSplitCount 2 --minNonOverlap 20 -i ${Name}.sam | samtools view -S -b - > $Name.RG.NoDup.bam
+		bam=$Name.RG.NoDup.bam
+		samtools view -b -F 1294 $bam > ${bam%.bam}.discordants.unsorted.bam
+		samtools view -h $bam \
+		| /home/fs71400/grootcrego/software/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin \
+		| samtools view -Sb - > ${bam%.bam}.splitters.unsorted.bam
+        samtools sort -o ${bam%.bam}.discordants.sorted.bam ${bam%.bam}.discordants.unsorted.bam
+        samtools sort -o ${bam%.bam}.splitters.sorted.bam ${bam%.bam}.splitters.unsorted.bam
+    done
 
 I ran lumpy-express, which is a fast wrapper of lumpy:  
 `~/software/lumpy-sv/bin/lumpyexpress -B $bam -S $splitters -D $discordants -o $output`
