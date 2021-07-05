@@ -65,14 +65,11 @@ do
   bwa mem -t 48 -R "@RG\tID:$sample_id\tSM:$sample_id\tLB:lib1" -o ${Name}.sam $refgenome "${pair1[i]}" "${pair2[i]}"
   samblaster --excludeDups --addMateTags --maxSplitCount 2 --minNonOverlap 20 -i ${Name}.sam | samtools view -S -b - > $Name.RG.NoDup.bam
   bam=$Name.RG.NoDup.bam
-  # Extract the discordant paired-end alignments.
-  #samtools view -b -F 1294 $bam > ${bam%.bam}.discordants.unsorted.bam
-  # Extract the split-read alignments
+  samtools view -b -F 1294 $bam > ${bam%.bam}.discordants.unsorted.bam
   samtools view -h $bam \
 	| /home/fs71400/grootcrego/software/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin \
     | samtools view -Sb - \
     > ${bam%.bam}.splitters.unsorted.bam
-  # Sort both alignments
   samtools sort -o ${bam%.bam}.discordants.sorted.bam ${bam%.bam}.discordants.unsorted.bam
   samtools sort -o ${bam%.bam}.splitters.sorted.bam ${bam%.bam}.splitters.unsorted.bam
 done`
