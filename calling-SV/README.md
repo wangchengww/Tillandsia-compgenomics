@@ -51,3 +51,42 @@ done`
 Running Delly:
 
 `$delly call -g $ref_genome -o $output.bcf $bam`
+
+# Calling SV with lumpy
+
+Preparation:
+First, I aligned the separate fastq files, added read groups and removed duplicates as recommended by the manial. The discordant and split-read alignments were extracted. Then this was all sorted and indexed.
+
+`for ((i=0;i<=${#pair1[@]};i++))
+do
+  Name=$(basename ${pair1[i]})
+  Name=${Name%_trimmed_pair1.fq}
+  echo $Name
+  bwa mem -t 48 -R "@RG\tID:$sample_id\tSM:$sample_id\tLB:lib1" -o ${Name}.sam $refgenome "${pair1[i]}" "${pair2[i]}"
+  samblaster --excludeDups --addMateTags --maxSplitCount 2 --minNonOverlap 20 -i ${Name}.sam | samtools view -S -b - > $Name.RG.NoDup.bam
+  bam=$Name.RG.NoDup.bam
+  # Extract the discordant paired-end alignments.
+  #samtools view -b -F 1294 $bam > ${bam%.bam}.discordants.unsorted.bam
+  # Extract the split-read alignments
+  samtools view -h $bam \
+	| /home/fs71400/grootcrego/software/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin \
+    | samtools view -Sb - \
+    > ${bam%.bam}.splitters.unsorted.bam
+  # Sort both alignments
+  samtools sort -o ${bam%.bam}.discordants.sorted.bam ${bam%.bam}.discordants.unsorted.bam
+  samtools sort -o ${bam%.bam}.splitters.sorted.bam ${bam%.bam}.splitters.unsorted.bam
+done`
+
+I ran lumpy-express, which is a fast wrapper of lumpy:
+`~/software/lumpy-sv/bin/lumpyexpress -B $bam -S $splitters -D $discordants -o $output`
+
+# Calling SV with Manta
+
+First step is configuration and setup:
+`cd $wd
+for bam in $input ; do
+	echo $bam
+	cov=``echo $bam | cut -d'.' -f 2`
+	`$manta --bam $bam --referenceFasta $ref --runDir /gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/calling_SV/manta/manta_$cov
+	cd $wd
+done`
