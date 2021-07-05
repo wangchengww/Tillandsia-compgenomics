@@ -110,4 +110,13 @@ I obtained a merged VCF file reporting overlap between callers using [SURVIVOR](
 	    $survivor merge $file 100 1 0 0 0 50 $file.merged.100bpDist50bpLength.OneCaller.vcf
     done
 
+Merging was done both for filtered and unfiltered VCF files.
+
 # Inferring overlap between SV calls and gene models
+
+Overlap with our gene models (GFF file) was obtained by running bedtools intersect, allowing a minimum 80 % overlap of the gene. Since structural variants are often much larger than a gene, reciprocal overlap tended to work very conservatively.
+
+    for i in $vcf; do
+	    echo $i
+	    bedtools intersect -wo -f 0.8 -a $gff -b $i > $i.genes.overlap.txt
+    done
