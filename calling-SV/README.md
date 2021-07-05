@@ -111,6 +111,15 @@ I obtained a merged VCF file reporting overlap between callers using [SURVIVOR](
     done
 
 Merging was done both for filtered and unfiltered VCF files.
+The merged VCF was then summarized with the python script `script_make_summary_merging.py` in which for each variant, the overlap and variant type of each caller is reported like so:
+
+    chr	start	end	length	SV_type	sharing	type_svim	type_sniffles	type_delly	type_lumpy	type_manta
+    Tlei_chr1	19575	195750	0	TRA	00001	NaN	NaN	NaN	NaN	TRA
+    Tlei_chr1	20945	209450	0	TRA	00001	NaN	NaN	NaN	NaN	TRA
+    Tlei_chr1	21510	21510-51	-51	DEL	11000	DEL	DEL	NaN	NaN	NaN
+    Tlei_chr1	22231	22231-55	-55	DEL	10000	DEL	NaN	NaN	NaN	NaN
+    Tlei_chr1	31293	31293-182	-182	DEL	11000	DEL	DEL	NaN	NaN	NaN
+
 
 # Inferring overlap between SV calls and gene models
 
