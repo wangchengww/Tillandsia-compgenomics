@@ -80,10 +80,10 @@ I ran lumpy-express, which is a fast wrapper of lumpy:
 
 First step is configuration and setup:
 
-`cd $wd
-for bam in $input ; do
-	echo $bam
-	cov=``echo $bam | cut -d'.' -f 2`
-	`$manta --bam $bam --referenceFasta $ref --runDir /gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/calling_SV/manta/manta_$cov
-	cd $wd
-done`
+    cd $wd
+    for bam in $input ; do
+	    echo $bam
+	    cov=`echo $bam | cut -d'.' -f 2`
+        $manta --bam $bam --referenceFasta $ref --runDir /gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/calling_SV/manta/manta_$cov
+        cd $wd
+    done
