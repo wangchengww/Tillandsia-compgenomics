@@ -36,5 +36,5 @@ Per-base coverage in genic regions of T. fasciculata was calculated using samtoo
     # Limit curated gff file only to mRNA entries (no exon, UTR, or CDS...)
 	awk '$3 == "mRNA" {print $0}' Tillandsia_fasciculata_v1.2.curated_orthologues_only.gff > Tillandsia_fasciculata_v1.2.curated_orthologues_only.mRNA.gff
 
-This curated GFF file was then converted to a BED format using gff2bed from bedops v. 2.4.37:
+This curated GFF file was then converted to a BED format using gff2bed from bedops v. 2.4.37:  
     gff2bed < Tillandsia_fasciculata_v1.2.curated_orthologues_only.mRNA.gff > Tfas_ortholog_regions.gff.bed
