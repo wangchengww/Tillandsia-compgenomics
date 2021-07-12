@@ -27,7 +27,7 @@ When navigating this table, it becomes clear that the 705 overlapping gene pairs
 	echo "$j gene pairs are from different orthogroups" )
 
 This revealed that only 4 gene pairs were from the same OG, all remaining 701 are from different OGs. Additionally I checked how many gene pairs had a gene fully overlapping with the other gene with the following one liner:
-    awk 'BEGIN { FS="\t" } $6 < $20 || $15 < $20 {print $0}' Tfas_overlapping_genemodels_opposite_strands.table.txt | wc -l
+    `awk 'BEGIN { FS="\t" } $6 < $20 || $15 < $20 {print $0}' Tfas_overlapping_genemodels_opposite_strands.table.txt | wc -l`
 
 This resulted in 245 fully overlapping genes (35 %).
 Overall, it makes it difficult to curate this group of genes, since there is no clear signal that any of these genes should be removed. Overlaps are often only a few hundred basepairs, so it could also be an imprecise gene boundary by MAKER. For fully overlapping genes, the AED score is still relatively high. So we either have to fully remove these genes or keep them.
