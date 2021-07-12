@@ -35,6 +35,11 @@ Per-base coverage in genic regions of T. fasciculata was calculated using samtoo
 	grep -f curated_Tfas_orthologues.IDonly.txt /proj/grootcrego/Genome_assemblies/fasciculata/4_final_assembly/Tillandsia_fasciculata_v1.2.edited_allfeatures.gff > Tillandsia_fasciculata_v1.2.curated_orthologues_only.gff
     # Limit curated gff file only to mRNA entries (no exon, UTR, or CDS...)
 	awk '$3 == "mRNA" {print $0}' Tillandsia_fasciculata_v1.2.curated_orthologues_only.gff > Tillandsia_fasciculata_v1.2.curated_orthologues_only.mRNA.gff
-
-This curated GFF file was then converted to a BED format using gff2bed from bedops v. 2.4.37:  
+    # This curated GFF file was then converted to a BED format using gff2bed from bedops v. 2.4.37:  
     gff2bed < Tillandsia_fasciculata_v1.2.curated_orthologues_only.mRNA.gff > Tfas_ortholog_regions.gff.bed
+
+Using this bedfile, I then calculated per-base coverage with samtools. Coverage of all bases included in the bedfile was reported, including areas of zero coverage (-a):
+
+    samtools depth -a -b $bedfile $bamfile -o $output
+
+I then appended the name of the gene at each position in the samtools depth output file using the python script `script_add_gene_names_to_cov_file.py`.
