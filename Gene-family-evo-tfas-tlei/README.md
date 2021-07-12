@@ -43,3 +43,12 @@ Using this bedfile, I then calculated per-base coverage with samtools. Coverage 
     samtools depth -a -b $bedfile $bamfile -o $output
 
 I then appended the name of the gene at each position in the samtools depth output file using the python script `script_add_gene_names_to_cov_file.py`.
+
+We lose 3 genes here out of 26,325 because they somehow have overlapping regions with other genes. The missed genes were: Tfasc_v1.24295-RA, Tfasc_v1.02150-RA and Tfasc_v1.03676-RA.
+I realized the genes overlap with other genes on opposite strands, and by doing some research saw this is relatively common in maker annotations when different predictors are implemented. Therefore, I decided to check how many genes on the plus and minus strand overlap with each other:
+
+    awk '$7 == "+" {print $0}' Tillandsia_fasciculata_v1.2.curated_orthologues_only.mRNA.gff > Tfas_curated_orthologs_mRNA_PLUS.gff
+	awk '$7 == "-" {print $0}' Tillandsia_fasciculata_v1.2.curated_orthologues_only.mRNA.gff > Tfas_curated_orthologs_mRNA_MINUS.gff
+	bedtools intersect -a Tfas_curated_orthologs_mRNA_PLUS.gff -b Tfas_curated_orthologs_mRNA_MINUS.gff -wo
+
+This revealed 705 overlapping genes. I have to look into these genes and decide what to do with them in the future.
