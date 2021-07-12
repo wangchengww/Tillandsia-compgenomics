@@ -17,7 +17,7 @@ for line1 in orthogroups.readlines():
 	OG1 = splitted_line1[6]
 	gene_dict[gene_ID0] = OG1
 
-first_line="gene_ID1\tOG_id1\tchr\tstart\tend\tlength\tstr\tdescription1\teAED1\tQI1\tgene_ID2\tOG_id2\tstart\tend\tstr\tdescription2\teAED2\tQI2\toverlap\n"
+first_line="gene_ID1\tOG_id1\tchr\tstart\tend\tlength\tstr\tdescription1\teAED1\tQI1\tgene_ID2\tOG_id2\tstart\tend\tlength\tstr\tdescription2\teAED2\tQI2\toverlap\n"
 output.write(first_line)
 
 for line1 in overlap.readlines():
@@ -41,5 +41,5 @@ for line1 in overlap.readlines():
 	length2 = int(splitted_line1[13]) - int(splitted_line1[12])
 	overlap = splitted_line1[-1]
 
-	line_to_print = gene_ID1+'\t'+gene_dict[gene_ID1]+'\t'+splitted_line1[0]+'\t'+splitted_line1[3]+'\t'+splitted_line1[4]+'\t'+str(length1)+'\t'+splitted_line1[6]+'\t'+description1+'\t'+des1_spl[6].split('=')[1]+'\t'+des1_spl[5].split('=')[1]+'\t'+gene_ID2+'\t'+gene_dict[gene_ID2]+'\t'+splitted_line1[12]+'\t'+splitted_line1[13]+'\t'+str(length2)+'\t'+splitted_line1[15]+'\t'+description2+'\t'+des2_spl[6].split('=')[1]+'\t'+des2_spl[5].split('=')[1]+overlap+"\n"
+	line_to_print = gene_ID1+'\t'+gene_dict[gene_ID1]+'\t'+splitted_line1[0]+'\t'+splitted_line1[3]+'\t'+splitted_line1[4]+'\t'+str(length1)+'\t'+splitted_line1[6]+'\t'+description1+'\t'+des1_spl[6].split('=')[1]+'\t'+des1_spl[5].split('=')[1]+'\t'+gene_ID2+'\t'+gene_dict[gene_ID2]+'\t'+splitted_line1[12]+'\t'+splitted_line1[13]+'\t'+str(length2)+'\t'+splitted_line1[15]+'\t'+description2+'\t'+des2_spl[6].split('=')[1]+'\t'+des2_spl[5].split('=')[1]+'\t'+overlap+"\n"
 	output.write(line_to_print)
