@@ -1,3 +1,5 @@
+#
+
 import sys
 
 regions = open(sys.argv[1]) # bedfile
@@ -12,9 +14,14 @@ for line1 in regions.readlines():
     start = int(splitted_line1[1])
     end = int(splitted_line1[2])
     for i in range(start, end):
-        gene_dict[(chrom, i)] = [chrom,gene_id]
+        key = (chrom, i)
+        if key in gene_dict:
+            gene_dict[key].append(gene_id)
+        else:
+            gene_dict[key] = [chrom,gene_id]
 
 coverage = open(sys.argv[2]) # coverage file
+
 outputfilename=sys.argv[2].replace(".txt",".edited.txt")
 output=open(outputfilename,'w')
 
@@ -25,6 +32,7 @@ for line2 in coverage.readlines():
     chrom1 = splitted_line2[0]
     pos = int(splitted_line2[1])
     if (chrom1, pos) in gene_dict:
-        gene_id = gene_dict[(chrom1,pos)][1]
-        line_to_print = line2+"\t"+gene_id+"\n"
+        gene_id = gene_dict[(chrom1,pos)][1:]
+        gene_id_str=','.join(gene_id)
+        line_to_print = line2+"\t"+gene_id_str+"\n"
         output.write(line_to_print)
