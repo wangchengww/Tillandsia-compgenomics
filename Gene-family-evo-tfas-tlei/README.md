@@ -44,4 +44,6 @@ Using this bedfile, I then calculated per-base coverage with samtools. Coverage 
 
 I then appended the name of the gene at each position in the samtools depth output file using the python script `script_add_gene_names_to_cov_file.py`.
 
-We lose 3 genes here out of 26,325 because they somehow have overlapping regions with other genes. The missed genes were: Tfasc_v1.24295-RA, Tfasc_v1.02150-RA and Tfasc_v1.03676-RA.
+Note: This script was updated later on to include overlapping genes. See [here](https://github.com/cgrootcrego/Tillandsia-compgenomics/tree/main/Annotation/Gene_curation/overlapping_genes) for more info on these overlapping genes.
+
+Mean and median coverage were then computed per gene and compiled into a table containing also orthology information with the script `script_calculate_mediancov_add_ortho-info.py`
