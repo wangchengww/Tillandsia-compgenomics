@@ -12,7 +12,8 @@ for line1 in regions.readlines():
     gene_id = splitted_line1[3]
     chrom = splitted_line1[0]
     start = int(splitted_line1[1])
-    end = int(splitted_line1[2])
+	# Since it's a bed file the feature actually only spans until end - 1
+    end = int(splitted_line1[2])-1
     for i in range(start, end):
         key = (chrom, i)
         if key in gene_dict:
@@ -25,7 +26,7 @@ coverage = open(sys.argv[2]) # coverage file
 outputfilename=sys.argv[2].replace(".txt",".edited.txt")
 output=open(outputfilename,'w')
 
-# Calculate median average
+# Add features to coverage file
 for line2 in coverage.readlines():
     line2 = line2.replace('\n','') # rm the return carriage
     splitted_line2 = line2.split('\t') # split the line only at first occurring tab
