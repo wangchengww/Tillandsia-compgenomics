@@ -5,6 +5,8 @@ coverage = open(sys.argv[1]) # coverage file
 outputfilename="Tfas_pergene_mediancov_and_orthoinfo.txt"
 output=open(outputfilename,'w')
 
+coverage = open("test_cov.txt")
+
 # Calculate median coverage over each feature, and store in dictionary
 median_dict = {}
 prev_gene_id = ""
@@ -41,7 +43,6 @@ for line1 in coverage.readlines():
                 overlap_covlist = []
             covlist.append(cov)
             prev_gene_id = gene_id
-
     elif len(gene_id_spl) > 1:
         gene_id = gene_id_spl[0]
         other_gene = gene_id_spl[1]
@@ -68,7 +69,6 @@ for line1 in coverage.readlines():
             else:
                 overlap_covlist.append(cov)
                 prev_other_gene = other_gene
-
         if prev_gene_id == "":
             prev_gene_id = gene_id
             covlist.append(cov)
