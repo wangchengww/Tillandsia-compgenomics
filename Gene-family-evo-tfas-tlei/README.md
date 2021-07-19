@@ -53,3 +53,19 @@ Mean and median coverage were then computed per gene and compiled into a table c
 The file `computed_lengths_cov.txt` records the length of the vector of coverage entries for each gene. This was a way for me to make sure the script was recording the full length of overlapping genes.
 
 I then made density plots of the average coverage per gene for different categories of genes using the Rscript `Assessing_multicopy_genemodels_cov.R`. These density plots showed that multi-copy gene models in *T.fasciculata* have a bimodal distribution of median coverage - meaning that about half of the multicopy genes have a median coverage around the genome-wide average, while the other half has a much lower median coverage. I then determined a coverage threshold using a finite mixture model (FMM) with the package [cutoff].(http://marcchoisy.free.fr/fmm/index.html). This cutoff represents an estimated "split" of the two peaks in the bimodal distribution, in other words, the point at which, if we would split the bimodal distribution into two unimodal ones, a datapoint is unlikely to belong to both distributions. So, I used this threshold to separate "true" gene models from "faulty" ones. The threshold was determined at a median coverage of 35. I then isolated all multicopy genes with a median coverage under the threshold.
+
+Note: the average full genome coverage was calculated by running samtools depth without specifying regions and running the awk one-liner `awk '{ total += $3; count++ } END { print total/count }`. To obtain the median coverage over the full genome, I ran `sort -n CovDepth_perbase_fullgenome.txt | awk -f median.awk`. Median.awk was the following short script:
+
+    #/usr/bin/env awk
+    {
+    count[NR] = $1;
+    }
+    END {
+    if (NR % 2) {
+	    print count[(NR + 1) / 2];
+    } else {
+	    print (count[(NR / 2)] + count[(NR / 2) + 1]) / 2.0;
+    }
+    }
+
+I then decided to rescale gene familz sizes for the orthogroups which contained faulty multi-copy genes. There were 6927 such orthogroups. I corrected gene family sizes by obtaining the total median coverage in the orthogroup (sum of median coverage of all Tfas genes in the OG) and dividing this by the "expected median coverage" (full genome median coverage x number of Tfas genes in the group). 
