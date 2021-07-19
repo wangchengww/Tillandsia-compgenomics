@@ -127,13 +127,13 @@ for (i in unique(orthogroups_w_faulty_genes$og_id)){
     new_size = 1
   }
   corr_family_size <- cbind(i, as.numeric(correction_factor), as.integer(new_size),
-                            as.integer(nr_genes), as.numeric(total_mean_cov))
+                            as.integer(nr_genes), as.numeric(total_mean_cov), expected_mean_cov)
   corr_Tfas <- rbind(corr_Tfas, corr_family_size)
 }
 rownames(corr_Tfas) <- c(1:1981)
-colnames(corr_Tfas) <- c("og_id", "correction_factor", "corr_Tfas_count","old_Tfas_count", "total_mean_cov")
+colnames(corr_Tfas) <- c("og_id", "correction_factor", "corr_Tfas_count","old_Tfas_count", "total_mean_cov", "expected_mean_cov")
 
-
+write.table(corr_Tfas, file = "corrected_family_sizes_Tfas.txt")
 ###########################################################################################
 ### Same for Tleiboldiana
 
