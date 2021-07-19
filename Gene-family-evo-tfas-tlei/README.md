@@ -48,6 +48,8 @@ Note: This script was updated later on to include overlapping genes. See [here](
 
 Mean and median coverage were then computed per gene and compiled into a table containing also orthology information with the script `script_calculate_mediancov_add_info.py`:
 
-   python script_calculate_mediancov_add_ortho-info.py Tfas_genemodel_assessment/CovDepth_Tfas_ortholog_regions.fromgff.edited.txt Tfas_genemodel_assessment/curated_Tfas_orthologues.txt > computed_lengths_cov.txt
+    python script_calculate_mediancov_add_ortho-info.py Tfas_genemodel_assessment/CovDepth_Tfas_ortholog_regions.fromgff.edited.txt Tfas_genemodel_assessment/curated_Tfas_orthologues.txt > computed_lengths_cov.txt
 
 The file `computed_lengths_cov.txt` records the length of the vector of coverage entries for each gene. This was a way for me to make sure the script was recording the full length of overlapping genes.
+
+I then made density plots of the average coverage per gene for different categories of genes using the Rscript `Assessing_multicopy_genemodels_cov.R`
