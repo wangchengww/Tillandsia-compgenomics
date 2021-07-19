@@ -111,6 +111,28 @@ write.table(high_cov_genes, file = "100x_genes_Tfas.txt")
 # Recording all genes with a median coverage < 35 to correct gene family sizes
 write.table(faulty_genes, file = "faulty_gene_families_35x.txt")
 
+# Correcting the gene family sizes based on coverage differences
+corr_Tfas <- data.frame()
+for (i in unique(orthogroups_w_faulty_genes$og_id)){
+  orthogroup <- orthogroups_w_faulty_genes[orthogroups_w_faulty_genes$og_id == i,]
+  nr_genes <- as.integer(orthogroup[1,6])
+  total_mean_cov <- sum(orthogroup$mean_cov)
+  expected_mean_cov <- nr_genes * 46.1712
+  correction_factor <- total_mean_cov/expected_mean_cov
+  new_size = round((nr_genes * correction_factor), digits = 0)
+  if (correction_factor > 1){
+    new_size = nr_genes
+  }
+  if (total_mean_cov < 46.1712){
+    new_size = 1
+  }
+  corr_family_size <- cbind(i, as.numeric(correction_factor), as.integer(new_size),
+                            as.integer(nr_genes), as.numeric(total_mean_cov))
+  corr_Tfas <- rbind(corr_Tfas, corr_family_size)
+}
+rownames(corr_Tfas) <- c(1:1981)
+colnames(corr_Tfas) <- c("og_id", "correction_factor", "corr_Tfas_count","old_Tfas_count", "total_mean_cov")
+
 
 ###########################################################################################
 ### Same for Tleiboldiana
