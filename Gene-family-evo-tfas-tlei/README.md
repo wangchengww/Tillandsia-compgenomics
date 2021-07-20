@@ -52,6 +52,8 @@ Mean and median coverage were then computed per gene and compiled into a table c
 
 The file `computed_lengths_cov.txt` records the length of the vector of coverage entries for each gene. This was a way for me to make sure the script was recording the full length of overlapping genes.
 
+# Correcting gene family sizes based on average coverage
+
 I then made density plots of the average coverage per gene for different categories of genes using the Rscript `Assessing_multicopy_genemodels_cov.R`. These density plots showed that multi-copy gene models in *T.fasciculata* have a bimodal distribution of mean coverage - meaning that about half of the multicopy genes have a mean coverage around the genome-wide average, while the other half has a much lower mean coverage. I then determined a coverage threshold using a finite mixture model (FMM) with the package [cutoff].(http://marcchoisy.free.fr/fmm/index.html). This cutoff represents an estimated "split" of the two peaks in the bimodal distribution, in other words, the point at which, if we would split the bimodal distribution into two unimodal ones, a datapoint is unlikely to belong to both distributions. So, I used this threshold to separate "true" gene models from "faulty" ones. The threshold was determined at a median and mean coverage of 35. I then isolated all multicopy genes with a mean coverage under the threshold.
 
 Note: the average full genome coverage was calculated by running samtools depth without specifying regions and running the awk one-liner `awk '{ total += $3; count++ } END { print total/count }`. To obtain the median coverage over the full genome, I ran `cut -f 3 CovDepth_perbase_fullgenome.txt | sort -n | awk -f median.awk`. Median.awk was the following short script:
@@ -75,3 +77,17 @@ For 63 orthogroups, the correction factor was > 1, meaning that the total averag
 for 803 orthogroups, the total mean coverage of the orthogroup didn't even reach 46 (what we would expect for 1 gene). In this case, the correction usually brought the gene family size down to 1, but sometimes also to 0. In those cases, since the gene has been properly annotated and has an orthologous sequence in at least *T. leiboldiana* or *A.comosus*, I assumed the gene must exist and therefore corrected the size back up to 1.
 
 Next, I integrated the new family sizes into my general per-gene orthology table, which we will feed back into gene family evolution analysis, with the python script `script_insert_corrected_sizes.py`.
+
+# Studying gene family size differences in Tfas and Tlei
+
+I then obtained a table of per-orhogroup gene counts by selecting the orthogroup and count fields of the orthology table.
+The relationship of gene family size between species was explored in `Gene_family_evolution_new.R`
+
+A first look at the most extreme families (high copy number in either species) showed that it may be interesting to exclude orthogroups containing chloroplastic / mitochondrial / ribosomal genes. To do that, I took the following steps:
+
+    # Search for the words "chroloplast", "ribosomal" or "mitochondrial" and isolate orthogroups that carry such annotations
+    grep -f filter_plastid_ribosomal_OGs.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.txt | cut -f 7 | sort -u > mito_plastid_ribo_OGs.txt
+    # Select all genes that don't belong to these orthogroups
+    grep -v -f mito_plastid_ribo_OGs.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.txt > orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.txt
+
+Additionally, it also showed that in the case of leiboldiana, some corrections also have to be made. For example, OG15 counts 100 copies in Tlei, and seems a strong outlier. By checking his coverage, I came to the conclusion these copy numbers are probably also false.
