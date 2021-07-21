@@ -23,6 +23,9 @@ ggplot(counts_Tfas_Tlei_npl, aes(x=Tfas, y=Tlei)) + geom_point(size = .5) +
   ylab(label = "T. leiboldiana") +
   xlab(label = "T. fasciculata") +
   theme_bw()
-  
+
+counts_Tfas_Tlei_npl_multi <- counts_Tfas_Tlei_npl[!(counts_Tfas_Tlei_npl$Tfas == 1 & counts_Tfas_Tlei_npl$Tlei == 1),]
+write.table(counts_Tfas_Tlei_npl_multi, file = "orthogroup_selection_for_GO_term_all.txt", sep = "\t")
+
 chisq.test(counts_Tfas_Tlei_npl$Tfas, counts_Tfas_Tlei_npl$Tlei, correct=FALSE)
   
