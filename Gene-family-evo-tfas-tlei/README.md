@@ -70,11 +70,13 @@ Note: the average full genome coverage was calculated by running samtools depth 
     }
     }
 
-I then decided to rescale gene family sizes for the orthogroups which contained faulty multi-copy genes. There were 1981 such orthogroups, out of 17,641 (11 %), containing 6861 genes (26 %) I corrected gene family sizes by obtaining the total mean coverage in the orthogroup (sum of mean coverage of all Tfas genes in the OG) and dividing this by the "expected mean coverage" (full genome mean coverage x number of Tfas genes in the group). I called this ratio the correction factor, which I multiplied by the original number of Tfas genes in the orthogroup to obtain a corrected family size.
+I then decided to rescale gene family sizes for the orthogroups which contained faulty multi-copy genes. There were 1981 such orthogroups, out of 17,641 (11 %), containing 6861 genes (26 %) I corrected gene family sizes by obtaining the total mean coverage in the orthogroup (sum of mean coverage of all Tfas genes in the OG) and dividing this by the "expected mean coverage" (full genome mean coverage x number of Tfas genes in the group). I called this ratio the correction factor, which I multiplied by the original number of   Tfas genes in the orthogroup to obtain a corrected family size.
 
 For 63 orthogroups, the correction factor was > 1, meaning that the total average coverage of the orthogroup was larger than expected. In these cases, coverage is non-informative regarding the validity of genome sizes, so I decided not to correct for these families.
 
 for 803 orthogroups, the total mean coverage of the orthogroup didn't even reach 46 (what we would expect for 1 gene). In this case, the correction usually brought the gene family size down to 1, but sometimes also to 0. In those cases, since the gene has been properly annotated and has an orthologous sequence in at least *T. leiboldiana* or *A.comosus*, I assumed the gene must exist and therefore corrected the size back up to 1.
+
+I ran the same corrections for T. leiboldiana, although I couldn't separate faulty genes due to the fact the distribution was unimodal with just a small shoulder. However, while in the case of T.fas 1719 orthogroups were corrected, only 424 orthogroups were size corrected in T. leiboldiana.
 
 Next, I integrated the new family sizes into my general per-gene orthology table, which we will feed back into gene family evolution analysis, with the python script `script_insert_corrected_sizes.py`.
 
