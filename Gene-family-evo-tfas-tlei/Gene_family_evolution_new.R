@@ -11,7 +11,7 @@ counts_Tfas_Tlei <- counts[counts$Tfas != 0 & counts$Tlei != 0,]
 ggplot(counts_Tfas_Tlei, aes(x=Tfas, y=Tlei)) + geom_point(size = .5)
 
 # Same without plastid annotations
-counts_noplastid <- read.table("orthogroups_Tfas_Tlei_Acom.counts.no_TEs.size_corrections.no_plastid-mito-ribo.txt",
+counts_noplastid <- read.table("orthogroups_Tfas_Tlei_Acom.counts.no_TEs.size_corrections-bothspecies.no_plastid-mito-ribo.txt",
                                sep = "\t")
 colnames(counts_noplastid) <- c("og_id", "Acom", "Tfas", "Tlei")
 counts_Tfas_Tlei_npl <- counts_noplastid[counts_noplastid$Tfas != 0 & counts_noplastid$Tlei != 0,]
