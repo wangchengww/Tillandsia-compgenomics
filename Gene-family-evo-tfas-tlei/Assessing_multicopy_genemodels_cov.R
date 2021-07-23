@@ -101,21 +101,21 @@ lines(tfas_multicopy_FMM,lwd=1.5,col="red")
 cut_off <- cutoff(tfas_multicopy_FMM)
 cut_off # Genes with mean cov < 35 belong to "faulty" category
 
-faulty_genes <- tfas_multicopy_median_cov_df[tfas_multicopy_median_cov_df$mean_cov < 35,] # 4881 genes
+faulty_genes <- tfas_multicopy_median_cov_df[tfas_multicopy_median_cov_df$mean_cov < 34.5,] # 4753 genes
 table(faulty_genes$Tfas_count)
 
 # Recording all genes with high coverage to explore further (mostly mitochondrial and plastid)
 high_cov_genes <- tfas_genes[tfas_genes$median_cov > 100,]
 write.table(high_cov_genes, file = "100x_genes_Tfas.txt")
 
-# Recording all genes with a median coverage < 35 to correct gene family sizes
+# Recording all genes with a mean coverage < 34.5 to correct gene family sizes
 write.table(faulty_genes, file = "faulty_gene_families_35x.txt")
 
 # Correcting the gene family sizes based on coverage differences
 # Select all orthogroups containing faulty genes
 library(dplyr)
-tfas_genes %>%
-  filter(og_id %in% faulty_genes$og_id) -> orthogroups_w_faulty_genes
+orthogroups_w_faulty_genes <- tfas_genes %>%
+  filter(og_id %in% faulty_genes$og_id)
 
 corr_Tfas <- data.frame()
 for (i in unique(orthogroups_w_faulty_genes$og_id)){
@@ -151,18 +151,18 @@ dup <- c()
 for (i in 1:nrow(tlei_genes)){
   if (tlei_genes[i,7] == 1){
     dup <- c(dup, "single-copy")
-    } else if (tlei_genes[i,7] > 1 && tlei_genes[i,5] == 0 && tlei_genes[i,6] == 0){
+  } else if (tlei_genes[i,7] > 1 && tlei_genes[i,5] == 0 && tlei_genes[i,6] == 0){
     dup <- c(dup, "unique-multi-copy")
-    } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] > tlei_genes[i,5] && tlei_genes[i,7] > tlei_genes[i,6]){
+  } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] > tlei_genes[i,5] && tlei_genes[i,7] > tlei_genes[i,6]){
     dup <- c(dup, "largest-multi-copy")
-    } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] < tlei_genes[i,5] && tlei_genes[i,7] < tlei_genes[i,6]){
+  } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] < tlei_genes[i,5] && tlei_genes[i,7] < tlei_genes[i,6]){
     dup <- c(dup, "smallest-multi-copy")
-    } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] == tlei_genes[i,5] && tlei_genes[i,7] == tlei_genes[i,6]){
+  } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] == tlei_genes[i,5] && tlei_genes[i,7] == tlei_genes[i,6]){
     dup <- c(dup, "ancestral-multi-copy")
-    } else {
+  } else {
     dup <- c(dup, "middle-multi-copy")
-    }
   }
+}
 tlei_genes$duplicated <- dup
 
 # simplified
@@ -200,7 +200,7 @@ ggplot(tlei_genes, aes(x=median_cov, color=dup)) +
   scale_fill_manual(values = mycolors)
 
 # Because the distribution here is unimodal, with just a small shoulder of faulty genes at low coverage,
-# we can't separate the shoulder in the same way as we did for Tfas. So, I decided to run corrections 
+# we can't separate the shoulder in the same way as we did for Tfas. So, I decided to run corrections
 # on all multicopy genes.
 # Correcting the gene family sizes based on coverage differences for all multicopy genes
 Tlei_multicopy <- tlei_genes[tlei_genes$duplicated == "multi-copy",]
