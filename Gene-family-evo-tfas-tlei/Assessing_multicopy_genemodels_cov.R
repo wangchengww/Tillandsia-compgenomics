@@ -99,9 +99,9 @@ hist(tfas_multicopy_median_cov_subset,10000,F,xlim=c(0,100),xlab="median coverag
 lines(tfas_multicopy_FMM,lwd=1.5,col="red")
 
 cut_off <- cutoff(tfas_multicopy_FMM)
-cut_off # Genes with median cov < 35 belong to "faulty" category
+cut_off # Genes with mean cov < 35 belong to "faulty" category
 
-faulty_genes <- tfas_multicopy_median_cov_df[tfas_multicopy_median_cov_df$median_cov < 35,] # 4881 genes
+faulty_genes <- tfas_multicopy_median_cov_df[tfas_multicopy_median_cov_df$mean_cov < 35,] # 4881 genes
 table(faulty_genes$Tfas_count)
 
 # Recording all genes with high coverage to explore further (mostly mitochondrial and plastid)
@@ -112,6 +112,11 @@ write.table(high_cov_genes, file = "100x_genes_Tfas.txt")
 write.table(faulty_genes, file = "faulty_gene_families_35x.txt")
 
 # Correcting the gene family sizes based on coverage differences
+# Select all orthogroups containing faulty genes
+library(dplyr)
+tfas_genes %>%
+  filter(og_id %in% faulty_genes$og_id) -> orthogroups_w_faulty_genes
+
 corr_Tfas <- data.frame()
 for (i in unique(orthogroups_w_faulty_genes$og_id)){
   orthogroup <- orthogroups_w_faulty_genes[orthogroups_w_faulty_genes$og_id == i,]
@@ -134,12 +139,13 @@ rownames(corr_Tfas) <- c(1:1981)
 colnames(corr_Tfas) <- c("og_id", "correction_factor", "corr_Tfas_count","old_Tfas_count", "total_mean_cov", "expected_mean_cov")
 
 write.table(corr_Tfas, file = "corrected_family_sizes_Tfas.txt")
+
 ###########################################################################################
 ### Same for Tleiboldiana
-
+setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/Gene-family-evo-tfas-tlei/")
 tlei_genes <- read.table("Tlei_pergene_mediancov_and_orthoinfo.txt", header = T)
-mean(tlei_genes$median_cov) # 66.9
-mean(tlei_genes$mean_cov) # 66.6
+mean(tlei_genes$median_cov) # 67.04
+mean(tlei_genes$mean_cov) # 66.73
 
 dup <- c()
 for (i in 1:nrow(tlei_genes)){
@@ -189,6 +195,34 @@ ggplot(tlei_genes, aes(x=mean_cov, colour=duplicated)) +
 ggplot(tlei_genes, aes(x=median_cov, color=dup)) +
   geom_density() +
   xlim(0,150) +
-  geom_vline(xintercept = 46.1712, linetype = "longdash", colour = "gray28") +
+  geom_vline(xintercept = 53.34, linetype = "longdash", colour = "gray28") +
   scale_color_manual(values = mycolors) +
   scale_fill_manual(values = mycolors)
+
+# Because the distribution here is unimodal, with just a small shoulder of faulty genes at low coverage,
+# we can't separate the shoulder in the same way as we did for Tfas. So, I decided to run corrections 
+# on all multicopy genes.
+# Correcting the gene family sizes based on coverage differences for all multicopy genes
+Tlei_multicopy <- tlei_genes[tlei_genes$duplicated == "multi-copy",]
+corr_Tlei <- data.frame()
+for (i in unique(Tlei_multicopy$og_id)){
+  orthogroup <- Tlei_multicopy[Tlei_multicopy$og_id == i,]
+  nr_genes <- as.integer(orthogroup[1,7])
+  total_mean_cov <- sum(orthogroup$mean_cov)
+  expected_mean_cov <- nr_genes * 53.34
+  correction_factor <- total_mean_cov/expected_mean_cov
+  new_size = round((nr_genes * correction_factor), digits = 0)
+  if (correction_factor > 1){
+    new_size = nr_genes
+  }
+  if (total_mean_cov < 53.34){
+    new_size = 1
+  }
+  corr_family_size <- cbind(i, as.numeric(correction_factor), as.integer(new_size),
+                            as.integer(nr_genes), as.numeric(total_mean_cov), expected_mean_cov)
+  corr_Tlei <- rbind(corr_Tlei, corr_family_size)
+}
+rownames(corr_Tlei) <- c(1:1450)
+colnames(corr_Tlei) <- c("og_id", "correction_factor", "corr_Tlei_count","old_Tlei_count", "total_mean_cov", "expected_mean_cov")
+
+write.table(corr_Tlei, file = "corrected_family_sizes_Tlei.txt")
