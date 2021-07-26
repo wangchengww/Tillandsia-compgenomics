@@ -91,21 +91,22 @@ ggplot(tfas_genes, aes(x=median_cov, color=dup)) +
 #install.packages("bbmle")
 library(cutoff)
 
-tfas_multicopy_median_cov <- as.vector(tfas_genes[tfas_genes$duplicated == 'multi-copy', 2])
-tfas_multicopy_median_cov_df <- tfas_genes[tfas_genes$duplicated == 'multi-copy',]
-tfas_multicopy_median_cov_subset <- tfas_multicopy_median_cov[tfas_multicopy_median_cov < 100]
-tfas_multicopy_FMM <- em(tfas_multicopy_median_cov_subset, 'normal', 'normal')
-hist(tfas_multicopy_median_cov_subset,10000,F,xlim=c(0,100),xlab="median coverage",ylab="density",main=NULL,col="grey")
+tfas_multicopy_mean_cov <- as.vector(tfas_genes[tfas_genes$duplicated == 'multi-copy', 3])
+tfas_multicopy_mean_cov_df <- tfas_genes[tfas_genes$duplicated == 'multi-copy',]
+tfas_multicopy_mean_cov_subset <- tfas_multicopy_mean_cov[tfas_multicopy_mean_cov < 100]
+tfas_multicopy_FMM <- em(tfas_multicopy_mean_cov_subset, 'normal', 'normal')
+hist(tfas_multicopy_mean_cov_subset,10000,F,xlim=c(0,100),xlab="median coverage",ylab="density",main=NULL,col="grey")
 lines(tfas_multicopy_FMM,lwd=1.5,col="red")
+abline(v=34.5,lty=2,col="lightblue")
 
 cut_off <- cutoff(tfas_multicopy_FMM)
-cut_off # Genes with mean cov < 35 belong to "faulty" category
+cut_off # Genes with mean cov < 34.5 belong to "faulty" category
 
-faulty_genes <- tfas_multicopy_median_cov_df[tfas_multicopy_median_cov_df$mean_cov < 34.5,] # 4753 genes
+faulty_genes <- tfas_multicopy_mean_cov_df[tfas_multicopy_mean_cov_df$mean_cov < 34.5,] # 4753 genes
 table(faulty_genes$Tfas_count)
 
 # Recording all genes with high coverage to explore further (mostly mitochondrial and plastid)
-high_cov_genes <- tfas_genes[tfas_genes$median_cov > 100,]
+high_cov_genes <- tfas_genes[tfas_genes$mean_cov > 100,]
 write.table(high_cov_genes, file = "100x_genes_Tfas.txt")
 
 # Recording all genes with a mean coverage < 34.5 to correct gene family sizes
