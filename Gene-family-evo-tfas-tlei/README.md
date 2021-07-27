@@ -87,9 +87,16 @@ The relationship of gene family size between species was explored in `Gene_famil
 
 A first look at the most extreme families (high copy number in either species) showed that it may be interesting to exclude orthogroups containing chloroplastic / mitochondrial / ribosomal genes. To do that, I took the following steps:
 
-    # Search for the words "chroloplast", "ribosomal" or "mitochondrial" and isolate orthogroups that carry such annotations
+    # Search for the words "chloroplast", "ribosomal" or "mitochondrial" and isolate orthogroups that carry such annotations
     grep -f filter_plastid_ribosomal_OGs.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.txt | cut -f 7 | sort -u > mito_plastid_ribo_OGs.txt
     # Select all genes that don't belong to these orthogroups
     grep -v -f mito_plastid_ribo_OGs.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.txt > orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.txt
 
 Additionally, it also showed that in the case of leiboldiana, some corrections also have to be made. For example, OG15 counts 100 copies in Tlei, and seems a strong outlier. By checking his coverage, I came to the conclusion these copy numbers are probably also false.
+
+# Changes to workflow July 27th
+
+I made a few changes to the workflow above:
+ - Size corrections were made for all multi-copy orthogroups in Tfas, instead of only on the orthogroups with genes < 34.5x. This only expanded the number of orthogroups run through size corrections from 1981 to 2632 (25 % more) and from 6861 genes to 8400 genes (19 % more).
+ - Size corrections were also made for upward corrections in orthogroups that did not belong to chloroplasts.
+ - Size corrections were made not based on the full genome average but on the average coverage of ancestral single-copy genes. The idea is that this category represents better the sort of coverage expected in genic regions (full genome coverage is extremely variable). Additionally, I used the 25th and 75th percentile of ancestral single-copy genes to devise an interval within which corrections were not made to account for variability in coverage.
