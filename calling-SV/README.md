@@ -131,3 +131,14 @@ Overlap with our gene models (GFF file) was obtained by running bedtools interse
     done
 
 # Conclusion
+
+Statistics on fitlering and agreement among SV callers can be found [here](https://docs.google.com/spreadsheets/d/1xD1Se5yRZowfL44WIEQq8GDXx2CxbHqM3raeas0Rnh0/edit?pli=1#gid=616878652).
+Generally, filtering removed a large percentage of the called SV. This is especially the case for SVIM, where only 8 % of the original calls were kept after filtering. Compared to that, Sniffles seems to call far fewer low-quality SV (42 % kept). However in absolute numbers, SVIM still called more variants after filtering.
+
+For the illumina methods, filtering became stricter as coverage increased (at 50x, I require 20 SR and 20 PE, whereas at 10x I only require 4 of each). The percentage of kept variants therefore also decreased, indicating that an increase in coverage does not necessarily lead to more high-confidence SV calls. Whereas filtering in Delly and Lumpy caused a big decrease in SV calls (13 - 2 % in Delly and 19 - 5 % in Lumpy) and left us with a very small dataset (2000 - 6000 calls), Manta seems to detect more high-confidence SV (41 - 12 % kept, 7000 - 12000 calls). Still, illumina methods detect much fewer calls than PacBio methods.
+
+Regarding overlap in calls (only position-wise, SV type does not have to agree), it is clear that the majority of calls are private to one method (52 - 53 %) and this doesn't change with increased coverage. Importantly, most of the private variants belonged to SVIM. About 30 - 50 % of calls from an illumina method overlapped with both PacBio methods, and this increases with coverage. In this sense, Delly seemed to perform the best, although in absolute numbers Manta does better. Overlap seems to be generally higher with SVIM than with Sniffles. Overlap among illumina methods is higher although never reaches above 75 %.
+
+Since Manta seemed to be a more reliable method procuring a higher number of calls, and only slightly lower percentages of overlap with PacBio than delly, I decided to focus on SV type overlap between Manta and the PacBio methods. The overlap of calls of a specific type remain low for all types, with deletions and insertions having the highest overlap at around 40 %. These overlaps didn't change hugely by coverage.
+
+Overall, because the overlap in calling between PacBio and illumina technologies remain very low even after strict filtering, and the absolute numbers of calls provided by illumina methods after filtering is very low (of which probably still a high percentage is not reliable), I decided to drop this avenue and return to gene models to study copy number variation in *Tillandsia*. Especially since we have low-cov illumina data, I concluded that our SV calls would be very unreliable and we would have to filter so strictly, we would be left with too few calls to infer gene family evolution patterns the way we had planned. 
