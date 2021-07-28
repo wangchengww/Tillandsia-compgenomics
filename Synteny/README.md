@@ -84,7 +84,7 @@ Then I used Tibo's scripts to filter alignments and visualize anchoring:
     done
     bash script_generate_matrix_alignblastz_results.sh test_out Tillandsia_leiboldiana_26_scaffolds.fasta.masked
 
-The last command runs a bunch of scripts, among which a filtering step where the 95 % quantile for length and identity is determined, and anything under these thresholds is filtered out. The .filtered file was then used to visualize breakpoints using the rscript visualization_lastz_alignments.R
+The last command runs a bunch of scripts, among which a filtering step where the 95 % quantile for length and identity is determined, and anything under these thresholds is filtered out. The .filtered file was then used to visualize breakpoints using the rscript from Leroy et al. 2019.
 
 To remove noise, I wrote a python script that will eliminate all alignments which overlap with an alignment from a different chromosome above a certain threshold. This script was applied both on the length-filtered and non-filtered coord file:
     python2 script_filter_alignments_by_uniqness_threshold.py Tlei_vs_Tfas_allchrom_lastz.coord 0.9
