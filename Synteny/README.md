@@ -40,8 +40,7 @@ Here there is a clear indication that scaffold 2199 in Tfas (chr1) and scaffold 
 
 # Whole genome alignment between Tfas, Tlei and A. comosus
 
-Because this spreadsheet indicated a few potential rearrangements, I reran a whole genome alignment between Tfas and Tlei to obtain a second source of evidence:
-    nucmer -p Tfas_Tlei_alignment_25chrom /proj/grootcrego/Genome_assemblies/fasciculata/4_final_assembly/tillandsia_fasciculata_assembly.sorted.25_scaffolds.fasta /proj/grootcrego/Genome_assemblies/leiboldiana/4_annotation/Tillandsia_leiboldiana_26_scaffolds.fasta
+Because this spreadsheet indicated a few potential rearrangements, I ran a whole genome alignment between Tfas and Tlei (only main scaffolds) to obtain a second source of evidence. See `run_nucmer.sh`.
 
 Both the synteny analysis using 1-1 orthologues and the dotplot indicated 3 possible rearrangements: 2 chromosome arm swaps and one merger of 2 chromosomes in T. leiboldiana.
 
