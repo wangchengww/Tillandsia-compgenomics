@@ -4,21 +4,22 @@ Using orthologous gene pairs, whole genome alignment and local alignments, I inv
 
 # Broad look at synteny with 1-to-1 orthologous pairs
 
-To do this I obtained all one-to-one orthologs from the file Orthologues/Orthologues_T.fasciculata/T.fasciculata__v__T.leiboldiana.tsv:
+I obtained all one-to-one orthologs from the file Orthologues/Orthologues_T.fasciculata/T.fasciculata__v__T.leiboldiana.tsv:
 grep -v "," T.fasciculata__v__T.leiboldiana.tsv > one_to_one_orthologues. Using this file I can created the table for circlize as above, but with a modified script. This runs very slowly and should be optimized. Of the 14958 1-1 orthologues 75 were lost which were in orthogroups removed because they contained TEs. This resulted in the file circlize_table_one-to-one_orthology_Tfas-Tlei_25scaffolds.txt which I moved to my computer. There, I split the file into 25 scaffolds of Tfas with following bash script:
 
-i=1
-cat 25_largest_scaffolds | while read line ;do
- chrom=`echo "$line"`
- chrom_n=`echo "$line"| cut -f 2 -d'_'`
- echo $chrom
- echo $chrom_n
- echo $i
- awk -v pat="$chrom" '$2 ~ pat' circlize_table_one-to-one_orthology_Tfas-Tlei_25scaffolds.txt > chr${i}_${chrom_n}_Tfas_25chrom.txt;
- cut -f 1,2,3,4,6,7,8,9 chr${i}_${chrom_n}_Tfas_25chrom.txt > tmp
- mv tmp chr${i}_${chrom_n}_Tfas_25chrom.txt
- i=$((i+1))
- done
+    i=1
+    cat 25_largest_scaffolds | while read line ;do
+     chrom=`echo "$line"`
+     chrom_n=`echo "$line"| cut -f 2 -d'_'`
+     echo $chrom
+     echo $chrom_n
+     echo $i
+     awk -v pat="$chrom" '$2 ~ pat' circlize_table_one-to-one_orthology_Tfas-Tlei_25scaffolds.txt > chr${i}_${chrom_n}_Tfas_25chrom.txt;
+     cut -f 1,2,3,4,6,7,8,9 chr${i}_${chrom_n}_Tfas_25chrom.txt > tmp
+     mv tmp chr${i}_${chrom_n}_Tfas_25chrom.txt
+     i=$((i+1))
+    done
+
 These files were used to rerun synteny plots.
 
 I also curated the Gene Duplication results by extracting only the curated orthogroups in the Duplications.tsv files. This reduced the number of duplications significantly, especially in T. leiboldiana.
