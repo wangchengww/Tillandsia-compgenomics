@@ -50,15 +50,30 @@ To further assess this, I ran a nucmer and dotplot analysis between T.fasciculat
 
 I then performed LastZ alignments, which has a local blast strategy, to further confirm these breakpoits. For this, I reran hardmasking of both genomes with the newest version of TE annotation from EDTA. As discussed in "TE annotation", I only used the known TE families. The repeatmasker command was:
 
-    RepeatMasker -dir . -gff -pa 4 -e ncbi -nolow -lib /proj/grootcrego/Genome_assemblies/fasciculata/4_final_assembly/TE_families_FULL_EDTA_Tfas_25chrom.fa /scratch/grootcrego/LastZ/Tillandsia_fasciculata_25_scaffolds.fasta
+    RepeatMasker -dir . -gff -pa 4 -e ncbi -nolow  \
+    -lib /proj/grootcrego/Genome_assemblies/fasciculata/4_final_assembly/TE_families_FULL_EDTA_Tfas_25chrom.fa \
+    /scratch/grootcrego/LastZ/Tillandsia_fasciculata_25_scaffolds.fasta
 
 To run LastZ efficiently, I decided to always map the full T.lei genome to each T.fas chromosome and parallelize this. To create separate fasta files for each Tfas chromosome I used the following bash loop:
 
-    cat tillandsia_fasciculata_chrnames.txt | while read line ; do  Name=`echo "$line"|awk '{print $1}'`;  echo $Name;  Replace=`echo "$line"|awk '{print $2}'`;  echo $Replace;  seqkit grep -p $Name Tillandsia_fasciculata_25_scaffolds.fasta.masked > Tfas_$Replace.fasta.masked;  sed  -i "s/$Name/Tfas_$Replace/g" Tfas_$Replace.fasta.masked; done
+    cat tillandsia_fasciculata_chrnames.txt | while read line ; do  
+     Name=`echo "$line"|awk '{print $1}'`;  
+     echo $Name;  
+     Replace=`echo "$line"|awk '{print $2}'`;  
+     echo $Replace;  
+     seqkit grep -p $Name Tillandsia_fasciculata_25_scaffolds.fasta.masked > Tfas_$Replace.fasta.masked;  
+     sed  -i "s/$Name/Tfas_$Replace/g" Tfas_$Replace.fasta.masked;
+    done
 
 To replace chromosome names in the full T.lei genome, I ran:
 
-    cat Tillandsia_leiboldiana_26_scaffolds_chrnames.txt | while read line ; do  Name=`echo "$line"|awk '{print $1}'`;  echo $Name;  Replace=`echo "$line"|awk '{print $2}'`;  echo $Replace;  sed  -i "s/$Name/Tlei_$Replace/g" Tillandsia_leiboldiana_26_scaffolds.fasta.masked; done
+    cat Tillandsia_leiboldiana_26_scaffolds_chrnames.txt | while read line ; do  
+     Name=`echo "$line"|awk '{print $1}'`;  
+     echo $Name;  
+     Replace=`echo "$line"|awk '{print $2}'`;  
+     echo $Replace;  
+     sed  -i "s/$Name/Tlei_$Replace/g" Tillandsia_leiboldiana_26_scaffolds.fasta.masked;
+    done
 
 I ran LastZ alignments with a slurm array, see `run_lastz.sh`.
 
