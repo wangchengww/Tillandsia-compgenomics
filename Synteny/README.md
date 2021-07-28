@@ -61,19 +61,18 @@ To replace chromosome names in the full T.lei genome, I ran:
 
     cat Tillandsia_leiboldiana_26_scaffolds_chrnames.txt | while read line ; do  Name=`echo "$line"|awk '{print $1}'`;  echo $Name;  Replace=`echo "$line"|awk '{print $2}'`;  echo $Replace;  sed  -i "s/$Name/Tlei_$Replace/g" Tillandsia_leiboldiana_26_scaffolds.fasta.masked; done
 
-I ran LastZ alignments with a slurm array:
+I ran LastZ alignments with a slurm array, see `run_lastz.sh`.
 
-    #SBATCH -a 1-25%5
-    lastz Tfas_chr${SLURM_ARRAY_TASK_ID}.fasta.masked Tillandsia_leiboldiana_26_scaffolds.fasta.masked --notransition --step=10 --gapped --chain --gfextend --format=maf > Tlei_vs_Tfas_chr${SLURM_ARRAY_TASK_ID}_LASTZ_alignment.maf
+Then I used Tibo's scripts to filter alignments and visualize anchoring:
 
- Then I used Tibo's scripts to filter alignments and visualize anchoring:
-
-    for i in Tlei_vs_Tfas_chr*; do  echo $i;  python2 convertMaftoCoordinates.py $i > ${i%.maf}.coord; done
+    for i in Tlei_vs_Tfas_chr*; do echo $i;  
+     python2 convertMaftoCoordinates.py $i > ${i%.maf}.coord;
+    done
     bash script_generate_matrix_alignblastz_results.sh test_out Tillandsia_leiboldiana_26_scaffolds.fasta.masked
 
- The last command runs a bunch of scripts, among which a filtering step where the 95 % quantile for length and identity is determined, and anything under these thresholds is filtered out. The .filtered file was then used to visualize breakpoints using the rscript visualization_lastz_alignments.R
+The last command runs a bunch of scripts, among which a filtering step where the 95 % quantile for length and identity is determined, and anything under these thresholds is filtered out. The .filtered file was then used to visualize breakpoints using the rscript visualization_lastz_alignments.R
 
- To remove noise, I wrote a python script that will eliminate all alignments which overlap with an alignment from a different chromosome above a certain threshold. This script was applied both on the length-filtered and non-filtered coord file:
-     python2 script_filter_alignments_by_uniqness_threshold.py Tlei_vs_Tfas_allchrom_lastz.coord 0.9
+To remove noise, I wrote a python script that will eliminate all alignments which overlap with an alignment from a different chromosome above a certain threshold. This script was applied both on the length-filtered and non-filtered coord file:
+    python2 script_filter_alignments_by_uniqness_threshold.py Tlei_vs_Tfas_allchrom_lastz.coord 0.9
 
  The LastZ alignments seem to support the rearrangements observed in dotplot and orthology analyses. In some cases, the breakpoints are clear-cut, in others not so much. I decided to zoom in on the clear breakpoints to find out a range in which the breakpoint may exist, and then look at the pacbio alignments in that region.
