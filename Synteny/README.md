@@ -29,17 +29,17 @@ I also curated the Gene Duplication results by extracting only the curated ortho
 ---
 To study synteny, the above generated files of 1 to 1 orthologs per scaffolds were generated both per scaffold of Tfas and Tlei. Synteny plots were generated in both directions.
 I also looked at which scaffolds within both species had most links of 1:1 orthologs, as synteny seems to be relatively well maintained. Generally, the majority of orthologs link a pair of chromosomes between Tfas and Tlei together. These pairs I now regard as syntenic and therefore "corresponding" chromosomes with probably common ancestry. I looked up these pairs by calculating the number of links per pairs:
-cut -f 2,6 chr1_2199_Tfas_25chrom.txt | sort | uniq -c
+`cut -f 2,6 chr1_2199_Tfas_25chrom.txt | sort | uniq -c`
 
 Which gives:
-784 Scaffold_2199	Scaffold_10370
-   3 Scaffold_2199	Scaffold_10423
-   2 Scaffold_2199	Scaffold_10425
-   2 Scaffold_2199	Scaffold_10429
-   1 Scaffold_2199	Scaffold_10430
-   1 Scaffold_2199	Scaffold_247
+    784 Scaffold_2199	Scaffold_10370
+    3 Scaffold_2199	Scaffold_10423
+    2 Scaffold_2199	Scaffold_10425
+    2 Scaffold_2199	Scaffold_10429
+    1 Scaffold_2199	Scaffold_10430
+    1 Scaffold_2199	Scaffold_247
 
-Here there is a clear indication that scaffold 2199 in Tfas (chr1) and scaffold 10370 (chr2) in Tlei correspond. The pairs of corresponding chromosomes between both species can be found in the spreadsheet on google drive "syntenic pairs of chromosomes".
+Here there is a clear indication that scaffold 2199 in Tfas (chr1) and scaffold 10370 (chr2) in Tlei correspond. The pairs of corresponding chromosomes between both species can be found in [this](https://docs.google.com/spreadsheets/d/1Gfj0WRwzEupbUZKON2OnO8psCsLD4j3tC6k3-Pz8hLs/edit#gid=0) spreadsheet on google drive.
 
 Because this spreadsheet indicated a few potential rearrangements, I reran a whole genome alignment between Tfas and Tlei to obtain a second source of evidence:
     nucmer -p Tfas_Tlei_alignment_25chrom /proj/grootcrego/Genome_assemblies/fasciculata/4_final_assembly/tillandsia_fasciculata_assembly.sorted.25_scaffolds.fasta /proj/grootcrego/Genome_assemblies/leiboldiana/4_annotation/Tillandsia_leiboldiana_26_scaffolds.fasta
