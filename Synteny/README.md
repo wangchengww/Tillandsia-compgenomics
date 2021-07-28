@@ -1,3 +1,9 @@
+# Studying synteny and rearrangements between *T. fasciculata* and *T. leiboldiana*
+
+Using orthologous gene pairs, whole genome alignment and local alignments, I investigated synteny and identified rearrangements between both species and also *Ananas comosus*. This revealed a number of rearrangements and also provided insights into the genome architecture evolution in both species.
+
+# Broad look at synteny with 1-to-1 orthologous pairs
+
 To do this I obtained all one-to-one orthologs from the file Orthologues/Orthologues_T.fasciculata/T.fasciculata__v__T.leiboldiana.tsv:
 grep -v "," T.fasciculata__v__T.leiboldiana.tsv > one_to_one_orthologues. Using this file I can created the table for circlize as above, but with a modified script. This runs very slowly and should be optimized. Of the 14958 1-1 orthologues 75 were lost which were in orthogroups removed because they contained TEs. This resulted in the file circlize_table_one-to-one_orthology_Tfas-Tlei_25scaffolds.txt which I moved to my computer. There, I split the file into 25 scaffolds of Tfas with following bash script:
 
