@@ -77,7 +77,7 @@ To replace chromosome names in the full T.lei genome, I ran:
 
 I ran LastZ alignments with a slurm array, see `run_lastz.sh`.
 
-Then I used Tibo's scripts to filter alignments and visualize anchoring:
+Then I used Tibo's scripts to filter alignments:
 
     for i in Tlei_vs_Tfas_chr*; do echo $i;  
      python2 convertMaftoCoordinates.py $i > ${i%.maf}.coord;
