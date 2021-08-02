@@ -25,128 +25,23 @@ Orthofinder was run with version 2.4.1. with the following command:
 
  **3) Compiling orthology and annotation results**
 
-For the global run, I wanted to compile orthology information per gene with its location in the genome. This was done first by
-
-
- The main information I was interested in from the orthofinder run, was to which orthogroup each gene belonged, what the gene count for each species was in each orthogroup, and what the functional annotations of each orthogroup are. I compiled all this information into one per-gene table where a line represents one gene and contains its coordinates, its orthogroup, the orthogroup counts for each species, and its functional annotation. This table contains genes from all three species.
-
-I obtained this table with the python scripts
-
-
-  To investigate all of this, I decided to create a table for each species parting from orthofinder's results and the assembly's gff file. The table will contain a gene model on each line, with scaffold, start and end position, length, orthogroup and number of genes of each species in the orthogroup. This way we will be able to compare one-to-one orthologues to one-to-many orthologues parting from the same table.
-
-  First, I made a table containing orthogroup name and number of genes of each species parting from the orthogroup output file Orthogroups.GeneCount.tsv in /scratch/grootcrego/orthofinder/run_orthofinder_Tfas_Tlei_Acom/OrthoFinder/Results_Nov02/Orthogroups on the cube
-  NOTE: after the running orthofinder 2.4.0, the file used for this computation was: /scratch/grootcrego/orthofinder/run_orthofinder_Tfas_Tlei_Acom/OrthoFinder/Results_Nov18/Orthogroups/Orthogroups.GeneCount.tsv
+For the global run, I wanted to compile orthology information per gene with its location in the genome. This was done first by extracting orthogroups that were not unique to *A. comosus* from the GeneCount.tsv file:
     cut -f 1,3,4 Orthogroups.GeneCount.tsv | awk '!($2 == 0 && $3 == 0) {print $0}' > orthogroup_counts_Tfas_Tlei.txt
-  This only selects information on Tfas and Tlei and removes all orthogroups that were unique to Acom (0 genes in Tfas and Tlei). This resulted in 20,507 orthogroups with at least one gene for one of the two species per group.
-  I then extracted the names of these orthogroups, removing the first line:
+This results in 20,507 orthogroups. The IDs of these orthogroups were then extracted and used to select the corresponding orthogroups in the file Phylogenetic_Hierarchical_Orthogroups/N0.tsv:
     cut -f 1 orthogroup_counts_Tfas_Tlei.txt | tail -n+2 > tmp
-  With this list, I extracted the names of genes per relevant orthogroup from Orthogroups.txt
-  NOTE: after the running orthofinder 2.4.0, the file used for this computation was: /scratch/grootcrego/orthofinder/run_orthofinder_Tfas_Tlei_Acom/OrthoFinder/Results_Nov18/Phylogenetic_Hierarchical_Orthogroups/N0.tsv
-    grep -w -f tmp Orthogroups.txt > orthogroups_Tfas_Tlei.txt
+	grep -w -f tmp N0.tsv > orthogroups_Tfas_Tlei.txt
+The latter file was then reformatted from a per-orthogroup to a per-gene format using the script `script_make_og_per_gene.global.py`. In other words each line is a gene model and reports the orthogroup ID it belongs to.
+Then, counts were added to this table with `script_make_og_table_per_gene_with_counts.global.py`.
+Lastly, I ran the script `script_compile_gff_info_og_table.global.py` for each species separately to obtain the final per-gene table compiling location and orthology information:
+    python2 script_compile_gff_info_og_table.global.py \
+	orthogroups_Tfas_Tlei.per_gene.table.txt \
+	Tillandsia_fasciculata_v1.2.edited_allfeatures.gff \
+	Tfas_orthology_info_per_scaffold.txt
 
-  I then converted the orthogroups file into a table where each line was a gene and its corresponding orthogroup. This I did with the python script make_og_per_gene.py (edited for run2):
-    #!/usr/bin/env python
-    import sys
-    ogroups = open(sys.argv[1])
-    outputfilename=sys.argv[1].replace(".txt",".per_gene.txt")
-    output=open(outputfilename,'w')
-
-    for line in ogroups:
-       line = line.replace('\r\n','')
-       splitted_line = line.split('\t')
-       OG_ID = splitted_line[1]
-       genes_in_OG = splitted_line[4]+", "+splitted_line[5]
-       genes_in_OG2 = genes_in_OG.split(", ")
-       for gene in genes_in_OG2:
-           if gene == '':
-               continue
-           else:
-               line_to_print = gene+"\t"+OG_ID+"\n"
-               output.write(line_to_print)
-
-Then I merged this table into the counts table, to obtain one final table where each row is a gene with its corresponding orthogroup and the count of Tfas and Tlei genes in this respective orthogroup. This was done with the python script make_og_table.py:
-
-    #!/usr/bin/env python
-
-    import sys
-
-    per_gene = open(sys.argv[1])
-    counts = open(sys.argv[2])
-    outputfilename=sys.argv[1].replace(".txt",".table.txt")
-    output=open(outputfilename,'w')
-
-    og_dict = {}  # I initiate the dictionary
-    for line1 in counts.readlines()[1:]:
-	   line1 = line1.replace('\n','') # rm the return carriage
-	   splitted_line1 = line1.split('\t', 1) # split the line only at first occurring tab
-	   og = splitted_line1[0]
-	   counts_line1 = splitted_line1[1]
-     og_dict[og] = counts_line1
-
-    for line2 in per_gene.readlines():
-     line2 = line2.replace('\n','') # rm the return carriage
-     splitted_line2 = line2.split('\t')
-     og_id = splitted_line2[1]
-     if (og_dict.has_key(og_id)):
-        line_to_print = line2+"\t"+og_dict[og_id]+"\n"
-        output.write(line_to_print)
-
-The resulting table looks like this:
-  Tfasc_v1.31994-RA	OG0000000	1	2100
-  Tlei_v1.00256-RA	OG0000000	1	2100
-  Tlei_v1.00257-RA	OG0000000	1	2100
-  Tlei_v1.00262-RA	OG0000000	1	2100
-  Tlei_v1.00273-RA	OG0000000	1	2100
-  Tlei_v1.00325-RA	OG0000000	1	2100
-  Tlei_v1.00337-RA	OG0000000	1	2100
-  Tlei_v1.00349-RA	OG0000000	1	2100
-  Tlei_v1.00362-RA	OG0000000	1	2100
-  Tlei_v1.00363-RA	OG0000000	1	2100
-
-I then ran the python script make_big_og_table.py to combine information from each assembly's gff and the above table:
-
-  #!/usr/bin/env python
-
-  import sys
-
-  orthogroups = open(sys.argv[1])
-  gff = open(sys.argv[2])
-  outputfilename=sys.argv[3]
-  output=open(outputfilename,'w')
-
-  # 1st, make a dictionnary of the gff with the information we want to transfer to the final table (scaffold, end and start position)
-
-  gff_dict = {}
-  for line1 in gff.readlines():
-    line1 = line1.replace('\n','') # rm the return carriage
-    splitted_line1 = line1.split('\t') # split the line regarding the tabulations
-    if splitted_line1[2] == "mRNA":
-        pre_ID = splitted_line1[8]
-        pre_ID = pre_ID.split(";")
-        ID = pre_ID[0]
-        ID = ID.replace('ID=', '')
-        info = splitted_line1[0]+"\t"+splitted_line1[3]+"\t"+splitted_line1[4]
-        gff_dict[ID]=info
-    else:
-        continue
-
-  # 2nd, iterate over the orthogroup list and print each line together with the gff information into a new table
-
-  for line2 in orthogroups.readlines():
-    line2 = line2.replace('\n','') # rm the return carriage
-    splitted_line2 = line2.split('\t') # split the line regarding the tabulations
-    ID_OG = splitted_line2[0]
-    if gff_dict.has_key(ID_OG):
-        line_to_print = ID_OG+"\t"+gff_dict[ID_OG]+"\t"+splitted_line2[1]+"\t"+splitted_line2[2]+"\t"+splitted_line2[3]+"\n"
-        output.write(line_to_print)
-    else:
-        line_to_print = ID_OG+"\t"+"NA"+"\t"+"NA"+"\t"+"NA"+"\t"+splitted_line2[1]+"\t"+splitted_line2[2]+"\t"+splitted_line2[3]+"\n"
-        output.write(line_to_print)
-
- This was run with the following commands:
-  python2 make_big_og_table.py orthogroups_Tfas_Tlei.per_gene.table.txt /proj/grootcrego/Genome_assemblies/fasciculata/4_final_assembly/Tillandsia_fasciculata_v1.2.edited_allfeatures.gff Tfas_orthology_info_per_scaffold.txt
-  python2 make_big_og_table.py orthogroups_Tfas_Tlei.per_gene.table.txt /proj/grootcrego/Genome_assemblies/leiboldiana/4_annotation/Tillandsia_leiboldiana_v1.2.edited_allfeatures.gff Tlei_orthology_info_per_scaffold.txt
+    python2 script_compile_gff_info_og_table.global.py \
+	orthogroups_Tfas_Tlei.per_gene.table.txt \
+	Tillandsia_leiboldiana_v1.2.edited_allfeatures.gff \
+	Tlei_orthology_info_per_scaffold.txt
 
  I then removed all Tfas genes from the Tlei file and viceversa with grep:
   grep -v "Tlei" Tfas_orthology_info_per_scaffold.txt > tmp
