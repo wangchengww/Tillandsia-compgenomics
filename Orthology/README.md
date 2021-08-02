@@ -30,7 +30,7 @@ For the global run, I wanted to compile orthology information per gene with its 
 This results in 20,507 orthogroups. The IDs of these orthogroups were then extracted and used to select the corresponding orthogroups in the file Phylogenetic_Hierarchical_Orthogroups/N0.tsv:
     cut -f 1 orthogroup_counts_Tfas_Tlei.txt | tail -n+2 > tmp
 	grep -w -f tmp N0.tsv > orthogroups_Tfas_Tlei.txt
-	
+
 The latter file was then reformatted from a per-orthogroup to a per-gene format using the script `script_make_og_per_gene.global.py`. In other words each line is a gene model and reports the orthogroup ID it belongs to.
 
 Then, counts were added to this table with `script_make_og_table_per_gene_with_counts.global.py`.
@@ -48,31 +48,16 @@ Lastly, I ran the script `script_compile_gff_info_og_table.global.py` for each s
 	Tlei_orthology_info_per_scaffold.txt
 
  I then removed all Tfas genes from the Tlei file and viceversa with grep:
-  grep -v "Tlei" Tfas_orthology_info_per_scaffold.txt > tmp
-  mv tmp Tfas_orthology_info_per_scaffold.txt
+     grep -v "Tlei" Tfas_orthology_info_per_scaffold.txt > tmp
+     mv tmp Tfas_orthology_info_per_scaffold.txt
 
-The table looks like this:
-Tlei_v1.00256-RA	Scaffold_8399	3535789	3536604	OG0000000	1	2100
-Tlei_v1.00257-RA	Scaffold_8399	3544423	3545327	OG0000000	1	2100
-Tlei_v1.00262-RA	Scaffold_8399	3653612	3664165	OG0000000	1	2100
-Tlei_v1.00273-RA	Scaffold_8399	3959136	3967127	OG0000000	1	2100
-Tlei_v1.00325-RA	Scaffold_8399	5112048	5118927	OG0000000	1	2100
-Tlei_v1.00337-RA	Scaffold_8399	5899662	5939490	OG0000000	1	2100
-Tlei_v1.00349-RA	Scaffold_8399	6636290	6636577	OG0000000	1	2100
-Tlei_v1.00362-RA	Scaffold_8399	7359129	7375304	OG0000000	1	2100
-Tlei_v1.00363-RA	Scaffold_8399	7419222	7419791	OG0000000	1	2100
-Tlei_v1.00364-RA	Scaffold_8399	7476401	7477620	OG0000000	1	2100
+Scaffold lengths were added later as well.
 
-With this table, we can investigate the number of orthologous genes per scaffold and the proportion of 1:1 to 1:many to have an idea of gene distribution. I also added scaffold lengths to each row with the script add_scaffold_lengths_to_og_table.py. These tables were loaded in R for that analysis.
+**4) Analyzing the spatial and length distribution of global orthogroups**
 
-Additionally, I created a table containing the one-to-one orthologues per line along with their corresponding scaffolds and positions. This file was used to create the circular plot with circlize in R. To generate this file, I first selected just one_to_one orthologues:
-  awk '$7 == 1 && $8 == 1 {print $0}' Tfas_orthology_info_per_scaffold.run2.txt > Tfas_one-to-one_orthologues.txt
-  awk '$7 == 1 && $8 == 1 {print $0}' Tlei_orthology_info_per_scaffold.run2.txt > Tlei_one-to-one_orthologues.txt
+With this final table, I investigated where orthologous gene are mostly found in the genome and how long they are. This was done with the Rscript `Analyze_global_orthogroups.R`. The analysis showed that more than 99 % of 1-to-1 orthologs are on the main scaffolds in the case of both assemblies (> 1 Mb). This also led to the inclusion of the 26th scaffold in *T. leiboldiana*, as it contained a non-negligible amount of orthologs.
 
-Then I created the table (circlize_table_one-to-one_orthology_Tfas-Tlei.txt) with a homemade python script:
-  python2 make_orthology_table_for_circlize.py Tfas_one-to-one_orthologues.txt Tlei_one-to-one_orthologues.txt
-This table was transferred to my PC and split into each chromosome of T.fasciculata. The script for building the links in the circular plot is called circlize.R
-
+# Second run: Only gene models on main scaffolds (> 1 Mb) for T.fas and T. lei, all gene models of A.comosus
 
 2.3. Second run, genes only on main scaffolds
 ---
