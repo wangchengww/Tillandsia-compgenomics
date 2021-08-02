@@ -61,8 +61,11 @@ With this final table, I investigated where orthologous gene are mostly found in
 
 With the aim of studying synteny and gene family evolution between Tfas and Tlei, I decided to narrow down our list of genes to those which lie on the main scaffolds of the Tfas and Tlei assemblies. This way, we will avoid the presence of hidden TEs, as those are more likely to lie on rogue scaffolds.
 To select the genes on those scaffolds, I made a list with the names of the main scaffolds `25_largest_scaffolds`:
+
     awk '$3 == "mRNA" {print $0}' Tillandsia_fasciculata_v1.2.edited.gff | grep -f 25_largest_scaffolds > mRNA_entries_on_25_largest_scaffolds
+
 Then, I selected these from the maker peptide file by extracting the feature ID and selecting the fasta-sequences matching these ID's:
+
     cut -f 9 mRNA_entries_on_25_largest_scaffolds | sed 's/;/\t/g' | cut -f 1 | sed 's/ID=//g' > mRNA_entries_on_25_largest_scaffolds_IDonly
     seqkit grep -f mRNA_entries_on_25_largest_scaffolds_IDonly Tillandsia_fasciculata_v1.all.proteins.fasta > Tillandsia_fasciculata_v1.25chrom.proteins.fasta
 
