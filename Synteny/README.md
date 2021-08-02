@@ -5,7 +5,8 @@ Using orthologous gene pairs, whole genome alignment and local alignments, I inv
 # Broad look at synteny with 1-to-1 orthologous pairs
 
 I obtained all one-to-one orthologs from the file Orthologues/Orthologues_T.fasciculata/T.fasciculata__v__T.leiboldiana.tsv:
-grep -v "," T.fasciculata__v__T.leiboldiana.tsv > one_to_one_orthologues. Using this file I can created the table for circlize as above, but with a modified script. This runs very slowly and should be optimized. Of the 14958 1-1 orthologues 75 were lost which were in orthogroups removed because they contained TEs. This resulted in the file circlize_table_one-to-one_orthology_Tfas-Tlei_25scaffolds.txt which I moved to my computer. There, I split the file into 25 scaffolds of Tfas with following bash script:
+grep -v "," T.fasciculata__v__T.leiboldiana.tsv > one_to_one_orthologues.
+Importantly, this files contains  Using this file I created the table for circlize as above, but with a modified script. This runs very slowly and should be optimized. Of the 14958 1-1 orthologues 75 were lost which were in orthogroups removed because they contained TEs. This resulted in the file circlize_table_one-to-one_orthology_Tfas-Tlei_25scaffolds.txt which I moved to my computer. There, I split the file into 25 scaffolds of Tfas with following bash script:
 
     i=1
     cat 25_largest_scaffolds | while read line ;do
