@@ -30,10 +30,14 @@ For the global run, I wanted to compile orthology information per gene with its 
 This results in 20,507 orthogroups. The IDs of these orthogroups were then extracted and used to select the corresponding orthogroups in the file Phylogenetic_Hierarchical_Orthogroups/N0.tsv:
     cut -f 1 orthogroup_counts_Tfas_Tlei.txt | tail -n+2 > tmp
 	grep -w -f tmp N0.tsv > orthogroups_Tfas_Tlei.txt
+	
 The latter file was then reformatted from a per-orthogroup to a per-gene format using the script `script_make_og_per_gene.global.py`. In other words each line is a gene model and reports the orthogroup ID it belongs to.
+
 Then, counts were added to this table with `script_make_og_table_per_gene_with_counts.global.py`.
+
 Lastly, I ran the script `script_compile_gff_info_og_table.global.py` for each species separately to obtain the final per-gene table compiling location and orthology information:
-    python2 script_compile_gff_info_og_table.global.py \
+
+	python2 script_compile_gff_info_og_table.global.py \
 	orthogroups_Tfas_Tlei.per_gene.table.txt \
 	Tillandsia_fasciculata_v1.2.edited_allfeatures.gff \
 	Tfas_orthology_info_per_scaffold.txt
