@@ -60,6 +60,9 @@ With this final table, I investigated where orthologous gene are mostly found in
 # Second run: Only gene models on main scaffolds (> 1 Mb) for T.fas and T. lei, all gene models of A.comosus
 
 With the aim of studying synteny and gene family evolution between Tfas and Tlei, I decided to narrow down our list of genes to those which lie on the main scaffolds of the Tfas and Tlei assemblies. This way, we will avoid the presence of hidden TEs, as those are more likely to lie on rogue scaffolds.
+
+**1) Input sequences and a bit of filtering**
+
 To select the genes on those scaffolds, I made a list with the names of the main scaffolds `25_largest_scaffolds`:
 
     awk '$3 == "mRNA" {print $0}' Tillandsia_fasciculata_v1.2.edited.gff | grep -f 25_largest_scaffolds > \
@@ -84,6 +87,8 @@ Peptide sequences < 40 AA were filtered out with the following lines of code:
 	Tillandsia_fasciculata_v1.25chrom.longest_isoforms.min40AA.proteins.fasta
 
 I moved these sequences to the orthofinder files in scratch under the new run folder run_orthofinder_Tfas_Tlei_Acom_25_scaffolds, where I renamed all protein files to easier names (T.fasciculata.fa, T.leiboldiana.fa, A.comosus.fa). Orthofinder was run with the same command as shown above.
+
+**2) Compiling orthology with gff info and functional annotations, plus a bit more filtering**
 
 This time, I did not remove the Acomosus information from the results file, though I did eliminate all orthogroups that have no orthologues in T.lei and T.fas (specific to A.comosus):
 `awk '!($3 == 0 && $4 == 0) {print $0}' Orthogroups.GeneCount.tsv > orthogroup_counts_no_Acom_specific_og.txt`
