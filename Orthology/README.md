@@ -67,7 +67,8 @@ To select the genes on those scaffolds, I made a list with the names of the main
 Then, I selected these from the maker peptide file by extracting the feature ID and selecting the fasta-sequences matching these ID's:
 
     cut -f 9 mRNA_entries_on_25_largest_scaffolds | sed 's/;/\t/g' | cut -f 1 | sed 's/ID=//g' > mRNA_entries_on_25_largest_scaffolds_IDonly
-    seqkit grep -f mRNA_entries_on_25_largest_scaffolds_IDonly Tillandsia_fasciculata_v1.all.proteins.fasta > Tillandsia_fasciculata_v1.25chrom.proteins.fasta
+    seqkit grep -f mRNA_entries_on_25_largest_scaffolds_IDonly \
+	Tillandsia_fasciculata_v1.all.proteins.fasta > Tillandsia_fasciculata_v1.25chrom.proteins.fasta
 
 Then, I selected the longest isoform of each gene using the script select_longest_isoform.py. The resulting file was then indexed with samtools to look at sizes. I decided to remove all protein sequences with less than 40 amino acids (642):
 awk '$2 > 40 {print $0}' Tillandsia_fasciculata_v1.25chrom.longest_isoforms.proteins.fasta.fai | cut -f 1 > proteins.w.min40AA
