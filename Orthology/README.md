@@ -1,33 +1,37 @@
 
-# Calling orthogroups between T. fasciculata, T. leiboldiana and A.comosus
+# Calling orthogroups between *T. fasciculata*, *T. leiboldiana* and *A.comosus*
 
-Using orthofinder, I called orthogroups between three bromeliad gene model sets. For 
------
+Using orthofinder, I called orthogroups between three bromeliad gene model sets. The resulting orthogroups were later used to study synteny and gene family evolution.
 
------
-2. Approach
+# First run: all T. fasciulata and T. leiboldiana gene models included, regardless of location
 
-2.1 Gathering protein sequences:
-To run orthofinder, we need to provide all gene models in protein fasta sequence format. I gathered the following proteins sets:
+The first orthofinder run involved all called gene models and was run to see the distribution of genes across the assembly, making a distinctions between one-to-one orthogroups and oorthogroups with other relationships. The idea behind this was that, if most gene models, especially gene models with one-to-one relationships are on main scaffolds, it confirms that the main scaffolds represent the chromosomes and we can limit downstream analyses to these sequences. Alternatively, if many genemodels are also present on smaller scaffolds, this may indicate fragmentation in our assembly and an anchoring step may be necessary.
+
+**1) Input sequences**
+
+The following peptide sequence datasets were provided for running orthofinder:
 
   - T. fasciculata: From our final annotation run (maker, work computer, fasciculata_EDTA_R1_full_prot_full_mrna_masked2.maker.output), after renaming all gene models in the protein file (see Annotation documentation). The file contains all gene models, including those that didn't blast in functional annotation: Tillandsia_fasciculata_v1.all.proteins.fasta (34886 sequences)
   - T.leiboldiana: From our final annotation run (maker, VSC4, leiboldiana_R1_alt.maker.output), after renaming all gene models. Again, the full set was used including sequences that didn't blast (38180)
   - Ananas comosus: From Ray Ming's website I downloaded the Acomosus F153 genome, which contains peptide sequences: http://www.life.illinois.edu/ming/LabWebPage/Downloads.html. I renamed the file to Acomosus_F153.20150427.proteins.fasta (27024)
-  - Oryza sativa subsp. japonica: Proteome fastafile was obtained from Uniprot (https://www.uniprot.org/proteomes/UP000059680), which was last updated on June 29th 2020. I renamed the downloaded file to Oryza_sativa_japonica.20200629.proteins.fasta (43672 sequences). This file only contains one protein sequence per gene.
-  - Arabidopsis thaliana: Also obtained from Uniprot in the same way as for Oryza (one sequence per gene) https://www.uniprot.org/proteomes/UP000006548. I renamed the file Arabidopsis_thaliana.20200703.proteins.fasta (27468)
 
-  2.2. First run, limited to Bromeliaceae
-  ---
-  I first ran orthofinder fully (all analyses), just for Tfas, Tlei and Acom. The reason why I did this is because 1) a smaller group of species will increase speed and 2) when including more distantly related species, the "resolution" of the orthogroup analysis will be smaller.
+**2) Running Orthofinder**
 
-  Orthofinder was run with the following command:
-  /apps/orthofinder/2.3.8/orthofinder -f /scratch/grootcrego/orthofinder/run_orthofinder_Tfas_Tlei_Acom -t 48
+Orthofinder was run with version 2.4.1. with the following command:
 
-  NOTE: Later on I reran orthofinder with version 2.4.0 as it has become significantly more accurate.
+    /apps/orthofinder/2.4.1/orthofinder \
+	  -f /scratch/grootcrego/orthofinder/run_orthofinder_Tfas_Tlei_Acom \
+	  -t 48
 
-  2.3. Creating dataset to investigate orthogroups across genomes
-  ---
-  One interesting thing to study regarding the assembly is where the number of one-to-one orthologues between Tfas and Tlei and their distribution in the genome. Ideally, most genes will be in the 25 largest scaffolds, but it is important to verify this. Genemodels can be found on more than 1000 scaffolds in both assemblies, but we don't know exactly what the density is in non-main scaffolds. If we find many orthologues distributed on non-main scaffolds, we may have to try and anchor the smaller scaffolds into larger ones using synteny.
+ **3) Compiling orthology and annotation results**
+
+For the global run, I wanted to compile orthology information per gene with its location in the genome. This was done first by
+
+
+ The main information I was interested in from the orthofinder run, was to which orthogroup each gene belonged, what the gene count for each species was in each orthogroup, and what the functional annotations of each orthogroup are. I compiled all this information into one per-gene table where a line represents one gene and contains its coordinates, its orthogroup, the orthogroup counts for each species, and its functional annotation. This table contains genes from all three species.
+
+I obtained this table with the python scripts
+
 
   To investigate all of this, I decided to create a table for each species parting from orthofinder's results and the assembly's gff file. The table will contain a gene model on each line, with scaffold, start and end position, length, orthogroup and number of genes of each species in the orthogroup. This way we will be able to compare one-to-one orthologues to one-to-many orthologues parting from the same table.
 
