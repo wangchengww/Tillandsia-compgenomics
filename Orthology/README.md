@@ -75,6 +75,7 @@ Then, I selected these from the maker peptide file by extracting the feature ID 
 I filtered out shorter isoforms (of which there were very few) and also peptide sequences < 40 amino acids.
 The longest isoform was selected using the script `select_longest_isoform.py`.
 Peptide sequences < 40 AA were filtered out with the following lines of code:
+
     awk '$2 > 40 {print $0}' \
     Tillandsia_fasciculata_v1.25chrom.longest_isoforms.proteins.fasta.fai \
 	| cut -f 1 > proteins.w.min40AA
@@ -116,8 +117,3 @@ There were 1034 genes with these descriptions belonging to 264 orthogroups. I ob
 
 This removed a total of 6042 genes.
 The file `orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.txt` is the final set of curated orthogroups that has been used in downstream analysis. It contains 70,963 genes and 19,101 orthogroups. Additional statistics on the orthology analysis can be found [here](https://docs.google.com/spreadsheets/d/1hv_Oe6MvV1fBuBkGIhvM1ihDwYviuY-LcYUGYKnIwNQ/edit#gid=324678736).
-
-
-One important distinction that Orthofinder makes is between orthogroups and orthologs. An orthogroup is a group of genes descended from a single gene in the LCA of that group of species. It will include all gene duplications that occurred along the way. Orthologs are pairs of genes descended of a single gene in a common ancestor. So, if we have an orthogroup of 2 genes in Tlei and 3 genes in Tfas, Orthofinder can estimate which gene duplicated. One gene in Tlei may then have a one-to-one relationship to another gene in Tfas, and the other Tlei gene may have a one-to-two relationship to the remaining two Tfas genes.
-The number of orthogroups with just 1 gene in T.lei and 1 gene in T.fas is about 13,128. Yet Orthofinder discovered about 14,963 one-to-one orthologues. These additional 1800 one-to-one genes actually belong to orthogroups that contain paralogs in one or the other species (in other words, at some point between the LCA of Tlei and Tfas and now, gene duplication occurred).
-The ortholog relationships are useful for studies of gene duplication and family expansion. Therefore, in those analyses I would work on the ortholog level. For analyses of synteny, the larger group (orthologue level) should also suffice, so I decided to rerun that with the 14000 genes.
