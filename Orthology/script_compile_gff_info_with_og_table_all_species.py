@@ -1,13 +1,16 @@
 #!/usr/bin/env python
+
 import sys
+
 orthogroups = open(sys.argv[1])
+scaffold = open(sys.argv[2])
 gff_Tlei = open(sys.argv[2])
 gff_Tfas = open(sys.argv[3])
 gff_Acom = open(sys.argv[4])
 outputfilename=sys.argv[5]
 output=open(outputfilename,'w')
 
-# 1st, make a dictionnary of the gff with the information we want to transfer to the final table (scaffold, end and start position)
+# 2nd, make a dictionnary of the gff with the information we want to transfer to the final table (scaffold, end and start position)
 
 gff_dict_Tlei = {}
 for line1 in gff_Tlei.readlines():
@@ -25,10 +28,11 @@ for line1 in gff_Tlei.readlines():
 			   ont = element
 			   ont_split = ont.split('=')
 			   GO = ont_split[1]
-			   info = splitted_line1[0]+"\t"+splitted_line1[3]+"\t"+splitted_line1[4]+"\t"+GO+"\t"+description_line
-			   gff_dict_Tlei[ID]=info
 		   else:
 			   continue
+	   info = splitted_line1[0]+"\t"+splitted_line1[3]+"\t"+splitted_line1[4]+"\t"+GO+"\t"+description_line
+	   gff_dict_Tlei[ID]=info
+
 
 gff_dict_Tfas = {}
 for line1 in gff_Tfas.readlines():
@@ -68,7 +72,7 @@ for line1 in gff_Acom.readlines():
   gff_dict_Acom[ID]=info
 
 
-# 2nd, iterate over the orthogroup list and print each line together with the gff information into a new table
+# 3d, iterate over the orthogroup table and add scaffold length to each line
 
 for line2 in orthogroups.readlines():
   line2 = line2.replace('\n','') # rm the return carriage

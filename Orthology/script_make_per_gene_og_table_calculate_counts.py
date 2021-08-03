@@ -3,8 +3,8 @@ ogroups = open(sys.argv[1])
 outputfilename=sys.argv[1].replace(".txt",".per_gene.txt")
 output=open(outputfilename,'w')
 og_dict = {}
-for line in ogroups:
-    line = line.replace('\r\n','')
+for line in ogroups.readlines()[1:]:
+    line = line.replace('\n','')
     splitted_line = line.split('\t')
     OG_ID = splitted_line[1]
     genes_in_OG =splitted_line[3]+", "+splitted_line[4]+", "+splitted_line[5]
@@ -36,4 +36,4 @@ for key in og_dict:
             Tfas = str(Tfas)
             Tlei = str(Tlei)
             line_to_print = gene+"\t"+OG_ID+"\t"+Acom+"\t"+Tfas+"\t"+Tlei+"\n"
-            print(line_to_print)
+            output.write(line_to_print)
