@@ -24,5 +24,5 @@ for line2 in orthogroups.readlines():
     splitted_line2 = line2.split('\t') # split the line regarding the tabulations
     scaffold_OG = splitted_line2[1]
     if scaffold_dict.has_key(scaffold_OG):
-        line_to_print = splitted_line2[0]+"\t"+splitted_line2[1]+"\t"+scaffold_dict[scaffold_OG]+"\t"+splitted_line2[2]+"\t"+splitted_line2[3]+"\t"+splitted_line2[6]+"\t"+splitted_line2[7]+"\t"+splitted_line2[8]+"\t"+splitted_line2[9]+"\t"+splitted_line2[]+\t"+splitted_line2[5]+"\n""\n"
+        line_to_print = splitted_line2[0]+"\t"+splitted_line2[1]+"\t"+scaffold_dict[scaffold_OG]+"\t"+splitted_line2[2]+"\t"+splitted_line2[3]+"\t"+splitted_line2[6]+"\t"+splitted_line2[7]+"\t"+splitted_line2[8]+"\t"+splitted_line2[9]+"\t"+splitted_line2[4]+"\t"+splitted_line2[5]+"\n"
         output.write(line_to_print)
