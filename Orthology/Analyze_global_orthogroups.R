@@ -1,13 +1,13 @@
 ##
 # Set working directory and read in data
-setwd('/Users/clara/bio-info_phd/Comparative_genomics/orthology_Tfas_Tlei/synteny_all_scaffolds/')
-ortho_tfas <- read.table("Tfas_orthology_info_per_scaffold.run2.txt", header = F)
-colnames(ortho_tfas) <- c('geneID', 'scaffold', 'scaffold_length', 'startpos','endpos','ogID','Tfas_count', 'Tlei_count')
+setwd('/Users/clara/bio-info_phd/Comparative_genomics/orthology_Tfas_Tlei/synteny_all_scaffolds/reanalysis_august2021_newcounts/')
+ortho_tfas <- read.delim("Tfas_orthology_info.per_scaffold.txt", header = F, sep = "\t")
+colnames(ortho_tfas) <- c('geneID', 'scaffold', 'scaffold_length', 'startpos','endpos','ogID','Acom_count', 'Tfas_count', 'Tlei_count', 'GOterms', 'Description')
 # Calculate the length of each gene
 ortho_tfas$length_gene <- ortho_tfas$endpos - ortho_tfas$startpos
 # Same for Tlei
-ortho_tlei <- read.table("Tlei_orthology_info_per_scaffold.run2.txt", header = F)
-colnames(ortho_tlei) <- c('geneID', 'scaffold', 'scaffold_length', 'startpos','endpos','ogID','Tfas_count', 'Tlei_count')
+ortho_tlei <- read.delim("Tlei_orthology_info.per_scaffold.txt", header = F, sep = "\t")
+colnames(ortho_tlei) <- c('geneID', 'scaffold', 'scaffold_length', 'startpos','endpos','ogID','Acom_count', 'Tfas_count', 'Tlei_count', 'GOterms', 'Description')
 ortho_tlei$length_gene <- ortho_tlei$endpos - ortho_tlei$startpos
 
 ##
@@ -89,6 +89,7 @@ count_table_Tfas[1:30,] %>%
   ylab("Number of orthologous genes") +
   labs(title = "Distribution of orthologous genes in T. fasciculata assembly") +
   scale_fill_discrete(name = "Orthology", labels = c("1:1", "all"))
+
 # Same for Tlei
 c2lei <- merge(count_per_scaffold_Tlei, oneone_count_per_scaffold_Tlei, by = "scaffold", all = T)
 c2lei <- c2lei[,c(1:3,5)]
@@ -117,15 +118,15 @@ count_table_Tlei[1:30,] %>%
 ##
 # Number of orthologous genes in 25 largest scaffolds
 subset_tfas <- count_table_Tfas[1:25,]
-sum(subset_tfas$orthocount_all) # 28525 (90.3 %)
-sum(count_table_Tfas$orthocount_all) # 31588
-sum(subset_tfas$orthocount_one) # 12667 (99.1 %)
+sum(subset_tfas$orthocount_all) # 28497 (90.3 %)
+sum(count_table_Tfas$orthocount_all) # 31551
+sum(subset_tfas$orthocount_one) # 12667 (99 %)
 sum(count_table_Tfas$orthocount_one) # 12783
 # Same for Tlei
 subset_tlei <- count_table_Tlei[1:25,]
-sum(subset_tlei$orthocount_all) # 28890 (88.6 %)
-sum(count_table_Tlei$orthocount_all) # 32602
-sum(subset_tlei$orthocount_one) # 12725 (99.1 %)
+sum(subset_tlei$orthocount_all) # 28859 (88.6 %)
+sum(count_table_Tlei$orthocount_all) # 32568
+sum(subset_tlei$orthocount_one) # 12725 (99.5 %)
 sum(count_table_Tlei$orthocount_one) # 12783
 
 ##

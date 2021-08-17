@@ -27,7 +27,7 @@ Orthofinder was run with version 2.4.1. with the following command:
 
 For the global run, I wanted to compile orthology information per gene with its location in the genome. First, I converted the N0.tsv file to a per-gene format which lists for each gene it's orthogroup and the orthogroup gene counts per species. Using the python script This was done by running the script `script_make_per_gene_og_table_calculate_counts.py` on N0.tsv.
 
-NOTE: In previous runs I created the per-gene orthology table by combining the N0.tsv file with the Orthogroups.GeneCounts.tsv file. However, the counts in the latter file don't agree with the genes reported in the former since they stem from different approaches. So the newest version, counts are inmediately calculated from N0.tsv in the python script, since results from the Orthogroups/ folder are deprecated.
+NOTE: In previous runs I created the per-gene orthology table by combining the N0.tsv file with the Orthogroups.GeneCounts.tsv file. However, the counts in the latter file don't agree with the genes reported in the former since they stem from different approaches. So the newest version, counts are immediately calculated from N0.tsv in the python script, since results from the Orthogroups/ folder are deprecated.
 
 Since I am not interested in A.comosus specific orthogroups, these were removed from the new table:
 
@@ -55,7 +55,7 @@ With this final table, I investigated where orthologous gene are mostly found in
 
 Lastly I added scaffolds lengths to these files and reshuffled the columns a bit to make it more logical for the next step with `add_scaffold_lengths.py`.
 
-The actual analysis was done in the Rscript `Analyze_global_orthogroups.R`. The analysis showed that more than 99 % of 1-to-1 orthologs are on the main scaffolds in the case of both assemblies (> 1 Mb). This also led to the inclusion of the 26th scaffold in *T. leiboldiana*, as it contained a non-negligible amount of orthologs.
+The actual analysis was done in the Rscript `Analyze_global_orthogroups.R`. The analysis showed that more than 99 % of 1-to-1 orthologs are on the main scaffolds in both assemblies. This also led to the inclusion of the 26th scaffold in *T. leiboldiana*, as it contained a non-negligible amount of orthologs.
 
 # Second run: Only gene models on main scaffolds (> 1 Mb) for T.fas and T. lei, all gene models of A.comosus
 
