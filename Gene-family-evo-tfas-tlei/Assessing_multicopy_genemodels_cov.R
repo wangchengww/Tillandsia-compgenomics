@@ -9,6 +9,7 @@ library(ggplot2)
 library(plyr)
 library(dplyr)
 library(wesanderson)
+library(reshape2)
 
 # Set colours categories
 mycolors <- c(wes_palette("Darjeeling1")[1], wes_palette("Darjeeling1")[2], wes_palette("FantasticFox1")[3],
@@ -164,7 +165,30 @@ write.table(high_cov_genes, file = "100x_genes_Tfas.txt")
 tfas_multicopy_genes <- tfas_genes[tfas_genes$duplicated == 'multi-copy',] # 8400 genes, 2632 orthogroups
 tfas_no_mito_multicopy_genes <- tfas_no_mito[tfas_no_mito$duplicated == 'multi-copy',] # 7348 genes, 2353 orthogroups
 
-lower_thresh=34.5079# 25th quantile of the average coverage of ancestral single copy genes to accont for variation
+# Correction without accounting for coverage variability
+corr_Tfas <- data.frame()
+for (i in unique(tfas_multicopy_genes$og_id)){
+  orthogroup <- tfas_multicopy_genes[tfas_multicopy_genes$og_id == i,]
+  nr_genes <- as.integer(orthogroup[1,6])
+  total_mean_cov <- sum(orthogroup$mean_cov)
+  expected_mean_cov <- nr_genes * 46.1712
+  correction_factor <- total_mean_cov/expected_mean_cov
+  new_size = round((nr_genes * correction_factor), digits = 0)
+  #if (correction_factor > 1){
+  #  new_size = nr_genes
+  #}
+  if (total_mean_cov < 46.1712){
+    new_size = 1
+  }
+  corr_family_size <- cbind(i, as.numeric(correction_factor), as.integer(new_size),
+                            as.integer(nr_genes), as.numeric(total_mean_cov), expected_mean_cov)
+  corr_Tfas <- rbind(corr_Tfas, corr_family_size)
+}
+colnames(corr_Tfas) <- c("og_id", "correction_factor", "corr_Tfas_count","old_Tfas_count",
+                         "total_mean_cov", "expected_mean_cov")
+
+# Correction accounting for variability
+lower_thresh=34.5079# 25th quantile of the average coverage of ancestral single copy genes to account for variation
 upper_thresh=43.6752 # 75th quantile of the average coverage of ancestral single copy genes
 corr_Tfas_no_mito <- data.frame()
 for (i in unique(tfas_no_mito_multicopy_genes$og_id)){
@@ -190,35 +214,72 @@ for (i in unique(tfas_no_mito_multicopy_genes$og_id)){
                             lower_thresh_total,upper_thresh_total)
   corr_Tfas_no_mito <- rbind(corr_Tfas_no_mito, corr_family_size)
 }
-colnames(corr_Tfas_no_mito) <- c("og_id", "correction_factor", "corr_Tfas_count","old_Tfas_count", "total_mean_cov", "expected_mean_cov", "Lower_thresh", "Upper_thresh")
+colnames(corr_Tfas_no_mito) <- c("og_id", "correction_factor", "corr_Tfas_count_PO","old_Tfas_count_PO", "total_mean_cov", "expected_mean_cov", "Lower_thresh", "Upper_thresh")
 
-corr_Tfas <- data.frame()
-for (i in unique(tfas_multicopy_genes$og_id)){
-  orthogroup <- tfas_multicopy_genes[tfas_multicopy_genes$og_id == i,]
+nrow(corr_Tfas_no_mito[(corr_Tfas_no_mito$total_mean_cov > corr_Tfas_no_mito$Lower_thresh) & (corr_Tfas_no_mito$total_mean_cov < corr_Tfas_no_mito$Upper_thresh),])
+nrow(corr_Tfas_no_mito[corr_Tfas_no_mito$corr_Tfas_count == corr_Tfas_no_mito$old_Tfas_count,])
+nrow(corr_Tfas[corr_Tfas$corr_Tfas_count == corr_Tfas$old_Tfas_count,])
+within_thresh <- corr_Tfas_no_mito[corr_Tfas_no_mito$corr_Tfas_count == corr_Tfas_no_mito$old_Tfas_count,]
+og_changed <- as.data.frame(corr_Tfas[corr_Tfas$corr_Tfas_count == corr_Tfas$old_Tfas_count,1])
+colnames(og_changed) <- c("og_changed")
+shard <- (intersect(within_thresh$og_id, og_changed$og_changed))
+# Per-gene size correction: I tested a system where size corrections is done on a per-gene basis. 
+# I assign a probablity of each gene based on its coverage with respect to the mean coverage of 
+# ancestral single copy genes. If the gene has the same coverage, it will have a prob of 1 and counted as
+# a full gene. Lower coverages lead to adusted weighting. At the end, the adjusted weights are summed up
+# into a new orthogroup size.
+corr_Tfas_per_gene <- data.frame()
+for (i in unique(tfas_no_mito_multicopy_genes$og_id)){
+  orthogroup <- tfas_no_mito_multicopy_genes[tfas_no_mito_multicopy_genes$og_id == i,]
+  weighting_vect <- c()
+  for (j in 1:nrow(orthogroup)){
+    mean_cov <- orthogroup[j,3]
+    weighting <- mean_cov / 42.9189
+    weighting_vect <- c(weighting_vect, weighting)
+  }
+  new_size = round(sum(weighting_vect))
   nr_genes <- as.integer(orthogroup[1,6])
-  total_mean_cov <- sum(orthogroup$mean_cov)
-  expected_mean_cov <- nr_genes * 46.1712
-  correction_factor <- total_mean_cov/expected_mean_cov
-  new_size = round((nr_genes * correction_factor), digits = 0)
-  if (correction_factor > 1){
-    new_size = nr_genes
-  }
-  if (total_mean_cov < 46.1712){
-    new_size = 1
-  }
-  corr_family_size <- cbind(i, as.numeric(correction_factor), as.integer(new_size),
-                            as.integer(nr_genes), as.numeric(total_mean_cov), expected_mean_cov)
-  corr_Tfas <- rbind(corr_Tfas, corr_family_size)
+  corr_family_size <- cbind(i, as.integer(new_size),
+                            as.integer(nr_genes))
+  corr_Tfas_per_gene <- rbind(corr_Tfas_per_gene, corr_family_size)
 }
-colnames(corr_Tfas) <- c("og_id", "correction_factor", "corr_Tfas_count","old_Tfas_count",
-                         "total_mean_cov", "expected_mean_cov")
+colnames(corr_Tfas_per_gene) <- c("og_id", "corr_Tfas_count_PG","old_Tfas_count_PG")
 
+# Comparing a per-gene correction approach to a per-orthogroup approach. Here, corrections were made
+# in both directions (increase and decrease in size) and without accounting for variability
+comparison_siye_corr <- merge(corr_Tfas, corr_Tfas_per_gene, by = "og_id")
+comparison_size_corr <- comparison_siye_corr[,c(1,4,3,7)]
+colnames(comparison_size_corr) <- c("og_id", "uncorrected_count", "correction_per_OG", "correction_per_GENE")
+comp_m <- melt(comparison_size_corr, id.vars = "og_id")
+comp_m$variable <- as.factor(comp_m$variable)
+comp_m$value <- as.integer(comp_m$value)
+ggplot(comp_m, aes(x=value, color=variable)) +
+  geom_histogram(fill = "white", alpha=0.5, position="identity", binwidth = 1)+
+  xlim(0,25)
+
+comparison_size_corr$diff_per_OG <- as.numeric(comparison_size_corr$uncorrected_count) - as.numeric(comparison_size_corr$correction_per_OG) 
+comparison_size_corr$diff_per_GENE <- as.numeric(comparison_size_corr$uncorrected_count) - as.numeric(comparison_size_corr$correction_per_GENE) 
+comparison_size_corr$diff_approach <- as.numeric(abs(comparison_size_corr$diff_per_OG)) - abs(as.numeric(comparison_size_corr$diff_per_GENE))
+
+diff_melt <- melt(comparison_size_corr[, c(1,5,6)], id.vars = "og_id")
+ggplot(diff_melt, aes(x=value, color=variable)) +
+  geom_histogram(fill = "white", alpha=0.5, position="identity", binwidth = 1) +
+  xlim(-25,25)
+
+ggplot(comparison_size_corr, aes(x=diff_approach)) +
+  geom_histogram(binwidth=1)
+ggplot(comparison_size_corr, aes(x=diff_approach)) +
+  geom_boxplot()
+mean(comparison_size_corr$diff_approach) # -1.54
+
+# The per-gene and per-orthogroup approaches lead to very similar size corrections. Out of the 2353 
+# orthogroups, 2006 (85 %) were corrected to the same size by both approaches. An additional 13 % of 
+# orthogroups had only a size difference of 1 between approaches. Less than 1 % had a difference of 
+# two or more. 
 
 increase <- corr_Tfas[as.integer(corr_Tfas$corr_Tfas_count) > as.integer(corr_Tfas$old_Tfas_count),]
 increase_plastid <- increase %>%
   filter(!(og_id %in% mito_og$og_id))
-
-
 write.table(corr_Tfas, file = "corrected_family_sizes_Tfas.txt")
 
 ###########################################################################################
