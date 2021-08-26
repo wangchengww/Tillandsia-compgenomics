@@ -80,27 +80,28 @@ I ran the same corrections for T. leiboldiana, although I couldn't separate faul
 
 Next, I integrated the new family sizes into my general per-gene orthology table, which we will feed back into gene family evolution analysis, with the python script `script_insert_corrected_sizes.py`.
 
-# Studying gene family size differences in Tfas and Tlei
-
-I then obtained a table of per-orhogroup gene counts by selecting the orthogroup and count fields of the orthology table.
-The relationship of gene family size between species was explored in `Gene_family_evolution_new.R`
-
-A first look at the most extreme families (high copy number in either species) showed that it may be interesting to exclude orthogroups containing chloroplastic / mitochondrial / ribosomal genes. To do that, I took the following steps:
-
-    # Search for the words "chloroplast", "ribosomal" or "mitochondrial" and isolate orthogroups that carry such annotations
-    grep -f filter_plastid_ribosomal_OGs.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.txt | cut -f 7 | sort -u > mito_plastid_ribo_OGs.txt
-    # Select all genes that don't belong to these orthogroups
-    grep -v -f mito_plastid_ribo_OGs.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.txt > orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.txt
-
-Additionally, it also showed that in the case of leiboldiana, some corrections also have to be made. For example, OG15 counts 100 copies in Tlei, and seems a strong outlier. By checking his coverage, I came to the conclusion these copy numbers are probably also false.
-
 # Changes to workflow July 27th
 
 I made a few changes to the workflow above:
+ - orthogroups containing mito / plastid / ribosomal information were removed just before size correction, as it probably doesn't make sense to correct sizes for these genes since their coverage doesn't exactly reflect their presence in the genome (multiple plastids / mitochondria in a cell, ribosomal genes have very complicated gene family evolution)
  - Size corrections were made for all multi-copy orthogroups in Tfas, instead of only on the orthogroups with genes < 34.5x. This only expanded the number of orthogroups run through size corrections from 1981 to 2632 (25 % more) and from 6861 genes to 8400 genes (19 % more).
  - Size corrections were also made for upward corrections in orthogroups that did not belong to chloroplasts.
  - Size corrections were made not based on the full genome average but on the average coverage of ancestral single-copy genes. The idea is that this category represents better the sort of coverage expected in genic regions (full genome coverage is extremely variable).
 
 Testing different forms of size corrections:
  - Accounting for "expected" coverage variability: I designed a size correction method where orthogroups with coverage lying within an interval from the expected coverage were not corrected, under the assumption that this is "expected" coverage deviation from the mean. However, it was hard to find proper thresholds for this interval since the coverage of ancestral-single-copy genes has a relatively wide distribution and taking strict cutoff such as the 1st and 99th quantile would lead to a much too large interval. I tested it by taking the 25th and 27th interval, but it is difficult to argue that this interval really accounts for "expected" coverage variability, it is quite arbitrary and it also didn't impact many orthogroups. So we decided to drop this avenue.
- - Designing a per-gene size correction strategy: I decided to generate correction factors on a per-gene basis, by taking the average ancestral-single-copy average as a correction factor 1 and scaling all orther coverages against it. Then I would sum up the weighted gene values to obtain a new size. This is in fact the same as doing a per-orthogroup approach. So we can continue with the per-orthogroup approach as I find it more intuitive. 
+ - Designing a per-gene size correction strategy: I decided to generate correction factors on a per-gene basis, by taking the average ancestral-single-copy average as a correction factor 1 and scaling all orther coverages against it. Then I would sum up the weighted gene values to obtain a new size. This is in fact the same as doing a per-orthogroup approach. So we can continue with the per-orthogroup approach as I find it more intuitive.
+
+# Studying gene family size differences in Tfas and Tlei
+
+I first selected only orthogroups that were not mitochondrial, ribosomal or plastid. I took the following steps:
+
+    # Search for the words "chloroplast", "ribosomal" or "mitochondrial" and isolate orthogroups that carry such annotations
+    grep -f filter_plastid_ribosomal_OGs.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.txt | cut -f 7 | sort -u > mito_plastid_ribo_OGs.txt
+    # Select all genes that don't belong to these orthogroups
+    grep -v -f mito_plastid_ribo_OGs.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.txt > orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.txt
+
+This resulted in 62,788 (88 %) genes and 16,914 (88 %) orthogroups.
+
+I then obtained a table of per-orhogroup gene counts by selecting the orthogroup and count fields of the orthology table.
+The relationship of gene family size between species was explored in `Gene_family_evolution_new.R`
