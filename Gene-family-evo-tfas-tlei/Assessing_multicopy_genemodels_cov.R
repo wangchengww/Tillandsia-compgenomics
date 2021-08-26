@@ -11,40 +11,33 @@ library(dplyr)
 library(wesanderson)
 library(reshape2)
 
-# Set colours categories
-mycolors <- c(wes_palette("Darjeeling1")[1], wes_palette("Darjeeling1")[2], wes_palette("FantasticFox1")[3],
-              wes_palette("Darjeeling1")[3], wes_palette("Rushmore1")[3], wes_palette("GrandBudapest1")[3])
-
 setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/Gene-family-evo-tfas-tlei/")
 tfas_genes <- read.table("Tfas_pergene_mediancov_and_orthoinfo.txt", header = T)
-
-# Removing all genes from chloroplastic, ribosomal or mitochondrial genes
-mito_og <- read.table("mito_plastid_ribo_OGs.txt", header = F, sep = "\t")
-colnames(mito_og) <- c("og_id")
-tfas_no_mito <- tfas_genes %>%
-  filter(!(og_id %in% mito_og$og_id))
 
 mean(tfas_genes$median_cov) # 47.5
 mean(tfas_genes$mean_cov) # 48.04
 
+# Set colours categories
+# mycolors <- c(wes_palette("Darjeeling1")[1], wes_palette("Darjeeling1")[2], wes_palette("FantasticFox1")[3],
+#               wes_palette("Darjeeling1")[3], wes_palette("Rushmore1")[3], wes_palette("GrandBudapest1")[3])
 # Divide genes into categories based on copy number
-dup <- c()
-for (i in 1:nrow(tfas_genes)){
-  if (tfas_genes[i,6] == 1){
-    dup <- c(dup, "single-copy")
-  } else if (tfas_genes[i,6] > 1 && tfas_genes[i,5] == 0 && tfas_genes[i,7] == 0){
-    dup <- c(dup, "unique-multi-copy")
-  } else if (tfas_genes[i,6] > 1 && tfas_genes[i,6] > tfas_genes[i,5] && tfas_genes[i,6] > tfas_genes[i,7]){
-    dup <- c(dup, "largest-multi-copy")
-  } else if (tfas_genes[i,6] > 1 && tfas_genes[i,6] < tfas_genes[i,5] && tfas_genes[i,6] < tfas_genes[i,7]){
-    dup <- c(dup, "smallest-multi-copy")
-  } else if (tfas_genes[i,6] > 1 && tfas_genes[i,6] == tfas_genes[i,5] && tfas_genes[i,6] == tfas_genes[i,7]){
-    dup <- c(dup, "ancestral-multi-copy")
-  } else {
-    dup <- c(dup, "middle-multi-copy")
-  }
-}
-tfas_genes$duplicated <- dup
+#dup <- c()
+#for (i in 1:nrow(tfas_genes)){
+#  if (tfas_genes[i,6] == 1){
+#    dup <- c(dup, "single-copy")
+#  } else if (tfas_genes[i,6] > 1 && tfas_genes[i,5] == 0 && tfas_genes[i,7] == 0){
+#    dup <- c(dup, "unique-multi-copy")
+#  } else if (tfas_genes[i,6] > 1 && tfas_genes[i,6] > tfas_genes[i,5] && tfas_genes[i,6] > tfas_genes[i,7]){
+#    dup <- c(dup, "largest-multi-copy")
+#  } else if (tfas_genes[i,6] > 1 && tfas_genes[i,6] < tfas_genes[i,5] && tfas_genes[i,6] < tfas_genes[i,7]){
+#    dup <- c(dup, "smallest-multi-copy")
+#  } else if (tfas_genes[i,6] > 1 && tfas_genes[i,6] == tfas_genes[i,5] && tfas_genes[i,6] == tfas_genes[i,7]){
+#    dup <- c(dup, "ancestral-multi-copy")
+#  } else {
+#    dup <- c(dup, "middle-multi-copy")
+#  }
+#}
+#tfas_genes$duplicated <- dup
 
 # simplified categories
 dup <- c()
@@ -73,7 +66,6 @@ head(mu)
 # single-copy             65.12410
 # unique-multi-copy       52.45243
 
-
 #Statistics for the full genome
 # count    6.002822e+08
 # mean     46.17124
@@ -84,25 +76,12 @@ head(mu)
 # 75%      51.00000
 # max      8070.000
 
-sd(tfas_no_mito[tfas_no_mito$duplicated == "ancestral-single-copy", 3])
-mean(tfas_no_mito[tfas_no_mito$duplicated == "ancestral-single-copy", 3])
-quantile(tfas_no_mito[tfas_no_mito$duplicated == "ancestral-single-copy", 3], c(.01, .05, .1, .25, .5,.75, .9, .95, .99)) 
-#1%       5%      10%      25%      50%      75%      90%      95%      99% 
-#15.10657 22.41436 27.21449 34.50790 39.82849 43.67525 46.54118 48.44374 69.23726
-
 # Set colors for simple categories
 mycolors <- c(wes_palette("Darjeeling1")[1], wes_palette("Darjeeling1")[2], wes_palette("FantasticFox1")[3],
               wes_palette("Darjeeling1")[3], wes_palette("GrandBudapest1")[3])
 
 # Density plot of mean coverage per gene per category
 ggplot(tfas_genes, aes(x=mean_cov, color=dup)) +
-  geom_density() +
-  xlim(0,150) +
-  geom_vline(xintercept = 46.1712, linetype = "longdash", colour = "gray28") +
-  scale_color_manual(values = mycolors) +
-  scale_fill_manual(values = mycolors)
-
-ggplot(tfas_no_mito, aes(x=mean_cov, color=duplicated)) +
   geom_density() +
   xlim(0,150) +
   geom_vline(xintercept = 46.1712, linetype = "longdash", colour = "gray28") +
@@ -147,52 +126,70 @@ ggplot(tfas_genes, aes(x=median_cov, color=dup)) +
 #table(faulty_genes$Tfas_count)
 
 # Recording all genes with high coverage to explore further (mostly mitochondrial and plastid)
-high_cov_genes <- tfas_genes[tfas_genes$mean_cov > 100,]
-write.table(high_cov_genes, file = "100x_genes_Tfas.txt")
+# high_cov_genes <- tfas_genes[tfas_genes$mean_cov > 100,]
+# write.table(high_cov_genes, file = "100x_genes_Tfas.txt")
 
 # Recording all genes with a mean coverage < 34.5 to correct gene family sizes
 #write.table(faulty_genes, file = "faulty_gene_families_35x.txt")
------------------
-  
-# Correcting the gene family sizes based on coverage differences
+
 # Select all orthogroups containing faulty genes
 # library(dplyr)
 # orthogroups_w_faulty_genes <- tfas_genes %>%
 #  filter(og_id %in% faulty_genes$og_id)
 # This resulted in 6861 genes and 1981 orthogroups
+-----------------
+  
+# Correcting the gene family sizes based on coverage differences
 
-# Now I select ALL multicopy genes - this immediately captures the full orthogroup as well
+# Removing all genes from chloroplastic, ribosomal or mitochondrial orthogroups
+mito_og <- read.table("mito_plastid_ribo_OGs.txt", header = F, sep = "\t")
+colnames(mito_og) <- c("og_id")
+tfas_no_mito <- tfas_genes %>%
+  filter(!(og_id %in% mito_og$og_id))
+  
+# Now I select just multicopy genes - this immediately captures the full orthogroup as well.
+# At this step, I remove all genes that come from orthogroups containing plastid, mitochondrial or ribosomal annotations.
+# The reasoning behind this is that we can't truly use coverage statistics to adjust sizes since plastid and mitochondrial
+# DNA is usually sequenced at high coverage (there are thousands of copies in each cell). Additionally, we will skip 
+# looking into gene family evolution of these types of genes since they have quite different dynamics (especially 
+# ribosomal genes).
 tfas_multicopy_genes <- tfas_genes[tfas_genes$duplicated == 'multi-copy',] # 8400 genes, 2632 orthogroups
-tfas_no_mito_multicopy_genes <- tfas_no_mito[tfas_no_mito$duplicated == 'multi-copy',] # 7348 genes, 2353 orthogroups
+mito_og <- read.table("mito_plastid_ribo_OGs.txt", header = F, sep = "\t") # list with mito-ribo-plastid orthogroups
+colnames(mito_og) <- c("og_id")
+tfas_multicopy_genes_no_mito <- tfas_multicopy_genes %>%
+  filter(!(og_id %in% mito_og$og_id)) # 7348 genes, 2353 orthogroups
 
 # Correction without accounting for coverage variability
-corr_Tfas <- data.frame()
-for (i in unique(tfas_multicopy_genes$og_id)){
-  orthogroup <- tfas_multicopy_genes[tfas_multicopy_genes$og_id == i,]
+corr_Tfas_simple <- data.frame()
+for (i in unique(tfas_multicopy_genes_no_mito$og_id)){
+  orthogroup <- tfas_multicopy_genes_no_mito[tfas_multicopy_genes_no_mito$og_id == i,]
   nr_genes <- as.integer(orthogroup[1,6])
   total_mean_cov <- sum(orthogroup$mean_cov)
-  expected_mean_cov <- nr_genes * 46.1712
+  expected_mean_cov <- nr_genes * 42.9189
   correction_factor <- total_mean_cov/expected_mean_cov
   new_size = round((nr_genes * correction_factor), digits = 0)
   #if (correction_factor > 1){
   #  new_size = nr_genes
   #}
-  if (total_mean_cov < 46.1712){
+  if (total_mean_cov < 42.9189){
     new_size = 1
   }
   corr_family_size <- cbind(i, as.numeric(correction_factor), as.integer(new_size),
                             as.integer(nr_genes), as.numeric(total_mean_cov), expected_mean_cov)
-  corr_Tfas <- rbind(corr_Tfas, corr_family_size)
+  corr_Tfas_simple <- rbind(corr_Tfas_simple, corr_family_size)
 }
-colnames(corr_Tfas) <- c("og_id", "correction_factor", "corr_Tfas_count","old_Tfas_count",
+colnames(corr_Tfas_simple) <- c("og_id", "correction_factor", "corr_Tfas_count","old_Tfas_count",
                          "total_mean_cov", "expected_mean_cov")
 
 # Correction accounting for variability
-lower_thresh=34.5079# 25th quantile of the average coverage of ancestral single copy genes to account for variation
-upper_thresh=43.6752 # 75th quantile of the average coverage of ancestral single copy genes
-corr_Tfas_no_mito <- data.frame()
-for (i in unique(tfas_no_mito_multicopy_genes$og_id)){
-  orthogroup <- tfas_no_mito_multicopy_genes[tfas_no_mito_multicopy_genes$og_id == i,]
+quantile(tfas_genes[tfas_genes$duplicated == "ancestral-single-copy", 3], c(.01, .05, .1, .25, .5,.75, .9, .95, .99)) 
+#1%       5%      10%      25%      50%      75%      90%      95%      99% 
+#15.13276 22.74074 27.60464 34.74492 39.95281 43.76340 46.56272 48.43682 69.65468 
+lower_thresh=34.74492# 25th quantile of the average coverage of ancestral single copy genes to account for variation
+upper_thresh=43.76340 # 75th quantile of the average coverage of ancestral single copy genes
+corr_Tfas_var <- data.frame()
+for (i in unique(tfas_multicopy_genes_no_mito$og_id)){
+  orthogroup <- tfas_multicopy_genes_no_mito[tfas_multicopy_genes_no_mito$og_id == i,]
   nr_genes <- as.integer(orthogroup[1,6])
   total_mean_cov <- sum(orthogroup$mean_cov)
   lower_thresh_total <- nr_genes * lower_thresh
@@ -212,25 +209,26 @@ for (i in unique(tfas_no_mito_multicopy_genes$og_id)){
   corr_family_size <- cbind(i, as.numeric(correction_factor), as.integer(new_size),
                             as.integer(nr_genes), as.numeric(total_mean_cov), expected_mean_cov, 
                             lower_thresh_total,upper_thresh_total)
-  corr_Tfas_no_mito <- rbind(corr_Tfas_no_mito, corr_family_size)
+  corr_Tfas_var <- rbind(corr_Tfas_var, corr_family_size)
 }
-colnames(corr_Tfas_no_mito) <- c("og_id", "correction_factor", "corr_Tfas_count_PO","old_Tfas_count_PO", "total_mean_cov", "expected_mean_cov", "Lower_thresh", "Upper_thresh")
+colnames(corr_Tfas_var) <- c("og_id", "correction_factor", "corr_Tfas_count_PO","old_Tfas_count_PO", "total_mean_cov", "expected_mean_cov", "Lower_thresh", "Upper_thresh")
 
-nrow(corr_Tfas_no_mito[(corr_Tfas_no_mito$total_mean_cov > corr_Tfas_no_mito$Lower_thresh) & (corr_Tfas_no_mito$total_mean_cov < corr_Tfas_no_mito$Upper_thresh),])
-nrow(corr_Tfas_no_mito[corr_Tfas_no_mito$corr_Tfas_count == corr_Tfas_no_mito$old_Tfas_count,])
-nrow(corr_Tfas[corr_Tfas$corr_Tfas_count == corr_Tfas$old_Tfas_count,])
-within_thresh <- corr_Tfas_no_mito[corr_Tfas_no_mito$corr_Tfas_count == corr_Tfas_no_mito$old_Tfas_count,]
-og_changed <- as.data.frame(corr_Tfas[corr_Tfas$corr_Tfas_count == corr_Tfas$old_Tfas_count,1])
-colnames(og_changed) <- c("og_changed")
-shard <- (intersect(within_thresh$og_id, og_changed$og_changed))
+nrow(corr_Tfas_var[(corr_Tfas_var$total_mean_cov > corr_Tfas_var$Lower_thresh) & (corr_Tfas_var$total_mean_cov < corr_Tfas_var$Upper_thresh),])
+# 549 orthogroups are inside threshold 
+nrow(corr_Tfas_var[corr_Tfas_var$corr_Tfas_count_PO == corr_Tfas_var$old_Tfas_count_PO,]) 
+# 825 genes have been unchanged (so more than genes in thresholds, probably because of rounding) 
+nrow(corr_Tfas_simple[corr_Tfas_simple$corr_Tfas_count == corr_Tfas_simple$old_Tfas_count,])
+# 764 orthogroups were unchanged when not accounting for variability, so accounting for variability only affects 61 
+# orthogroups or 2.6 % of the dataset.
+
 # Per-gene size correction: I tested a system where size corrections is done on a per-gene basis. 
 # I assign a probablity of each gene based on its coverage with respect to the mean coverage of 
 # ancestral single copy genes. If the gene has the same coverage, it will have a prob of 1 and counted as
 # a full gene. Lower coverages lead to adusted weighting. At the end, the adjusted weights are summed up
 # into a new orthogroup size.
 corr_Tfas_per_gene <- data.frame()
-for (i in unique(tfas_no_mito_multicopy_genes$og_id)){
-  orthogroup <- tfas_no_mito_multicopy_genes[tfas_no_mito_multicopy_genes$og_id == i,]
+for (i in unique(tfas_multicopy_genes_no_mito$og_id)){
+  orthogroup <- tfas_multicopy_genes_no_mito[tfas_multicopy_genes_no_mito$og_id == i,]
   weighting_vect <- c()
   for (j in 1:nrow(orthogroup)){
     mean_cov <- orthogroup[j,3]
@@ -247,40 +245,32 @@ colnames(corr_Tfas_per_gene) <- c("og_id", "corr_Tfas_count_PG","old_Tfas_count_
 
 # Comparing a per-gene correction approach to a per-orthogroup approach. Here, corrections were made
 # in both directions (increase and decrease in size) and without accounting for variability
-comparison_siye_corr <- merge(corr_Tfas, corr_Tfas_per_gene, by = "og_id")
+comparison_siye_corr <- merge(corr_Tfas_simple, corr_Tfas_per_gene, by = "og_id")
 comparison_size_corr <- comparison_siye_corr[,c(1,4,3,7)]
 colnames(comparison_size_corr) <- c("og_id", "uncorrected_count", "correction_per_OG", "correction_per_GENE")
-comp_m <- melt(comparison_size_corr, id.vars = "og_id")
-comp_m$variable <- as.factor(comp_m$variable)
-comp_m$value <- as.integer(comp_m$value)
-ggplot(comp_m, aes(x=value, color=variable)) +
-  geom_histogram(fill = "white", alpha=0.5, position="identity", binwidth = 1)+
-  xlim(0,25)
-
+# calculate differences in corrections
 comparison_size_corr$diff_per_OG <- as.numeric(comparison_size_corr$uncorrected_count) - as.numeric(comparison_size_corr$correction_per_OG) 
 comparison_size_corr$diff_per_GENE <- as.numeric(comparison_size_corr$uncorrected_count) - as.numeric(comparison_size_corr$correction_per_GENE) 
 comparison_size_corr$diff_approach <- as.numeric(abs(comparison_size_corr$diff_per_OG)) - abs(as.numeric(comparison_size_corr$diff_per_GENE))
-
+# See how much the differences deviate 
 diff_melt <- melt(comparison_size_corr[, c(1,5,6)], id.vars = "og_id")
 ggplot(diff_melt, aes(x=value, color=variable)) +
   geom_histogram(fill = "white", alpha=0.5, position="identity", binwidth = 1) +
-  xlim(-25,25)
+  xlim(-25,25) + 
+  xlab("Differences in size corrections (difference_per_orthogroup - difference_per_gene")
 
-ggplot(comparison_size_corr, aes(x=diff_approach)) +
-  geom_histogram(binwidth=1)
 ggplot(comparison_size_corr, aes(x=diff_approach)) +
   geom_boxplot()
-mean(comparison_size_corr$diff_approach) # -1.54
+mean(comparison_size_corr$diff_approach) # -0.013
+table(comparison_size_corr$diff_approach)
 
-# The per-gene and per-orthogroup approaches lead to very similar size corrections. Out of the 2353 
-# orthogroups, 2006 (85 %) were corrected to the same size by both approaches. An additional 13 % of 
-# orthogroups had only a size difference of 1 between approaches. Less than 1 % had a difference of 
-# two or more. 
+# The per-gene and per-orthogroup approaches lead to very similar size corrections. 2323 orthogroups were corrected in 
+# the same way, 30 had a -1 difference between the two approaches.
 
-increase <- corr_Tfas[as.integer(corr_Tfas$corr_Tfas_count) > as.integer(corr_Tfas$old_Tfas_count),]
-increase_plastid <- increase %>%
-  filter(!(og_id %in% mito_og$og_id))
-write.table(corr_Tfas, file = "corrected_family_sizes_Tfas.txt")
+# Given the little differences between per-orthogroup and per-gene method, and the little importance 
+# and limitations of accounting for variability in coverage, I decided to stick to the corrected sizes of per-orthogroup
+# approach without accounting for variability.
+write.table(corr_Tfas_simple, file = "corrected_family_sizes_Tfas.txt")
 
 ###########################################################################################
 ### Same for Tleiboldiana
@@ -289,23 +279,23 @@ tlei_genes <- read.table("Tlei_pergene_mediancov_and_orthoinfo.txt", header = T)
 mean(tlei_genes$median_cov) # 67.04
 mean(tlei_genes$mean_cov) # 66.73
 
-dup <- c()
-for (i in 1:nrow(tlei_genes)){
-  if (tlei_genes[i,7] == 1){
-    dup <- c(dup, "single-copy")
-  } else if (tlei_genes[i,7] > 1 && tlei_genes[i,5] == 0 && tlei_genes[i,6] == 0){
-    dup <- c(dup, "unique-multi-copy")
-  } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] > tlei_genes[i,5] && tlei_genes[i,7] > tlei_genes[i,6]){
-    dup <- c(dup, "largest-multi-copy")
-  } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] < tlei_genes[i,5] && tlei_genes[i,7] < tlei_genes[i,6]){
-    dup <- c(dup, "smallest-multi-copy")
-  } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] == tlei_genes[i,5] && tlei_genes[i,7] == tlei_genes[i,6]){
-    dup <- c(dup, "ancestral-multi-copy")
-  } else {
-    dup <- c(dup, "middle-multi-copy")
-  }
-}
-tlei_genes$duplicated <- dup
+# dup <- c()
+# for (i in 1:nrow(tlei_genes)){
+#   if (tlei_genes[i,7] == 1){
+#     dup <- c(dup, "single-copy")
+#   } else if (tlei_genes[i,7] > 1 && tlei_genes[i,5] == 0 && tlei_genes[i,6] == 0){
+#     dup <- c(dup, "unique-multi-copy")
+#   } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] > tlei_genes[i,5] && tlei_genes[i,7] > tlei_genes[i,6]){
+#     dup <- c(dup, "largest-multi-copy")
+#   } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] < tlei_genes[i,5] && tlei_genes[i,7] < tlei_genes[i,6]){
+#     dup <- c(dup, "smallest-multi-copy")
+#   } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] == tlei_genes[i,5] && tlei_genes[i,7] == tlei_genes[i,6]){
+#     dup <- c(dup, "ancestral-multi-copy")
+#   } else {
+#     dup <- c(dup, "middle-multi-copy")
+#   }
+# }
+# tlei_genes$duplicated <- dup
 
 # simplified
 dup <- c()
@@ -326,6 +316,12 @@ tlei_genes$duplicated <- dup
 
 mu <- ddply(tlei_genes, "dup", summarise, grp.mean=mean(mean_cov))
 head(mu)
+# dup grp.mean
+# 1  ancestral-multi-copy 49.28971
+# 2 ancestral-single-copy 50.69818
+# 3            multi-copy 79.84922
+# 4           single-copy 91.58547
+# 5     unique-multi-copy 58.87240
 
 ggplot(tlei_genes, aes(x=mean_cov, colour=duplicated)) +
   geom_density() +
@@ -341,9 +337,7 @@ ggplot(tlei_genes, aes(x=median_cov, color=dup)) +
   scale_color_manual(values = mycolors) +
   scale_fill_manual(values = mycolors)
 
-# Because the distribution here is unimodal, with just a small shoulder of faulty genes at low coverage,
-# we can't separate the shoulder in the same way as we did for Tfas. So, I decided to run corrections
-# on all multicopy genes.
+# Corrections on all multicopy genes.
 # Correcting the gene family sizes based on coverage differences for all multicopy genes
 Tlei_multicopy <- tlei_genes[tlei_genes$duplicated == "multi-copy",]
 corr_Tlei <- data.frame()
@@ -351,13 +345,13 @@ for (i in unique(Tlei_multicopy$og_id)){
   orthogroup <- Tlei_multicopy[Tlei_multicopy$og_id == i,]
   nr_genes <- as.integer(orthogroup[1,7])
   total_mean_cov <- sum(orthogroup$mean_cov)
-  expected_mean_cov <- nr_genes * 53.34
+  expected_mean_cov <- nr_genes * 50.69818
   correction_factor <- total_mean_cov/expected_mean_cov
   new_size = round((nr_genes * correction_factor), digits = 0)
-  if (correction_factor > 1){
-    new_size = nr_genes
-  }
-  if (total_mean_cov < 53.34){
+  # if (correction_factor > 1){
+  #   new_size = nr_genes
+  # }
+  if (total_mean_cov < 50.69818){
     new_size = 1
   }
   corr_family_size <- cbind(i, as.numeric(correction_factor), as.integer(new_size),
