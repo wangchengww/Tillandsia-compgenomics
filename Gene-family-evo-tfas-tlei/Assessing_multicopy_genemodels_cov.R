@@ -140,12 +140,6 @@ ggplot(tfas_genes, aes(x=median_cov, color=dup)) +
 -----------------
   
 # Correcting the gene family sizes based on coverage differences
-
-# Removing all genes from chloroplastic, ribosomal or mitochondrial orthogroups
-mito_og <- read.table("mito_plastid_ribo_OGs.txt", header = F, sep = "\t")
-colnames(mito_og) <- c("og_id")
-tfas_no_mito <- tfas_genes %>%
-  filter(!(og_id %in% mito_og$og_id))
   
 # Now I select just multicopy genes - this immediately captures the full orthogroup as well.
 # At this step, I remove all genes that come from orthogroups containing plastid, mitochondrial or ribosomal annotations.
@@ -337,9 +331,11 @@ ggplot(tlei_genes, aes(x=median_cov, color=dup)) +
   scale_color_manual(values = mycolors) +
   scale_fill_manual(values = mycolors)
 
-# Corrections on all multicopy genes.
-# Correcting the gene family sizes based on coverage differences for all multicopy genes
-Tlei_multicopy <- tlei_genes[tlei_genes$duplicated == "multi-copy",]
+# Corrections on all multicopy genes, except for ribosomal / plastid / mitochondrial.
+tlei_multicopy_genes <- tlei_genes[tlei_genes$duplicated == 'multi-copy',] # 4306 genes, 1450 orthogroups
+tlei_multicopy_genes_no_mito <- tlei_multicopy_genes %>%
+  filter(!(og_id %in% mito_og$og_id)) # 3857 genes, 1295 orthogroups
+
 corr_Tlei <- data.frame()
 for (i in unique(Tlei_multicopy$og_id)){
   orthogroup <- Tlei_multicopy[Tlei_multicopy$og_id == i,]
@@ -358,7 +354,6 @@ for (i in unique(Tlei_multicopy$og_id)){
                             as.integer(nr_genes), as.numeric(total_mean_cov), expected_mean_cov)
   corr_Tlei <- rbind(corr_Tlei, corr_family_size)
 }
-rownames(corr_Tlei) <- c(1:1450)
 colnames(corr_Tlei) <- c("og_id", "correction_factor", "corr_Tlei_count","old_Tlei_count", "total_mean_cov", "expected_mean_cov")
 
 write.table(corr_Tlei, file = "corrected_family_sizes_Tlei.txt")
