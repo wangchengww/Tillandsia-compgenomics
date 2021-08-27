@@ -1,0 +1,7 @@
+Filtering out genes outside of the main genome
+
+It is not so easy to separate plastid and mitochondrial genes from nuclear genes, as sometimes proteins active in the organelles are stored in the nucleus. I tried first by simply removing all genes with an annotation containing the words "chloroplast", "mitochondrial" or "ribosomal", but this seemed a leaky method. Genes from the photosystem, for example, are located in the chloroplast but this is not mentioned in the annotation. Therefore, I was not actively removing them from my set of genes.
+
+It is key to properly filter out non-nuclear genes, since they will otherwise come out as the main large gene-families in our analysis. So I decided to try another approach - use uniprot annotations to properly remove genes located in the organelles.
+
+To do this, I had to return to the annotation file from Blast2Go to obtain gene IDs from other assemblies that blasted to my gene models. I can then search these genes in the uniprot database, and select all those that are located outside of the nucleus. 
