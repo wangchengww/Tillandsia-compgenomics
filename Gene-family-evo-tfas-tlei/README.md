@@ -96,12 +96,12 @@ Testing different forms of size corrections:
 
 I first selected only orthogroups that were not mitochondrial, ribosomal or plastid. I took the following steps:
 
-    # Search for the words "chloroplast", "ribosomal" or "mitochondrial" and isolate orthogroups that carry such annotations
+    # Search for the words "chloroplast", "ribosomal" or "mitochondrial" and isolate orthogroups that carry such annotations. Later I also added the word "Photosystem" as these genes are located on the plastid genome, but not annotated as such. They often showed very high coverage in our assemblies.
     grep -f filter_plastid_ribosomal_OGs.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.txt | cut -f 7 | sort -u > mito_plastid_ribo_OGs.txt
     # Select all genes that don't belong to these orthogroups
     grep -v -f mito_plastid_ribo_OGs.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.txt > orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.txt
 
-This resulted in 62,788 (88 %) genes and 16,914 (88 %) orthogroups.
+This resulted in 62,589 (88 %) genes and 16,858 (88 %) orthogroups.
 
 I then obtained a table of per-orhogroup gene counts by selecting the orthogroup and count fields of the orthology table.
 The relationship of gene family size between species was explored in `Gene_family_evolution_new.R`
