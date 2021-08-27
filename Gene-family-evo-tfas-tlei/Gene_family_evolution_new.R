@@ -2,8 +2,9 @@
 
 library(ggplot2)
 
+setwd("Documents/GitHub/Tillandsia-compgenomics/Gene-family-evo-tfas-tlei/")
 setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/Gene-family-evo-tfas-tlei/")
-counts <- read.table("orthogroups_Tfas_Tlei_Acom.counts.no_TEs.size_corrections.txt", sep = '\t')
+counts <- read.table("orthogroups_Tfas_Tlei_Acom.counts.no_TEs.size_corrections.no_plastid-mito-ribo.txt", sep = '\t')
 colnames(counts) <- c("og_id", "Acom", "Tfas", "Tlei")
 
 # Filter out unique orthogroups
