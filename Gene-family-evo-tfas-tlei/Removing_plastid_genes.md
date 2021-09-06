@@ -24,36 +24,36 @@ Using these files, I accumulated the genes from mitochondrial, plastid and ribos
 This resulted in 353 genes in Tfas and 418 genes in Tlei.
 I then combined both files:
 
-    `cat Tfas_mito_plastid_ribo_genes.txt Tlei_mito_plastid_ribo_genes.txt | sort -u > mito_plastid_ribo_genes_to_remove.txt`
+    cat Tfas_mito_plastid_ribo_genes.txt Tlei_mito_plastid_ribo_genes.txt | sort -u > mito_plastid_ribo_genes_to_remove.txt
 
 Note: I realized that this approach still left plastid genes out. So additionally, I blasted all the T.fasciculata genes to the fasta file of A.comosus plastid genes. To obtain the A.comosus fasta sequences of the plastid genes, I used getfasta from bedtools with the gff file. This is because the original fastafile on NCBI doesn't contain all genes.
 
-    `grep "NC_011033.1" GCF_001433935.1_IRGSP-1.0_genomic.gff | awk '$3 == "gene" {print $0}' > mitochondrial_genes_oryza_IRSGP1.gff
+    grep "NC_011033.1" GCF_001433935.1_IRGSP-1.0_genomic.gff | awk '$3 == "gene" {print $0}' > mitochondrial_genes_oryza_IRSGP1.gff
     gff2bed < mitochondrial_genes_oryza_IRSGP1.gff > mitochondrial_genes_oryza_IRSGP1.bed
-    bedtools getfasta -fi motichondrion_full_seq_Oryza_IRGSP1.fasta -bed mitochondrial_genes_oryza_IRSGP1.bed -name > mitochondrial_genes_oryza_IRSGP1.fasta`
+    bedtools getfasta -fi motichondrion_full_seq_Oryza_IRGSP1.fasta -bed mitochondrial_genes_oryza_IRSGP1.bed -name > mitochondrial_genes_oryza_IRSGP1.fasta
 
 Blast was run as following:
 
-    `/apps/ncbiblastplus/2.10.0/bin/blastn -query plastid_genes_Acomosus_F153.fasta -subject   Tillandsia_fasciculata_v1.transcripts.in_orthogroups.fasta -outfmt "6 qseqid sseqid pident length qcovs qlen slen gapopen mismatch evalue" -evalue 1e-10 -out blastn_Acomosus_chloroplast_Tfas.out`
+    /apps/ncbiblastplus/2.10.0/bin/blastn -query plastid_genes_Acomosus_F153.fasta -subject   Tillandsia_fasciculata_v1.transcripts.in_orthogroups.fasta -outfmt "6 qseqid sseqid pident length qcovs qlen slen gapopen mismatch evalue" -evalue 1e-10 -out blastn_Acomosus_chloroplast_Tfas.out
 
 I then simply combined the identified genes from the blast run and the name search, as the lists only partially overlap:
 
-    `grep -w -f plastid_genes_Acomosus_F153.txt Tfas_genes_blast2go_annotations.txt | cut -f 1 | sort -u > namesearch_genes
+    grep -w -f plastid_genes_Acomosus_F153.txt Tfas_genes_blast2go_annotations.txt | cut -f 1 | sort -u > namesearch_genes
     cut -f 2 blastn_Acomosus_chloroplast_Tfas.out | sort -u > blast_genes
-    cat blast_genes namesearch_genes | sort -u > plastid_genes_Acomosus_F153_blast_and_namesearch.to_remove.txt`
+    cat blast_genes namesearch_genes | sort -u > plastid_genes_Acomosus_F153_blast_and_namesearch.to_remove.txt
 
 Then, I combined all mitochondrial and chloroplast genes (of both species) into one file:
 
-    `cat Tfas_plastid_genes_Acomosus_F153_blast_and_namesearch.to_remove.txt Tlei_plastid_genes_Acomosus_F153_blast_and_namesearch.to_remove.txt Tfas_mito_genes_Oryza_IRSGP1_blast_and_namesearch.to_remove.txt Tlei_mito_genes_Oryza_IRSGP1_blast_and_namesearch.to_remove.txt | sort -u > all_mito_plastid_genes_to_remove.txt`
+    cat Tfas_plastid_genes_Acomosus_F153_blast_and_namesearch.to_remove.txt Tlei_plastid_genes_Acomosus_F153_blast_and_namesearch.to_remove.txt Tfas_mito_genes_Oryza_IRSGP1_blast_and_namesearch.to_remove.txt Tlei_mito_genes_Oryza_IRSGP1_blast_and_namesearch.to_remove.txt | sort -u > all_mito_plastid_genes_to_remove.txt
 
 Lastly, I added ribosomal genes with the grep function as showed above. The total set of mitochondrial, chloroplast and ribosomal genes to remove from both species contained 852 entries.
 
 I don't just want to remove these genes, but the entire orthogroup they belong to. So, to get hold of that information, I searched for the genes in the original orthogroups file, extracted the orthogroups:
 
-    `grep -f mito_plastid_ribo_genes_to_remove.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.txt | cut -f 7 | sort -u > mito_plastid_ribo_OGs_to_remove.txt`
+    grep -f mito_plastid_ribo_genes_to_remove.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.txt | cut -f 7 | sort -u > mito_plastid_ribo_OGs_to_remove.txt
 
 This lead to 404 orthogroups to remove, which is a much more select group than by plainly using the search function.
 
-    `grep -v -f mito_plastid_ribo_OGs_to_remove.txt ../orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.txt > orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.blastandsearch.txt`
+    grep -v -f mito_plastid_ribo_OGs_to_remove.txt ../orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.txt > orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.blastandsearch.txt
 
 The final list contained 69,229 genes and 18,697 orthogroups.
