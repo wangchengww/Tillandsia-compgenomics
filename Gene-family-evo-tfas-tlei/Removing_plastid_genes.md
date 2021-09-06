@@ -17,9 +17,9 @@ I also extracted the genes we are examining from the original Blast2Go gff file 
 
 Using these files, I accumulated the genes from mitochondrial, plastid and ribosomal origin in the following way:
 
-    `grep -w -f plastid_genes_Acomosus_F153.txt Tfas_genes_blast2go_annotations.txt | cut -f 1 > Tfas_mito_plastid_ribo_genes.txt
+    grep -w -f plastid_genes_Acomosus_F153.txt Tfas_genes_blast2go_annotations.txt | cut -f 1 > Tfas_mito_plastid_ribo_genes.txt
     grep -w -f mitochondrial_genes_oryza_IRSGP1.txt Tfas_genes_blast2go_annotations.txt | cut -f 1 >> Tfas_mito_plastid_ribo_genes.txt
-    grep "ribosomal" Tfas_genes_blast2go_annotations.txt | cut -f 1>> Tfas_mito_plastid_ribo_genes.txt`
+    grep "ribosomal" Tfas_genes_blast2go_annotations.txt | cut -f 1>> Tfas_mito_plastid_ribo_genes.txt
 
 This resulted in 353 genes in Tfas and 418 genes in Tlei.
 I then combined both files:
