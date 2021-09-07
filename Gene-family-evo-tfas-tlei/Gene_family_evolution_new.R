@@ -28,4 +28,36 @@ ggplot(counts_Tfas_Tlei_multi) + geom_hex(aes(Tfas, Tlei), bins = 100) +
 
 write.table(counts_Tfas_Tlei_multi, file = "orthogroup_selection_multicopy_for_GO_term_all.txt", sep = "\t")
 
+# if (!requireNamespace("BiocManager", quietly=TRUE)) + install.packages("BiocManager")
+# BiocManager::install()
+# if (!requireNamespace("BiocManager", quietly=TRUE)) + install.packages("BiocManager")
+# BiocManager::install("topGO")
+if (!requireNamespace("BiocManager", quietly=TRUE)) + install.packages("BiocManager")
+ BiocManager::install("ALL")
+
+library(topGO)
+geneID2GO <- readMappings(file = "genes_to_GO.map")
+GO2geneID <- inverseList(geneID2GO)
+geneNames <- names(geneID2GO)
+dup_genes <- read.table("dup_genes_Tfas-Tlei.txt")
+geneList <- factor(as.integer(geneNames %in% dup_genes$V1))
+names(geneList) <- geneNames
+str(geneList)
+
+GOdata.BP <- new("topGOdata", ontology = "BP", allGenes = geneList, annot = annFUN.gene2GO, gene2GO = geneID2GO)
+GOdata.MF <- new("topGOdata", ontology = "MF", allGenes = geneList, annot = annFUN.gene2GO, gene2GO = geneID2GO)
+GOdata.CC <- new("topGOdata", ontology = "CC", allGenes = geneList, annot = annFUN.gene2GO, gene2GO = geneID2GO)
+
+resultWeight01.BP = runTest(GOdata.BP, statistic = "fisher")
+resultWeight01.MF = runTest(GOdata.MF, statistic = "fisher")
+resultWeight01.CC = runTest(GOdata.CC, statistic = "fisher")
+
+allRes.BP1 = GenTable(GOdata.BP, weight01_pval=resultWeight01.BP, orderBy = "weight01", ranksOf = "weight01",topNodes = 20)
+allRes.BP2 = cbind(allRes.BP1,"BP")
+
+allRes.MF1 = GenTable(GOdata.MF, weight01_pval=resultWeight01.MF, orderBy = "weight01", ranksOf = "weight01",topNodes = 20)
+allRes.MF2 = cbind(allRes.MF1,"MF")
+
+allRes.CC1 = GenTable(GOdata.CC, weight01_pval=resultWeight01.CC, orderBy = "weight01", ranksOf = "weight01",topNodes = 20)
+allRes.CC2 = cbind(allRes.CC1,"CC")
 
