@@ -101,3 +101,9 @@ This resulted in 69,229 genes and 18,697 orthogroups.
 I then obtained a table of per-orhogroup gene counts by selecting the orthogroup and count fields of the orthology table:
 cut -f 7,8,9,10 orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo2.txt | sort -u > orthogroups_Tfas_Tlei_Acom.counts.no_TEs.size_corrections.no_plastid-mito-ribo2.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.txt
 The relationship of gene family size between species was explored in `Gene_family_evolution_new.R`
+
+# GO term enrichment of multi-copy gene families
+
+To have an idea of what sort of gene families occur in multicopy in either species, I selected all gene families where in at least one species the gene count is > 2. Then I ran TopGO to obtain GO term enrichment of this subset.
+
+The subset of multicopy genes contained 6855 genes in T. fasciculata and 4820 genes in T. leiboldiana. After size correction, the sum of reported sizes for these two subsets are 6585 genes and 4796 genes. In other words, the difference in gene numbers is not very large (270 in Tfas and 24 in Tlei)- perhaps a correction in GO terms is therefore not necessary. A 
