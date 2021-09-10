@@ -26,7 +26,14 @@ ggplot(counts_Tfas_Tlei_multi) + geom_hex(aes(Tfas, Tlei), bins = 100) +
   theme_bw()
   theme_bw()
 
+counts_more_Tlei <- counts_Tfas_Tlei_multi[(counts_Tfas_Tlei_multi$Tfas < counts_Tfas_Tlei_multi$Tlei),]
+counts_more_Tfas <- counts_Tfas_Tlei_multi[(counts_Tfas_Tlei_multi$Tfas > counts_Tfas_Tlei_multi$Tlei),]
+
 write.table(counts_Tfas_Tlei_multi, file = "orthogroup_selection_multicopy_for_GO_term_all.txt", sep = "\t")
+write.table(counts_more_Tfas, file = "orthogroup_selection_multicopy_larger_in_Tfas.txt", sep = "\t")
+write.table(counts_more_Tlei, file = "orthogroup_selection_multicopy_larger_in_Tlei.txt", sep = "\t")
+
+### GO term enrichment on all multi-copy genes ###
 
 # if (!requireNamespace("BiocManager", quietly=TRUE)) + install.packages("BiocManager")
 # BiocManager::install()
@@ -44,20 +51,116 @@ geneList <- factor(as.integer(geneNames %in% dup_genes$V1))
 names(geneList) <- geneNames
 str(geneList)
 
-GOdata.BP <- new("topGOdata", ontology = "BP", allGenes = geneList, annot = annFUN.gene2GO, gene2GO = geneID2GO)
-GOdata.MF <- new("topGOdata", ontology = "MF", allGenes = geneList, annot = annFUN.gene2GO, gene2GO = geneID2GO)
-GOdata.CC <- new("topGOdata", ontology = "CC", allGenes = geneList, annot = annFUN.gene2GO, gene2GO = geneID2GO)
+change_names <- function(data, name_list){
+  colnames(data) <- name_list
+  return(data)
+}
 
+rename <- function(table, geneNames){
+  names(table) <- geneNames
+  return(table)
+}
+
+attach_enriched_go_genes <- function(enriched_go_with_my_genes){
+  enriched_go_with_my_genes.list = c()
+  for (i in 1:length(enriched_go_with_my_genes)){
+    enriched_go_with_my_genes.list = c(enriched_go_with_my_genes.list, enriched_go_with_my_genes[[i]])
+  }
+  return(enriched_go_with_my_genes.list)
+}
+
+name_list = c("GO.ID","Term","Annotated","Significant","Expected","weight01_pval", "branch")
+table = as.factor(geneNames) %in% dup_genes$V1
+int_table = as.integer(table)
+int_fac_table = factor(int_table)
+fac_table = rename(table = int_fac_table, geneNames = geneNames)
+
+GOdata.BP = new("topGOdata", ontology = "BP", allGenes = fac_table, annot = annFUN.gene2GO, gene2GO = geneID2GO)
+GOdata.MF = new("topGOdata", ontology = "MF", allGenes = fac_table, annot = annFUN.gene2GO, gene2GO = geneID2GO)
+GOdata.CC = new("topGOdata", ontology = "CC", allGenes = fac_table, annot = annFUN.gene2GO, gene2GO = geneID2GO)
 resultWeight01.BP = runTest(GOdata.BP, statistic = "fisher")
 resultWeight01.MF = runTest(GOdata.MF, statistic = "fisher")
 resultWeight01.CC = runTest(GOdata.CC, statistic = "fisher")
 
-allRes.BP1 = GenTable(GOdata.BP, weight01_pval=resultWeight01.BP, orderBy = "weight01", ranksOf = "weight01",topNodes = 20)
+allRes.BP1 = GenTable(GOdata.BP, weight01_pval=resultWeight01.BP, orderBy = "weight01", ranksOf = "weight01",topNodes = 100)
 allRes.BP2 = cbind(allRes.BP1,"BP")
+allRes.BP = change_names(data = allRes.BP2, name_list = name_list)
 
-allRes.MF1 = GenTable(GOdata.MF, weight01_pval=resultWeight01.MF, orderBy = "weight01", ranksOf = "weight01",topNodes = 20)
+allRes.MF1 = GenTable(GOdata.MF, weight01_pval=resultWeight01.MF, orderBy = "weight01", ranksOf = "weight01",topNodes = 100)
 allRes.MF2 = cbind(allRes.MF1,"MF")
+allRes.MF = change_names(data = allRes.MF2, name_list = name_list)
 
-allRes.CC1 = GenTable(GOdata.CC, weight01_pval=resultWeight01.CC, orderBy = "weight01", ranksOf = "weight01",topNodes = 20)
+allRes.CC1 = GenTable(GOdata.CC, weight01_pval=resultWeight01.CC, orderBy = "weight01", ranksOf = "weight01",topNodes = 100)
 allRes.CC2 = cbind(allRes.CC1,"CC")
+allRes.CC = change_names(data = allRes.CC2, name_list = name_list)
+#colnames(allRes.CC) = c("GO.ID","Term","Annotated","Significant","Expected","weight01_pval", "branch"),
 
+allRes1 = rbind(allRes.BP,allRes.MF)
+allRes = rbind(allRes1, allRes.CC)
+
+allGO.BP = genesInTerm(GOdata.BP)
+allGO.MF = genesInTerm(GOdata.MF)
+allGO.CC = genesInTerm(GOdata.CC)
+allGO = c(allGO.BP, allGO.MF, allGO.CC)
+
+SAM_ANOTATION = lapply(allGO,function(x) x[x %in%  dup_genes$V1])
+enriched_go_with_my_genes = lapply(SAM_ANOTATION[allRes[,1]], paste0, collapse = ", ")
+enriched_go_with_my_genes.list = attach_enriched_go_genes(enriched_go_with_my_genes)
+go.dataframe = data.frame("Category" = allRes$branch, "ID" = allRes$GO.ID, "Term" = allRes$Term, 
+                          "Genes" = as.vector(enriched_go_with_my_genes.list), 
+                          "adj_pval" = (sub(",", ".", allRes$weight01_pval, fixed = TRUE)))
+go.dataframe[101,5] <- "1e-30"
+go.dataframe$adj_pval <- as.numeric(go.dataframe$adj_pval)
+
+write.table(go.dataframe, file = "Enriched_GO_terms_Tfas-Tlei_ALL_multicopy_genes.txt")
+
+### GO term enrichment on orthogroups larger in Tfas ###
+
+dup_genes <- read.table("dup_genes_larger_in_Tfas.txt")
+geneList <- factor(as.integer(geneNames %in% dup_genes$V1))
+names(geneList) <- geneNames
+str(geneList)
+
+name_list = c("GO.ID","Term","Annotated","Significant","Expected","weight01_pval", "branch")
+table = as.factor(geneNames) %in% dup_genes$V1
+int_table = as.integer(table)
+int_fac_table = factor(int_table)
+fac_table = rename(table = int_fac_table, geneNames = geneNames)
+
+GOdata.BP = new("topGOdata", ontology = "BP", allGenes = fac_table, annot = annFUN.gene2GO, gene2GO = geneID2GO)
+GOdata.MF = new("topGOdata", ontology = "MF", allGenes = fac_table, annot = annFUN.gene2GO, gene2GO = geneID2GO)
+GOdata.CC = new("topGOdata", ontology = "CC", allGenes = fac_table, annot = annFUN.gene2GO, gene2GO = geneID2GO)
+resultWeight01.BP = runTest(GOdata.BP, statistic = "fisher")
+resultWeight01.MF = runTest(GOdata.MF, statistic = "fisher")
+resultWeight01.CC = runTest(GOdata.CC, statistic = "fisher")
+
+allRes.BP1 = GenTable(GOdata.BP, weight01_pval=resultWeight01.BP, orderBy = "weight01", ranksOf = "weight01",topNodes = 100)
+allRes.BP2 = cbind(allRes.BP1,"BP")
+allRes.BP = change_names(data = allRes.BP2, name_list = name_list)
+
+allRes.MF1 = GenTable(GOdata.MF, weight01_pval=resultWeight01.MF, orderBy = "weight01", ranksOf = "weight01",topNodes = 100)
+allRes.MF2 = cbind(allRes.MF1,"MF")
+allRes.MF = change_names(data = allRes.MF2, name_list = name_list)
+
+allRes.CC1 = GenTable(GOdata.CC, weight01_pval=resultWeight01.CC, orderBy = "weight01", ranksOf = "weight01",topNodes = 100)
+allRes.CC2 = cbind(allRes.CC1,"CC")
+allRes.CC = change_names(data = allRes.CC2, name_list = name_list)
+
+allRes1 = rbind(allRes.BP,allRes.MF)
+allRes = rbind(allRes1, allRes.CC)
+
+allGO.BP = genesInTerm(GOdata.BP)
+allGO.MF = genesInTerm(GOdata.MF)
+allGO.CC = genesInTerm(GOdata.CC)
+allGO = c(allGO.BP, allGO.MF, allGO.CC)
+
+SAM_ANOTATION = lapply(allGO,function(x) x[x %in%  dup_genes$V1])
+enriched_go_with_my_genes = lapply(SAM_ANOTATION[allRes[,1]], paste0, collapse = ", ")
+enriched_go_with_my_genes.list = attach_enriched_go_genes(enriched_go_with_my_genes)
+go.dataframe = data.frame("Category" = allRes$branch, "ID" = allRes$GO.ID, "Term" = allRes$Term, 
+                          "Genes" = as.vector(enriched_go_with_my_genes.list), 
+                          "adj_pval" = as.numeric(sub(",", ".", allRes$weight01_pval, fixed = TRUE)))
+go.dataframe[101,5] <- "1e-30"
+go.dataframe$adj_pval <- as.numeric(go.dataframe$adj_pval)
+
+write.table(go.dataframe, file = "Enriched_GO_terms_Tfas-Tlei_ALL_multicopy_genes.txt")

@@ -106,4 +106,6 @@ The relationship of gene family size between species was explored in `Gene_famil
 
 To have an idea of what sort of gene families occur in multicopy in either species, I selected all gene families where in at least one species the gene count is > 2. Then I ran TopGO to obtain GO term enrichment of this subset.
 
-The subset of multicopy genes contained 6855 genes in T. fasciculata and 4820 genes in T. leiboldiana. After size correction, the sum of reported sizes for these two subsets are 6585 genes and 4796 genes. In other words, the difference in gene numbers is not very large (270 in Tfas and 24 in Tlei)- perhaps a correction in GO terms is therefore not necessary. Of the selected multi-copy genes, 1968 (29 %) in Tfas and 1169 (24 %) have no GO terms at all.
+The subset of multicopy genes contained 6855 genes in T. fasciculata and 4820 genes in T. leiboldiana. After size correction, the sum of reported sizes for these two subsets are 6585 genes and 4796 genes. In other words, the difference in gene numbers is not very large (270 in Tfas and 24 in Tlei)- perhaps a correction in GO terms is therefore not necessary for the big scale. Of the selected multi-copy genes, 1968 (29 %) in Tfas and 1169 (24 %) have no GO terms at all.
+
+Important: somehow some neuronal go terms have ended up in our annotation, we need to clean this out
