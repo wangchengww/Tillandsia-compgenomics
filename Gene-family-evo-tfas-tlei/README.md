@@ -108,4 +108,14 @@ To have an idea of what sort of gene families occur in multicopy in either speci
 
 The subset of multicopy genes contained 6855 genes in T. fasciculata and 4820 genes in T. leiboldiana. After size correction, the sum of reported sizes for these two subsets are 6585 genes and 4796 genes. In other words, the difference in gene numbers is not very large (270 in Tfas and 24 in Tlei)- perhaps a correction in GO terms is therefore not necessary for the big scale. Of the selected multi-copy genes, 1968 (29 %) in Tfas and 1169 (24 %) have no GO terms at all.
 
-Important: somehow some neuronal go terms have ended up in our annotation, we need to clean this out
+GO term enrichment was run on all multicopy genes, on a subset of genes belonging to families where copy number was larger in Tfas and on a subset of genes belonging yo families where copy number was larger in Tlei. This can give us an idea of the direction in which certain functions have had gene family expansion.
+
+Important: somehow some neuronal go terms have ended up in our annotation, we need to clean this out??
+
+GO terms were studied by eye and interesting terms were studied on a gene-level. A number of genes putatively involved in CAM photosynthesis belong to multicopy gene families. However, this was only a small subset of multicopy genes and broad patterns of gene duplication related to the evolution of key innovative traits remained unclear in both species. This is mostly because GO terms poorly reflect the traits we are interested in and remain quite difficult to interpret.
+
+# Detecting "genes of interest" in the multicopy gene family pool
+
+A reverse approach, where we search for genes of interest in our set of multicopy gene families, may give us better idea on gene family evolution and key innovation traits. I made use of the ~ 700 genes of interest identified in previous work by Marylaure and Gil to see if a proportion of these genes were to be found in our mutlicopy gene family set.
+
+  
