@@ -1,0 +1,501 @@
+gene	seqname	Single_copy.Broc_Anan_Tilla.	Low_copy.Broc_Anan_Tilla.	High_copy.Broc_Anan_Tilla.	Diff_expressed_CAMC3	pos_selection_CAM_shifts	gene_families_CAMC3	Angiosperm_gene	CAM-related_Acomosus_Ming2015	stomata_func	aquaporin_reg	draught_res	markers	anthocyanin_SI_Ananas	circadian_metabolism_Wai2017	malateTransferase_Assimilation_Carbohydrates	fllavonoid_anthocyanin_Pitcairnia_PS	pos_sel_portullugo	glucogenesis_glycolysis	circadian_clock	type	average_exon_size	nr_exons_per_gene	total_exonic_size	min_exon_size
+Aco000127	LG12	no	yes	no	yes	NA	NA	NA									NA	NA			NA	299	2	598	254
+Aco000252	LG12	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_CircadianOscillator_flavin-bindind_kelch-repeat_fbox1	1099	2	2198	410
+Aco000269	LG12	yes	no	no	yes	NA	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	426.8	5	2134	36
+Aco000352	LG12	yes	no	no	NA	NA	NA	NA							yes		NA	NA			00_#W_ProtonPump_VHA-E	185.7272727273	11	2043	23
+Aco000482	LG12	NA	NA	NA	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	269	1	269	269
+Aco000491	LG12	no	yes	no	yes	NA	NA	NA									NA	NA			NA	713	2	1426	531
+Aco000577	LG12	NA	NA	NA	NA	NA	NA	NA								yes	NA	NA			03_VATPase	129.2	5	646	99
+Aco000599	LG12	yes	no	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	355	3	1065	257
+Aco000648	LG12	no	yes	no	NA	yes	NA	NA									NA	NA			NA	2834	1	2834	2834
+Aco000653	LG12	yes	no	no	yes	NA	NA	NA									NA	NA			NA	177.5	8	1420	52
+Aco000722	LG02	yes	no	no	yes	NA	NA	NA									NA	NA			NA	581	1	581	581
+Aco000736	LG02	yes	no	no	yes	NA	NA	NA									NA	NA			NA	438.5	2	877	367
+Aco000795	LG02	yes	no	no	NA	NA	NA	NA							yes		NA	PREDICTED: Beta vulgaris subsp. vulgaris tonoplast dicarboxylate transporter (LOC104900882)_ mRNA			00_#W_MalateTransporter_tDT_11_Glycolysis_night_C4_malate_pathway	364.8333333333	6	2189	43
+Aco000950	LG02	no	no	yes	yes	NA	NA	NA									NA	NA			NA	630.6	5	3153	67
+Aco000985	LG02	yes	no	no	yes	NA	NA	NA									NA	NA			NA	386.5	2	773	213
+Aco001001	LG02	yes	no	no	NA	yes	NA	NA									NA	NA			NA	822	3	2466	497
+Aco001003	LG02	yes	no	no	NA	yes	NA	NA									NA	NA	yes		11_Glycolysis_night_C4_malate_pathway	128.3571428571	14	1797	44
+Aco001055	LG02	yes	no	no	yes	NA	NA	NA									NA	NA			NA	285.8571428571	7	2001	66
+Aco001089	LG02	yes	no	no	NA	NA	NA	NA								yes	NA	NA			05_Chloroplasts_activity	367	3	1101	325
+Aco001106	LG02	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	191	4	764	61
+Aco001181	LG02	yes	no	no	NA	NA	NA	NA								yes	NA	NA			05_Chloroplasts_activity	606.5	2	1213	403
+Aco001261	LG02	yes	no	no	NA	NA	NA	NA	yes								NA	NA			00_#16_calciumdependent_protK	458.25	4	1833	106
+Aco001326	LG02	yes	no	no	NA	NA	NA	NA		yes					yes		NA	NA			00_#W_StomatalMovement_ABA_responsive_binding-element_F101b_Abscisic_acid_signal	454	5	2270	26
+Aco001416	LG18	yes	no	no	yes	NA	NA	NA									NA	NA			NA	259.3333333333	3	778	132
+Aco001473	LG18	no	yes	no	yes	NA	NA	NA									NA	NA			NA	491	1	491	491
+Aco001482	LG18	yes	no	no	yes	NA	NA	NA									NA	NA			NA	288.5	2	577	254
+Aco001521	LG18	yes	no	no	NA	yes	NA	NA									NA	NA			NA	104.5	12	1254	35
+Aco001542	LG18	yes	no	no	yes	NA	NA	NA									NA	NA			NA	105.4	15	1581	27
+Aco001571	LG18	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	132	3	396	114
+Aco001618	LG18	no	no	yes	yes	NA	NA	NA									NA	NA			NA	372.3333333333	6	2234	191
+Aco001637	LG18	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	247.6923076923	13	3220	49
+Aco001647	LG18	yes	no	no	yes	NA	NA	NA									NA	NA			NA	377	1	377	377
+Aco001651	LG18	yes	no	no	yes	NA	NA	NA									NA	NA			NA	190.2	10	1902	59
+Aco001707	LG18	NA	NA	NA	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	290.3333333333	3	871	71
+Aco001744	LG18	no	yes	no	NA	NA	yes	NA									NA	NA			NA	384.75	4	1539	134
+Aco001848	LG18	yes	no	no	yes	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	518	2	1036	243
+Aco001900	LG18	yes	no	no	yes	NA	NA	NA							yes		NA	NA			00_#W_SucroseTransporter_SWEET11/12	170	7	1190	36
+Aco001941	LG18	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	171.5	14	2401	46
+Aco002037	LG04	no	yes	no	yes	NA	NA	NA									NA	NA			NA	320.4285714286	7	2243	15
+Aco002055	LG04	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	647	1	647	647
+Aco002187	LG04	yes	no	no	NA	yes	NA	NA									NA	NA			NA	291.3571428571	14	4079	61
+Aco002227	LG04	no	yes	no	NA	NA	NA	NA								yes	NA	NA			04_Oxygen_evolving_enhancer_OEE	259.5	4	1038	50
+Aco002253	LG04	no	yes	no	yes	NA	NA	NA									NA	NA			NA	428.375	8	3427	83
+Aco002284	LG04	yes	no	no	NA	yes	NA	NA									NA	NA			NA	475.5	4	1902	253
+Aco002305	LG04	yes	no	no	yes	NA	NA	NA									NA	NA			NA	709.6666666667	3	2129	422
+Aco002324	LG04	no	yes	no	yes	NA	NA	NA									NA	NA			NA	384	5	1920	39
+Aco002366	LG04	no	yes	no	yes	NA	NA	NA									NA	NA			NA	297.5	2	595	14
+Aco002400	LG04	yes	no	no	yes	NA	NA	NA									NA	NA			NA	123.6666666667	9	1113	11
+Aco002475	LG04	NA	NA	NA	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	372	2	744	177
+Aco002476	LG04	yes	no	no	NA	NA	NA	NA							yes		NA	NA			00_#W_FructoseTransporter_SWEET17	214.1666666667	6	1285	36
+Aco002499	LG04	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_StomatalMovement_ethylene_insensitive1	362.6	5	1813	102
+Aco002508	LG04	no	yes	no	NA	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	784	3	2352	306
+Aco002530	LG04	no	no	yes	yes	NA	NA	NA									NA	NA			NA	232.25	4	929	55
+Aco002583	LG04	no	yes	no	NA	NA	yes	NA									NA	NA			NA	170	6	1020	15
+Aco002605	LG06	no	yes	no	NA	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	339.3333333333	9	3054	53
+Aco002616	LG06	yes	no	no	yes	NA	NA	NA									NA	NA			NA	443	1	443	443
+Aco002667	LG06	NA	NA	NA	yes	NA	NA	NA									NA	NA			NA	222.4285714286	7	1557	59
+Aco002677	LG06	yes	no	no	NA	yes	NA	NA									NA	NA			NA	914	2	1828	409
+Aco002697	LG06	yes	no	no	yes	NA	NA	NA									NA	NA			NA	241.5	4	966	60
+Aco002732	LG06	yes	no	no	NA	NA	NA	NA	yes								NA	NA			00_#04_carbonic_anhydrase	165	8	1320	48
+Aco002885	LG06	NA	NA	NA	NA	NA	NA	NA	yes								NA	NA			00_#20_hypothetical_protein	941	2	1882	240
+Aco002942	LG06	no	yes	no	yes	NA	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	196.625	8	1573	53
+Aco003023	LG06	yes	no	no	NA	NA	NA	NA							yes		NA	NA			00_#W_MalateTransporter_ALMT_10_Glucogenesis_specific_dayC3	429.6666666667	6	2578	136
+Aco003126	LG06	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	109.6	20	2192	20
+Aco003190	LG17	yes	no	no	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	362.5	2	725	229
+Aco003191	LG17	yes	no	no	yes	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	518.5	2	1037	445
+Aco003192	LG17	no	yes	no	NA	NA	yes	NA									NA	NA			NA	175.1666666667	6	1051	88
+Aco003218	LG17	no	yes	no	yes	NA	NA	NA									NA	NA			NA	220.8461538462	13	2871	73
+Aco003220	LG17	no	yes	no	NA	NA	NA	NA								yes	NA	NA			03_VATPase	405	3	1215	285
+Aco003224	LG17	yes	no	no	NA	yes	NA	NA									NA	NA			NA	300	6	1800	67
+Aco003251	LG17	NA	NA	NA	yes	NA	NA	NA									NA	NA			NA	260	1	260	260
+Aco003279	LG17	no	no	yes	NA	yes	NA	NA									NA	NA			NA	356.8888888889	9	3212	110
+Aco003312	LG17	yes	no	no	NA	NA	yes	NA									NA	NA			NA	402.5	2	805	348
+Aco003358	LG17	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	226.4166666667	12	2717	56
+Aco003414	LG17	yes	no	no	yes	NA	NA	NA									NA	NA			NA	1046	1	1046	1046
+Aco003430	LG17	no	no	yes	yes	NA	NA	NA									NA	NA			NA	329	4	1316	120
+Aco003456	LG17	yes	no	no	yes	NA	NA	NA									NA	NA			NA	372.5	2	745	71
+Aco003507	LG17	no	yes	no	yes	NA	NA	NA									NA	NA			NA	695	2	1390	65
+Aco003638	LG17	no	yes	no	yes	NA	NA	NA									NA	NA			NA	331.6666666667	6	1990	7
+Aco003639	LG17	yes	no	no	yes	NA	NA	NA									NA	NA			NA	169	10	1690	55
+Aco003689	LG17	yes	no	no	yes	NA	NA	NA									NA	NA			NA	134.7777777778	9	1213	57
+Aco003760	LG15	NA	NA	NA	yes	NA	NA	NA									NA	NA			NA	128.1666666667	6	769	35
+Aco003885	LG15	no	yes	no	yes	NA	NA	NA						yes			ALB_F_Flavonoid 3- hydroxylase	NA			00_#Ming2019_Anthocyanin_biosynthesis	313.4	5	1567	11
+Aco004131	LG15	no	yes	no	yes	NA	NA	NA							yes		NA	NA			00_#W_SucroseTransporter_10_Glucogenesis_specific_dayC3	164.6428571429	14	2305	33
+Aco004135	LG15	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_SucroseTransporters_SUT1_10_Glucogenesis_specific_dayC3	160.2857142857	14	2244	33
+Aco004155	LG15	yes	no	no	NA	yes	NA	NA									NA	NA			NA	3872	1	3872	3872
+Aco004222	LG15	NA	NA	NA	yes	NA	NA	NA									NA	NA			NA	90.5	2	181	32
+Aco004290	LG15	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	1787	1	1787	1787
+Aco004297	LG05	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	282.8	5	1414	61
+Aco004321	LG05	no	yes	no	NA	yes	NA	NA									NA	PREDICTED: Beta vulgaris subsp. vulgaris mitochondrial dicarboxylate/tricarboxylate transporter DTC (LOC104906718)_ mRNA			NA	230.2857142857	7	1612	13
+Aco004349	LG05	no	yes	no	NA	NA	NA	NA	yes								NA	NA			00_#21_Malate_dehydrogenase	199.2857142857	7	1395	61
+Aco004375	LG05	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	409.6666666667	3	1229	215
+Aco004398	LG05	yes	no	no	yes	NA	NA	NA									NA	NA			NA	685	2	1370	415
+Aco004401	LG05	NA	NA	NA	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	309	2	618	304
+Aco004406	LG05	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	689	1	689	689
+Aco004430	LG05	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	364	3	1092	247
+Aco004447	LG05	yes	no	no	yes	NA	NA	NA									NA	NA			NA	145	8	1160	52
+Aco004452	LG05	yes	no	no	yes	NA	NA	NA									NA	NA			NA	1257.5	2	2515	316
+Aco004471	LG05	no	no	yes	yes	NA	NA	NA									NA	NA			NA	665	2	1330	602
+Aco004532	LG05	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	635	1	635	635
+Aco004613	LG05	no	yes	no	yes	NA	NA	NA									NA	NA			NA	250.8571428571	7	1756	44
+Aco004646	LG05	NA	NA	NA	NA	NA	NA	NA									NA	NA		yes	09_Circadian_clock	137.5	6	825	60
+Aco004773	LG05	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	306.4	5	1532	29
+Aco004804	LG05	yes	no	no	yes	NA	NA	NA									NA	NA			NA	373.25	4	1493	232
+Aco004844	LG07	yes	no	no	yes	NA	NA	NA									NA	NA			NA	211.1111111111	9	1900	78
+Aco004854	LG07	yes	no	no	yes	NA	NA	NA									NA	NA			NA	246.5	4	986	33
+Aco004861	LG07	no	yes	no	NA	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	1442	1	1442	1442
+Aco004919	LG07	no	no	yes	NA	yes	NA	6527									NA	NA			NA	258.0476190476	21	5419	54
+Aco004946	LG07	yes	no	no	NA	NA	yes	6492									NA	NA			NA	161.1111111111	9	1450	69
+Aco004947	LG07	no	no	yes	NA	NA	NA	NA							yes		NA	NA			00_#W_StomatalMovement_RootPhototropism2	662.5	4	2650	69
+Aco004996	LG07	no	yes	no	NA	NA	NA	NA	yes								NA	NA			00_#29_Malate_dehydrogenase	161.4444444444	9	1453	35
+Aco005022	LG07	no	no	yes	yes	NA	NA	NA									NA	NA			NA	265.3333333333	6	1592	50
+Aco005055	LG07	NA	NA	NA	yes	NA	NA	NA									NA	NA			NA	318	2	636	220
+Aco005078	LG07	yes	no	no	yes	NA	NA	NA									NA	NA			NA	270	6	1620	56
+Aco005083	LG07	yes	no	no	yes	NA	NA	NA									NA	NA			NA	220.3333333333	6	1322	44
+Aco005101	LG07	no	yes	no	yes	NA	NA	NA									NA	NA			NA	468.5	6	2811	70
+Aco005108	LG07	no	yes	no	NA	NA	NA	NA							yes		NA	NA		yes	09_Circadian_clock	272	3	816	120
+Aco005127	LG07	yes	no	no	yes	NA	NA	NA									NA	NA			NA	391.3333333333	6	2348	56
+Aco005251	LG07	yes	no	no	NA	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	219.875	8	1759	61
+Aco005283	LG07	no	yes	no	yes	NA	NA	NA									NA	NA			NA	729	4	2916	125
+Aco005343	LG11	no	no	yes	yes	NA	NA	NA									NA	NA			NA	279.3529411765	17	4749	6
+Aco005354	LG11	NA	NA	NA	NA	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	800	2	1600	728
+Aco005358	LG11	no	yes	no	yes	NA	NA	NA								yes	NA	NA			05_Chloroplasts_activity	584	2	1168	415
+Aco005359	LG11	no	yes	no	yes	NA	NA	NA								yes	NA	NA			05_Chloroplasts_activity	660	2	1320	495
+Aco005366	LG11	no	yes	no	yes	NA	NA	NA									NA	NA			NA	566.25	8	4530	65
+Aco005373	LG11	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	246.5	4	986	109
+Aco005379	LG11	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_HexoseTransporter_GLUT6/8-like_transporter	116.16	25	2904	16
+Aco005399	LG11	yes	no	no	NA	yes	NA	NA									NA	NA			NA	926	1	926	926
+Aco005402	LG11	no	yes	no	NA	NA	NA	NA								yes	NA	NA			00_##06_carbonic_anhydrase	144.75	8	1158	48
+Aco005457	LG11	yes	no	no	yes	NA	NA	NA									NA	NA			NA	1235	1	1235	1235
+Aco005505	LG11	no	no	yes	NA	yes	NA	NA									NA	NA			NA	134.1578947368	19	2549	48
+Aco005513	LG11	NA	NA	NA	yes	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	565.5	2	1131	476
+Aco005561	LG11	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	710	1	710	710
+Aco005567	LG11	NA	NA	NA	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	81.5	4	326	23
+Aco005631	LG11	no	yes	no	NA	NA	NA	NA	yes								NA	PREDICTED: Beta vulgaris subsp. vulgaris NADP-dependent malic enzyme (LOC104883143)_ mRNA			00_#33_Malic_enzyme	113.125	16	1810	47
+Aco005657	LG11	no	yes	no	NA	NA	yes	NA									NA	NA			NA	537.5	2	1075	427
+Aco005715	LG11	yes	no	no	yes	NA	NA	NA								yes	NA	NA			03_VATPase	167.9	10	1679	48
+Aco005826	LG16	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	373	3	1119	182
+Aco005868	LG16	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	794	1	794	794
+Aco005908	LG16	no	yes	no	NA	NA	NA	NA								yes	NA	NA			03_VATPase	160.1428571429	7	1121	19
+Aco005915	LG16	yes	no	no	yes	NA	NA	NA									NA	NA			NA	220.6666666667	6	1324	67
+Aco005947	LG16	yes	no	no	yes	NA	NA	NA									NA	NA			NA	585	2	1170	570
+Aco005989	LG16	no	yes	no	NA	NA	NA	NA	yes								NA	PREDICTED: Beta vulgaris subsp. vulgaris NADP-dependent malic enzyme (LOC104883143)_ mRNA			00_#34_Malic_enzyme	86.5294117647	17	1471	28
+Aco006030	LG16	no	yes	no	NA	yes	NA	5206									NA	NA			NA	282.5	4	1130	170
+Aco006056	LG16	yes	no	no	yes	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	451.5	2	903	386
+Aco006084	LG16	no	yes	no	yes	NA	NA	NA									NA	NA			NA	626.3333333333	3	1879	349
+Aco006096	LG16	yes	no	no	yes	yes	NA	NA									NA	NA			NA	571	3	1713	406
+Aco006122	LG16	no	yes	no	NA	NA	NA	NA	yes								NA	NA			00_#17_Malate_dehydrogenase	229.1428571429	7	1604	61
+Aco006140	LG16	yes	no	no	yes	NA	NA	NA									NA	NA			NA	2138	1	2138	2138
+Aco006172	LG16	yes	no	no	NA	yes	NA	7141									NA	NA			NA	405.6666666667	3	1217	164
+Aco006181	LG16	yes	no	no	NA	NA	NA	NA	yes								NA	PREDICTED: Beta vulgaris subsp. vulgaris carbonic anhydrase_ chloroplastic-like (LOC104902037)_ mRNA			00_##05_carbonic_anhydrase	146.25	8	1170	48
+Aco006345	LG14	yes	no	no	NA	yes	NA	NA									NA	NA			NA	226	14	3164	119
+Aco006394	LG14	no	yes	no	yes	NA	NA	NA									NA	NA			NA	578.5	2	1157	349
+Aco006436	LG14	no	yes	no	NA	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	155	9	1395	12
+Aco006438	LG14	no	yes	no	yes	NA	NA	NA									NA	NA			NA	626	1	626	626
+Aco006606	LG14	no	no	yes	yes	NA	NA	NA									NA	NA			NA	297.3333333333	6	1784	77
+Aco006659	LG01	yes	no	no	NA	NA	yes	NA									NA	NA			NA	1016	1	1016	1016
+Aco006693	LG01	yes	no	no	NA	yes	NA	5032									NA	NA			NA	140.6428571429	14	1969	31
+Aco006719	LG01	yes	no	no	NA	NA	NA	NA								yes	NA	NA			04_Oxygen_evolving_enhancer_OEE	451.3333333333	3	1354	293
+Aco006754	LG01	yes	no	no	NA	NA	yes	NA									NA	NA			NA	142.75	4	571	80
+Aco006847	LG01	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	185	2	370	3
+Aco006923	LG22	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	225.6666666667	3	677	113
+Aco006978	LG22	no	yes	no	NA	NA	yes	NA									NA	NA			NA	189.3076923077	13	2461	42
+Aco007014	LG23	no	yes	no	yes	yes	NA	NA									NA	NA			NA	282.8333333333	12	3394	43
+Aco007033	LG23	yes	no	no	NA	NA	NA	NA								yes	NA	NA			03_VATPase	173.4117647059	17	2948	44
+Aco007085	LG23	no	no	yes	yes	yes	NA	NA									NA	NA			NA	693	3	2079	133
+Aco007198	LG23	NA	NA	NA	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	330	3	990	4
+Aco007291	LG23	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	170.9285714286	14	2393	46
+Aco007440	LG12	no	yes	no	yes	NA	NA	NA									NA	NA			NA	537	5	2685	181
+Aco007441	LG12	no	no	yes	NA	NA	NA	NA							yes		NA	NA			00_#W_StomatalMovement_RootPhototropism2	456.8	5	2284	69
+Aco007465	LG12	no	yes	no	yes	NA	NA	NA									NA	NA			NA	100.5294117647	17	1709	38
+Aco007483	LG12	NA	NA	NA	NA	yes	NA	NA									NA	NA			NA	117.1052631579	19	2225	22
+Aco007509	LG12	NA	NA	NA	yes	NA	NA	NA									NA	NA			NA	446	1	446	446
+Aco007539	LG08	no	no	yes	NA	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	307.4	5	1537	140
+Aco007548	LG08	yes	no	no	yes	NA	NA	NA									NA	NA			NA	1484	1	1484	1484
+Aco007575	LG08	no	yes	no	yes	NA	NA	NA									NA	NA			NA	152.9	10	1529	62
+Aco007622	LG08	no	yes	no	NA	NA	NA	NA	yes								NA	PREDICTED: Beta vulgaris subsp. vulgaris NAD-dependent malic enzyme 59 kDa isoform_ mitochondrial (LOC104888560)_ mRNA			00_#36_Malic_enzyme	130.7647058824	17	2223	54
+Aco007645	LG08	yes	no	no	yes	NA	NA	NA									NA	NA			NA	3146	1	3146	3146
+Aco007652	LG08	yes	no	no	yes	NA	NA	NA									NA	NA			NA	132.16	25	3304	45
+Aco007659	LG08	no	yes	no	yes	NA	NA	NA									NA	NA			NA	266.1666666667	6	1597	85
+Aco007664	LG08	yes	no	no	yes	NA	NA	NA									NA	NA			NA	760	3	2280	386
+Aco007670	LG08	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	785	1	785	785
+Aco007678	LG08	yes	no	no	yes	NA	NA	NA									NA	NA			NA	809	1	809	809
+Aco007718	LG08	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	242.6	5	1213	41
+Aco007734	LG08	no	yes	no	NA	NA	NA	NA	yes								NA	Beta vulgaris subsp. vulgaris malate dehydrogenase_ cytoplasmic (LOC104887939)_ mRNA			00_#17_Malate_dehydrogenase	217.1428571429	7	1520	111
+Aco007762	LG21	no	yes	no	yes	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	126.8125	16	2029	59
+Aco007777	LG21	yes	no	no	yes	NA	NA	NA									NA	NA			NA	247.6666666667	3	743	29
+Aco007782	LG21	no	no	yes	NA	yes	NA	NA									NA	NA			NA	358.4285714286	7	2509	48
+Aco007803	LG21	yes	no	no	yes	yes	NA	NA	yes								NA	NA			00_#01_carbonic_anhydrase	202.1666666667	6	1213	102
+Aco007828	LG21	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	432.5	2	865	353
+Aco007857	LG21	yes	no	no	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	575	2	1150	514
+Aco007876	LG21	yes	no	no	NA	NA	yes	NA									NA	NA			NA	416	2	832	282
+Aco007901	LG21	no	yes	no	yes	NA	NA	NA									NA	NA			NA	544.1111111111	9	4897	85
+Aco007973	LG21	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	272.3846153846	13	3541	56
+Aco008037	LG21	no	yes	no	NA	NA	yes	NA									NA	NA			NA	204.0769230769	13	2653	44
+Aco008105	LG21	no	yes	no	yes	NA	NA	NA									NA	NA			NA	282.8333333333	12	3394	16
+Aco008167	LG19	no	no	yes	NA	NA	NA	NA							yes		NA	NA			00_#W_ProtonPump_AVP1	369.625	8	2957	59
+Aco008192	LG19	no	no	yes	NA	NA	NA	NA							yes		NA	NA			00_#W_StomatalMovement_AHA2	222.2142857143	14	3111	96
+Aco008292	LG19	yes	no	no	yes	NA	NA	6405									NA	NA			NA	162.5	12	1950	56
+Aco008298	LG19	yes	no	no	yes	NA	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	179	7	1253	50
+Aco008300	LG19	yes	no	no	NA	NA	NA	NA							yes		NA	NA			00_#W_ProtonPump_VHA-A	125.05	20	2501	37
+Aco008348	LG19	yes	no	no	yes	NA	NA	NA									NA	NA			NA	184.25	8	1474	89
+Aco008394	LG19	yes	no	no	NA	yes	NA	NA									NA	NA			NA	1616	1	1616	1616
+Aco008426	LG19	no	no	yes	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	244.2142857143	14	3419	56
+Aco008453	LG19	yes	no	no	NA	NA	NA	7324								yes	NA	NA			05_Chloroplasts_activity	226.6	5	1133	52
+Aco008513	LG09	no	yes	no	yes	NA	NA	NA									NA	NA			NA	202.5	10	2025	36
+Aco008578	LG09	no	yes	no	yes	NA	NA	NA									NA	NA			NA	221.1428571429	14	3096	59
+Aco008626	LG09	no	yes	no	NA	NA	NA	NA	yes								NA	NA			00_#30_Malate_dehydrogenase	316.2	10	3162	35
+Aco008684	LG09	no	yes	no	NA	NA	NA	NA								yes	NA	NA			04_Oxygen_evolving_enhancer_OEE	179.6	5	898	10
+Aco008685	LG09	NA	NA	NA	yes	NA	NA	NA									NA	NA			NA	524	1	524	524
+Aco008752	LG09	yes	no	no	NA	yes	NA	NA									NA	NA			NA	508	9	4572	27
+Aco008802	LG09	yes	no	no	NA	yes	NA	NA									NA	NA			NA	250.1818181818	11	2752	43
+Aco008863	LG09	no	no	yes	NA	NA	NA	NA							yes		NA	NA			00_#W_StomatalMovement_ATP-binding_cassette_B14	330.9090909091	11	3640	54
+Aco008925	LG09	NA	NA	NA	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	192.5	4	770	61
+Aco008932	LG09	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	193.25	4	773	104
+Aco008947	LG09	NA	NA	NA	NA	NA	NA	NA								yes	NA	NA			04_Oxygen_evolving_enhancer_OEE	311.6666666667	3	935	120
+Aco008952	LG09	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	306.5	4	1226	140
+Aco008955	LG09	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	363.1428571429	7	2542	39
+Aco008957	LG09	no	no	yes	yes	NA	NA	NA									NA	NA			NA	169.25	12	2031	50
+Aco008992	LG09	yes	no	no	NA	yes	NA	NA									NA	NA			NA	1130	1	1130	1130
+Aco009070	LG09	no	yes	no	NA	NA	yes	NA									NA	NA			NA	181.1818181818	11	1993	83
+Aco009134	LG09	yes	no	no	NA	NA	NA	NA								yes	NA	NA			05_Chloroplasts_activity	464	3	1392	161
+Aco009289	LG22	yes	no	no	yes	NA	NA	NA									NA	NA			NA	125.3846153846	13	1630	11
+Aco009291	LG22	yes	no	no	yes	NA	yes	NA									NA	NA			NA	441	2	882	362
+Aco009301	LG22	NA	NA	NA	NA	NA	NA	NA								yes	NA	NA			03_VATPase	118.1666666667	6	709	77
+Aco009346	LG22	yes	no	no	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	234.6666666667	3	704	77
+Aco009366	LG22	yes	no	no	NA	yes	NA	NA									NA	NA			NA	311.4	5	1557	167
+Aco009371	LG22	yes	no	no	yes	NA	NA	NA									NA	NA			NA	530	1	530	530
+Aco009385	LG22	yes	no	no	yes	NA	NA	NA									NA	NA			NA	341.5	2	683	254
+Aco009463	LG19	no	yes	no	yes	NA	NA	NA									NA	NA			NA	323	5	1615	21
+Aco009484	LG01	no	yes	no	yes	NA	NA	NA									NA	NA			NA	324.25	4	1297	67
+Aco009511	LG01	yes	no	no	NA	yes	NA	NA									NA	NA			NA	548	3	1644	238
+Aco009513	LG01	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	182	1	182	182
+Aco009514	LG01	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	125	2	250	13
+Aco009549	LG01	yes	no	no	NA	yes	NA	NA									NA	NA			NA	2039	1	2039	2039
+Aco009612	LG01	yes	no	no	NA	NA	NA	NA							yes		NA	NA			00_#W_CircadianOscillator_cycling_DOF_F1	862.5	2	1725	260
+Aco009627	LG01	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	428	2	856	162
+Aco009645	LG01	no	yes	no	yes	NA	NA	NA									NA	NA			NA	353.1666666667	24	8476	72
+Aco009689	LG01	yes	no	no	NA	NA	NA	NA								yes	NA	NA			09_Circadian_clock	124.1	10	1241	42
+Aco009779	LG10	NA	NA	NA	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	433.3333333333	3	1300	138
+Aco009794	LG10	yes	no	no	yes	NA	NA	NA									NA	NA			NA	259.5	6	1557	161
+Aco009967	LG10	NA	NA	NA	NA	NA	NA	NA	yes								NA	NA			00_#32_Malic_enzyme	144.85	20	2897	47
+Aco010086	LG25	NA	NA	NA	yes	NA	NA	NA									NA	NA			NA	125.7142857143	7	880	12
+Aco010122	LG25	no	yes	no	NA	NA	yes	NA									NA	NA			NA	163.25	12	1959	83
+Aco010134	LG25	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	286.6666666667	3	860	107
+Aco010160	LG25	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	186.75	4	747	86
+Aco010232	LG25	yes	no	no	NA	NA	NA	NA	yes								NA	PREDICTED: Beta vulgaris subsp. vulgaris malate dehydrogenase [NADP]_ chloroplastic (LOC104884197)_ mRNA			00_##28_Malate_dehydrogenase	117.3333333333	15	1760	19
+Aco010251	LG25	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	304.3333333333	6	1826	30
+Aco010278	LG25	yes	no	no	NA	NA	NA	NA							yes		NA	NA			00_#W_CircadianOscillator_WD_repeat-containing_protein_RUP2	1253	1	1253	1253
+Aco010280	LG25	yes	no	no	NA	NA	NA	NA							yes		NA	NA			00_#W_ProtonPump_VHA-F_03_VATPase	171.6	5	858	77
+Aco010310	LG25	no	no	yes	yes	NA	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	557.5	4	2230	229
+Aco010312	LG25	no	no	yes	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	364	3	1092	276
+Aco010315	LG25	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	369.5	2	739	353
+Aco010367	LG03	no	yes	no	yes	NA	NA	NA									NA	NA			NA	170.7307692308	26	4439	51
+Aco010377	LG03	no	yes	no	yes	NA	NA	NA									NA	NA			NA	237.7	10	2377	80
+Aco010390	LG03	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	399.3333333333	3	1198	140
+Aco010634	LG07	no	no	yes	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	704.5	2	1409	420
+Aco010638	LG07	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	383	2	766	278
+Aco010641	LG07	yes	no	no	NA	NA	yes	NA									NA	NA			NA	447	2	894	362
+Aco010725	LG10	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_MalateTransporter_ALMT_10_Glucogenesis_specific_dayC3	275.1666666667	6	1651	139
+Aco010740	LG10	no	yes	no	yes	NA	NA	NA									NA	NA			NA	501	2	1002	461
+Aco010779	LG10	no	yes	no	yes	NA	NA	NA									NA	NA			NA	295.5	2	591	286
+Aco010816	LG10	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	349.6666666667	3	1049	212
+Aco010827	LG10	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	336.5	2	673	174
+Aco010977	LG04	NA	NA	NA	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	362.3333333333	3	1087	225
+Aco010980	LG04	yes	no	no	NA	NA	NA	NA								yes	NA	NA			04_Oxygen_evolving_enhancer_OEE	93.5	6	561	71
+Aco011012	LG04	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_CircadianOscillator_Pseudo-response_regulator7	254.6363636364	11	2801	109
+Aco011047	LG04	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_StomatalMovement_Phospholipase_C	200.2941176471	17	3405	86
+Aco011067	LG04	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	141.5	2	283	114
+Aco011105	LG04	no	yes	no	yes	NA	NA	NA									NA	NA			NA	221.6	10	2216	59
+Aco011172	LG04	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	629	1	629	629
+Aco011198	LG01	yes	no	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	1018.5	2	2037	965
+Aco011262	LG01	no	yes	no	yes	NA	NA	NA									NA	NA			NA	1110.5	2	2221	981
+Aco011299	LG01	no	yes	no	NA	yes	NA	NA									NA	NA			NA	1670	1	1670	1670
+Aco011306	LG01	yes	no	no	yes	NA	NA	NA									NA	NA			NA	368	5	1840	141
+Aco011464	LG06	no	no	yes	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	219.9333333333	15	3299	56
+Aco011496	LG06	yes	no	no	yes	NA	NA	NA								yes	NA	NA			03_VATPase	279.25	4	1117	77
+Aco011516	LG06	no	yes	no	yes	NA	NA	NA									NA	NA			NA	297.2222222222	9	2675	48
+Aco011527	LG06	no	no	yes	NA	yes	NA	NA									NA	NA			NA	251.9473684211	19	4787	5
+Aco011700	LG08	NA	NA	NA	yes	NA	NA	NA									NA	NA			NA	201.5	6	1209	27
+Aco011705	LG08	NA	NA	NA	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	333	3	999	190
+Aco011817	LG08	no	yes	no	yes	NA	NA	NA									NA	NA			NA	290.25	4	1161	55
+Aco011837	LG08	no	no	yes	yes	NA	NA	NA									NA	NA			NA	250.75	12	3009	60
+Aco011838	LG08	NA	NA	NA	yes	NA	NA	NA									NA	NA			NA	286.4	5	1432	189
+Aco011881	LG03	yes	no	no	NA	yes	NA	NA									NA	NA			NA	612.5	6	3675	161
+Aco011886	LG03	no	no	yes	NA	yes	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	240.75	16	3852	56
+Aco011903	LG03	yes	no	no	NA	NA	NA	NA							yes		NA	NA			00_#W_CircadianOscillator_Reveille1	331.5714285714	7	2321	61
+Aco011916	LG03	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_HexoseTransporter_MSSP-like_transporter	620.5	6	3723	120
+Aco011960	LG03	no	yes	no	yes	NA	NA	NA									NA	NA			NA	159.4545454545	11	1754	39
+Aco011976	LG03	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	440.4	5	2202	84
+Aco011978	LG03	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	485	2	970	213
+Aco011994	LG03	no	no	yes	yes	NA	NA	NA									NA	NA			NA	248.625	8	1989	99
+Aco012009	LG03	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	617	1	617	617
+Aco012014	LG03	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	361.25	4	1445	140
+Aco012041	LG03	yes	no	no	NA	yes	NA	NA									NA	NA			NA	411	4	1644	159
+Aco012057	LG03	no	yes	no	yes	NA	NA	NA									NA	NA			NA	608	5	3040	217
+Aco012160	LG02	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	244	3	732	80
+Aco012234	LG02	no	no	yes	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	265.8666666667	15	3988	56
+Aco012435	LG01	no	yes	no	NA	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	208.5	10	2085	94
+Aco012463	LG13	no	yes	no	NA	yes	NA	NA									NA	NA			NA	181.5294117647	17	3086	68
+Aco012466	LG13	yes	no	no	yes	NA	NA	NA									NA	NA			NA	221.3333333333	6	1328	27
+Aco012577	LG13	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	315.5	2	631	22
+Aco012641	LG13	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	446	2	892	4
+Aco012715	LG05	yes	no	no	yes	NA	NA	NA									NA	NA			NA	303.75	8	2430	65
+Aco012743	LG05	yes	no	no	NA	yes	NA	NA									NA	PREDICTED: Glycine max uridine-cytidine kinase C-like (LOC100781286)_ mRNA			NA	175.6153846154	13	2283	3
+Aco012825	LG03	NA	NA	NA	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	348	3	1044	222
+Aco012927	LG03	NA	NA	NA	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	329	1	329	329
+Aco012988	LG25	no	no	yes	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	244.6428571429	14	3425	56
+Aco013023	LG25	no	yes	no	yes	NA	NA	NA									NA	NA			NA	556.2	5	2781	71
+Aco013034	LG25	no	no	yes	yes	NA	NA	NA									NA	NA			NA	283.125	8	2265	60
+Aco013100	LG25	yes	no	no	yes	NA	NA	NA									NA	NA			NA	115.4545454545	11	1270	33
+Aco013178	LG24	no	yes	no	yes	NA	NA	NA									NA	NA			NA	204.3333333333	3	613	86
+Aco013204	LG24	NA	NA	NA	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	197	1	197	197
+Aco013210	LG24	no	yes	no	NA	yes	NA	NA									NA	NA			NA	276	12	3312	29
+Aco013214	LG24	yes	no	no	NA	yes	NA	NA									NA	NA			NA	2792	1	2792	2792
+Aco013227	LG24	NA	NA	NA	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	734	1	734	734
+Aco013293	LG24	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	282	5	1410	61
+Aco013412	LG15	no	no	yes	yes	NA	NA	NA							yes		NA	PREDICTED: Glycine max histidine kinase 2-like (LOC100781655)_ transcript variant X3_ mRNA			00_#W_StomatalMovement_Histidine_Kinase_HK5	312.4545454545	11	3437	51
+Aco013421	LG15	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_StomatalMovement_ResponseRegulator2	390.1428571429	7	2731	76
+Aco013587	LG20	no	yes	no	yes	NA	NA	NA									NA	NA			NA	173	10	1730	56
+Aco013623	LG13	yes	no	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	417.6666666667	3	1253	224
+Aco013643	LG13	yes	no	no	NA	NA	NA	NA							yes		NA	NA			00_#W_CircadianOscillator_TF_PIF3	302.8	10	3028	48
+Aco013659	LG13	no	yes	no	NA	yes	NA	NA									NA	NA			NA	682	3	2046	247
+Aco013682	LG13	yes	no	no	NA	yes	NA	NA									NA	PREDICTED: Glycine max nuclear export mediator factor NEMF-like (LOC100803745)_ transcript variant X3_ mRNA			NA	263.7857142857	14	3693	81
+Aco013769	LG24	no	yes	no	yes	NA	NA	NA									NA	NA			NA	138.3	10	1383	45
+Aco013826	LG08	no	yes	no	yes	NA	NA	NA									NA	NA			NA	452.4	5	2262	45
+Aco013935	LG03	no	yes	no	NA	NA	NA	NA	yes								NA	Beta vulgaris subsp. vulgaris malate dehydrogenase_ cytoplasmic (LOC104887939)_ mRNA			00_##19_Malate_dehydrogenase	219.5714285714	7	1537	111
+Aco013938	LG03	NA	NA	NA	NA	NA	NA	NA	yes								NA	NA			00_##14_Phosphoenolpyruvate_carboxylase_kinase	434	3	1302	367
+Aco013950	LG03	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	585	5	2925	78
+Aco013954	LG03	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	324.75	4	1299	140
+Aco013959	LG03	no	yes	no	NA	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	450	4	1800	239
+Aco013965	LG03	no	no	yes	yes	NA	NA	NA									NA	NA			NA	1032.5	2	2065	446
+Aco013974	LG03	yes	no	no	NA	NA	NA	NA								yes	NA	NA			04_Oxygen_evolving_enhancer_OEE	347	4	1388	45
+Aco013975	LG03	yes	no	no	yes	NA	NA	NA									NA	NA			NA	200.1111111111	9	1801	61
+Aco014055	LG03	no	yes	no	NA	NA	NA	NA								yes	NA	NA			03_VATPase	179.3333333333	18	3228	44
+Aco014063	LG03	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	299	2	598	260
+Aco014120	LG13	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	272	1	272	272
+Aco014286	LG05	yes	no	no	NA	yes	NA	NA									NA	NA			NA	2027.5	2	4055	1669
+Aco014317	LG05	yes	no	no	NA	NA	NA	NA								yes	NA	NA			03_VATPase	222	4	888	77
+Aco014347	LG05	yes	no	no	NA	NA	NA	NA							yes		NA	NA			00_#W_CircadianOscillator_GIGANTEA_09_Circadian_clock	277.0666666667	15	4156	54
+Aco014352	LG05	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_StomatalMovement_Syntaxin_plant_121	746	2	1492	589
+Aco014393	LG07	no	no	yes	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	471	2	942	235
+Aco014452	LG07	no	yes	no	NA	NA	NA	NA								yes	NA	NA			04_Oxygen_evolving_enhancer_OEE	250	3	750	98
+Aco014488	LG07	yes	no	no	NA	yes	NA	NA	yes								NA	NA			00_#38_Pentatricopeptide	720.75	4	2883	376
+Aco014555	LG20	no	yes	no	yes	NA	NA	NA									NA	NA			03_VATPase	387	3	1161	251
+Aco014579	LG08	yes	no	no	NA	NA	NA	6746								yes	NA	NA			NA	246	4	984	71
+Aco014581	LG08	no	yes	no	yes	NA	NA	NA									NA	NA			NA	227.5555555556	9	2048	98
+Aco014682	LG20	NA	NA	NA	NA	NA	NA	NA								yes	NA	NA			04_Oxygen_evolving_enhancer_OEE	186.5	2	373	98
+Aco014690	LG20	no	yes	no	NA	NA	NA	NA	yes								NA	PREDICTED: Beta vulgaris subsp. vulgaris malate dehydrogenase_ chloroplastic-like (LOC104908004)_ transcript variant X2_ mRNA			00_#22_Malate_dehydrogenase	766	2	1532	11
+Aco014693	LG20	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	230.8	5	1154	61
+Aco014770	LG20	yes	no	no	NA	yes	NA	NA									NA	NA			NA	1319	1	1319	1319
+Aco014831	LG14	no	no	yes	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	267.6470588235	17	4550	56
+Aco014837	LG14	NA	NA	NA	yes	NA	NA	NA									NA	NA			NA	287	1	287	287
+Aco014875	LG14	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	704	1	704	704
+Aco015014	LG04	yes	no	no	yes	NA	NA	NA									NA	NA			NA	1310	1	1310	1310
+Aco015073	LG01	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	254.8	15	3822	14
+Aco015128	LG24	yes	no	no	NA	yes	NA	4848									NA	NA			NA	405.8571428571	7	2841	136
+Aco015194	LG05	NA	NA	NA	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	315.5	2	631	17
+Aco015198	LG05	no	yes	no	NA	NA	yes	NA									NA	NA			NA	842	2	1684	378
+Aco015199	LG05	no	yes	no	NA	NA	yes	NA									NA	NA			NA	907	3	2721	207
+Aco015226	LG05	yes	no	no	NA	NA	NA	NA							yes		NA	NA			00_#W_ProtonPump_VHA-B_03_VATPase	128.5333333333	15	1928	47
+Aco015340	LG20	no	yes	no	yes	NA	NA	NA									NA	NA			NA	564.5	2	1129	525
+Aco015436	LG23	no	yes	no	NA	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	244	7	1708	85
+Aco015453	LG23	no	yes	no	yes	NA	NA	NA									NA	NA			NA	152.6666666667	9	1374	75
+Aco015521	LG03	yes	no	no	yes	NA	NA	NA									NA	NA			NA	659	1	659	659
+Aco015541	LG03	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_StomatalMovement_Carbon_dioxide_insensitive3_CDI3_11_Glycolysis_night_C4_malate_pathway	581	3	1743	384
+Aco015555	LG03	no	yes	no	yes	yes	NA	NA									NA	NA			NA	251.3333333333	12	3016	55
+Aco015727	LG09	no	yes	no	NA	yes	NA	5502									NA	NA			NA	127.6818181818	22	2809	33
+Aco015741	LG09	yes	no	no	NA	NA	yes	NA									NA	NA			NA	947	1	947	947
+Aco015779	LG09	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_HexoseTransporter_MSSP-like_transporter	484.2857142857	7	3390	124
+Aco016014	LG22	yes	no	no	yes	NA	NA	NA									NA	NA			NA	720.5	2	1441	57
+Aco016019	LG22	yes	no	no	NA	yes	NA	NA									NA	NA			NA	234.5	6	1407	136
+Aco016139	LG21	yes	no	no	NA	yes	NA	NA									NA	NA			NA	2228	1	2228	2228
+Aco016255	LG03	no	yes	no	yes	NA	NA	NA									NA	NA			NA	416	3	1248	22
+Aco016258	LG03	no	yes	no	yes	NA	NA	NA									NA	NA			NA	156.4444444444	9	1408	69
+Aco016318	LG03	yes	no	no	NA	NA	yes	NA									NA	NA			NA	551	2	1102	462
+Aco016357	LG03	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	272	3	816	132
+Aco016360	LG03	yes	no	no	NA	yes	NA	7024									NA	NA			NA	151.75	4	607	34
+Aco016390	LG10	yes	no	no	yes	NA	NA	NA									NA	NA	yes		11_Glycolysis_night_C4_malate_pathway	175.5	8	1404	38
+Aco016429	LG10	yes	no	no	NA	NA	NA	NA	yes								NA	NA			00_#12_10_Glucogenesis_specific_dayC3	192.9473684211	19	3666	61
+Aco016554	LG11	no	no	yes	NA	NA	NA	NA							yes		NA	NA			00_#W_StomatalMovement_Phospholipase_Da1	493.9	10	4939	74
+Aco016569	LG09	no	yes	no	NA	NA	NA	NA	yes								NA	PREDICTED: Beta vulgaris subsp. vulgaris NAD-dependent malic enzyme 59 kDa isoform_ mitochondrial (LOC104888560)_ mRNA			00_#10_Glucogenesis_specific_dayC3	112.3	20	2246	22
+Aco016649	LG08	yes	no	no	NA	yes	NA	NA							yes		NA	NA			00_#W_CircadianOscillator_CCA1/LHY	352	8	2816	61
+Aco016654	LG08	NA	NA	NA	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	614	1	614	614
+Aco016662	LG08	yes	no	no	NA	yes	NA	NA									NA	NA			NA	1628	1	1628	1628
+Aco016710	LG17	no	no	yes	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	564	2	1128	356
+Aco016712	LG17	no	no	yes	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	749	2	1498	359
+Aco016727	LG17	NA	NA	NA	NA	NA	NA	NA	yes								NA	NA			00_#18_Malate_dehydrogenase	249.5	4	998	182
+Aco016748	LG17	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	514.6666666667	3	1544	195
+Aco016764	LG17	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	355.2	5	1776	55
+Aco016809	LG04	no	yes	no	yes	NA	NA	NA									NA	NA			NA	323.1666666667	6	1939	123
+Aco016943	LG02	no	no	yes	yes	NA	NA	NA									NA	NA			NA	957.3333333333	3	2872	214
+Aco016986	LG08	yes	no	no	yes	NA	NA	NA									NA	NA			NA	517.6666666667	3	1553	195
+Aco016993	LG08	yes	no	no	NA	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	170.8	15	2562	57
+Aco017042	LG08	yes	no	no	yes	NA	NA	NA									NA	NA			NA	534.75	4	2139	373
+Aco017062	LG14	yes	no	no	NA	yes	NA	NA									NA	NA			NA	863.5	2	1727	427
+Aco017183	LG18	NA	NA	NA	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	726.5	2	1453	57
+Aco017324	LG01	yes	no	no	yes	NA	NA	NA									NA	NA			NA	600.6666666667	3	1802	152
+Aco017339	LG01	yes	no	no	NA	yes	NA	NA									NA	NA			NA	1281.5	2	2563	1054
+Aco017525	LG22	no	yes	no	NA	NA	NA	NA	yes								NA	NA			00_#23_Lactate_dehydrogenase	471.6666666667	3	1415	326
+Aco017526	LG22	no	yes	no	NA	NA	NA	NA	yes								NA	NA			00_#24_hypothetical_protein	243.5	2	487	23
+Aco017527	LG22	no	yes	no	NA	NA	NA	NA	yes								NA	NA			00_#25_hypothetical_protein	197	5	985	15
+Aco017528	LG22	no	yes	no	NA	NA	NA	NA	yes								NA	NA			00_#26_Lactate_dehydrogenase	351	4	1404	110
+Aco017533	LG22	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_VacuolarAcidInvertase_AI	268.875	8	2151	8
+Aco017556	LG09	yes	no	no	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	312.6	5	1563	12
+Aco017701	LG05	yes	no	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	342.2	5	1711	40
+Aco017767	LG21	NA	NA	NA	NA	NA	NA	NA							yes		NA	NA			00_#W_CircadianOscillator_casein_kinase2_subunit_beta	294.2	5	1471	106
+Aco017858	LG23	no	no	yes	NA	NA	NA	NA							yes		NA	NA			00_#W_StomatalMovement_ATP-binding_cassette_C4	350.7692307692	13	4560	63
+Aco017965	LG19	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	275.75	4	1103	95
+Aco018002	LG01	yes	no	no	NA	yes	NA	NA									NA	NA			NA	181.9090909091	11	2001	62
+Aco018009	LG01	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	1012	2	2024	260
+Aco018061	LG11	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	256.3333333333	12	3076	56
+Aco018093	LG11	no	yes	no	NA	NA	NA	NA	yes								NA	PREDICTED: Beta vulgaris subsp. vulgaris phosphoenolpyruvate carboxylase 1 (LOC104903486)_ mRNA			00_#10_Glucogenesis_specific_dayC3	343.1	10	3431	84
+Aco018101	LG11	NA	NA	NA	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	617	1	617	617
+Aco018117	LG11	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	131.8571428571	7	923	4
+Aco018265	LG01	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	371.5	2	743	339
+Aco018268	LG01	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	614	1	614	614
+Aco018269	LG01	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	168	3	504	4
+Aco018270	LG01	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	584	1	584	584
+Aco018272	LG01	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	677	1	677	677
+Aco018273	LG01	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	677	1	677	677
+Aco018440	LG01	yes	no	no	yes	NA	NA	NA									NA	NA			NA	217.2	10	2172	43
+Aco018451	LG01	no	no	yes	yes	NA	NA	NA									NA	NA			NA	262	10	2620	6
+Aco018452	LG01	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	393.6666666667	3	1181	71
+Aco018517	LG06	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	329.5	2	659	170
+Aco018533	LG06	yes	no	no	yes	NA	NA	NA									NA	NA			NA	377	1	377	377
+Aco018567	LG01	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_ProtonPump_VHA-C_03_VATPase	161.2727272727	11	1774	67
+Aco018637	LG22	no	no	yes	yes	NA	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	414.5	4	1658	258
+Aco018853	LG08	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	680	1	680	680
+Aco018978	LG02	no	no	yes	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	250.6428571429	14	3509	56
+Aco018982	LG02	yes	no	no	NA	NA	NA	NA							yes		NA	NA			09_Circadian_clock	211.6	5	1058	57
+Aco019042	LG20	no	yes	no	NA	yes	NA	NA									NA	NA			NA	291.0833333333	12	3493	45
+Aco019275	LG13	no	yes	no	yes	NA	NA	NA						yes			STA_F_Flavonoid 3- hydroxylase	NA			00_#Ming2019_Anthocyanin_biosynthesis	578.3333333333	3	1735	329
+Aco019362	LG05	yes	no	no	NA	yes	NA	NA									NA	NA			NA	431.3333333333	3	1294	143
+Aco019394	LG06	yes	no	no	yes	NA	NA	NA									NA	NA			NA	149.6	30	4488	54
+Aco019534	LG07	yes	no	no	NA	NA	NA	NA							yes		NA	PREDICTED: Glycine max protein XAP5 CIRCADIAN TIMEKEEPER-like (LOC100814574)_ transcript variant X3_ mRNA			09_Circadian_clock	115.1666666667	12	1382	53
+Aco019543	LG07	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	319	4	1276	140
+Aco019600	LG09	no	yes	no	yes	NA	NA	NA									NA	NA			NA	263.5	6	1581	94
+Aco019932	LG22	no	yes	no	yes	NA	NA	NA									NA	NA			NA	250.625	8	2005	55
+Aco020099	LG10	yes	no	no	yes	NA	NA	NA									NA	NA			NA	244.6666666667	3	734	102
+Aco020108	LG10	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	226.5714285714	14	3172	56
+Aco020123	LG21	yes	no	no	yes	NA	NA	NA									NA	NA			NA	242.6666666667	3	728	134
+Aco020124	LG21	no	yes	no	yes	NA	NA	NA									NA	NA			NA	637.6	5	3188	81
+Aco020155	LG09	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	307	3	921	38
+Aco020162	LG09	no	yes	no	yes	NA	NA	NA									NA	NA			NA	1605.5	2	3211	712
+Aco020426	LG11	NA	NA	NA	yes	NA	NA	NA									NA	NA			NA	160.3333333333	6	962	18
+Aco020510	LG02	no	no	yes	yes	NA	NA	NA									NA	NA			NA	149.875	24	3597	10
+Aco020543	LG09	no	yes	no	NA	NA	yes	NA									NA	NA			NA	181.1818181818	11	1993	83
+Aco020616	LG02	yes	no	no	NA	yes	NA	NA									NA	NA			NA	1715	1	1715	1715
+Aco020775	LG22	NA	NA	NA	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	108.5	2	217	37
+Aco020962	LG24	no	yes	no	NA	yes	NA	NA									NA	NA			NA	113.5882352941	17	1931	47
+Aco021148	LG15	yes	no	no	yes	NA	NA	NA									NA	NA			NA	523	2	1046	508
+Aco021241	LG10	no	yes	no	yes	NA	NA	NA									NA	NA			NA	622.6666666667	3	1868	349
+Aco021330	LG06	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	244.3	10	2443	27
+Aco021382	LG16	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	217.9166666667	12	2615	56
+Aco021408	LG17	yes	no	no	yes	NA	NA	NA									NA	NA			NA	193	7	1351	28
+Aco021616	LG14	yes	no	no	yes	NA	NA	NA									NA	NA			NA	223.25	4	893	6
+Aco021664	LG07	yes	no	no	NA	NA	yes	NA									NA	NA			NA	1067	1	1067	1067
+Aco021905	LG13	no	yes	no	yes	NA	NA	NA									NA	NA			NA	722.5	2	1445	673
+Aco021924	LG13	no	yes	no	NA	yes	NA	NA							yes		NA	NA			00_#W_ProtonPump_VHA-H_03_VATPase	154.4166666667	12	1853	33
+Aco022074	LG05	NA	NA	NA	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	597.5	2	1195	480
+Aco022095	LG04	yes	no	no	yes	NA	NA	NA									NA	NA			NA	196.375	8	1571	74
+Aco022148	LG08	no	yes	no	yes	NA	NA	NA									NA	NA			NA	194.3636363636	11	2138	24
+Aco022226	LG16	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_ProtonPump_VHA-G_03_VATPase	200.5	4	802	81
+Aco022525	LG22	yes	no	no	NA	NA	NA	NA	yes								NA	NA			00_#15_calciumdependent_protK	529.6	5	2648	210
+Aco022846	LG03	yes	no	no	NA	yes	NA	NA									NA	NA	yes		10_Glucogenesis_specific_dayC3	998	3	2994	272
+Aco023030	LG20	no	yes	no	NA	yes	NA	NA							yes		NA	NA			00_#W_VacuolarAcidInvertase_AI	288	7	2016	93
+Aco023036	LG20	no	yes	no	NA	NA	NA	NA							yes		NA	NA			00_#W_VacuolarAcidInvertase_AI	380.2	5	1901	96
+Aco023062	LG07	NA	NA	NA	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	173	3	519	86
+Aco023190	LG10	no	yes	no	yes	NA	NA	NA									NA	NA			NA	511.5	2	1023	485
+Aco023369	LG18	no	yes	no	yes	NA	NA	NA									NA	NA			NA	311.7142857143	7	2182	101
+Aco023600	LG09	no	yes	no	yes	NA	NA	NA									NA	NA			NA	206.2857142857	7	1444	61
+Aco023631	LG24	no	yes	no	NA	NA	NA	NA								yes	NA	NA			03_VATPase	212.5	6	1275	107
+Aco023654	LG14	NA	NA	NA	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	728	1	728	728
+Aco023812	LG20	no	yes	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	150	3	450	34
+Aco023961	LG22	no	yes	no	yes	NA	NA	NA									NA	NA			NA	91.4	5	457	35
+Aco024020	LG14	yes	no	no	NA	yes	NA	NA									NA	NA			NA	1730	1	1730	1730
+Aco024279	LG05	no	yes	no	yes	NA	NA	NA									NA	NA			NA	2252	1	2252	2252
+Aco024440	LG03	no	yes	no	NA	NA	NA	NA			yes						NA	NA			02_Aquaporins	259.7142857143	7	1818	13
+Aco024489	LG01	yes	no	no	yes	NA	NA	NA									NA	NA			NA	1064	1	1064	1064
+Aco024760	LG15	yes	no	no	NA	NA	NA	NA				yes					NA	NA			06_Drough_resistance_genes_LEA	523.5	2	1047	220
+Aco024818	LG04	yes	no	no	NA	NA	NA	NA	yes								NA	NA	yes		00_#10_Glucogenesis_specific_dayC3	160.2631578947	19	3045	77
+Aco025277	LG10	no	no	yes	yes	NA	NA	NA									NA	NA			NA	138.5217391304	46	6372	15
+Aco025401	LG24	yes	no	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	211.7857142857	14	2965	56
+Aco025405	LG24	yes	no	no	yes	NA	NA	NA									NA	NA			NA	1205	1	1205	1205
+Aco025560	LG01	yes	no	no	NA	NA	NA	NA		yes							NA	NA			01b_Abscisic_acid_signal	148.5217391304	23	3416	14
+Aco025773	LG23	no	no	yes	yes	NA	NA	NA									NA	NA			NA	261.625	8	2093	99
+Aco026063	LG13	no	yes	no	NA	NA	NA	NA		yes					yes		NA	NA			00_#W_StomatalMovement_NHX1/NHX2_01b_Abscisic_acid_signal	187.3571428571	14	2623	46
+Aco026485	LG23	yes	no	no	NA	yes	NA	5857									NA	NA			NA	602	2	1204	509
+Aco026631	LG02	yes	no	no	NA	NA	NA	NA									NA	NA		yes	09_Circadian_clock	120.7142857143	7	845	12
+Aco027040	LG02	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	139.5	4	558	70
+Aco027296	LG22	no	yes	no	yes	NA	NA	NA									NA	NA			NA	162.3333333333	3	487	69
+Aco027484	LG21	yes	no	no	NA	yes	NA	NA									NA	NA			NA	511.6666666667	3	1535	139
+Aco027695	LG09	yes	no	no	NA	NA	NA	NA								yes	NA	NA			04_Oxygen_evolving_enhancer_OEE	326.6666666667	3	980	295
+Aco027767	LG23	yes	no	no	NA	yes	NA	NA									NA	Populus trichocarpa putative cathepsin B-like protease family protein (POPTR_0002s18500g) mRNA_ complete cds			NA	133.3	10	1333	35
+Aco029197	LG17	no	yes	no	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	214.2142857143	14	2999	56
+Aco030202	LG12	yes	no	no	yes	NA	NA	NA									NA	NA			NA	485	2	970	395
+Aco031044	LG01	NA	NA	NA	NA	NA	NA	NA		yes							NA	NA			01d_Auxin_reponse_factor	482	2	964	32
+Aco031251	LG04	no	yes	no	NA	NA	yes	NA									NA	NA			NA	170	6	1020	15
+Aco031754	LG20	yes	no	no	yes	NA	NA	NA									NA	NA			NA	402.5	2	805	204

@@ -116,6 +116,32 @@ GO terms were studied by eye and interesting terms were studied on a gene-level.
 
 # Detecting "genes of interest" in the multicopy gene family pool
 
-A reverse approach, where we search for genes of interest in our set of multicopy gene families, may give us better idea on gene family evolution and key innovation traits. I made use of the ~ 700 genes of interest identified in previous work by Marylaure and Gil to see if a proportion of these genes were to be found in our mutlicopy gene family set.
+A reverse approach, where we search for genes of interest in our set of multicopy gene families, may give us a better idea on gene family evolution and key innovation traits. I made use of the ~ 700 genes of interest identified in previous work by Marylaure and Gil to see if a proportion of these genes were to be found in our mutlicopy gene family set.
 
-  
+Genes were selected from the Bromeliad1776 kit, which relies on the pineapple annotation (so these are A. comosus genes). The genes are subdivided in many different categories (see table S1 as supplementary material of Gil's target capture paper), and I chose the following to select genes of interest related to CAM:
+
+Differentially expressed in CAM / C3 experiment (186)
+Positive selection in CAM / C3 shifts (79)
+Gene families associated with CAM (22)
+CAM-related Acomosus Ming2015 (29)
+stomata function (48)
+aquaporin regulation (24)
+drought resistance (61)
+circadian metabolism (47)
+malate transferase (28)
+circadian clock (3)
+
+Selection was done with following code:
+
+`awk 'BEGIN{FS="\t"} ($6=="yes")||($7=="yes")||($8=="yes")||($10=="yes")||($11=="yes")||($12=="yes")||($13=="yes")||($16=="yes")||($17=="yes")||($21=="yes") {print $0}' Bromeliad1776_gene_list.csv > Genes_of_interest_CAM_related.csv`
+
+This resulted in 500 genes.
+
+A similar selection was made for flower-related genes:
+Anthocyanin and self incompatibility
+Flavonoid and anthocyanin pathways in Pitcairnia
+
+`awk 'BEGIN{FS="\t"} ($15=="yes")||!($18=="NA") {print $0}' Bromeliad1776_gene_list.csv > Genes_of_interest_flower_colour_related.csv`
+
+This resulted in 57 genes.
+Using the Acomosus IDs of this subset, I searched the multicopy gene set. For CAM related genes, 78 out of 500 or 15 % of genes were in multicopy families. For flowering genes, 10 out of 57 (18 %) genes are in multicopy families.
