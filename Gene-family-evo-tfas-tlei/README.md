@@ -144,4 +144,12 @@ Flavonoid and anthocyanin pathways in Pitcairnia
 `awk 'BEGIN{FS="\t"} ($15=="yes")||!($18=="NA") {print $0}' Bromeliad1776_gene_list.csv > Genes_of_interest_flower_colour_related.csv`
 
 This resulted in 57 genes.
-Using the Acomosus IDs of this subset, I searched the multicopy gene set. For CAM related genes, 78 out of 500 or 15 % of genes were in multicopy families. For flowering genes, 10 out of 57 (18 %) genes are in multicopy families.
+Using the Acomosus IDs of this subset, I searched the multicopy gene set. For CAM related genes, 78 out of 500 or 15 % of genes were in multicopy families. For flowering genes, 10 out of 57 (18 %) genes are in multicopy families. Using the script `script_make_gene_family_categories.py` I separated these genes into categories based on the gene counts per species. The scripts adds the category to the original subset file and puts out a summary of counts of orthogroups per categories as such (for CAM related genes):
+
+    Types of CNV changes:
+    Nr. gene families that remained equal: 19
+    Nr. gene families larger in A.comosus: 11
+    Nr. gene families larger in Tillandsia: 2
+    Nr. gene families larger in T. fasciculata: 8
+    Nr. gene families larger in T. leiboldiana: 2
+    Nr. gene families with changes in more than one species: 18
