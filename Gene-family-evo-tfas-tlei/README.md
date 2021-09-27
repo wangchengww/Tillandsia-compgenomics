@@ -99,7 +99,9 @@ I first selected only orthogroups that were not mitochondrial, ribosomal or plas
 This resulted in 69,229 genes and 18,697 orthogroups.
 
 I then obtained a table of per-orhogroup gene counts by selecting the orthogroup and count fields of the orthology table:
-cut -f 7,8,9,10 orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo2.txt | sort -u > orthogroups_Tfas_Tlei_Acom.counts.no_TEs.size_corrections.no_plastid-mito-ribo2.txt orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.txt
+
+    cut -f 7,8,9,10 orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo2.txt | sort -u > orthogroups_Tfas_Tlei_Acom.counts.no_TEs.size_corrections.no_plastid-mito-ribo2.txt
+    
 The relationship of gene family size between species was explored in `Gene_family_evolution_new.R`
 
 # GO term enrichment of multi-copy gene families
