@@ -12,16 +12,16 @@ og_dict_tfas = {}  # I initiate the dictionary
 for line1 in corrected_sizes_tfas.readlines()[1:]:
 	line1 = line1.replace('\n','') # rm the return carriage
 	splitted_line1 = line1.split('\t') # split the line only at first occurring tab
-	og = splitted_line1[1]
-	counts_line1 = splitted_line1[3] # new family sizes
+	og = splitted_line1[0]
+	counts_line1 = splitted_line1[2] # new family sizes
 	og_dict_tfas[og] = counts_line1
 
 og_dict_tlei = {}  # I initiate the dictionary
 for line2 in corrected_sizes_tlei.readlines()[1:]:
 	line2 = line2.replace('\n','') # rm the return carriage
 	splitted_line2 = line2.split('\t') # split the line only at first occurring tab
-	og = splitted_line2[1]
-	counts_line2 = splitted_line2[3] # new family sizes
+	og = splitted_line2[0]
+	counts_line2 = splitted_line2[2] # new family sizes
 	og_dict_tlei[og] = counts_line2
 
 for line3 in orthology_table.readlines():

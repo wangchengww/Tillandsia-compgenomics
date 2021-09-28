@@ -92,6 +92,8 @@ Testing different forms of size corrections:
  - Accounting for "expected" coverage variability: I designed a size correction method where orthogroups with coverage lying within an interval from the expected coverage were not corrected, under the assumption that this is "expected" coverage deviation from the mean. However, it was hard to find proper thresholds for this interval since the coverage of ancestral-single-copy genes has a relatively wide distribution and taking strict cutoff such as the 1st and 99th quantile would lead to a much too large interval. I tested it by taking the 25th and 27th interval, but it is difficult to argue that this interval really accounts for "expected" coverage variability, it is quite arbitrary and it also didn't impact many orthogroups. So we decided to drop this avenue.
  - Designing a per-gene size correction strategy: I decided to generate correction factors on a per-gene basis, by taking the average ancestral-single-copy average as a correction factor 1 and scaling all orther coverages against it. Then I would sum up the weighted gene values to obtain a new size. This is in fact the same as doing a per-orthogroup approach. So we can continue with the per-orthogroup approach as I find it more intuitive.
 
+ After final size corrections, the total gene counts for Tillandsia fasciculata went down from 8139 to 6763 (1376 or 17 % difference). For Tillandsia leiboldiana, gene counts went from 4098 to 4026 (72 or 2 % difference).
+
 # Studying gene family size differences in Tfas and Tlei
 
 I first selected only orthogroups that were not mitochondrial, ribosomal or plastid. The procedure for this combined both gene name searches and blasting to existing plastid and mitochondrial sequences. The details are described in `Removing_plastid_genes.md`
@@ -101,16 +103,16 @@ This resulted in 69,229 genes and 18,697 orthogroups.
 I then obtained a table of per-orhogroup gene counts by selecting the orthogroup and count fields of the orthology table:
 
     cut -f 7,8,9,10 orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo2.txt | sort -u > orthogroups_Tfas_Tlei_Acom.counts.no_TEs.size_corrections.no_plastid-mito-ribo2.txt
-    
+
 The relationship of gene family size between species was explored in `Gene_family_evolution_new.R`
 
 # GO term enrichment of multi-copy gene families
 
 To have an idea of what sort of gene families occur in multicopy in either species, I selected all gene families where in at least one species the gene count is > 2. Then I ran TopGO to obtain GO term enrichment of this subset.
 
-The subset of multicopy genes contained 6855 genes in T. fasciculata and 4820 genes in T. leiboldiana. After size correction, the sum of reported sizes for these two subsets are 6585 genes and 4796 genes. In other words, the difference in gene numbers is not very large (270 in Tfas and 24 in Tlei)- perhaps a correction in GO terms is therefore not necessary for the big scale. Of the selected multi-copy genes, 1968 (29 %) in Tfas and 1169 (24 %) have no GO terms at all.
+The subset of multicopy genes contained 6642 genes in T. fasciculata and 4820 genes in T. leiboldiana. After size correction, the sum of reported sizes for these two subsets are 6261 genes and 4693 genes. In other words, the difference in gene numbers is not very large (594 in Tfas and 127 in Tlei)- perhaps a correction in GO terms is therefore not necessary for the big scale. Of the selected multi-copy genes, 1968 (29 %) in Tfas and 1169 (24 %) have no GO terms at all.
 
-GO term enrichment was run on all multicopy genes, on a subset of genes belonging to families where copy number was larger in Tfas and on a subset of genes belonging yo families where copy number was larger in Tlei. This can give us an idea of the direction in which certain functions have had gene family expansion.
+GO term enrichment was run on all multicopy genes (2061 orthogroups), on a subset of genes belonging to families where copy number was larger in Tfas (916 orthogroups, 5721 genes) and on a subset of genes belonging to families where copy number was larger in Tlei (583 orthogroups, 2975 genes). This can give us an idea of the direction in which certain functions have had gene family expansion.
 
 Important: somehow some neuronal go terms have ended up in our annotation, we need to clean this out??
 

@@ -12,6 +12,8 @@ library(wesanderson)
 library(reshape2)
 
 setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/Gene-family-evo-tfas-tlei/")
+setwd("/Users/clara/Documents/GitHub/Tillandsia-compgenomics/Gene-family-evo-tfas-tlei/")
+
 tfas_genes <- read.table("Tfas_pergene_mediancov_and_orthoinfo.txt", header = T)
 
 mean(tfas_genes$median_cov) # 47.5
@@ -148,10 +150,10 @@ ggplot(tfas_genes, aes(x=median_cov, color=dup)) +
 # looking into gene family evolution of these types of genes since they have quite different dynamics (especially 
 # ribosomal genes).
 tfas_multicopy_genes <- tfas_genes[tfas_genes$duplicated == 'multi-copy',] # 8400 genes, 2632 orthogroups
-mito_og <- read.table("mito_plastid_ribo_OGs.txt", header = F, sep = "\t") # list with mito-ribo-plastid orthogroups
+mito_og <- read.table("mito_plastid_ribo_OGs_to_remove.txt", header = F, sep = "\t") # list with mito-ribo-plastid orthogroups
 colnames(mito_og) <- c("og_id")
 tfas_multicopy_genes_no_mito <- tfas_multicopy_genes %>%
-  filter(!(og_id %in% mito_og$og_id)) # 7348 genes, 2353 orthogroups
+  filter(!(og_id %in% mito_og$og_id)) # 8139 genes, 2556 orthogroups
 
 # Correction without accounting for coverage variability
 corr_Tfas_simple <- data.frame()
@@ -264,7 +266,8 @@ table(comparison_size_corr$diff_approach)
 # Given the little differences between per-orthogroup and per-gene method, and the little importance 
 # and limitations of accounting for variability in coverage, I decided to stick to the corrected sizes of per-orthogroup
 # approach without accounting for variability.
-write.table(corr_Tfas_simple, file = "corrected_family_sizes_Tfas.txt")
+write.table(corr_Tfas_simple, file = "corrected_family_sizes_Tfas.txt", sep = "\t", 
+            quote = F, row.names = F)
 
 ###########################################################################################
 ### Same for Tleiboldiana
@@ -334,11 +337,11 @@ ggplot(tlei_genes, aes(x=median_cov, color=dup)) +
 # Corrections on all multicopy genes, except for ribosomal / plastid / mitochondrial.
 tlei_multicopy_genes <- tlei_genes[tlei_genes$duplicated == 'multi-copy',] # 4306 genes, 1450 orthogroups
 tlei_multicopy_genes_no_mito <- tlei_multicopy_genes %>%
-  filter(!(og_id %in% mito_og$og_id)) # 3857 genes, 1295 orthogroups
+  filter(!(og_id %in% mito_og$og_id)) # 4098 genes, 1377 orthogroups
 
 corr_Tlei <- data.frame()
-for (i in unique(Tlei_multicopy$og_id)){
-  orthogroup <- Tlei_multicopy[Tlei_multicopy$og_id == i,]
+for (i in unique(tlei_multicopy_genes_no_mito$og_id)){
+  orthogroup <- tlei_multicopy_genes_no_mito[tlei_multicopy_genes_no_mito$og_id == i,]
   nr_genes <- as.integer(orthogroup[1,7])
   total_mean_cov <- sum(orthogroup$mean_cov)
   expected_mean_cov <- nr_genes * 50.69818
@@ -356,4 +359,5 @@ for (i in unique(Tlei_multicopy$og_id)){
 }
 colnames(corr_Tlei) <- c("og_id", "correction_factor", "corr_Tlei_count","old_Tlei_count", "total_mean_cov", "expected_mean_cov")
 
-write.table(corr_Tlei, file = "corrected_family_sizes_Tlei.txt")
+write.table(corr_Tlei, file = "corrected_family_sizes_Tlei.txt", sep = "\t", 
+            quote = F, row.names = F)
