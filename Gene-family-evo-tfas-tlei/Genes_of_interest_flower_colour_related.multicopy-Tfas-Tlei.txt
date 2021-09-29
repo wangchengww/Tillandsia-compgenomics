@@ -1,10 +1,6 @@
-Aco006769.1	scaffold_18	1122385	1131241	NA	Dihydroflavonol_4-reductase	OG0002228	2	0	2
 Aco007046.1	scaffold_12	371808	373476	GO:0005506|GO:0016491|GO:0055114	2-oxoglutarate_2OG_and_FeII-dependent_oxygenase_superfamily_protein	OG0001263	2	2	2
 Aco000551.1	scaffold_0	4802546	4811874	NA	2-oxoglutarate_2OG_and_FeII-dependent_oxygenase_superfamily_protein	OG0001263	2	2	2
-Aco023089.1	scaffold_215	183485	185049	GO:0008152|GO:0016758	UDP-Glycosyltransferase_superfamily_protein	OG0000944	5	0	2
-Aco023087.1	scaffold_215	165738	167098	NA	UDP-Glycosyltransferase_superfamily_protein	OG0000944	5	0	2
 Aco012745.1	scaffold_33	1395661	1400184	GO:0008152|GO:0016758	UDP-Glycosyltransferase_superfamily_protein	OG0000321	8	3	2
 Aco005393.1	scaffold_8	787765	816010	NA	UDP-Glycosyltransferase_superfamily_protein	OG0000606	1	2	3
-Aco014334.1	scaffold_76	550128	570925	NA	UDP-Glycosyltransferase_superfamily_protein	OG0005245	1	2	1
 Aco003873.1	scaffold_6	1702990	1707805	NA	Mitochondrial-processing_peptidase_subunit_beta	OG0003337	1	2	1
 Aco005239.1	scaffold_9	3212975	3214408	NA	UDP-Glycosyltransferase_superfamily_protein	OG0003542	1	1	2

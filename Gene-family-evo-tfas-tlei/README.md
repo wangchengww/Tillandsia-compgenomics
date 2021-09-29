@@ -104,11 +104,19 @@ I then obtained a table of per-orhogroup gene counts by selecting the orthogroup
 
     cut -f 7,8,9,10 orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo2.txt | sort -u > orthogroups_Tfas_Tlei_Acom.counts.no_TEs.size_corrections.no_plastid-mito-ribo2.txt
 
-The relationship of gene family size between species was explored in `Gene_family_evolution_new.R`
+The relationship of gene family size between species was explored in `Gene_family_evolution_GO_term_enrichment.R`
+
+This was done by removing unique multicopy families and all families where Tfas:Tlei relationship was 1:1. This set contained 2061 orthogroups.
 
 # GO term enrichment of multi-copy gene families
 
-To have an idea of what sort of gene families occur in multicopy in either species, I selected all gene families where in at least one species the gene count is > 2. Then I ran TopGO to obtain GO term enrichment of this subset.
+To have an idea of what sort of gene families occur in multicopy in either species, I used the above set of orthogroups,  where at least one species has a gene count > 2 and no species-unique groups are included. Using this list of orthogroups (obtained from the R script) I extracted the underlying genes (uncorrected sizes):
+
+    grep -f orthogroup_selection_multicopy_for_GO_term_ID.txt \
+    orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.blastandsearch.txt > \
+    dup_genes.txt
+
+Then I removed all pineapple genes (`grep -v "Aco" dup_genes.txt`) to obtain the list of genes for GO term enrichment, which was done using TopGo.
 
 The subset of multicopy genes contained 6642 genes in T. fasciculata and 4820 genes in T. leiboldiana. After size correction, the sum of reported sizes for these two subsets are 6261 genes and 4693 genes. In other words, the difference in gene numbers is not very large (594 in Tfas and 127 in Tlei)- perhaps a correction in GO terms is therefore not necessary for the big scale. Of the selected multi-copy genes, 1968 (29 %) in Tfas and 1169 (24 %) have no GO terms at all.
 
@@ -148,7 +156,7 @@ Flavonoid and anthocyanin pathways in Pitcairnia
 `awk 'BEGIN{FS="\t"} ($15=="yes")||!($18=="NA") {print $0}' Bromeliad1776_gene_list.csv > Genes_of_interest_flower_colour_related.csv`
 
 This resulted in 57 genes.
-Using the Acomosus IDs of this subset, I searched the multicopy gene set. For CAM related genes, 78 out of 500 or 15 % of genes were in multicopy families. For flowering genes, 10 out of 57 (18 %) genes are in multicopy families. Using the script `script_make_gene_family_categories.py` I separated these genes into categories based on the gene counts per species. The scripts adds the category to the original subset file and puts out a summary of counts of orthogroups per categories as such (for CAM related genes):
+Using the Acomosus IDs of this subset, I searched the multicopy gene set. For CAM related genes, 76 out of 500 or 15 % of genes were in multicopy families. For flowering genes, 6 out of 57 (11 %) genes are in multicopy families. Using the script `script_make_gene_family_categories.py` I separated these genes into categories based on the gene counts per species. The scripts adds the category to the original subset file and puts out a summary of counts of orthogroups per categories as such (for CAM related genes):
 
     Types of CNV changes:
     Nr. gene families that remained equal: 19
@@ -156,4 +164,4 @@ Using the Acomosus IDs of this subset, I searched the multicopy gene set. For CA
     Nr. gene families larger in Tillandsia: 2
     Nr. gene families larger in T. fasciculata: 8
     Nr. gene families larger in T. leiboldiana: 2
-    Nr. gene families with changes in more than one species: 18
+    Nr. gene families with changes in more than one species: 16
