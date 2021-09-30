@@ -1,6 +1,6 @@
-# Inferring signatures of selection by calculating Dn/Ds ratios between T. fasciulata and T. leiboldiana
+# Inferring signatures of selection by calculating dN/dS ratios between T. fasciulata and T. leiboldiana
 
-In this section, we infer Dn / Ds ratios for all single-copy pairs of orthologous genes between T. fasciculata and T. leiboldiana. Part of this work was done by Francesca Beclin. We obtained Dn / Ds ratios by aligning the orthologous sequences using a codon-aware aligner (MACSE) and inferring ratios with KaKs_Calculator and PAML.
+In this section, we infer dN / dS ratios for all single-copy pairs of orthologous genes between T. fasciculata and T. leiboldiana. Part of this work was done by Francesca Beclin. We obtained Dn / Ds ratios by aligning the orthologous sequences using a codon-aware aligner (MACSE) and inferring ratios with KaKs_Calculator and PAML.
 
 # Selecting single-copy orthogroups and compiling per-orthogroup fastafiles
 
@@ -52,4 +52,4 @@ Then I used the following bash script and the resulting file to compile ortholog
 
 Since Dn/Ds ratios are very sensitive to alignment quality, we first wanted to have an idea of the completeness of our gene pairs (i.e. presence of a start and stop codon) and their lengths. I therefore made a "checklist" containing this information for each gene using the script `script_make_checklist_completeness_length_orthologous_genes.py`
 
-# Calculating Dn / Ds ratios for the final dataset
+# Calculating dN / dS ratios for the final dataset
