@@ -126,6 +126,8 @@ Important: somehow some neuronal go terms have ended up in our annotation, we ne
 
 GO terms were studied by eye and interesting terms were studied on a gene-level. A number of genes putatively involved in CAM photosynthesis belong to multicopy gene families. However, this was only a small subset of multicopy genes and broad patterns of gene duplication related to the evolution of key innovative traits remained unclear in both species. This is mostly because GO terms poorly reflect the traits we are interested in and remain quite difficult to interpret.
 
+The top 100 GO terms in each category (BP, MF and CC) were stored alongside with their p-value and underlying orthogroups and genes, for further analysis in combination with RNA-seq data.
+
 # Detecting "genes of interest" in the multicopy gene family pool
 
 A reverse approach, where we search for genes of interest in our set of multicopy gene families, may give us a better idea on gene family evolution and key innovation traits. I made use of the ~ 700 genes of interest identified in previous work by Marylaure and Gil to see if a proportion of these genes were to be found in our mutlicopy gene family set.
