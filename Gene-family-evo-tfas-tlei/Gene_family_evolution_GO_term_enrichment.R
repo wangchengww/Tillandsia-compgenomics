@@ -1,6 +1,7 @@
 # Studying differences in gene family sizes between Tfas and Tlei
 
 library(ggplot2)
+library(dplyr)
 
 setwd("Documents/GitHub/Tillandsia-compgenomics/Gene-family-evo-tfas-tlei/")
 setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/Gene-family-evo-tfas-tlei/")
@@ -35,6 +36,22 @@ counts_more_Tfas <- counts_Tfas_Tlei_multi[(counts_Tfas_Tlei_multi$Tfas > counts
 write.table(counts_Tfas_Tlei_multi, file = "orthogroup_selection_multicopy_for_GO_term_all.txt", sep = "\t", quote = F, row.names = F)
 write.table(counts_more_Tfas, file = "orthogroup_selection_multicopy_larger_in_Tfas.txt", sep = "\t", quote = F, row.names = F)
 write.table(counts_more_Tlei, file = "orthogroup_selection_multicopy_larger_in_Tlei.txt", sep = "\t", quote = F, row.names = F)
+
+### Log-ratio test
+counts_Tfas_Tlei$logratio <- log(counts_Tfas_Tlei$Tfas/counts_Tfas_Tlei$Tlei)
+mean_logratio <- mean(counts_Tfas_Tlei$logratio) # 0.0203
+counts_Tfas_Tlei$corr_logratio <- counts_Tfas_Tlei$logratio - mean_logratio
+
+top2percent_Tfas_larger <- counts_Tfas_Tlei %>%
+   arrange(desc(corr_logratio)) %>%
+   slice_head(prop = 0.02)
+top2percent_Tlei_larger <- counts_Tfas_Tlei %>%
+   arrange((corr_logratio)) %>%
+   slice_head(prop = 0.02)
+
+# Because of the very high occurrence of 1:1 orthogroups, anything deviating from 
+# this will already be in the top 2 % (includes all duplications, also 2:1). This shows that any
+# form of copy variance is in fact already "deviating" as far as we can tell.
 
 ### GO term enrichment on all multi-copy genes ###
 

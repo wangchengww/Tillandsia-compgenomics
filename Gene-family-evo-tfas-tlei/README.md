@@ -106,6 +106,8 @@ I then obtained a table of per-orhogroup gene counts by selecting the orthogroup
 
 The relationship of gene family size between species was explored in `Gene_family_evolution_GO_term_enrichment.R`
 
+To better understand which levels of orthogroup size changes between species were "substantial" or "deviating from expectations", I calculated Log ratios of the family sizes and ranked them. This showed that by selecting the top 2 % of observations, already the full multicopy gene set was included. This is mostly because we have a very large set of orthogroups where family sizes have not changed between both species. My interpretation of this is that we have no real power to distinguish between multicopy families which are fast or slow evolving, and that in any case any form of family size changes is unexpected. Therefore, it may be justified to analyze all multicopy groups as done below.
+
 This was done by removing unique multicopy families and all families where Tfas:Tlei relationship was 1:1. This set contained 2061 orthogroups.
 
 # GO term enrichment of multi-copy gene families
