@@ -21,8 +21,6 @@ ggplot(counts_Tfas_Tlei, aes(x=Tfas, y=Tlei)) + geom_point(size = .5) +
 
 # Add colour gradient to show number of datapoints with the same count combination
 counts_Tfas_Tlei_multi <- counts_Tfas_Tlei[!(counts_Tfas_Tlei$Tfas == 1 & counts_Tfas_Tlei$Tlei == 1),]
-counts_Tfas_Tlei_multi$Tfas_log <- log(counts_Tfas_Tlei_multi$Tfas)
-counts_Tfas_Tlei_multi$Tlei_log <- log(counts_Tfas_Tlei_multi$Tlei)
 ggplot(counts_Tfas_Tlei_multi) + geom_hex(aes(Tfas, Tlei, fill = stat(log(count))), bins = 100) +
   labs(title = "Per-species gene counts in multi-copy orthogroups") +
   ylab(label = "T. leiboldiana") +
@@ -42,12 +40,24 @@ counts_Tfas_Tlei$logratio <- log(counts_Tfas_Tlei$Tfas/counts_Tfas_Tlei$Tlei)
 mean_logratio <- mean(counts_Tfas_Tlei$logratio) # 0.0203
 counts_Tfas_Tlei$corr_logratio <- counts_Tfas_Tlei$logratio - mean_logratio
 
+
 top2percent_Tfas_larger <- counts_Tfas_Tlei %>%
    arrange(desc(corr_logratio)) %>%
-   slice_head(prop = 0.02)
+   filter(corr_logratio >= quantile(corr_logratio, .98))
 top2percent_Tlei_larger <- counts_Tfas_Tlei %>%
    arrange((corr_logratio)) %>%
-   slice_head(prop = 0.02)
+   filter(corr_logratio <= quantile(corr_logratio, .02))
+
+top2percent_Tfas_larger_multi <- counts_Tfas_Tlei_multi %>%
+   arrange(desc(corr_logratio)) %>% 
+   filter(corr_logratio >= quantile(corr_logratio, .98))
+top2percent_Tlei_larger_multi <- counts_Tfas_Tlei_multi %>%
+   arrange((corr_logratio)) %>% 
+   filter(corr_logratio <= quantile(corr_logratio, .02))
+
+write.table(top2percent_Tfas_larger_multi, file = "Top2percent_multicopy_orthogroups_LogRatio_larger_in_Tfas.txt", sep = "\t", quote = F, row.names = F)
+write.table(top2percent_Tlei_larger_multi, file = "Top2percent_multicopy_orthogroups_LogRatio_larger_in_Tlei.txt", sep = "\t", quote = F, row.names = F)
+
 
 # Because of the very high occurrence of 1:1 orthogroups, anything deviating from 
 # this will already be in the top 2 % (includes all duplications, also 2:1). This shows that any

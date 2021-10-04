@@ -108,7 +108,9 @@ The relationship of gene family size between species was explored in `Gene_famil
 
 To better understand which levels of orthogroup size changes between species were "substantial" or "deviating from expectations", I calculated Log ratios of the family sizes and ranked them. This showed that by selecting the top 2 % of observations, already the full multicopy gene set was included. This is mostly because we have a very large set of orthogroups where family sizes have not changed between both species. My interpretation of this is that we have no real power to distinguish between multicopy families which are fast or slow evolving, and that in any case any form of family size changes is unexpected. Therefore, it may be justified to analyze all multicopy groups as done below.
 
-This was done by removing unique multicopy families and all families where Tfas:Tlei relationship was 1:1. This set contained 2061 orthogroups.
+For downstream multicopy analyses (GO terms and genes of interest) I made a selection of genes that were not unique to one species and where at least one of the Tillandsia species had a gene count > 1.This set contained 2061 orthogroups.
+
+I still made an additional selection of fast-changing families by selecting within the multicopy dataset the top 2 % of orthogroups by log ratio, in both directions. This resulted in 53 orthogroups where family size is larger in T. fasciculata and 45 orthogroups where size is larger in T. leiboldiana. This translated to 1182 genes for the former selection (1297 after correction, 9.7 % difference, 755 genes have no GO terms, 64 %) and 480 genes for the latter selection (501 after correction, 4.3 % difference, 295 genes have no GO terms, 59 %).
 
 # GO term enrichment of multi-copy gene families
 
