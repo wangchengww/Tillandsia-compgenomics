@@ -40,6 +40,8 @@ counts_Tfas_Tlei$logratio <- log(counts_Tfas_Tlei$Tfas/counts_Tfas_Tlei$Tlei)
 mean_logratio <- mean(counts_Tfas_Tlei$logratio) # 0.0203
 counts_Tfas_Tlei$corr_logratio <- counts_Tfas_Tlei$logratio - mean_logratio
 
+ggplot(counts_Tfas_Tlei, aes(x=corr_logratio)) + geom_density()
+quantile(counts_Tfas_Tlei$corr_logratio)   
 
 top2percent_Tfas_larger <- counts_Tfas_Tlei %>%
    arrange(desc(corr_logratio)) %>%
