@@ -28,6 +28,12 @@ ggplot(counts_Tfas_Tlei_multi) + geom_hex(aes(Tfas, Tlei, fill = stat(log(count)
   scale_fill_continuous(type = "viridis") +
   theme_bw()
 
+wilcox.test(counts_Tfas_Tlei_multi$Tfas, counts_Tfas_Tlei_multi$Tlei)
+mean(counts_Tfas_Tlei_multi$Tfas)
+mean(counts_Tfas_Tlei_multi$Tlei)
+IQR(counts_Tfas_Tlei_multi$Tfas)
+IQR(counts_Tfas_Tlei_multi$Tlei)
+
 counts_more_Tlei <- counts_Tfas_Tlei_multi[(counts_Tfas_Tlei_multi$Tfas < counts_Tfas_Tlei_multi$Tlei),]
 counts_more_Tfas <- counts_Tfas_Tlei_multi[(counts_Tfas_Tlei_multi$Tfas > counts_Tfas_Tlei_multi$Tlei),]
 
