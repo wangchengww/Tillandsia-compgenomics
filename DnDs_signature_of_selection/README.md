@@ -81,6 +81,7 @@ Alignments on subsets were performed twice, once with very basic code and once w
      java -jar macse_v2.05.jar -prog alignSequences -seq $i -local_realign_init 1 -local_realign_dec 1 ;
     done
 
-
+The alignments were then converted into .axt files using a modified form of the script
+03_ConvertFasta.py from the {AlignmentProcessor}(https://github.com/WilsonSayresLab/AlignmentProcessor/blob/master/bin/03_ConvertFasta.py) software. 
 
 # Calculating dN / dS ratios for the final dataset
