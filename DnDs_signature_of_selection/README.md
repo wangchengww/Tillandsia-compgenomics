@@ -51,5 +51,36 @@ Then I used the following bash script and the resulting file to compile ortholog
 # Checking for completeness and length differences between orthologous pairs
 
 Since Dn/Ds ratios are very sensitive to alignment quality, we first wanted to have an idea of the completeness of our gene pairs (i.e. presence of a start and stop codon) and their lengths. I therefore made a "checklist" containing this information for each gene using the script `script_make_checklist_completeness_length_orthologous_genes.py`
+This file was eventually modified in R to a per-orthogroup format in which the absolute difference in sequence length between pairs was calculated. Additionally, Francesca calculated relative differences for each species (diff/length_Tfas and diff/length_Tlei) and noted completeness in the orthogroup (both complete / one complete / zero complete). Additionally, francesca counted the exon number per gene and the difference in counts between genes.
+
+# Testing filtering options of alignments based on length differences and completeness
+
+We created four subsets with different degrees of filtering to run preliminary dN/dS analyses on:
+
+- stringent filtering: both alignments are complete (they have a start and stop codon), they have an absolute length difference of maximum 200 basepairs and they have a relative length difference that is smaller than 0.1 (meaning that the difference in length is no more than 10 % of the total length of that gene).
+- relaxed completeness: same requirements as above regarding length differences, but only one gene is complete.
+- relaxed relative difference: both genes have to be complete and the same requirement applies for absolute length differences as above. However, the relative length difference ranges from 0.1 to 0.2.
+- relaxed completeness and relative difference: absolute length requirement remains the same, but relative differences range from 0.1 to 0.2 and only one gene is complete.
+
+The total number of orthogroups for each subset was:
+6208  stringent filtering (47 %)
+493   relaxed relative difference (4 %)
+2569  relaxed completeness (19 %)
+316   relaxed relative difference and completeness (2 %)
+
+Francesca then randomly selected 200 orthogroups for each filtering setting and performed alignments with them.
+
+Alignments on subsets were performed twice, once with very basic code and once with more specific requirements that optimize the alignment:
+
+    # Basic alignment
+    for i in *; do
+     java -jar macse_v2.05.jar -prog alignSequences -seq $i ;
+    done
+    # Extensive alignment
+    for i in *; do
+     java -jar macse_v2.05.jar -prog alignSequences -seq $i -local_realign_init 1 -local_realign_dec 1 ;
+    done
+
+
 
 # Calculating dN / dS ratios for the final dataset
