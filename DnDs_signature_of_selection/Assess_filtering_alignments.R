@@ -23,4 +23,11 @@ kaks_test <- cbind(kaks_test, filter, alignment)
 
 ggplot(kaks_test, aes(x=filter, y=Ka.Ks, fill=alignment)) + 
          geom_boxplot() +
-         ylim(c(-5,5))
+         ylim(c(0,5))
+
+ggplot(kaks_test, aes(x=filter, y=Ka.Ks)) + 
+  geom_boxplot() +
+  ylim(c(0,5)) +
+  geom_jitter(shape=16, position=position_jitter(0.2))
+
+tapply(kaks_test$Ka.Ks, kaks_test$filter, mean)
