@@ -82,6 +82,6 @@ Alignments on subsets were performed twice, once with very basic code and once w
     done
 
 The alignments were then converted into .axt files using a modified form of the script
-03_ConvertFasta.py from the {AlignmentProcessor}(https://github.com/WilsonSayresLab/AlignmentProcessor/blob/master/bin/03_ConvertFasta.py) software. 
+03_ConvertFasta.py from the {AlignmentProcessor}(https://github.com/WilsonSayresLab/AlignmentProcessor/blob/master/bin/03_ConvertFasta.py) software. Preliminary dN/dS ratios were then calculated with KaKs calculator and the MYN model using a modified script of 04_CallKaKs.py from ALignmentProcessor.
 
 # Calculating dN / dS ratios for the final dataset

@@ -22,7 +22,7 @@ def calculateKaKs(indir, outdir, method, axt):
 		filename = axt.split("/")[-1]
 		# Create output file
 		outfile = (outdir + filename.split(".")[0] + ".kaks")
-		cmd = "bin/KaKs_Calculator -i "+axt+" -o "+outfile+" -m "+method
+		cmd = "/home/fs71400/grootcrego/software/AlignmentProcessor/bin/KaKs_Calculator -i "+axt+" -o "+outfile+" -m "+method
 		ck = Popen(split(cmd), stdout = DEVNULL)
 		ck.wait()
 	if ck.returncode() == 0:
@@ -35,11 +35,8 @@ def compileKsKs(outdir):
 	count =  0
 	files = glob(outdir + "*.kaks")
 	# Create output file
-	outfile = ""
-	path = outdir.split("/")[:-2]
-	for i in path:
-		outfile += i + "/"
-	outfile = outfile + "KaKs.csv"
+	outfile = outdir + "KaKs.csv"
+	print(outfile)
 	# Open input and output files
 	with open(outfile, "w") as output:
 		for kaks in files:
@@ -51,15 +48,15 @@ def compileKsKs(outdir):
 						if line.split("\t")[0] == "Sequence":
 							pass
 						else:
-							fasc_id = line.split(" | ")[1]
-							lei_id = line.split(" | ")[4]
-							info = line.split(" | ")[6]
+							splitline = line.split(" | ")
+							fasc_id = [i for i in splitline if i.startswith('Tfasc_v1.')]
+							lei_id = [i for i in splitline if i.startswith('Tlei_v1.')]
+							info = splitline[-1]
 							info2 = info.split("\t")[1:]
-							output.write(filename.split(".")[0] + "\t" +
-										info2.replace("\t",","))
+							output.write(filename.split(".")[0] + "\t" + fasc_id[0] + "\t" + lei_id[0] + "\t" + '\t'.join(info2))
 					elif count == 0:
 						#Print header from first file
-						output.write("GeneID\t" + line.replace("\t",","))
+						output.write("Ortho_ID\t" + "Tfas_ID\t" + "Tlei_ID\t" + line)
 						count += 1
 
 #-----------------------------------------------------------------------------
