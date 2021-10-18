@@ -92,6 +92,8 @@ Next, using the checklist, I selected all genes:
 
 	grep -v "0 complete" checklist_with_diff_completeness.txt | \
 	awk '$5 > -0.2 && $5 < 0.2 && $6 > -0.2 && $6 < 0.2' | cut -f 1 | \
-	sed 's/"//g' > orthogroups_final_subset_0.2_lengthdiff_1_complete.txt 
+	sed 's/"//g' > orthogroups_final_subset_0.2_lengthdiff_1_complete.txt
+
+Alignment was done with optimization parameters for all orthologous pairs with the bash script `run_macse.sh`.
 
 # Calculating branch-specific dN /dS ratios in CodeML using an outgroup
