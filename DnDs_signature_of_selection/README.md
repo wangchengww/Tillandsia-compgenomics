@@ -84,4 +84,14 @@ Alignments on subsets were performed twice, once with very basic code and once w
 The alignments were then converted into .axt files using a modified form of the script
 03_ConvertFasta.py from the {AlignmentProcessor}(https://github.com/WilsonSayresLab/AlignmentProcessor/blob/master/bin/03_ConvertFasta.py) software. Preliminary dN/dS ratios were then calculated with KaKs calculator and the MYN model using a modified script of 04_CallKaKs.py from ALignmentProcessor.
 
-# Calculating dN / dS ratios for the final dataset
+Comparing the distribution of dN/dS ratios between filtering categories showed that relaxing length difference didn't cause extreme values of dN/dS. However, relaxing completeness did cause a few estimates to show up, though most estimates were still in the same range as with stringent filtering. I therefore decided to keep the filtering loose at this point, and only remove alignments of genes where both are incomplete and where length differences are > 0.2 in both genes. This kept 10,362 orthologous pairs for pairwise alignment, which is almost 80 % of the original set.
+
+# Calculating pairwise dN / dS ratios for the final dataset
+
+Next, using the checklist, I selected all genes:
+
+	grep -v "0 complete" checklist_with_diff_completeness.txt | \
+	awk '$5 > -0.2 && $5 < 0.2 && $6 > -0.2 && $6 < 0.2' | cut -f 1 | \
+	sed 's/"//g' > orthogroups_final_subset_0.2_lengthdiff_1_complete.txt 
+
+# Calculating branch-specific dN /dS ratios in CodeML using an outgroup
