@@ -33,12 +33,6 @@ ggplot(kaks_test_na, aes(x=filter, y=(Ka.Ks))) +
   ylim(c(0,5)) +
   geom_jitter(shape=16, position=position_jitter(0.2))
 
-boxplot(kaks_test[kaks_test$filter == "stringent_filtering",!is.na(7)])
-median(!is.na(kaks_test[kaks_test$filter == "stringent_filtering",7]))
-
-quantile(kaks_no_na$Ka.Ks, probs = c(.25,.5,.75))
-median(kaks_no_na$Ka.Ks)
-
 # Count NAs per filter category              
 table(kaks_test[is.na(kaks_test$Ka),25]) # 10 stringent, 8 relaxed length diff, 16 relaxed completeness, 12 relaxed length and completeness
 table(kaks_test[is.na(kaks_test$Ks),25]) # 10 stringent, 12 relaxed length diff, 8 relaxed completeness, 10 relaxed length and completeness
@@ -49,8 +43,7 @@ nrow(kaks_test[kaks_test$P.Value.Fisher. < 0.05 & kaks_test$filter == "relaxed_l
 nrow(kaks_test[kaks_test$P.Value.Fisher. < 0.05 & kaks_test$filter == "relaxed_length_completeness",]) # 206
 
 summary(kaks_test)
-tapply(kaks_no_na$Ka.Ks, kaks_no_na$filter, median)
-median(!is.na(kaks_test[kaks_test$filter == "stringent_filtering",7]))
+tapply(kaks_test_na$Ka.Ks, kaks_test_na$filter, mean)
 
 checklist <- read.delim("checklist_with_diff_completeness.txt", header = T)
 table(checklist$completeness)
@@ -83,4 +76,5 @@ table(checklist[checklist$diff_per_Tfas > -0.2 & checklist$diff_per_Tfas < 0.2 &
 #      215          7241          3121
 # inspect bins
 summary(group_tags)
-
+quantile(checklist$difference, c(.05,.1,.9,.95))
+quantile(checklist[checklist$diff_per_Tfas > -0.2 & checklist$diff_per_Tfas < 0.2 & checklist$diff_per_Tlei > -0.2 & checklist$diff_per_Tlei < 0.2,4], c(.02,.98))
