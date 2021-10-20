@@ -96,4 +96,6 @@ Next, using the checklist, I selected all genes:
 
 Alignment was done with optimization parameters for all orthologous pairs with the bash script `run_macse.sh`.
 
+As CodeML allows for pairwise calculation of dN / dS values, I decided to drop KaKsCalculator and find a way to automate CodeML. I discovered the {ETE toolkit}(http://etetoolkit.org/documentation/ete-evol/), which allows such a thing.
+
 # Calculating branch-specific dN /dS ratios in CodeML using an outgroup
