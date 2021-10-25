@@ -10,4 +10,8 @@ For this, the final orthology file orthogroups_Tfas_Tlei_Acom.per_gene.with_func
 
 Using the masked version of the assemblies (run after extensive EDTA run, see Synteny, LastZ runs), I calculated the percentage of masked bases per 1 MB windows with the python script `script_calculate_repetitive_content_perwindow_maskedfasta.py`:
 
-    python calculate_repetitive_content_perwindow_maskedfasta.py Tillandsia_leiboldiana_26_scaffolds.fasta.masked 100000
+    python calculate_repetitive_content_perwindow_maskedfasta.py Tillandsia_leiboldiana_26_scaffolds.fasta.masked 1000000
+
+# Visualizing per-scaffold genic and repetitive content
+
+The circular figures showing per-scaffold genic and repetitive content were made using circlize in R with the script `Visualize_Genic_TE_content_circlize.R`
