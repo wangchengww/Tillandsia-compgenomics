@@ -4,7 +4,7 @@ TE annotation was performed using the Extensive *de novo* TE Annotator ([EDTA](h
 
 # Original annotation, used for masking during gene prediction
 
-Originally, EDTA was run in version 1.7.8 by Gil for Tillandsia fasciculata (on the cube) and version 1.9.5 by me for Tillandsia leiboldiana (on the VSC4). The original annotation didn't include extensive corrections as these were not available in those versions. Annotation was run with the command:
+Originally, EDTA was run in version 1.7.8 by Gil for Tillandsia fasciculata (on the cube) and version 1.8.5 by me for Tillandsia leiboldiana (on the VSC4). The original annotation didn't include extensive corrections as these were not available in those versions. Annotation was run with the command:
 
     perl EDTA.pl --genome tillandsia_leiboldiana_assembly.pilon.upper.sorted.fasta \
 	--cds pineapple.20150427.cds.wo_transposons.fasta \
@@ -13,6 +13,8 @@ Originally, EDTA was run in version 1.7.8 by Gil for Tillandsia fasciculata (on 
 *A. comosus* coding sequences were used to filter out genes falsely identified as TEs in the final step of annotation.
 
 Important: The original annotation files for T. fasciculata were lost during a clean-up of the cube. However, the library (still available) was used in the downstream gene annotation process as well as masked versions of the genome (still available).
+
+# Assessing unkown TE's identified by EDTA
 
 # Detailed annotation of the full assembly
 
