@@ -1,6 +1,6 @@
 # Annotation of repetitive content in *T. fasciculata* and *T. leiboldiana*
 
-TE annotation was performed using the Extensive *de novo* TE Annotator ({EDTA}(https://github.com/oushujun/EDTA)) for both species. This was after Gil performed a few tests comparing RepeatModeller and EDTA showing that BUSCO scores were higher when using EDTA.
+TE annotation was performed using the Extensive *de novo* TE Annotator ((EDTA){https://github.com/oushujun/EDTA}) for both species. This was after Gil performed a few tests comparing RepeatModeller and EDTA showing that BUSCO scores were higher when using EDTA.
 
 # Original annotation, used for masking during gene prediction
 
