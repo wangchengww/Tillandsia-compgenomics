@@ -62,7 +62,7 @@ def fastaToPhylip(files, outdir):
 			# Parse fasta file and convert to phylip
 			for line in infile:
 				if line[0] == ">":
-					species = line[1:].strip()
+					species = line.split(" | ")[0]
 					if len(species) > 10:
 						species = species[:11]
 					n += 1
@@ -71,7 +71,7 @@ def fastaToPhylip(files, outdir):
 						l = len(line.strip())
 					seqs.append(species + "  " + line.strip())
 		n = str(n)
-		outfile = outdir + geneid + "." + str(n) + ".phylip"
+		outfile = outdir + geneid + ".phylip"
 		with open(outfile, "w") as output:
 			output.write(" " + n + " " + str(l) + "\n")
 			for i in seqs:

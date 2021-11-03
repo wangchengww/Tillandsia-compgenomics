@@ -1,6 +1,6 @@
-seqfile = OG0014554_NT.phylip
+seqfile =
 treefile =
- outfile = hello
+ outfile =
 
  noisy = 0  * 0,1,2,3,9: how much rubbish on the screen
  verbose = 0  * 0: concise; 1: detailed, 2: too much
@@ -24,7 +24,7 @@ aaRatefile = dat/jones.dat  * only used for aa seqs with model=empirical(_F)
    icode = 0  * 0:universal code; 1:mammalian mt; 2-10:see below
 fix_kappa = 0  * 1: kappa fixed, 0: kappa to be estimated
    kappa = 3  * initial or fixed kappa
-fix_omega = 1  * 1: omega or omega_1 fixed, 0: estimate
+fix_omega = 0  * 1: omega or omega_1 fixed, 0: estimate
    omega = 1 * initial or fixed omega, for codons or codon-based AAs
 
 fix_alpha = 1  * 0: estimate gamma shape parameter; 1: fix it at alpha
