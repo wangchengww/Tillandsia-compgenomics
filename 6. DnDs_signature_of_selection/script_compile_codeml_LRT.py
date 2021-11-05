@@ -9,7 +9,7 @@ from scipy.stats.distributions import chi2
 null_file = open(sys.argv[1])
 alt_file = open(sys.argv[2])
 outputfilename="pairwise_dnds.codeml.allgenes.output"
-output=open(outputfilename,'w')
+output=open(outputfilename,'a+')
 #--------------
 
 #--------------
@@ -22,8 +22,9 @@ non_decimal = re.compile(r'[^\d.]+')
 
 #--------------
 # Main code: extract all relevant information and compile into one file
-firstline="OrthoID"+"\t"+"dN/dS"+"\t"+"dN"+"\t"+"dS"+"\t"+"lnL_null"+"\t"+"lnL_alt"+"\t"+"Lratio"+"\t"+"pvalue\n"
-output.write(firstline)
+if len(open(outputfilename, 'r').readlines(  )) == 0:
+    firstline="OrthoID"+"\t"+"dN/dS"+"\t"+"dN"+"\t"+"dS"+"\t"+"lnL_null"+"\t"+"lnL_alt"+"\t"+"Lratio"+"\t"+"pvalue\n"
+    output.write(firstline)
 
 for line in null_file.readlines():
     if line.startswith("CODONML"):
@@ -48,6 +49,6 @@ LR = likelihood_ratio(loglikelihood_null,loglikelihood_alt)
 p = chi2.sf(LR, 1) # one degree of freedom
 p = '%.5f' % p
 
-line_to_write = ortho + "\t" + dnds + "\t" + dn + "\t" + ds + "\t" + str(loglikelihood_null) + "\t" + str(loglikelihood_alt) + "\t" + str(LR) + "\t" + str(p)
-print(line_to_write)
+line_to_write = ortho + "\t" + dnds + "\t" + dn + "\t" + ds + "\t" + str(loglikelihood_null) + "\t" + str(loglikelihood_alt) + "\t" + str(LR) + "\t" + str(p) + "\n"
+output=open(outputfilename,'a+')
 output.write(line_to_write)

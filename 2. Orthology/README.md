@@ -121,4 +121,4 @@ There were 1034 genes with these descriptions belonging to 264 orthogroups. I ob
 	orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.txt > orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.txt
 
 This removed a total of 6042 genes.
-The file `orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.txt` is the final set of curated orthogroups that has been used in downstream analysis. It contains 70,963 genes and 19,101 orthogroups. Additional statistics on the orthology analysis can be found [here](https://docs.google.com/spreadsheets/d/1hv_Oe6MvV1fBuBkGIhvM1ihDwYviuY-LcYUGYKnIwNQ/edit#gid=324678736).
+The file `orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.txt` is the final set of curated orthogroups that has been used in downstream analysis. It contains 70,963 genes and 19,101 orthogroups (26325 for Tfas, 23584 for Tlei, 21055 for Aco). Additional statistics on the orthology analysis can be found [here](https://docs.google.com/spreadsheets/d/1hv_Oe6MvV1fBuBkGIhvM1ihDwYviuY-LcYUGYKnIwNQ/edit#gid=324678736).

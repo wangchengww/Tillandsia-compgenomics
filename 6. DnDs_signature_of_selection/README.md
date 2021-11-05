@@ -103,9 +103,12 @@ Additional choices in the settings of codeML were to set codon frequencies to be
 
     null=(/gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/dnds/dnds_calculations/codeML/null/*.out)
     alt=(/gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/dnds/dnds_calculations/codeML/alt/*.out)
+    n=0
     for ((i=0;i<=${#null[@]};i++))
     do
       python script_compile_codeml_LRT.py "${null[i]}" "${alt[i]}"
+      n=$((n+1))
+      echo $n
     done
 
 Important: I modified the phylip files slightly, because codeML doesn't accept "!" in the alignments. MACSE introduces these whenever there is a change in frameshift. In other words, when an entire codon is deleted, this will be shown as "---" but when there is a gap < 3, it will show as "!!A" or something of the like. I replaced all "!" by "-" so that codeML wouldn't throw errors.
