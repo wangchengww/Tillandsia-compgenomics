@@ -96,8 +96,16 @@ Next, using the checklist, I selected all genes:
 
 Alignment was done with optimization parameters for all orthologous pairs with the bash script `run_macse.sh`.
 
-As CodeML allows for pairwise calculation of dN / dS values, I decided to drop KaKsCalculator and find a way to automate CodeML. I discovered the {ETE toolkit}(http://etetoolkit.org/documentation/ete-evol/), which allows such a thing.
+As CodeML allows for pairwise calculation of dN / dS values, I decided to drop KaKsCalculator and find a way to automate CodeML. The selected alignments were converted to PHYLIP format using `03_ConvertFastatoAXTorPhylip.py`. I used modified scripts from ALignmentProcessor `04_CallCodeML_modified.py` and `parallelcodeML.py` to run codeML automatically for all 10,362 orthologous pairs.
 
-# Calculating branch-specific dN /dS ratios in CodeML using an outgroup
+codeML was run twice for a null model and alternative hypothesis. The settings are summarized in the two control files `codeml_null.ctl` and `codeml_alt.ctl`. Concretely, we used the site-specific model MO (Nssties = 0) for both runs. In the null model, omega (dN/dS) was fixed to 1, whereas in the alternative, it was estimated from the data starting from 1. The reason to run codeML twice is that we gather likelihoods for the null and alternative model and can compute p-values, to see how significant our inferences are.
+Additional choices in the settings of codeML were to set codon frequencies to be inferred from the data at all three positions in the codon (F3x4) (CodonFreq = 2) and kappa (Ts/Tv ratio) was set to 3, but is estimated from data (kappa = 3, fix_kappa = 0). The results of both runs were compiled with the script `script_comple_codeml_LRT.py`. This script also performs a likelihood ratio test (chisquare). I called the script on all files as follows:
 
-The selected alignments were converted to PHYLIP format using `03_ConvertFastatoAXTorPhylip.py`
+    null=(/gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/dnds/dnds_calculations/codeML/null/*.out)
+    alt=(/gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/dnds/dnds_calculations/codeML/alt/*.out)
+    for ((i=0;i<=${#null[@]};i++))
+    do
+      python script_compile_codeml_LRT.py "${null[i]}" "${alt[i]}"
+    done
+
+Important: I modified the phylip files slightly, because codeML doesn't accept "!" in the alignments. MACSE introduces these whenever there is a change in frameshift. In other words, when an entire codon is deleted, this will be shown as "---" but when there is a gap < 3, it will show as "!!A" or something of the like. I replaced all "!" by "-" so that codeML wouldn't throw errors.

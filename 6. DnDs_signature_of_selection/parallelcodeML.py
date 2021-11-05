@@ -88,7 +88,7 @@ def parallelize(ap, outdir, finished, completed, multiple, cpu, ctl,
 		except FileExistsError:
 			pass
 		tempctl = wd + "codeml.ctl"
-		outfile = (outdir + geneid +"."+ filename.split(".")[1] + ".mlc")
+		outfile = (outdir + geneid +".codeML.out")
 		if multiple == True:
 			if filename.split(".")[1] == "2":
 				# Skip pairwise genes and remove directory
@@ -106,7 +106,7 @@ def parallelize(ap, outdir, finished, completed, multiple, cpu, ctl,
 					os.chdir(wd)
 					# Call CodeML
 					with open("codemlLog.txt", "w") as tmpout:
-						cm = Popen(split("/home/fs71400/grootcrego/software/AlignmentProcessor/paml/bin/codeml" + tempctl),
+						cm = Popen(split("/home/fs71400/grootcrego/software/AlignmentProcessor/paml/bin/codeml"),
 								shell = True, stdout = tmpout, stderr = tmpout,
 								stdin=PIPE)
 						cm.communicate(input=b'\n')
@@ -118,9 +118,10 @@ def parallelize(ap, outdir, finished, completed, multiple, cpu, ctl,
 			# Call CodeML for all files
 			os.chdir(wd)
 			with open("codemlLog.txt", "w") as tmpout:
-				cm = Popen(split("/home/fs71400/grootcrego/software/AlignmentProcessor/paml/bin/codeml " + tempctl),
-						shell = True, stdout = tmpout, stderr = tmpout)
-				cm.wait()
+				cm = Popen(split("/home/fs71400/grootcrego/software/AlignmentProcessor/paml/bin/codeml"),
+						shell = True, stdout = tmpout, stderr = tmpout,
+						stdin=PIPE)
+				cm.communicate(input=b'\n')
 		with open(finished, "a") as fin:
 			# Append gene id to list when done
 			fin.write(geneid + "\n")
