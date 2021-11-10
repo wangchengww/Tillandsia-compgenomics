@@ -112,3 +112,5 @@ Additional choices in the settings of codeML were to set codon frequencies to be
     done
 
 Important: I modified the phylip files slightly, because codeML doesn't accept "!" in the alignments. MACSE introduces these whenever there is a change in frameshift. In other words, when an entire codon is deleted, this will be shown as "---" but when there is a gap < 3, it will show as "!!A" or something of the like. I replaced all "!" by "-" so that codeML wouldn't throw errors.
+
+The dN/dS results were then analyzed with `Assessment_dnds_values.R`.
