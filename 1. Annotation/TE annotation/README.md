@@ -16,6 +16,7 @@ Important: The original annotation files for T. fasciculata were lost during a c
 
 # Assessing unkown TE's identified by EDTA
 
+
 # Detailed annotation of the full assembly
 
 To report the repetitive content of both assemblies, I reran annotation with extra steps to obtain the most precise result. This was done on the cube for both full assemblies as the VSC4 was throwing complex errors. The EDTA version used here was 1.9.6:

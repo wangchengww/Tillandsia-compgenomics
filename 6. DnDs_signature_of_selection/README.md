@@ -113,4 +113,15 @@ Additional choices in the settings of codeML were to set codon frequencies to be
 
 Important: I modified the phylip files slightly, because codeML doesn't accept "!" in the alignments. MACSE introduces these whenever there is a change in frameshift. In other words, when an entire codon is deleted, this will be shown as "---" but when there is a gap < 3, it will show as "!!A" or something of the like. I replaced all "!" by "-" so that codeML wouldn't throw errors.
 
-The dN/dS results were then analyzed with `Assessment_dnds_values.R`.
+The dN/dS results were then analyzed with `Assessment_dnds_values.R`. Alignments of significant genes were checked with AliView.
+
+# Obtaining Tillandsia outgroup sequences for branch-site models
+
+Next, we decided to recalculate dN/dS values using branch-site models. This allows omega to vary across branches and can give us an idea of which species experienced adaptive sequence evolution in each gene, as pairwise calculations cannot give us direction. However, this means the inclusion for an outgroup. While Ananas comosus gene models are readily available from our orthofinder analyses, this is a widely diverged taxon compared to our Tillandsias and may cause alignment issues. Therefore, we decided to make use of existing RNA-seq of an outgroup Tillandsia to obtain outgroup sequences.
+
+Data availability:
+- Tillandsia floribunda: CAM plant of the subgenus Allardtia, part of the T. biflora complex. 2 RNA-seq samples are available.
+- Tillandsia australis: C3 plant of the subgenus Allardtia. 3 RNA-seq samples are available.
+- Tillandsia sphaerocephala: CAM plant of the subgenus Allardtia, part of the T. biflora complex. 3 RNA-seq samples are available.
+
+Since all three species are roughly equally distant to our Tillandsias, there is no obvious favourite to include as an outgroup. It might be interesting to include two outgroups, where one is a C3 and another a CAM species (T. australis and T. sphaerocephala). 
