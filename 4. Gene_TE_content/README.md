@@ -16,6 +16,10 @@ Using the masked version of the assemblies (run after extensive EDTA run, see Sy
 
 The circular figures showing per-scaffold genic and repetitive content were made using circlize in R with the script `Visualize_Genic_TE_content_circlize.R`.
 
+# In detail analysis of repetitive content
+
+See 
+
 # Calculating per scaffold genic / repetitive content ratios
 
 Since visually it is clear that TE content is larger in T. leiboldiana, I decided to compute genic-to-repetitive content ratios for each contig for both species, to have a numeric comparison.
