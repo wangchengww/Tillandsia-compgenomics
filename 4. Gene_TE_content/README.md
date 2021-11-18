@@ -16,9 +16,9 @@ Using the masked version of the assemblies (run after extensive EDTA run, see Sy
 
 The circular figures showing per-scaffold genic and repetitive content were made using circlize in R with the script `Visualize_Genic_TE_content_circlize.R`.
 
-# In detail analysis of repetitive content
+# In depth analysis of repetitive content
 
-See 
+See `Repetitve_content_in_depth_analysis.md`.
 
 # Calculating per scaffold genic / repetitive content ratios
 

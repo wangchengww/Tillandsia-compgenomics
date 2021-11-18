@@ -124,4 +124,16 @@ Data availability:
 - Tillandsia australis: C3 plant of the subgenus Allardtia. 3 RNA-seq samples are available.
 - Tillandsia sphaerocephala: CAM plant of the subgenus Allardtia, part of the T. biflora complex. 3 RNA-seq samples are available.
 
-Since all three species are roughly equally distant to our Tillandsias, there is no obvious favourite to include as an outgroup. It might be interesting to include two outgroups, where one is a C3 and another a CAM species (T. australis and T. sphaerocephala). 
+Since all three species are roughly equally distant to our Tillandsias, there is no obvious favourite to include as an outgroup. It might be interesting to include two outgroups, where one is a C3 and another a CAM species (T. australis and T. sphaerocephala). I eventually decided to work with T. australis and T. sphaerocephala, as we have more data available.
+
+The RNA-seq data of day and night sample of each individual were combined into one file: `cat Taus_C3_day_A_R2.fastq Taus_C3_night_A_R2.fastq > Taus_C3_A.combined.R2.fastq`
+
+Trimming was run with AdapterRemoval with following loop:
+
+    R1=($input_dir/*.R1.fastq)
+    R2=($input_dir/*.R2.fastq)
+    for ((i=0;i<=${#R1[@]};i++))
+    do
+      AdapterRemoval --file1 "${R1[i]}" --file2 "${R2[i]}" --basename "${R1[i]%.R1.fastq}" --trimns --trimqualities --minquality 20 --trimwindows 12 --minlength 36
+      fastqc "${R1[i]%.R1.fastq}.pair1.truncated" "${R2[i]%.R2.fastq}.pair2.truncated"
+    done
