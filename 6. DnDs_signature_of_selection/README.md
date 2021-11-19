@@ -137,3 +137,22 @@ Trimming was run with AdapterRemoval with following loop:
       AdapterRemoval --file1 "${R1[i]}" --file2 "${R2[i]}" --basename "${R1[i]%.R1.fastq}" --trimns --trimqualities --minquality 20 --trimwindows 12 --minlength 36
       fastqc "${R1[i]%.R1.fastq}.pair1.truncated" "${R2[i]%.R2.fastq}.pair2.truncated"
     done
+
+After trimming, samples contained between 33.2 - 40.9 million pairs.
+
+Mapping was then performed with STAR with the following loop:
+
+    # Index Genome
+    $star --runMode genomeGenerate --genomeDir $ref_dir --genomeFastaFiles $ref --sjdbGTFfile $gff_file --sjdbGTFtagExonParentTranscript Parent  --sjdbOverhang 149 --runThreadN 24
+    # Map samples to reference
+    R1=($wd/*.pair1.truncated)
+    R2=($wd/*.pair2.truncated)
+    for ((i=0;i<=${#R1[@]};i++))
+    do
+     /apps/star/2.5.3a/bin/Linux_x86_64/STAR --genomeDir $ref_dir \
+     --readFilesIn "${R1[i]}" "${R2[i]}" --outSAMtype BAM Unsorted \
+     --outFileNamePrefix "${R1[i].%.pair1.truncated}" \
+     --limitBAMsortRAM 10240000000 --runThreadN 48
+     done
+
+Unique mapping rates ranged between 56.9 % to 72.9 %. I chose for each species the individual with highest uniquely mapping rates: T.australis_C and T.sphaerocephala_A.
