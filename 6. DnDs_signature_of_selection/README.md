@@ -140,7 +140,7 @@ Trimming was run with AdapterRemoval with following loop:
 
 After trimming, samples contained between 33.2 - 40.9 million pairs.
 
-Mapping was then performed with STAR with the following loop:
+Mapping was then performed against the T. leiboldiana genome (fewer multimappers) with STAR with the following loop:
 
     # Index Genome
     $star --runMode genomeGenerate --genomeDir $ref_dir --genomeFastaFiles $ref --sjdbGTFfile $gff_file --sjdbGTFtagExonParentTranscript Parent  --sjdbOverhang 149 --runThreadN 24
