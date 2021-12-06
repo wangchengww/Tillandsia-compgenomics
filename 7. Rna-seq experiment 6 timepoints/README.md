@@ -34,6 +34,14 @@ The final data was then moved to the VSC4 for further analyses. Trimming was per
 
 Since most of our RNA analysis will be based on counts of reads per gene, it is important to choose a reference genome that doesn't create inherent biases in the counts. Since our references are from *T. leiboldiana* and *T. fasciculata*, I am devising a small test where I map a subset of our data to both references and also to *A. comosus* to infer possible mapping bias and choose the better reference genome for this analysis.
 
-I decided to subsample samples A,B and D for both Tlei (D is individual used for the assembly) and A,B and F for Tfas (F is individual for the assembly), at times 01, 05, 13 and 17. This results in a total of 24 samples used in the test: 2 species x 3 samples x 4 timepoints.
+I decided to subsample samples A,C and D for both Tlei (D is individual used for the assembly) and A,C and F for Tfas (F is individual for the assembly), at times 01, 05, 13 and 17. This results in a total of 24 samples used in the test: 2 species x 3 samples x 4 timepoints.
 
 I extracted random reads from each sample to 10 % of its original size using seqkit sample in the bash script `subsample.sh`. These were then mapped to each genome using STAR with `map.sh`. Mapping statistics were collected from each log file with the bash script `collect_mapping_stats.sh` and assessed with the r script `Assessment_mapping_bias.R`. The assessment showed that RNA data maps far better to the Tillandsia genomes than to A. comosus (around 90 % to around 50 %). Mapping bias seems much stronger when mapping to T. leiboldiana than to T. fasciculata. This seems to be rather due to unmapped reads than due to multimapper reads. Based on these results, I decided to map the full dataset to T. fasciculata.
+
+# Mapping full dataset
+
+All 72 samples were then mapped to the T. fasciculata genome with the same script as above. General mapping stats were obtained with MultiQC and also with the script above. Further assessment can be found in `Assessment_mapping_bias.R`
+
+# Obtaining counts per gene
+
+Counts per gene were computed using featureCounts with the bash script `counts.sh`.
