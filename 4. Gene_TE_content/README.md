@@ -22,4 +22,4 @@ See `Repetitve_content_in_depth_analysis.md`.
 
 # Calculating per scaffold genic / repetitive content ratios
 
-Since visually it is clear that TE content is larger in T. leiboldiana, I decided to compute genic-to-repetitive content ratios for each contig for both species, to have a numeric comparison.
+Since visually it is clear that TE content is larger in T. leiboldiana, I decided to compute genic-to-repetitive content ratios for each contig for both species, to have a numeric comparison. We already have the number of repetitive basepairs per scaffold from the in-depth analyses of TE content (see above). To obtain total numbers of genic basepairs per scaffold, I counted basepairs marked as exon from the gff files of both genomes with the script `script_genic_proportion_perscaff.py`. Importantly, these were run on subsets of the gff file containing only curated orthologues: `python ../Tfas_assembly/script_genic_proportion_per_scaff.py Tillandsia_leiboldiana_v1.2.curated_orthologues_only.gff chrNameLength.txt`

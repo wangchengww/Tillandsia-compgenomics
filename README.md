@@ -14,3 +14,5 @@ All scripts and notes for the Tillandsia Comparative Genomics project
 **5b. calling-SV : Calling structural variants and comparing caller softwares (discontinued).**
 
 **6. dNdS_signatures_of_selection: Calculating dN / dS ratios in orthologous gene pairs between *T. leiboldiana* and *T. fasciculata*.**
+
+**7. RNA-seq experiment 6 time points: DGE Analyses of a climate chamber experiment to explore expression differences between *T. leiboldiana* and *T. fasciculata*.**

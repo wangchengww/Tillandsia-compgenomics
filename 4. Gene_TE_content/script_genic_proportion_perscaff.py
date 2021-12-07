@@ -2,9 +2,8 @@
 import sys
 #-------------------------
 # Read input
-gff_file = open("test") # For now optimized for .intact.gff3
-total_genome_length = int(sys.argv[2])
-scaffold_lengths=open(sys.argv[3])
+gff_file = open(sys.argv[1])
+scaffold_lengths=open(sys.argv[2])
 # Name output
 outputfilename_perscaff=sys.argv[1].replace(".gff",".per_scaffold.abundances.summary")
 output_perscaff=open(outputfilename_perscaff,'w')
@@ -38,7 +37,7 @@ for line in gff_file.readlines():
 	if line.startswith("#"):
 		continue
 	else:
-		if "Parent=" not in line:
+		if line.split("\t")[2] == "exon":
 			scaffold = line.split("\t")[0]
 			if scaffold != previous_scaffold:
 				previous_start=0
@@ -68,19 +67,14 @@ for line in gff_file.readlines():
 				per_scaffold_dict[key].append(length)
 			else:
 				key = (scaffold, lengths_dict[scaffold])
-				per_scaffold_dict[key] = length
-			#Tally the length per-type for whole genome stats
-			total_genic_length = total_genic_length + length
-
-# Perform whole genome stats
-perc_total=perc(total_genic_length,total_genome_length)
+				per_scaffold_dict[key] = [length]
 
 #-------------------------- PER SCAFFOLD
 # Re-initialize values
 total_genic_length=0
 
 # Print header in output
-firstline="Scaffold\tlength\tproportion_coding\n"
+firstline="Scaffold\ttotal_length\ttotal_exonic_length\tproportion_exonic\n"
 output_perscaff.write(firstline)
 
 # Obtain per scaffold statistics by iterating over dictionnary established in the previous step. Values are reset after each scaffold.
@@ -94,6 +88,6 @@ for key,value in per_scaffold_dict.items():
 	perc_total=perc(total_genic_length,total_scaffold_length)
 
 	# Write per-scaffold stats to output
-	output_perscaff.write(scaffold+"\t"+str(total_scaffold_length)+"\t"+str(perc_total)+"\n")
+	output_perscaff.write(scaffold+"\t"+str(total_scaffold_length)+"\t"+str(total_genic_length)+"\t"+str(perc_total)+"\n")
 	# Reset all values
 	total_genic_length=0
