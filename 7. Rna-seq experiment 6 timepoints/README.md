@@ -40,8 +40,15 @@ I extracted random reads from each sample to 10 % of its original size using seq
 
 # Mapping full dataset
 
-All 72 samples were then mapped to the T. fasciculata genome with the same script as above. General mapping stats were obtained with MultiQC and also with the script above. Further assessment can be found in `Assessment_mapping_bias.R`
+All 72 samples were then mapped to the *T. fasciculata* genome with the same script as above. General mapping stats were obtained with MultiQC and also with the script above. Further assessment can be found in `Assessment_mapping_bias.R`
 
 # Obtaining counts per gene
 
-Counts per gene were computed using featureCounts with the bash script `counts.sh`.
+Counts per gene were computed using featureCounts with the bash script `counts.sh`. The summary file was then transposed using datamash: `datamash transpose < counts.Tfas_Tlei_6_timepoints.txt.summary > transposed_file`
+I also computed the number of genes per sample with 0 counts:
+
+	for i in {7..79}; do
+	 cut -f $i counts.Tfas_Tlei_6_timepoints.txt | grep -c -w 0
+	done
+
+Generally, about 72 % - 78 % of alignments were assinged to a gene. 15 % - 20 % could not be aligned due to multiple mapping, 5 % - 7 % due to being outside any gene. 25 % - 30 % of the genes did not have any alignments per sample. 
