@@ -99,7 +99,7 @@ Alignment was done with optimization parameters for all orthologous pairs with t
 As CodeML allows for pairwise calculation of dN / dS values, I decided to drop KaKsCalculator and find a way to automate CodeML. The selected alignments were converted to PHYLIP format using `03_ConvertFastatoAXTorPhylip.py`. I used modified scripts from ALignmentProcessor `04_CallCodeML_modified.py` and `parallelcodeML.py` to run codeML automatically for all 10,362 orthologous pairs.
 
 codeML was run twice for a null model and alternative hypothesis. The settings are summarized in the two control files `codeml_null.ctl` and `codeml_alt.ctl`. Concretely, we used the site-specific model MO (Nssties = 0) for both runs. In the null model, omega (dN/dS) was fixed to 1, whereas in the alternative, it was estimated from the data starting from 1. The reason to run codeML twice is that we gather likelihoods for the null and alternative model and can compute p-values, to see how significant our inferences are.
-Additional choices in the settings of codeML were to set codon frequencies to be inferred from the data at all three positions in the codon (F3x4) (CodonFreq = 2) and kappa (Ts/Tv ratio) was set to 3, but is estimated from data (kappa = 3, fix_kappa = 0). The results of both runs were compiled with the script `script_comple_codeml_LRT.py`. This script also performs a likelihood ratio test (chisquare). I called the script on all files as follows:
+Additional choices in the settings of codeML were to set codon frequencies to be inferred from the data at all three positions in the codon (F3x4) (CodonFreq = 2) and kappa (Ts/Tv ratio) was set to 3, but is estimated from data (kappa = 3, fix_kappa = 0). The results of both runs were compiled with the script `script_compile_codeml_LRT.py`. This script also performs a likelihood ratio test (chisquare). I called the script on all files as follows:
 
     null=(/gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/dnds/dnds_calculations/codeML/null/*.out)
     alt=(/gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/dnds/dnds_calculations/codeML/alt/*.out)
@@ -114,6 +114,39 @@ Additional choices in the settings of codeML were to set codon frequencies to be
 Important: I modified the phylip files slightly, because codeML doesn't accept "!" in the alignments. MACSE introduces these whenever there is a change in frameshift. In other words, when an entire codon is deleted, this will be shown as "---" but when there is a gap < 3, it will show as "!!A" or something of the like. I replaced all "!" by "-" so that codeML wouldn't throw errors.
 
 The dN/dS results were then analyzed with `Assessment_dnds_values.R`. Alignments of significant genes were checked with AliView. Additionally, RNA-seq data used for annotation was mapped back to the main scaffolds and visualized in Jbrowse to further assess alignments.
+
+# Curating candidate genes
+
+One danger of dN/dS is that this measure is highly dependent on alignment quality and high values of dN/dS can often be due to misalignment. I had a manual, visual look at all ~ 40 candidate alignments and detected many odd alignments. Since solving alignments can be tricky on a visual basis, I decided to rerun alignments with a different pipeline, by aligning the protein sequences with ClustalOmega and then running PAL2NAL (which will automatically compute dN/dS in PAML).
+
+First, I extracted the gene names per orthogroup for all 38 groups from the orthogroup file. Then, I created protein fasta files per orthogroup:
+
+	cat list_Candidate_genes_per_OG.txt | while read line; do
+		Orthogroup=`echo "$line"|awk '{print $3}'`;
+		echo $Orthogroup;
+		Tfas=`echo "$line"|awk '{print $1}'`;
+		Tlei=`echo "$line"|awk '{print $2}'`;
+		seqkit grep -p $Tfas /gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/Tfas_assembly/Tillandsia_fasciculata_v1.2.protein.fasta > $Orthogroup.AA.fasta
+		seqkit grep -p $Tlei /gpfs/data/fs71400/grootcrego/RERENCES_TILLANDSIA/Tlei_assembly/Tillandsia_leiboldiana_v1.2.protein.fasta >> $Orthogroup.AA.fasta
+   done
+
+Next, I made a pairwise protein alignment with clustalo:
+
+	for i in ../protein_seq/*; do
+		name=$(basename "$i" .AA.fasta)
+		echo $name
+		clustalo -i $i -o ./$name.alignment -t Protein --outfmt clu
+	done
+
+This was then used in pal2nal to obtain a final nucleotide alignment:
+
+	cat ../list_Candidate_genes_per_OG.txt | while read line; do
+		Orthogroup=`echo "$line"|awk '{print $3}'`;
+		echo $Orthogroup;
+		pal2nal.pl ../protein_alignments/$Orthogroup.alignment ../nuc_fasta/$Orthogroup.fasta -nogap -output paml > $Orthogroup.pal2nal.out
+	done
+
+codeML was then run for the null and alternative models as explained above, and a summary file with Likelihood ratio test was compiled as well with python script. Out of the 38 candidate orthogroups detected using MACSE alignments, only 19 were kept using pal2nal. After seeing these results, I decided to run pal2nal for all genes.
 
 # Obtaining Tillandsia outgroup sequences for branch-site models
 
