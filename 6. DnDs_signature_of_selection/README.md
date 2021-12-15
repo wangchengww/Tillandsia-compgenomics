@@ -148,6 +148,10 @@ This was then used in pal2nal to obtain a final nucleotide alignment:
 
 codeML was then run for the null and alternative models as explained above, and a summary file with Likelihood ratio test was compiled as well with python script. Out of the 38 candidate orthogroups detected using MACSE alignments, only 19 were kept using pal2nal. After seeing these results, I decided to run pal2nal for all genes.
 
+# Rerunning alignments with PAL2NAL
+
+This was done as specified above, and resulted in 44 gene pairs with significant dN/dS > 1. 19 (44 %) of these overlap with MACSE. Since I ran pal2nal on the entire set of 1-1 orthologues (without any filtering), I also obtained 16 candidate genes that should've been filtered out. I guess this reinforces the need to filter to avoid false positives. Additionally, 9 alignments came out as candidates from pal2nal alignment that were not significant with MACSE. Here, it mostly seems due to uncertainties in how to align gaps. I therefore decided to only work with the 19 pairs that were called with both alignment methods.
+
 # Obtaining Tillandsia outgroup sequences for branch-site models
 
 Next, we decided to recalculate dN/dS values using branch-site models. This allows omega to vary across branches and can give us an idea of which species experienced adaptive sequence evolution in each gene, as pairwise calculations cannot give us direction. However, this means the inclusion for an outgroup. While Ananas comosus gene models are readily available from our orthofinder analyses, this is a widely diverged taxon compared to our Tillandsias and may cause alignment issues. Therefore, we decided to make use of existing RNA-seq of an outgroup Tillandsia to obtain outgroup sequences.
