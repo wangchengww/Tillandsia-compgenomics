@@ -1,21 +1,33 @@
 setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/')
+setwd('/home/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/')
 library(ggplot2)
 library(grid)
 library(gridExtra)
 
-maptest <- read.delim('mapping_stats.txt', header = T, sep = " ")
+maptest <- read.delim('mapping_stats.testset.txt', header = T, sep = " ")
+mask <- read.delim('mapping_stats.testset.masked.txt', header = T, sep = ' ')
 summary(maptest)
+summary(mask)
 
 maptest$ref_genome <- rep(c("A.comosus", "T.fasciculata", "T.leiboldiana"), times = 24)
 maptest$sample_species <- c(rep(c("Tfas"), times = 36), rep(c("Tlei"), times = 36))
+
+mask$ref_genome <- rep(c("T.fasciculata", "T.leiboldiana"), times = 24)
+mask$sample_species <- c(rep(c("Tfas"), times = 24), rep(c("Tlei"), times = 24))
 
 # Reference bias in T. fasciculata: 2.9 % difference on average
 mean(maptest[maptest$ref_genome == "T.fasciculata" & maptest$sample_species == "Tfas", 3]) # 87.7 %
 mean(maptest[maptest$ref_genome == "T.fasciculata" & maptest$sample_species == "Tlei", 3]) # 84.8 %
 
+mean(mask[mask$ref_genome == "T.fasciculata" & mask$sample_species == "Tfas", 3]) # 85.8 %
+mean(mask[mask$ref_genome == "T.fasciculata" & mask$sample_species == "Tlei", 3]) # 83.1 %
+
 # Reference bias in T. leiboldiana: 5.6 % difference on average
 mean(maptest[maptest$ref_genome == "T.leiboldiana" & maptest$sample_species == "Tlei", 3]) # 92.9 %
 mean(maptest[maptest$ref_genome == "T.leiboldiana" & maptest$sample_species == "Tfas", 3]) # 87.3 %
+
+mean(mask[mask$ref_genome == "T.leiboldiana" & mask$sample_species == "Tlei", 3]) # 90.5 %
+mean(mask[mask$ref_genome == "T.leiboldiana" & mask$sample_species == "Tfas", 3]) # 85.8 %
 
 # In A.comosus
 mean(maptest[maptest$ref_genome == "A.comosus" & maptest$sample_species == "Tlei", 3]) # 39.83 %
@@ -50,6 +62,7 @@ p2 <- ggplot(data = maptest[maptest$ref_genome == "T.leiboldiana",], aes(x=Name,
   theme(axis.text.x=element_blank(), 
         axis.ticks.x=element_blank(), 
         legend.position = "none")
+
 p3 <- ggplot(data = maptest[maptest$ref_genome == "A.comosus",], aes(x=Name, y=uniq, fill=sample_species)) +
   geom_bar(stat="identity") + xlab("") +
   scale_y_continuous(name="", 
@@ -58,6 +71,30 @@ p3 <- ggplot(data = maptest[maptest$ref_genome == "A.comosus",], aes(x=Name, y=u
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(),legend.position = "none")
 
 grid.arrange(p1, p2, p3, nrow = 1)
+
+# For masked alignments
+p4 <- ggplot(data = mask[mask$ref_genome == "T.fasciculata",], aes(x=Name, y=uniq, fill=sample_species)) +
+  geom_bar(stat="identity") + 
+  xlab("") +
+  scale_y_continuous(name="% reads mapping uniquely", 
+                     breaks = c(seq(from = 10, to = 110, by = 10)), 
+                     limits = c(0,100)) +
+  theme(axis.text.x=element_blank(), 
+        axis.ticks.x=element_blank(), 
+        legend.position = "none")
+
+p5 <- ggplot(data = mask[mask$ref_genome == "T.leiboldiana",], aes(x=Name, y=uniq, fill=sample_species)) +
+  geom_bar(stat="identity") +
+  xlab("Samples") + 
+  scale_y_continuous(name="", 
+                     breaks = c(seq(from = 10, to = 100, by = 10)), 
+                     limits = c(0,100)) +
+  theme(axis.text.x=element_blank(), 
+        axis.ticks.x=element_blank(), 
+        legend.position = "none")
+
+grid.arrange(p4, p5, nrow = 1)
+grid.arrange(p1, p2, p4, p5, nrow = 1)
 
 #------------------- GENERAL MAPPING STATS ------------------------
 

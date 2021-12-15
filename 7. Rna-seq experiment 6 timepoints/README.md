@@ -38,6 +38,8 @@ I decided to subsample samples A,C and D for both Tlei (D is individual used for
 
 I extracted random reads from each sample to 10 % of its original size using seqkit sample in the bash script `subsample.sh`. These were then mapped to each genome using STAR with `map.sh`. Mapping statistics were collected from each log file with the bash script `collect_mapping_stats.sh` and assessed with the r script `Assessment_mapping_bias.R`. The assessment showed that RNA data maps far better to the Tillandsia genomes than to A. comosus (around 90 % to around 50 %). Mapping bias seems much stronger when mapping to T. leiboldiana than to T. fasciculata. This seems to be rather due to unmapped reads than due to multimapper reads. Based on these results, I decided to map the full dataset to T. fasciculata.
 
+I repeated the test using the masked versions of both Tillandsia assemblies to see if this would perhaps show different rates of mapping bias. However, the mapping bias results are very similar, meaning that bias differences between T. fasciculata and T. leiboldiana is not due to active TEs is the RNA-seq.
+
 # Mapping full dataset
 
 All 72 samples were then mapped to the *T. fasciculata* genome with the same script as above. General mapping stats were obtained with MultiQC and also with the script above. Further assessment can be found in `Assessment_mapping_bias.R`
@@ -51,4 +53,4 @@ I also computed the number of genes per sample with 0 counts:
 	 cut -f $i counts.Tfas_Tlei_6_timepoints.txt | grep -c -w 0
 	done
 
-Generally, about 72 % - 78 % of alignments were assinged to a gene. 15 % - 20 % could not be aligned due to multiple mapping, 5 % - 7 % due to being outside any gene. 25 % - 30 % of the genes did not have any alignments per sample. 
+Generally, about 72 % - 78 % of alignments were assinged to a gene. 15 % - 20 % could not be aligned due to multiple mapping, 5 % - 7 % due to being outside any gene. 25 % - 30 % of the genes did not have any alignments per sample.
