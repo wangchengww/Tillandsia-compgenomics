@@ -54,3 +54,5 @@ I also computed the number of genes per sample with 0 counts:
 	done
 
 Generally, about 72 % - 78 % of alignments were assinged to a gene. 15 % - 20 % could not be aligned due to multiple mapping, 5 % - 7 % due to being outside any gene. 25 % - 30 % of the genes did not have any alignments per sample.
+
+The count data was inspected with Principal Component Analysis in the R sheet `Inspect_count_data.R`. The PCA showed that samples are primarily separated by species (32 % variance explained). When making PCA's only for one or the other species, PC's tend to separate by individual (and not by time point), though some individuals seem more similar in counts than others (See google presentation of Drive for the PCA plots). Therefore, we have to count with much between-individual variation in time-dependent expression in downstream analyses. I repeated these analyses based only on genes called as orthologs with T.lei and A.com (~ 26,000 genes) to see if individual variation was somehow dependent on low-quality gene models or TEs. However, the PCA was identical, meaning that the per-individual variation that I observe in the count data is not based on "bad genes".
