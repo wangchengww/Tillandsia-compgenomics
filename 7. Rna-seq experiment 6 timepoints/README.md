@@ -85,3 +85,5 @@ Starts from the count data. Data needs to be normalized, which is apparently a d
 Co-expression modules can be called using WCGNA (most classical approach), but DICER could also be interesting: "By design, DICER is tailored to identify module pairs that correlate differently between sample groups, e.g. modules that form one large interconnected module in one group compared with several smaller modules in another (Figure 3D). DICER may be particularly useful for time series ex- periments in which co-expression changes are gradual, e.g. cell cycle series experiments, where modules are specific to a par- ticular phase and co-expressed in transitions between phases"
 ...
 Since WGCNA and DICER identify slightly different types of module changes, both approaches could be used and combined
+
+Count normalization, low-expression filtering and variance stabilization was done with DESeq2 in R using the script `Filter-Normalize-Transform-countdata_for_coexpression.R`. 
