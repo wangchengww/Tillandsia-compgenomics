@@ -16,9 +16,9 @@ library("WGCNA")
 
 # Read in counts and create metadata
 counts <- read.delim('counts.Tfas.6_timepoints.txt', header = T, row.names = 1)
-metadata <- data.frame(sample=c(rep("Tfas_A",6), rep("Tfas_B",6), rep("Tfas_C",6), 
-                                rep("Tfas_D",6),rep("Tfas_E",6), rep("Tfas_F",6)), 
-                       time=c(rep(c("0100", "0500", "0900","1300", "1700", "2100"))))
+metadata <- data.frame(sample=c(rep(1,6), rep(2,6), rep(3,6), 
+                                rep(4,6),rep(5,6), rep(6,6)), 
+                       time=c(rep(c(1,2,3,4,5,6))))
 
 # Turn the counts and metadata into a DESeq object
 dds <- DESeqDataSetFromMatrix(countData=counts, colData=metadata, design=~time)
@@ -131,8 +131,6 @@ nGenes = ncol(datExpr)
 nSamples = nrow(datExpr)
 datTraits <- metadata[-c(12,36),]
 rownames(datTraits) <- rownames(datExpr)
-datTraits$sample <- as.factor(datTraits$sample)
-datTraits$time <- as.factor(datTraits$time)
 # Re-cluster samples
 sampleTree2 = hclust(dist(datExpr), method = "average")
 # Convert traits to a color representation: white means low, red means high, grey means missing entry
