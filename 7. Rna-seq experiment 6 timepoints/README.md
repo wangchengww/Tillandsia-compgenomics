@@ -86,4 +86,10 @@ Co-expression modules can be called using WCGNA (most classical approach), but D
 ...
 Since WGCNA and DICER identify slightly different types of module changes, both approaches could be used and combined
 
-Count normalization, low-expression filtering and variance stabilization was done with DESeq2 in R using the script `Filter-Normalize-Transform-countdata_for_coexpression.R`. 
+Count normalization, low-expression filtering and variance stabilization was done with DESeq2 in R using the script `Filter-Normalize-Transform-countdata_for_coexpression.R`. Coexpression networks were called for each species separately using `Coexpression_analysis.R`. At the end of this script, I compile gene names for each module that is significantly correlated with time. Then, I ran GOterm enrichment for each module using the script `script_GO_term_enrichment.R` in folder 5. This was done sequentially in the following loop:
+
+  for i in Genes-for-Enrichment_T.fasciculata_*; do
+    mod=`echo $i | sed "s/_/\t/g" | cut -f 3 | sed "s/.txt//g"`
+    echo $mod
+    Rscript ../5.\ Gene-family-evo-tfas-tlei/script_GO_term_enrichment.R genes_to_GO_Tfas_orthologs.map $i GO-term_enrichment_mod-$mod.txt orthogroup_info_for_GOterm_enrichment.txt
+  done
