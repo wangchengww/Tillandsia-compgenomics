@@ -8,7 +8,7 @@ options(stringsAsFactors = FALSE);
 allowWGCNAThreads()
 
 # Load input data
-lnames = load(file = "coexpression_input_Tfas_vsd_10c12s.RData");
+lnames = load(file = "coexpression_input_Tfas_vsd_10c12s_2.RData");
 
 # Choosing the soft threshold
 # Choose a set of soft-thresholding powers
@@ -60,7 +60,7 @@ dynamicMods = cutreeDynamic(dendro = geneTree, distM = dissTOM,
                             minClusterSize = minModuleSize);
 table(dynamicMods) 
 
-# We end up with 103 modules, the largest one contains 642 genes, the smallest
+# We end up with 119 modules, the largest one contains 642 genes, the smallest
 # contains 48 genes. Now we display the modules under the dendrogram.
 # Convert numeric lables into colors
 dynamicColors = labels2colors(dynamicMods)
@@ -109,8 +109,8 @@ colorOrder = c("grey", standardColors(50));
 moduleLabels = match(moduleColors, colorOrder)-1;
 MEs = mergedMEs;
 # Save module colors and labels for use in subsequent parts
-save(MEs, moduleLabels, moduleColors, geneTree, file = "coexpression_network_Tfas_vsd_10c12s..RData")
-lnames = load(file = "coexpression_network_Tfas_vsd_10c12s..RData");
+save(MEs, moduleLabels, moduleColors, geneTree, file = "coexpression_network_Tfas_vsd_10c12s_2.RData")
+lnames <- load(file = "coexpression_network_Tfas_vsd_10c12s..RData");
 
 # Define numbers of genes and samples
 nGenes = ncol(datExpr);
@@ -123,8 +123,12 @@ moduleTraitPvalue = corPvalueStudent(moduleTraitCor, nSamples)
 
 #Gather some info on significant modules
 modules_sign_time <- as.data.frame(moduleTraitCor[moduleTraitPvalue[,2] < 0.05,])
+colnames(modules_sign_time) <- c("corr_to_sample", "corr_to_time")
 nr_genes_module <- table(moduleColors)
-nr_genes_module[substring(rownames(modules_sign_time),3)]
+modules_sign_time$gene_count <- nr_genes_module[substring(rownames(modules_sign_time),3)]
+modules_sign_time$pvalue_sample <- moduleTraitPvalue[rownames(modules_sign_time),1]
+modules_sign_time$pvalue_time <- moduleTraitPvalue[rownames(modules_sign_time),2]
+write.csv(modules_sign_time, file = "Table_modules_sign_time_Tfas.csv", quote = F, sep = "\t")
 
 sizeGrWindow(10,6)
 # Will display correlations and their p-values
@@ -162,7 +166,7 @@ names(GSPvalue) = paste("p.GS.", names(time), sep="")
 # Plot for each gene in the module the relationship between module membership 
 # (i.e. how strongly the gene belongs to the module) and its significance for time 
 # (correlation of expression and time, not actually a p-value)
-module = "lightyellow"
+module = "deeppink"
 column = match(module, modNames);
 moduleGenes = moduleColors==module;
 sizeGrWindow(7, 7);
@@ -194,6 +198,17 @@ for (mod in 1:ncol(geneModuleMembership))
                              paste("p.MM.", modNames[modOrder[mod]], sep=""))
 }
 # Order the genes in the geneInfo variable first by module color, then by geneTraitSignificance
-geneOrder = order(geneInfo0$moduleColor, -abs(geneInfo0$GS.weight));
+geneOrder = order(geneInfo0$moduleColor, -abs(geneInfo0$GS.time));
 geneInfo = geneInfo0[geneOrder, ]
 write.csv(geneInfo, file = "geneInfo.csv")
+
+# Make gene lists for all modules that are correlated with time so that we can run GOterm enrichment for them
+modNames <- substring(rownames(modules_sign_time), 3)
+for (module in modNames){
+        # Select module probes
+        modGenes = rownames(geneInfo[geneInfo$moduleColor == module,])
+        # Write them into a file
+        fileName = paste("Genes-for-Enrichment_T.fasciculata_", module, ".txt", sep="");
+        write.table(as.data.frame(modGenes), file = fileName,
+                    row.names = FALSE, col.names = FALSE, quote = F)
+}

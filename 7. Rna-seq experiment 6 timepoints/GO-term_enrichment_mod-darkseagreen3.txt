@@ -1,0 +1,63 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0070413	trehalose metabolism in response to stress	0.00045	OG0004525, OG0006235	Tfasc_v1.05016, Tfasc_v1.06046
+BP	GO:0051598	meiotic recombination checkpoint signaling	0.00291	OG0007520	Tfasc_v1.22285
+BP	GO:1901962	S-adenosyl-L-methionine transmembrane transport	0.00291	OG0011750	Tfasc_v1.12320
+BP	GO:0032055	negative regulation of translation in response to stress	0.00291	OG0015286	Tfasc_v1.00068
+BP	GO:2000469	negative regulation of peroxidase activity	0.00291	OG0017313	Tfasc_v1.06665
+BP	GO:0010150	leaf senescence	0.00319	OG0017313, OG0008088	Tfasc_v1.06665, Tfasc_v1.15183
+BP	GO:0005992	trehalose biosynthetic process	0.00387	OG0004525, OG0006235	Tfasc_v1.05016, Tfasc_v1.06046
+BP	GO:0060776	simple leaf morphogenesis	0.00581	OG0014051	Tfasc_v1.17350
+BP	GO:0000024	maltose biosynthetic process	0.00581	OG0001339	Tfasc_v1.27353
+BP	GO:0031146	SCF-dependent proteasomal ubiquitin-dependent protein catabolic process	0.00723	OG0017010, OG0014051	Tfasc_v1.16263, Tfasc_v1.17350
+BP	GO:0034757	negative regulation of iron ion transport	0.01159	OG0008088	Tfasc_v1.15183
+BP	GO:0080117	secondary growth	0.01159	OG0008088	Tfasc_v1.15183
+BP	GO:0010271	regulation of chlorophyll catabolic process	0.01159	OG0008088	Tfasc_v1.15183
+BP	GO:0019433	triglyceride catabolic process	0.01159	OG0006008	Tfasc_v1.14442
+BP	GO:0048579	negative regulation of long-day photoperiodism, flowering	0.01447	OG0002283	Tfasc_v1.12031
+BP	GO:0030307	positive regulation of cell growth	0.01447	OG0017313	Tfasc_v1.06665
+BP	GO:0006812	cation transport	0.0221	OG0015882, OG0007170, OG0011750, OG0008088	Tfasc_v1.05425, Tfasc_v1.08937, Tfasc_v1.12320, Tfasc_v1.15183
+BP	GO:0010452	histone H3-K36 methylation	0.02306	OG0002283	Tfasc_v1.12031
+BP	GO:0042138	meiotic DNA double-strand break formation	0.02306	OG0007520	Tfasc_v1.22285
+BP	GO:0009739	response to gibberellin	0.02526	OG0017313, OG0002283	Tfasc_v1.06665, Tfasc_v1.12031
+BP	GO:0009686	gibberellin biosynthetic process	0.0259	OG0009658	Tfasc_v1.16097
+BP	GO:0015860	purine nucleoside transmembrane transport	0.0259	OG0013289	Tfasc_v1.02144
+BP	GO:1903507	negative regulation of nucleic acid-templated transcription	0.0301	OG0017313, OG0002283, OG0013606	Tfasc_v1.06665, Tfasc_v1.12031, Tfasc_v1.15727
+BP	GO:0070417	cellular response to cold	0.03439	OG0008088	Tfasc_v1.15183
+BP	GO:0010417	glucuronoxylan biosynthetic process	0.03439	OG0001529	Tfasc_v1.30707
+BP	GO:0005983	starch catabolic process	0.0372	OG0001339	Tfasc_v1.27353
+BP	GO:0010305	leaf vascular tissue pattern formation	0.0372	OG0014051	Tfasc_v1.17350
+BP	GO:0006306	DNA methylation	0.0372	OG0010422	Tfasc_v1.07714
+BP	GO:0044804	autophagy of nucleus	0.04001	OG0013253	Tfasc_v1.02051
+BP	GO:0010099	regulation of photomorphogenesis	0.04001	OG0010200	Tfasc_v1.17612
+BP	GO:0000122	negative regulation of transcription by RNA polymerase II	0.04001	OG0017313	Tfasc_v1.06665
+BP	GO:0010252	auxin homeostasis	0.04001	OG0017313	Tfasc_v1.06665
+BP	GO:0045454	cell redox homeostasis	0.04471	OG0004784, OG0007827	Tfasc_v1.00424, Tfasc_v1.20386
+BP	GO:0000422	autophagy of mitochondrion	0.04838	OG0013253	Tfasc_v1.02051
+BP	GO:0009740	gibberellic acid mediated signaling pathway	0.04838	OG0002283	Tfasc_v1.12031
+MF	GO:0016707	gibberellin 3-beta-dioxygenase activity	0.0028	OG0009658	Tfasc_v1.16097
+MF	GO:0004771	sterol esterase activity	0.0028	OG0006008	Tfasc_v1.14442
+MF	GO:0019776	Atg8 ligase activity	0.0028	OG0013253	Tfasc_v1.02051
+MF	GO:0004591	oxoglutarate dehydrogenase (succinyl-transferring) activity	0.0055	OG0000913	Tfasc_v1.14354
+MF	GO:0000224	peptide-N4-(N-acetyl-beta-glucosaminyl)asparagine amidase activity	0.0055	OG0007827	Tfasc_v1.20386
+MF	GO:0000095	S-adenosyl-L-methionine transmembrane transporter activity	0.0055	OG0011750	Tfasc_v1.12320
+MF	GO:0009011	starch synthase activity	0.0083	OG0008356	Tfasc_v1.09430
+MF	GO:0052692	raffinose alpha-galactosidase activity	0.0111	OG0006821	Tfasc_v1.27807
+MF	GO:0004806	triglyceride lipase activity	0.0138	OG0006008	Tfasc_v1.14442
+MF	GO:0003841	1-acylglycerol-3-phosphate O-acyltransferase activity	0.0138	OG0006008	Tfasc_v1.14442
+MF	GO:0004373	glycogen (starch) synthase activity	0.0193	OG0008356	Tfasc_v1.09430
+MF	GO:0004623	phospholipase A2 activity	0.0193	OG0006008	Tfasc_v1.14442
+MF	GO:0003825	alpha,alpha-trehalose-phosphate synthase (UDP-forming) activity	0.0193	OG0006235	Tfasc_v1.06046
+MF	GO:0008296	3'-5'-exodeoxyribonuclease activity	0.022	OG0016880	Tfasc_v1.04391
+MF	GO:0015211	purine nucleoside transmembrane transporter activity	0.0247	OG0013289	Tfasc_v1.02144
+MF	GO:0016161	beta-amylase activity	0.0247	OG0001339	Tfasc_v1.27353
+MF	GO:0102229	amylopectin maltohydrolase activity	0.0247	OG0001339	Tfasc_v1.27353
+MF	GO:0030976	thiamine pyrophosphate binding	0.0247	OG0000913	Tfasc_v1.14354
+MF	GO:0004805	trehalose-phosphatase activity	0.0274	OG0006235	Tfasc_v1.06046
+MF	GO:0016888	endodeoxyribonuclease activity, producing 5'-phosphomonoesters	0.0301	OG0016880	Tfasc_v1.04391
+MF	GO:0043424	protein histidine kinase binding	0.0435	OG0008088	Tfasc_v1.15183
+MF	GO:0004842	ubiquitin-protein transferase activity	0.0464	OG0012400, OG0010315, OG0014051	Tfasc_v1.06834, Tfasc_v1.13183, Tfasc_v1.17350
+CC	GO:0045252	oxoglutarate dehydrogenase complex	0.0093	OG0000913	Tfasc_v1.14354
+CC	GO:0012511	monolayer-surrounded lipid storage body	0.0116	OG0006008	Tfasc_v1.14442
+CC	GO:0000153	cytoplasmic ubiquitin ligase complex	0.0185	OG0013253	Tfasc_v1.02051
+CC	GO:0009501	amyloplast	0.0321	OG0008356	Tfasc_v1.09430
+CC	GO:0031011	Ino80 complex	0.0366	OG0013368	Tfasc_v1.02536

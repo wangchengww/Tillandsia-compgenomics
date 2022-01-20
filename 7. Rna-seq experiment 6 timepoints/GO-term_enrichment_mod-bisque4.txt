@@ -1,0 +1,78 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0007155	cell adhesion	0.00078	OG0001146	Tfasc_v1.12614, Tfasc_v1.12615
+BP	GO:0009767	photosynthetic electron transport chain	0.00356	OG0017148, OG0010689, OG0009491	Tfasc_v1.10944, Tfasc_v1.12081, Tfasc_v1.25253
+BP	GO:0018315	molybdenum incorporation into molybdenum-molybdopterin complex	0.00536	OG0008038	Tfasc_v1.15095
+BP	GO:0032324	molybdopterin cofactor biosynthetic process	0.00536	OG0008038	Tfasc_v1.15095
+BP	GO:0048255	mRNA stabilization	0.00536	OG0015481	Tfasc_v1.07867
+BP	GO:0050982	detection of mechanical stimulus	0.00536	OG0001731	Tfasc_v1.18794
+BP	GO:0002949	tRNA threonylcarbamoyladenosine modification	0.00536	OG0019253	Tfasc_v1.11090
+BP	GO:0006218	uridine catabolic process	0.00536	OG0014913	Tfasc_v1.15743
+BP	GO:0080167	response to karrikin	0.00725	OG0009478, OG0005052	Tfasc_v1.25317, Tfasc_v1.25836
+BP	GO:0006949	syncytium formation	0.0107	OG0005052	Tfasc_v1.25836
+BP	GO:1990426	mitotic recombination-dependent replication fork processing	0.0107	OG0002039	Tfasc_v1.14101
+BP	GO:0043489	RNA stabilization	0.01577	OG0015481, OG0004834	Tfasc_v1.07867, Tfasc_v1.28155
+BP	GO:0051391	tRNA acetylation	0.016	OG0000755	Tfasc_v1.23951
+BP	GO:1904812	rRNA acetylation involved in maturation of SSU-rRNA	0.016	OG0000755	Tfasc_v1.23951
+BP	GO:0009229	thiamine diphosphate biosynthetic process	0.016	OG0003109	Tfasc_v1.01491
+BP	GO:0000730	DNA recombinase assembly	0.016	OG0002039	Tfasc_v1.14101
+BP	GO:0016226	iron-sulfur cluster assembly	0.01672	OG0004830, OG0012164	Tfasc_v1.05233, Tfasc_v1.15905
+BP	GO:0046835	carbohydrate phosphorylation	0.02031	OG0004930, OG0007598	Tfasc_v1.11075, Tfasc_v1.19930
+BP	GO:0006152	purine nucleoside catabolic process	0.02128	OG0014913	Tfasc_v1.15743
+BP	GO:0045737	positive regulation of cyclin-dependent protein serine/threonine kinase activity	0.02128	OG0014904	Tfasc_v1.07482
+BP	GO:0042148	strand invasion	0.02128	OG0002039	Tfasc_v1.14101
+BP	GO:0051228	mitotic spindle disassembly	0.02653	OG0001167	Tfasc_v1.07366
+BP	GO:1903508	positive regulation of nucleic acid-templated transcription	0.03138	OG0005750, OG0004905, OG0015701	Tfasc_v1.14099, Tfasc_v1.18481, Tfasc_v1.24465
+BP	GO:0006542	glutamine biosynthetic process	0.03175	OG0000363	Tfasc_v1.23407
+BP	GO:0097352	autophagosome maturation	0.03175	OG0001167	Tfasc_v1.07366
+BP	GO:0000413	protein peptidyl-prolyl isomerization	0.03276	OG0013256, OG0017922	Tfasc_v1.02064, Tfasc_v1.03356
+BP	GO:0016024	CDP-diacylglycerol biosynthetic process	0.03694	OG0005029	Tfasc_v1.28224
+BP	GO:0006777	Mo-molybdopterin cofactor biosynthetic process	0.04211	OG0008038	Tfasc_v1.15095
+BP	GO:0009645	response to low light intensity stimulus	0.04211	OG0003201	Tfasc_v1.08687
+BP	GO:0030970	retrograde protein transport, ER to cytosol	0.04725	OG0001167	Tfasc_v1.07366
+BP	GO:0046294	formaldehyde catabolic process	0.04725	OG0006595	Tfasc_v1.01432
+MF	GO:0008198	ferrous iron binding	0.0024	OG0012164, OG0000594	Tfasc_v1.15905, Tfasc_v1.27851
+MF	GO:0016168	chlorophyll binding	0.0036	OG0003201, OG0010689	Tfasc_v1.08687, Tfasc_v1.12081
+MF	GO:0003713	transcription coactivator activity	0.0057	OG0005750, OG0015701	Tfasc_v1.14099, Tfasc_v1.24465
+MF	GO:0045437	uridine nucleosidase activity	0.0057	OG0014913	Tfasc_v1.15743
+MF	GO:0061598	molybdopterin adenylyltransferase activity	0.0057	OG0008038	Tfasc_v1.15095
+MF	GO:0061599	molybdopterin molybdotransferase activity	0.0057	OG0008038	Tfasc_v1.15095
+MF	GO:0061711	N(6)-L-threonylcarbamoyladenine synthase activity	0.0057	OG0019253	Tfasc_v1.11090
+MF	GO:0008802	betaine-aldehyde dehydrogenase activity	0.0057	OG0015809	Tfasc_v1.18611
+MF	GO:0072585	xanthosine nucleotidase activity	0.0057	OG0014913	Tfasc_v1.15743
+MF	GO:0047622	adenosine nucleosidase activity	0.0057	OG0014913	Tfasc_v1.15743
+MF	GO:0018738	S-formylglutathione hydrolase activity	0.0057	OG0006595	Tfasc_v1.01432
+MF	GO:0003690	double-stranded DNA binding	0.0092	OG0010745, OG0002039, OG0015865, OG0004905	Tfasc_v1.11964, Tfasc_v1.14101, Tfasc_v1.17934, Tfasc_v1.18481
+MF	GO:0004463	leukotriene-A4 hydrolase activity	0.0113	OG0002956	Tfasc_v1.14359
+MF	GO:0004852	uroporphyrinogen-III synthase activity	0.0113	OG0002737	Tfasc_v1.25932
+MF	GO:0008526	phosphatidylinositol transfer activity	0.0113	OG0007110	Tfasc_v1.08831
+MF	GO:0031409	pigment binding	0.0113	OG0003201	Tfasc_v1.08687
+MF	GO:0019150	D-ribulokinase activity	0.0113	OG0004930	Tfasc_v1.11075
+MF	GO:0047724	inosine nucleosidase activity	0.0113	OG0014913	Tfasc_v1.15743
+MF	GO:0004788	thiamine diphosphokinase activity	0.0169	OG0003109	Tfasc_v1.01491
+MF	GO:0030975	thiamine binding	0.0169	OG0003109	Tfasc_v1.01491
+MF	GO:1990883	rRNA cytidine N-acetyltransferase activity	0.0169	OG0000755	Tfasc_v1.23951
+MF	GO:0004128	cytochrome-b5 reductase activity, acting on NAD(P)H	0.0169	OG0014941	Tfasc_v1.14593
+MF	GO:0008381	mechanosensitive ion channel activity	0.0225	OG0001731	Tfasc_v1.18794
+MF	GO:0000150	DNA strand exchange activity	0.0225	OG0002039	Tfasc_v1.14101
+MF	GO:0043024	ribosomal small subunit binding	0.0281	OG0002152	Tfasc_v1.29122
+MF	GO:0004605	phosphatidate cytidylyltransferase activity	0.0281	OG0005029	Tfasc_v1.28224
+MF	GO:0008940	nitrate reductase activity	0.0281	OG0008038	Tfasc_v1.15095
+MF	GO:0030628	pre-mRNA 3'-splice site binding	0.0336	OG0006091	Tfasc_v1.06439
+MF	GO:0004356	glutamate-ammonia ligase activity	0.0336	OG0000363	Tfasc_v1.23407
+MF	GO:0061575	cyclin-dependent protein serine/threonine kinase activator activity	0.0336	OG0014904	Tfasc_v1.07482
+MF	GO:0045156	electron transporter, transferring electrons within the cyclic electron transport pathway of photosynthesis activity	0.0336	OG0017148	Tfasc_v1.10944
+MF	GO:0003755	peptidyl-prolyl cis-trans isomerase activity	0.0377	OG0013256, OG0017922	Tfasc_v1.02064, Tfasc_v1.03356
+MF	GO:0008199	ferric iron binding	0.0445	OG0000594	Tfasc_v1.27851
+MF	GO:0030151	molybdenum ion binding	0.0499	OG0008038	Tfasc_v1.15095
+MF	GO:0008143	poly(A) binding	0.0499	OG0013286	Tfasc_v1.02121
+CC	GO:0005911	cell-cell junction	0.00013	OG0010410, OG0010745, OG0001146, OG0006767	Tfasc_v1.07746, Tfasc_v1.11964, Tfasc_v1.12614, Tfasc_v1.12615, Tfasc_v1.27901
+CC	GO:0009507	chloroplast	0.00644	OG0017922, OG0004830, OG0006343, OG0010387, OG0015481, OG0003201, OG0017148, OG0004930, OG0010745, OG0015865, OG0002514, OG0007533, OG0009491, OG0009478, OG0006971, OG0001976, OG0009291, OG0009413	Tfasc_v1.03356, Tfasc_v1.05233, Tfasc_v1.05802, Tfasc_v1.07799, Tfasc_v1.07867, Tfasc_v1.08687, Tfasc_v1.10944, Tfasc_v1.11075, Tfasc_v1.11964, Tfasc_v1.17934, Tfasc_v1.22049, Tfasc_v1.22263, Tfasc_v1.25253, Tfasc_v1.25317, Tfasc_v1.27494, Tfasc_v1.27649, Tfasc_v1.29949, Tfasc_v1.30184
+CC	GO:0009521	photosystem	0.00648	OG0003201, OG0017148, OG0010689	Tfasc_v1.08687, Tfasc_v1.10944, Tfasc_v1.12081
+CC	GO:0009782	photosystem I antenna complex	0.01317	OG0003201	Tfasc_v1.08687
+CC	GO:0010287	plastoglobule	0.02601	OG0009478, OG0009291	Tfasc_v1.25317, Tfasc_v1.29949
+CC	GO:0000408	EKC/KEOPS complex	0.02617	OG0019253	Tfasc_v1.11090
+CC	GO:0042646	plastid nucleoid	0.0323	OG0015865, OG0002514	Tfasc_v1.17934, Tfasc_v1.22049
+CC	GO:0032797	SMN complex	0.0326	OG0009439	Tfasc_v1.30344
+CC	GO:0000307	cyclin-dependent protein kinase holoenzyme complex	0.03271	OG0014904, OG0011008	Tfasc_v1.07482, Tfasc_v1.10785
+CC	GO:0089701	U2AF complex	0.039	OG0006091	Tfasc_v1.06439
+CC	GO:0071013	catalytic step 2 spliceosome	0.04465	OG0001146	Tfasc_v1.12614, Tfasc_v1.12615
