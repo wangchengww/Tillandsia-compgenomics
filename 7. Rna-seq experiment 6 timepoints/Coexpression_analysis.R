@@ -2,6 +2,8 @@
 setwd('/home/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/')
 setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/')
 library("WGCNA")
+library("reshape2")
+library("ggplot2")
 
 # Set necessary environment for WGCNA
 options(stringsAsFactors = FALSE);
@@ -16,6 +18,12 @@ powers = c(c(1:10), seq(from = 12, to=30, by=2))
 # Call the network topology analysis function, I decided to choose a signed network 
 # signed network: direction of correlation is integrated (positive vs negative)
 sft = pickSoftThreshold(datExpr, powerVector = powers, verbose = 5, networkType = "signed")
+softpower_table <- sft[["fitIndices"]]
+softpower_table$SFT.R.sq <- format(softpower_table$SFT.R.sq, scientific = F)
+
+powers = c(c(1:10), seq(from = 12, to=20, by=2))
+sft = pickSoftThreshold(datExpr, powerVector = powers, verbose = 5)
+
 # Plot the results:
 sizeGrWindow(9, 5)
 par(mfrow = c(1,2));
@@ -36,38 +44,77 @@ text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col="red")
 
 # Based on what I have read, one should choose a power that maintains an R^2 as high as
 # possible and a mean connectivity between 30 and 100. Therefore, I chose a soft-thresholding
-# power of 18, where R^2 is 0.74200 and the mean connectivity is 42.10
+# power of 18, where R^2 is 0.7923 and the mean connectivity is 44
 softPower = 18;
-
+softPower2 = 16
+softPower3 = 14
 # Building the ajacency and Topological Overlap Matrix - this is the co-expression network
 adjacency = adjacency(datExpr, power = softPower, type = "signed")
+adjacency2 = adjacency(datExpr, power = softPower2, type = "signed")
+adjacency3 = adjacency(datExpr, power = softPower3, type = "signed")
+
 TOM = TOMsimilarity(adjacency);
+TOM2 = TOMsimilarity(adjacency2);
+TOM3 = TOMsimilarity(adjacency3);
+
 dissTOM = 1-TOM
+dissTOM2 = 1-TOM2
+dissTOM3 = 1-TOM3
 
 # Gene clustering
 # Call the hierarchical clustering function
 geneTree = hclust(as.dist(dissTOM), method = "average");
+geneTree2 = hclust(as.dist(dissTOM2), method = "average");
+geneTree3 = hclust(as.dist(dissTOM3), method = "average");
+
 # Plot the resulting clustering tree (dendrogram)
 sizeGrWindow(12,9)
 plot(geneTree, xlab="", sub="", main = "Gene clustering on TOM-based dissimilarity",
      labels = FALSE, hang = 0.04)
-
+plot(geneTree2, xlab="", sub="", main = "Gene clustering on TOM-based dissimilarity",
+     labels = FALSE, hang = 0.04)
 # We like large modules, so we set the minimum module size relatively high:
 minModuleSize = 30;
 # Module identification using dynamic tree cut:
 dynamicMods = cutreeDynamic(dendro = geneTree, distM = dissTOM,
                             deepSplit = 2, pamRespectsDendro = FALSE,
                             minClusterSize = minModuleSize);
-table(dynamicMods) 
+dynamicMods2 = cutreeDynamic(dendro = geneTree2, distM = dissTOM2,
+                            deepSplit = 2, pamRespectsDendro = FALSE,
+                            minClusterSize = minModuleSize);
+dynamicMods3 = cutreeDynamic(dendro = geneTree3, distM = dissTOM3,
+                             deepSplit = 2, pamRespectsDendro = FALSE,
+                             minClusterSize = minModuleSize);
+table(dynamicMods3) 
 
-# We end up with 119 modules, the largest one contains 642 genes, the smallest
-# contains 48 genes. Now we display the modules under the dendrogram.
+write.
+mean(table(dynamicMods))
+mean(table(dynamicMods2))
+mean(table(dynamicMods3))
+write.table(table(dynamicMods), file = "Modules_soft18.txt")
+write.table(table(dynamicMods3), file = "Modules_soft16.txt")
+modules18 <- read.table("Modules_soft18.txt")
+modules16 <- read.table("Modules_soft16.txt")
+colnames(modules16) <- c("dynamicMods", "Freq")
+modules14 <- as.data.frame(table(dynamicMods3))
+colnames(modules14) <- c("dynamicMods", "Freq")
+modules <- merge(modules18, modules16, by = "dynamicMods", all = T)
+modules <- merge(modules, modules14, by = "dynamicMods", all = T)
+colnames(modules) <- c("modules", "genecount18", "genecount16", "genecount14")
+modules_m <- melt(modules, id.vars = "modules")
+
+ggplot(modules_m, aes(x=variable, y=value)) + 
+        geom_boxplot()
+ggplot(modules_m, aes(x=value, color=variable)) +
+        geom_density()
+# We end up with 114 modules, the largest one contains 1254 genes, the smallest
+# contains 36 genes. Now we display the modules under the dendrogram.
 # Convert numeric lables into colors
 dynamicColors = labels2colors(dynamicMods)
 table(dynamicColors)
 # Plot the dendrogram and colors underneath
 sizeGrWindow(8,6)
-plotDendroAndColors(geneTree, dynamicColors, "Dynamic Tree Cut",
+plotDendroAndColors(geneTree3, dynamicColors, "Dynamic Tree Cut",
                     dendroLabels = FALSE, hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05,
                     main = "Gene dendrogram and module colors")
@@ -86,7 +133,7 @@ sizeGrWindow(7, 6)
 plot(METree, main = "Clustering of module eigengenes",
      xlab = "", sub = "")
 # Threshold for merging modules
-MEDissThres = 0.15
+MEDissThres = 0.05
 # Plot the cut line into the dendrogram
 abline(h=MEDissThres, col = "red")
 # Call an automatic merging function
@@ -96,7 +143,7 @@ mergedColors = merge$colors;
 # Eigengenes of the new merged modules:
 mergedMEs = merge$newMEs;
 sizeGrWindow(12, 9)
-plotDendroAndColors(geneTree, cbind(dynamicColors, mergedColors),
+plotDendroAndColors(geneTree3, cbind(dynamicColors, mergedColors),
                     c("Dynamic Tree Cut", "Merged dynamic"),
                     dendroLabels = FALSE, hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05)
@@ -109,7 +156,7 @@ colorOrder = c("grey", standardColors(50));
 moduleLabels = match(moduleColors, colorOrder)-1;
 MEs = mergedMEs;
 # Save module colors and labels for use in subsequent parts
-save(MEs, moduleLabels, moduleColors, geneTree, file = "coexpression_network_Tfas_vsd_10c12s_2.RData")
+save(MEs, moduleLabels, moduleColors, geneTree, softpower_table, file = "coexpression_network_Tfas_vsd_10c4s.RData")
 lnames <- load(file = "coexpression_network_Tfas_vsd_10c12s..RData");
 
 # Define numbers of genes and samples
@@ -122,14 +169,14 @@ moduleTraitCor = cor(MEs, datTraits, use = "p");
 moduleTraitPvalue = corPvalueStudent(moduleTraitCor, nSamples)
 
 #Gather some info on significant modules
-modules_sign_time <- as.data.frame(moduleTraitCor[moduleTraitPvalue[,2] < 0.05,])
-colnames(modules_sign_time) <- c("corr_to_sample", "corr_to_time")
+modules_sign_time2 <- as.data.frame(moduleTraitCor[moduleTraitPvalue[,2] < 0.05,])
+colnames(modules_sign_time2) <- c("corr_to_sample", "corr_to_time")
 nr_genes_module <- table(moduleColors)
-modules_sign_time$gene_count <- nr_genes_module[substring(rownames(modules_sign_time),3)]
-modules_sign_time$pvalue_sample <- moduleTraitPvalue[rownames(modules_sign_time),1]
-modules_sign_time$pvalue_time <- moduleTraitPvalue[rownames(modules_sign_time),2]
-write.csv(modules_sign_time, file = "Table_modules_sign_time_Tfas.csv", quote = F, sep = "\t")
-
+modules_sign_time2$gene_count <- nr_genes_module[substring(rownames(modules_sign_time2),3)]
+modules_sign_time2$pvalue_sample <- moduleTraitPvalue[rownames(modules_sign_time2),1]
+modules_sign_time2$pvalue_time <- moduleTraitPvalue[rownames(modules_sign_time2),2]
+write.csv(modules_sign_time, file = "Modules_sign-Time_soft16.txt", quote = F, sep = "\t")
+write.csv(modules_sign_time2, file = "Modules_sign-Time_soft18.txt", quote = F, sep = "\t")
 sizeGrWindow(10,6)
 # Will display correlations and their p-values
 textMatrix = paste(signif(moduleTraitCor, 2), "\n(",
