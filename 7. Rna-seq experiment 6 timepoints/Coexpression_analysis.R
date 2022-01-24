@@ -8,7 +8,7 @@ options(stringsAsFactors = FALSE);
 allowWGCNAThreads()
 
 # Load input data
-lnames = load(file = "coexpression_input_Tfas_vsd_10c12s_2.RData");
+lnames = load(file = "coexpression_input_Tfas_vsd_10c4s.RData");
 
 # Choosing the soft threshold
 # Choose a set of soft-thresholding powers
