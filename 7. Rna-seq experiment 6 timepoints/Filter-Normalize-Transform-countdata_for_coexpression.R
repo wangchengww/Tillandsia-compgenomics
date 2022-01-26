@@ -43,6 +43,9 @@ dds_10c4s <- dds[idx_10c4s,]
 dds_5c4s <- dds[idx_5c4s,]
 dds_10c6s <- dds[idx_10c6s,]
 dds_5c6s <- dds[idx_5c6s,]
+
+write.table(counts(dds_10c4s, normalized=TRUE), file = "counts.Tfas.6_timepoints.filtr-normalized_DESEQ2.txt")
+
 # The largest difference between filtering sets is 1,945 genes, which is only 6 % of the total
 # amount of genes. I decided to carry on with the stringent count criterium but non-stringent sample
 # criterium (less than 10 counts in more than 32 samples, which includes 21,818 genes)
@@ -70,6 +73,7 @@ plotPCA(vsd_10c4s, intgroup=c("time", "sample"))
 options(stringsAsFactors = FALSE)
 # Collect and transpose expression data
 datExpr0 <- assay(vsd_10c4s)
+write.table(datExpr0, file = "counts.Tfas.6_timepoints.filtr-transform-normalized_DESEQ2.txt")
 datExpr0 <- t(datExpr0)
 # test if all are "good genes"
 gsg = goodSamplesGenes(assay(vsd_10c4s), verbose = 3);

@@ -156,8 +156,7 @@ colorOrder = c("grey", standardColors(50));
 moduleLabels = match(moduleColors, colorOrder)-1;
 MEs = mergedMEs;
 # Save module colors and labels for use in subsequent parts
-save(MEs, moduleLabels, moduleColors, geneTree, softpower_table, file = "coexpression_network_Tfas_signed16_vsd_10c4s.RData")
-lnames <- load(file = "coexpression_network_Tfas_vsd_10c12s..RData");
+save(MEs, moduleLabels, moduleColors, geneTree, file = "coexpression_network_Tfas_signed18_vsd_10c4s.RData")
 
 # Define numbers of genes and samples
 nGenes = ncol(datExpr);
@@ -167,6 +166,9 @@ MEs0 = moduleEigengenes(datExpr, moduleColors)$eigengenes
 MEs = orderMEs(MEs0)
 moduleTraitCor = cor(MEs, datTraits, use = "p");
 moduleTraitPvalue = corPvalueStudent(moduleTraitCor, nSamples)
+module_corr <- cbind(as.data.frame(moduleTraitCor), moduleTraitPvalue)
+colnames(module_corr) <- c("corr_sample", "corr_time", "pvalue_sample", "pvalue_time")
+write.table(module_corr, file = "Correlation_Modules_to_Traits_Tfas_signed18_vsd10c4s.txt", quote = F, sep = "\t")
 
 #Gather some info on significant modules
 modules_sign_time2 <- as.data.frame(moduleTraitCor[moduleTraitPvalue[,2] < 0.05,])
@@ -176,7 +178,7 @@ modules_sign_time2$gene_count <- nr_genes_module[substring(rownames(modules_sign
 modules_sign_time2$pvalue_sample <- moduleTraitPvalue[rownames(modules_sign_time2),1]
 modules_sign_time2$pvalue_time <- moduleTraitPvalue[rownames(modules_sign_time2),2]
 write.csv(modules_sign_time2, file = "Modules_sign-Time_soft16.txt", quote = F, sep = "\t")
-write.csv(modules_sign_time2, file = "Modules_sign-Time_soft18.txt", quote = F, sep = "\t")
+write.table(modules_sign_time2, file = "Modules_sign-Time_soft18.txt", quote = F, sep = "\t")
 sizeGrWindow(10,6)
 # Will display correlations and their p-values
 textMatrix = paste(signif(moduleTraitCor, 2), "\n(",
@@ -247,7 +249,7 @@ for (mod in 1:ncol(geneModuleMembership))
 # Order the genes in the geneInfo variable first by module color, then by geneTraitSignificance
 geneOrder = order(geneInfo0$moduleColor, -abs(geneInfo0$GS.time));
 geneInfo = geneInfo0[geneOrder, ]
-write.csv(geneInfo, file = "geneInfo_co-expression_Tfasc_vsd_10c4s_signed16.csv")
+write.table(geneInfo, file = "geneInfo_co-expression_Tfasc_vsd_10c4s_signed18.csv", quote = F, sep = "\t")
 
 # Make gene lists for all modules that are correlated with time so that we can run GOterm enrichment for them
 modNames <- substring(rownames(modules_sign_time2), 3)
@@ -255,7 +257,7 @@ for (module in modNames){
         # Select module probes
         modGenes = rownames(geneInfo[geneInfo$moduleColor == module,])
         # Write them into a file
-        fileName = paste("Genes-for-Enrichment_T.fasciculata_signed16_vst10c4s_", module, ".txt", sep="");
+        fileName = paste("Genes-for-Enrichment_T.fasciculata_signed18_vst10c4s_", module, ".txt", sep="");
         write.table(as.data.frame(modGenes), file = fileName,
                     row.names = FALSE, col.names = FALSE, quote = F)
 }
