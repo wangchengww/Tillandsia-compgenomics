@@ -93,3 +93,5 @@ Count normalization, low-expression filtering and variance stabilization was don
     echo $mod
     Rscript ../5.\ Gene-family-evo-tfas-tlei/script_GO_term_enrichment.R genes_to_GO_Tfas_orthologs.map $i GO-term_enrichment_mod-$mod.txt orthogroup_info_for_GOterm_enrichment.txt
   done
+
+  For T. fasciculata, I tested several parameters in calling the co-expression network, and ran both a signed and un-signed network. Frustratingly, both ways give interesting results that don't overlap. So I am not sure yet how to proceed. The unsigned network was run with a soft-thresholding power of 8, and the signed with a power of 18 (16 was also tested but 18 gave more inclusive modules). In both cases, modules with 90 % correlation in expression were merged. The unsigned network has 100 modules, of which 10 are significantly correlated with time points. These modules range from 939 genes to 55 genes. The signed network has 106 modules of which 11 are significant. These range from 467 to 36 genes.
