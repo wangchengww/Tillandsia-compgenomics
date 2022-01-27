@@ -140,7 +140,9 @@ moduleLabels = match(moduleColors, colorOrder)-1;
 MEs = mergedMEs;
 # Save module colors and labels for use in subsequent parts
 save(MEs, moduleLabels, moduleColors, geneTree, file = "coexpression_network_unsigned8_Tfas_vsd_10c4s.RData")
-
+lnames = load("coexpression_network_unsigned8_Tfas_vsd_10c4s.RData")
+lnames = load("coexpression_input_Tfas_vsd_10c4s.RData")
+lnames
 # Define numbers of genes and samples
 nGenes = ncol(datExpr);
 nSamples = nrow(datExpr);
@@ -230,7 +232,7 @@ for (mod in 1:ncol(geneModuleMembership))
 # Order the genes in the geneInfo variable first by module color, then by geneTraitSignificance
 geneOrder = order(geneInfo0$moduleColor, -abs(geneInfo0$GS.time));
 geneInfo = geneInfo0[geneOrder, ]
-write.csv(geneInfo, file = "geneInfo_co-expression_Tfasc_vsd_10c4s_unsigned8.csv")
+write.table(geneInfo, file = "geneInfo_co-expression_Tfasc_vsd_10c4s_unsigned8.txt", quote = F, sep = "\t")
 
 # Make gene lists for all modules that are correlated with time so that we can run GOterm enrichment for them
 modNames <- substring(rownames(modules_sign_time), 3)

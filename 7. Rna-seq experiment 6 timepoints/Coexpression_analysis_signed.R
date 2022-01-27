@@ -157,7 +157,8 @@ moduleLabels = match(moduleColors, colorOrder)-1;
 MEs = mergedMEs;
 # Save module colors and labels for use in subsequent parts
 save(MEs, moduleLabels, moduleColors, geneTree, file = "coexpression_network_Tfas_signed18_vsd_10c4s.RData")
-
+lnames = load("coexpression_input_Tfas_vsd_10c4s.RData")
+lnames = load("coexpression_network_Tfas_signed18_vsd_10c4s.RData")
 # Define numbers of genes and samples
 nGenes = ncol(datExpr);
 nSamples = nrow(datExpr);
@@ -228,8 +229,8 @@ verboseScatterplot(abs(geneModuleMembership[moduleGenes, column]),
                    cex.main = 1.2, cex.lab = 1.2, cex.axis = 1.2, col = module)
 
 # Now create a per-gene summary of the network, containing the module, the correlation of 
-# each trait to the time points (significance), the p-value of the significance, and the
-# membership and o-value for each module, ranked by their significance for time.
+# each gene to the time points (significance), the p-value of the significance, and the
+# membership and p-value for each module, ranked by their significance for time.
 # Create the starting data frame
 probes = colnames(datExpr)
 geneInfo0 = data.frame(moduleColor = moduleColors,
