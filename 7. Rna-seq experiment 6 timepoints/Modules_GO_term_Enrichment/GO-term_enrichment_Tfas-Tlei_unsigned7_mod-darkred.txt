@@ -1,0 +1,136 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0016124	xanthophyll catabolic process	0.00014	OG0015238, OG0019528	Tfasc_v1.19808, Tfasc_v1.19810
+BP	GO:1903259	exon-exon junction complex disassembly	0.00014	OG0015416, OG0001756	Tfasc_v1.23852, Tfasc_v1.23853
+BP	GO:0048211	Golgi vesicle docking	4e-04	OG0001449, OG0010000	Tfasc_v1.17668, Tfasc_v1.26612
+BP	GO:1901371	regulation of leaf morphogenesis	4e-04	OG0003031, OG0014858	Tfasc_v1.05814, Tfasc_v1.14813
+BP	GO:0016121	carotene catabolic process	0.00274	OG0015238, OG0019528	Tfasc_v1.19808, Tfasc_v1.19810
+BP	GO:0015786	UDP-glucose transmembrane transport	0.00274	OG0003791, OG0002350	Tfasc_v1.14638, Tfasc_v1.18286
+BP	GO:0017196	N-terminal peptidyl-methionine acetylation	0.00274	OG0004633, OG0017774	Tfasc_v1.22014, Tfasc_v1.23385
+BP	GO:0072334	UDP-galactose transmembrane transport	0.00274	OG0003791, OG0002350	Tfasc_v1.14638, Tfasc_v1.18286
+BP	GO:0045899	positive regulation of RNA polymerase II transcription preinitiation complex assembly	0.00573	OG0000640, OG0009155	Tfasc_v1.07404, Tfasc_v1.29765
+BP	GO:0071472	cellular response to salt stress	0.00695	OG0001313, OG0008279	Tfasc_v1.01449, Tfasc_v1.09606
+BP	GO:0010218	response to far red light	0.00828	OG0003031, OG0008279	Tfasc_v1.05814, Tfasc_v1.09606
+BP	GO:0019374	galactolipid metabolic process	0.01161	OG0006397, OG0001012	Tfasc_v1.05635, Tfasc_v1.29973
+BP	GO:0035066	positive regulation of histone acetylation	0.01167	OG0008453	Tfasc_v1.04310
+BP	GO:1901355	response to rapamycin	0.01167	OG0006653	Tfasc_v1.01544
+BP	GO:1901969	positive regulation of polynucleotide 3'-phosphatase activity	0.01167	OG0016603	Tfasc_v1.14264
+BP	GO:1903070	negative regulation of ER-associated ubiquitin-dependent protein catabolic process	0.01167	OG0014577	Tfasc_v1.18697
+BP	GO:1901972	positive regulation of DNA-5-methylcytosine glycosylase activity	0.01167	OG0016603	Tfasc_v1.14264
+BP	GO:0016242	negative regulation of macroautophagy	0.01167	OG0006653	Tfasc_v1.01544
+BP	GO:1901529	positive regulation of anion channel activity	0.01167	OG0003031	Tfasc_v1.05814
+BP	GO:0007283	spermatogenesis	0.01167	OG0002341	Tfasc_v1.00793
+BP	GO:1901535	regulation of DNA demethylation	0.01167	OG0006164	Tfasc_v1.06311
+BP	GO:0042543	protein N-linked glycosylation via arginine	0.01167	OG0009159	Tfasc_v1.29791
+BP	GO:0006968	cellular defense response	0.01167	OG0016052	Tfasc_v1.13158
+BP	GO:0009745	sucrose mediated signaling	0.01167	OG0006653	Tfasc_v1.01544
+BP	GO:0044794	positive regulation by host of viral process	0.01167	OG0004303	Tfasc_v1.00244
+BP	GO:0010157	response to chlorate	0.01167	OG0006185	Tfasc_v1.06266
+BP	GO:0071000	response to magnetism	0.01167	OG0003031	Tfasc_v1.05814
+BP	GO:0040019	positive regulation of embryonic development	0.01167	OG0006653	Tfasc_v1.01544
+BP	GO:1902448	positive regulation of shade avoidance	0.01167	OG0003031	Tfasc_v1.05814
+BP	GO:0045056	transcytosis	0.01167	OG0010000	Tfasc_v1.26612
+BP	GO:0010617	circadian regulation of calcium ion oscillation	0.01167	OG0003031	Tfasc_v1.05814
+BP	GO:2000234	positive regulation of rRNA processing	0.01167	OG0006653	Tfasc_v1.01544
+BP	GO:0006166	purine ribonucleoside salvage	0.01167	OG0003987	Tfasc_v1.07641
+BP	GO:0071280	cellular response to copper ion	0.01167	OG0001313	Tfasc_v1.01449
+BP	GO:1903857	negative regulation of cytokinin dehydrogenase activity	0.01167	OG0014577	Tfasc_v1.18697
+BP	GO:1902661	positive regulation of glucose mediated signaling pathway	0.01167	OG0006653	Tfasc_v1.01544
+BP	GO:0046323	glucose import	0.01203	OG0001380, OG0018742	Tfasc_v1.23324, Tfasc_v1.23325, Tfasc_v1.23326
+BP	GO:0043161	proteasome-mediated ubiquitin-dependent protein catabolic process	0.01327	OG0008574, OG0006256, OG0003223, OG0001444, OG0014577, OG0003733, OG0015717	Tfasc_v1.04509, Tfasc_v1.06010, Tfasc_v1.08939, Tfasc_v1.14666, Tfasc_v1.18697, Tfasc_v1.25297, Tfasc_v1.26908
+BP	GO:1901332	negative regulation of lateral root development	0.02321	OG0003031	Tfasc_v1.05814
+BP	GO:0015789	UDP-N-acetylgalactosamine transmembrane transport	0.02321	OG0014577	Tfasc_v1.18697
+BP	GO:0031468	nuclear envelope reassembly	0.02321	OG0003223	Tfasc_v1.08939
+BP	GO:0032780	negative regulation of ATPase activity	0.02321	OG0009315	Tfasc_v1.29958
+BP	GO:0071493	cellular response to UV-B	0.02321	OG0001313	Tfasc_v1.01449
+BP	GO:0010929	positive regulation of auxin mediated signaling pathway	0.02321	OG0006653	Tfasc_v1.01544
+BP	GO:0071457	cellular response to ozone	0.02321	OG0001313	Tfasc_v1.01449
+BP	GO:0018343	protein farnesylation	0.02321	OG0008126	Tfasc_v1.15279
+BP	GO:0038202	TORC1 signaling	0.02321	OG0006653	Tfasc_v1.01544
+BP	GO:1990569	UDP-N-acetylglucosamine transmembrane transport	0.02321	OG0014577	Tfasc_v1.18697
+BP	GO:0017121	plasma membrane phospholipid scrambling	0.02321	OG0012980	Tfasc_v1.23807
+BP	GO:1902347	response to strigolactone	0.02321	OG0003031	Tfasc_v1.05814
+BP	GO:2000652	regulation of secondary cell wall biogenesis	0.02321	OG0003031	Tfasc_v1.05814
+BP	GO:0010116	positive regulation of abscisic acid biosynthetic process	0.02321	OG0006653	Tfasc_v1.01544
+BP	GO:0050687	negative regulation of defense response to virus	0.02321	OG0006653	Tfasc_v1.01544
+BP	GO:0010114	response to red light	0.02459	OG0003031, OG0008279	Tfasc_v1.05814, Tfasc_v1.09606
+BP	GO:0000387	spliceosomal snRNP assembly	0.02685	OG0016628, OG0012742	Tfasc_v1.06346, Tfasc_v1.20770
+BP	GO:0030163	protein catabolic process	0.02808	OG0008574, OG0008720, OG0006256, OG0000640, OG0003223, OG0001272, OG0010735, OG0005869, OG0001444, OG0000482, OG0003783, OG0014577, OG0003733, OG0015717, OG0009155	Tfasc_v1.04509, Tfasc_v1.04800, Tfasc_v1.06010, Tfasc_v1.07404, Tfasc_v1.08939, Tfasc_v1.09135, Tfasc_v1.12004, Tfasc_v1.14164, Tfasc_v1.14666, Tfasc_v1.14999, Tfasc_v1.16075, Tfasc_v1.18697, Tfasc_v1.25297, Tfasc_v1.26908, Tfasc_v1.29765
+BP	GO:0045292	mRNA cis splicing, via spliceosome	0.03409	OG0002341, OG0015414	Tfasc_v1.00793, Tfasc_v1.04256
+BP	GO:0071483	cellular response to blue light	0.03442	OG0003031, OG0008279	Tfasc_v1.05814, Tfasc_v1.09606
+BP	GO:0006865	amino acid transport	0.03458	OG0006922, OG0009365	Tfasc_v1.27635, Tfasc_v1.30089
+BP	GO:0010343	singlet oxygen-mediated programmed cell death	0.03462	OG0003031	Tfasc_v1.05814
+BP	GO:0051645	Golgi localization	0.03462	OG0000760	Tfasc_v1.03367
+BP	GO:2000072	regulation of defense response to fungus, incompatible interaction	0.03462	OG0009025	Tfasc_v1.16443
+BP	GO:1901672	positive regulation of systemic acquired resistance	0.03462	OG0003031	Tfasc_v1.05814
+BP	GO:1900459	positive regulation of brassinosteroid mediated signaling pathway	0.03462	OG0006653	Tfasc_v1.01544
+BP	GO:0006167	AMP biosynthetic process	0.03462	OG0003987	Tfasc_v1.07641
+BP	GO:0010244	response to low fluence blue light stimulus by blue low-fluence system	0.03462	OG0003031	Tfasc_v1.05814
+BP	GO:0061157	mRNA destabilization	0.03462	OG0011597	Tfasc_v1.22888
+BP	GO:0010310	regulation of hydrogen peroxide metabolic process	0.04589	OG0003031	Tfasc_v1.05814
+BP	GO:0051131	chaperone-mediated protein complex assembly	0.04589	OG0004265	Tfasc_v1.23032
+BP	GO:0010117	photoprotection	0.04589	OG0003031	Tfasc_v1.05814
+BP	GO:1900426	positive regulation of defense response to bacterium	0.04589	OG0003031	Tfasc_v1.05814
+BP	GO:0035494	SNARE complex disassembly	0.04589	OG0001449	Tfasc_v1.17668
+BP	GO:0043001	Golgi to plasma membrane protein transport	0.04589	OG0001449	Tfasc_v1.17668
+BP	GO:0048731	system development	0.04649	OG0006653, OG0015414, OG0003031, OG0001607, OG0014858, OG0011324	Tfasc_v1.01544, Tfasc_v1.04256, Tfasc_v1.05814, Tfasc_v1.12399, Tfasc_v1.14813, Tfasc_v1.18245
+MF	GO:0003834	beta-carotene 15,15'-monooxygenase activity	0.00011	OG0015238, OG0019528	Tfasc_v1.19808, Tfasc_v1.19810
+MF	GO:0045549	9-cis-epoxycarotenoid dioxygenase activity	0.00031	OG0015238, OG0019528	Tfasc_v1.19808, Tfasc_v1.19810
+MF	GO:0005460	UDP-glucose transmembrane transporter activity	0.00103	OG0003791, OG0002350	Tfasc_v1.14638, Tfasc_v1.18286
+MF	GO:0005459	UDP-galactose transmembrane transporter activity	0.00214	OG0003791, OG0002350	Tfasc_v1.14638, Tfasc_v1.18286
+MF	GO:0004596	peptide alpha-N-acetyltransferase activity	0.00361	OG0004633, OG0017774	Tfasc_v1.22014, Tfasc_v1.23385
+MF	GO:0043130	ubiquitin binding	0.00426	OG0006256, OG0003223, OG0005869	Tfasc_v1.06010, Tfasc_v1.08939, Tfasc_v1.14164
+MF	GO:0005351	carbohydrate:proton symporter activity	0.00856	OG0001380, OG0018742	Tfasc_v1.23324, Tfasc_v1.23325, Tfasc_v1.23326
+MF	GO:0044390	ubiquitin-like protein conjugating enzyme binding	0.01024	OG0008574, OG0010735	Tfasc_v1.04509, Tfasc_v1.12004
+MF	GO:0004001	adenosine kinase activity	0.01029	OG0003987	Tfasc_v1.07641
+MF	GO:0070040	rRNA (adenine-C2-)-methyltransferase activity	0.01029	OG0015276	Tfasc_v1.00084
+MF	GO:0042030	ATPase inhibitor activity	0.01029	OG0009315	Tfasc_v1.29958
+MF	GO:0016429	tRNA (adenine-N1-)-methyltransferase activity	0.01029	OG0012466	Tfasc_v1.05056
+MF	GO:0003939	L-iditol 2-dehydrogenase activity	0.01029	OG0012279	Tfasc_v1.28464
+MF	GO:0071633	dihydroceramidase activity	0.01029	OG0008972	Tfasc_v1.16321
+MF	GO:0018738	S-formylglutathione hydrolase activity	0.01029	OG0006595	Tfasc_v1.01432
+MF	GO:0003951	NAD+ kinase activity	0.01943	OG0013557, OG0011012	Tfasc_v1.06104, Tfasc_v1.10773
+MF	GO:0045550	geranylgeranyl reductase activity	0.02047	OG0007146	Tfasc_v1.08892
+MF	GO:0004729	oxygen-dependent protoporphyrinogen oxidase activity	0.02047	OG0009449	Tfasc_v1.30324
+MF	GO:0004660	protein farnesyltransferase activity	0.02047	OG0008126	Tfasc_v1.15279
+MF	GO:0004662	CAAX-protein geranylgeranyltransferase activity	0.02047	OG0008126	Tfasc_v1.15279
+MF	GO:0017128	phospholipid scramblase activity	0.02047	OG0012980	Tfasc_v1.23807
+MF	GO:0010385	double-stranded methylated DNA binding	0.02047	OG0016603	Tfasc_v1.14264
+MF	GO:0047443	4-hydroxy-4-methyl-2-oxoglutarate aldolase activity	0.02047	OG0017104	Tfasc_v1.28748
+MF	GO:0033853	aspartate-prephenate aminotransferase activity	0.02047	OG0009659	Tfasc_v1.16099
+MF	GO:0033854	glutamate-prephenate aminotransferase activity	0.02047	OG0009659	Tfasc_v1.16099
+MF	GO:0004450	isocitrate dehydrogenase (NADP+) activity	0.02047	OG0000507	Tfasc_v1.09620
+MF	GO:0004485	methylcrotonoyl-CoA carboxylase activity	0.02047	OG0003539	Tfasc_v1.04741
+MF	GO:1990380	Lys48-specific deubiquitinase activity	0.02047	OG0010618	Tfasc_v1.28621
+MF	GO:0005463	UDP-N-acetylgalactosamine transmembrane transporter activity	0.02047	OG0014577	Tfasc_v1.18697
+MF	GO:0003878	ATP citrate synthase activity	0.02047	OG0001319	Tfasc_v1.01600
+MF	GO:0008428	ribonuclease inhibitor activity	0.02047	OG0017104	Tfasc_v1.28748
+MF	GO:0004222	metalloendopeptidase activity	0.02491	OG0013763, OG0012970, OG0002162	Tfasc_v1.01759, Tfasc_v1.02373, Tfasc_v1.30116
+MF	GO:0009882	blue light photoreceptor activity	0.03054	OG0003031	Tfasc_v1.05814
+MF	GO:0008948	oxaloacetate decarboxylase activity	0.03054	OG0017104	Tfasc_v1.28748
+MF	GO:0003871	5-methyltetrahydropteroyltriglutamate-homocysteine S-methyltransferase activity	0.03054	OG0000589	Tfasc_v1.04346
+MF	GO:0010301	xanthoxin dehydrogenase activity	0.03054	OG0003516	Tfasc_v1.05885
+MF	GO:0008233	peptidase activity	0.03177	OG0013763, OG0012970, OG0008720, OG0006397, OG0000640, OG0001272, OG0000482, OG0003733, OG0010618, OG0009155, OG0002162	Tfasc_v1.01759, Tfasc_v1.02373, Tfasc_v1.04800, Tfasc_v1.05635, Tfasc_v1.07404, Tfasc_v1.09135, Tfasc_v1.14999, Tfasc_v1.25297, Tfasc_v1.28621, Tfasc_v1.29765, Tfasc_v1.30116
+MF	GO:0005047	signal recognition particle binding	0.04052	OG0012664	Tfasc_v1.01995
+MF	GO:0008661	1-deoxy-D-xylulose-5-phosphate synthase activity	0.04052	OG0003783	Tfasc_v1.16075
+MF	GO:0010485	H4 histone acetyltransferase activity	0.04052	OG0018208	Tfasc_v1.22417
+MF	GO:0005524	ATP binding	0.04614	OG0004294, OG0011299, OG0006653, OG0012654, OG0012970, OG0008623, OG0003539, OG0003031, OG0013557, OG0006185, OG0000640, OG0018044, OG0014130, OG0002528, OG0010742, OG0000892, OG0016052, OG0001444, OG0000482, OG0003783, OG0016295, OG0001449, OG0018223, OG0003566, OG0003574, OG0001390, OG0002212, OG0004476, OG0006973, OG0006959, OG0009155, OG0002162	Tfasc_v1.00109, Tfasc_v1.00594, Tfasc_v1.01544, Tfasc_v1.01962, Tfasc_v1.02373, Tfasc_v1.04438, Tfasc_v1.04741, Tfasc_v1.05814, Tfasc_v1.06104, Tfasc_v1.06266, Tfasc_v1.07404, Tfasc_v1.09898, Tfasc_v1.09900, Tfasc_v1.10718, Tfasc_v1.11965, Tfasc_v1.11982, Tfasc_v1.13158, Tfasc_v1.14666, Tfasc_v1.14999, Tfasc_v1.16075, Tfasc_v1.17154, Tfasc_v1.17668, Tfasc_v1.22692, Tfasc_v1.24003, Tfasc_v1.24111, Tfasc_v1.24396, Tfasc_v1.26683, Tfasc_v1.27133, Tfasc_v1.27381, Tfasc_v1.27525, Tfasc_v1.29765, Tfasc_v1.30116
+CC	GO:0035145	exon-exon junction complex	0.0023	OG0015416, OG0001756	Tfasc_v1.23852, Tfasc_v1.23853
+CC	GO:0005737	cytoplasm	0.0029	OG0001045, OG0004303, OG0002341, OG0006595, OG0001313, OG0006653, OG0001319, OG0012664, OG0004773, OG0012970, OG0004367, OG0013892, OG0013660, OG0017922, OG0000760, OG0003581, OG0008449, OG0000589, OG0008623, OG0008574, OG0003539, OG0008720, OG0006397, OG0006386, OG0003031, OG0003516, OG0006256, OG0006185, OG0016628, OG0015544, OG0004489, OG0016306, OG0000640, OG0001548, OG0003987, OG0007146, OG0003223, OG0003256, OG0002091, OG0008279, OG0000507, OG0001895, OG0011012, OG0013846, OG0013992, OG0001607, OG0005869, OG0005924, OG0002950, OG0003791, OG0001444, OG0014858, OG0000482, OG0008100, OG0008126, OG0003783, OG0008972, OG0009025, OG0011383, OG0011398, OG0014467, OG0001449, OG0002350, OG0012930, OG0014577, OG0015238, OG0019528, OG0003329, OG0004633, OG0018223, OG0011597, OG0004265, OG0017774, OG0012980, OG0015416, OG0001756, OG0003566, OG0008786, OG0003574, OG0003590, OG0003733, OG0015681, OG0010000, OG0006971, OG0000317, OG0006922, OG0011309, OG0014832, OG0009098, OG0009155, OG0009159, OG0009315, OG0001012, OG0002162, OG0009421, OG0009449	Tfasc_v1.00127, Tfasc_v1.00244, Tfasc_v1.00793, Tfasc_v1.01432, Tfasc_v1.01449, Tfasc_v1.01544, Tfasc_v1.01600, Tfasc_v1.01995, Tfasc_v1.02131, Tfasc_v1.02373, Tfasc_v1.02610, Tfasc_v1.02794, Tfasc_v1.03279, Tfasc_v1.03356, Tfasc_v1.03367, Tfasc_v1.03843, Tfasc_v1.04296, Tfasc_v1.04346, Tfasc_v1.04438, Tfasc_v1.04509, Tfasc_v1.04741, Tfasc_v1.04800, Tfasc_v1.05635, Tfasc_v1.05663, Tfasc_v1.05814, Tfasc_v1.05885, Tfasc_v1.06010, Tfasc_v1.06266, Tfasc_v1.06346, Tfasc_v1.06526, Tfasc_v1.06660, Tfasc_v1.06786, Tfasc_v1.07404, Tfasc_v1.07635, Tfasc_v1.07641, Tfasc_v1.08892, Tfasc_v1.08939, Tfasc_v1.09144, Tfasc_v1.09448, Tfasc_v1.09606, Tfasc_v1.09620, Tfasc_v1.10594, Tfasc_v1.10773, Tfasc_v1.11134, Tfasc_v1.12292, Tfasc_v1.12399, Tfasc_v1.14164, Tfasc_v1.14255, Tfasc_v1.14329, Tfasc_v1.14638, Tfasc_v1.14666, Tfasc_v1.14813, Tfasc_v1.14999, Tfasc_v1.15203, Tfasc_v1.15279, Tfasc_v1.16075, Tfasc_v1.16321, Tfasc_v1.16443, Tfasc_v1.17183, Tfasc_v1.17191, Tfasc_v1.17441, Tfasc_v1.17668, Tfasc_v1.18286, Tfasc_v1.18409, Tfasc_v1.18697, Tfasc_v1.19808, Tfasc_v1.19810, Tfasc_v1.19951, Tfasc_v1.22014, Tfasc_v1.22692, Tfasc_v1.22888, Tfasc_v1.23032, Tfasc_v1.23385, Tfasc_v1.23807, Tfasc_v1.23852, Tfasc_v1.23853, Tfasc_v1.24003, Tfasc_v1.24027, Tfasc_v1.24111, Tfasc_v1.24277, Tfasc_v1.25297, Tfasc_v1.26164, Tfasc_v1.26612, Tfasc_v1.27494, Tfasc_v1.27630, Tfasc_v1.27635, Tfasc_v1.29226, Tfasc_v1.29576, Tfasc_v1.29655, Tfasc_v1.29765, Tfasc_v1.29791, Tfasc_v1.29958, Tfasc_v1.29973, Tfasc_v1.30116, Tfasc_v1.30233, Tfasc_v1.30324
+CC	GO:0005687	U4 snRNP	0.0054	OG0016628, OG0012742	Tfasc_v1.06346, Tfasc_v1.20770
+CC	GO:0070062	extracellular exosome	0.0126	OG0012930	Tfasc_v1.18409
+CC	GO:0005785	signal recognition particle receptor complex	0.0126	OG0012664	Tfasc_v1.01995
+CC	GO:0005682	U5 snRNP	0.0149	OG0016628, OG0012742	Tfasc_v1.06346, Tfasc_v1.20770
+CC	GO:0008540	proteasome regulatory particle, base subcomplex	0.019	OG0000640, OG0009155	Tfasc_v1.07404, Tfasc_v1.29765
+CC	GO:0019774	proteasome core complex, beta-subunit complex	0.025	OG0003733	Tfasc_v1.25297
+CC	GO:0031515	tRNA (m1A) methyltransferase complex	0.025	OG0012466	Tfasc_v1.05056
+CC	GO:0005965	protein farnesyltransferase complex	0.025	OG0008126	Tfasc_v1.15279
+CC	GO:0005953	CAAX-protein geranylgeranyltransferase complex	0.025	OG0008126	Tfasc_v1.15279
+CC	GO:0071011	precatalytic spliceosome	0.0258	OG0016628, OG0012742	Tfasc_v1.06346, Tfasc_v1.20770
+CC	GO:0009534	chloroplast thylakoid	0.0326	OG0017922, OG0003581, OG0006386, OG0007146, OG0013846, OG0015681, OG0009449	Tfasc_v1.03356, Tfasc_v1.03843, Tfasc_v1.05663, Tfasc_v1.08892, Tfasc_v1.11134, Tfasc_v1.26164, Tfasc_v1.30324
+CC	GO:0030126	COPI vesicle coat	0.0363	OG0001045, OG0000760	Tfasc_v1.00127, Tfasc_v1.03367
+CC	GO:0005685	U1 snRNP	0.0363	OG0016628, OG0012742	Tfasc_v1.06346, Tfasc_v1.20770
+CC	GO:0009707	chloroplast outer membrane	0.0477	OG0006922, OG0011309, OG0001012	Tfasc_v1.27635, Tfasc_v1.29226, Tfasc_v1.29973
+CC	GO:0031416	NatB complex	0.0495	OG0017774	Tfasc_v1.23385
+CC	GO:0031417	NatC complex	0.0495	OG0004633	Tfasc_v1.22014
+CC	GO:0030124	AP-4 adaptor complex	0.0495	OG0002091	Tfasc_v1.09448
+CC	GO:0034715	pICln-Sm protein complex	0.0495	OG0016628	Tfasc_v1.06346

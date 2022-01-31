@@ -1,0 +1,103 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0005978	glycogen biosynthetic process	0.0038	OG0014321, OG0005268	Tfasc_v1.15702, Tfasc_v1.15703
+BP	GO:0016192	vesicle-mediated transport	0.0039	OG0003046, OG0006237, OG0002091, OG0000763, OG0001722, OG0002924, OG0001435, OG0006899, OG0006898, OG0009174	Tfasc_v1.05617, Tfasc_v1.06048, Tfasc_v1.09448, Tfasc_v1.14413, Tfasc_v1.19252, Tfasc_v1.22930, Tfasc_v1.23961, Tfasc_v1.27682, Tfasc_v1.27691, Tfasc_v1.29815
+BP	GO:0072684	mitochondrial tRNA 3'-trailer cleavage, endonucleolytic	0.0078	OG0009054	Tfasc_v1.16525
+BP	GO:0055122	response to very low light intensity stimulus	0.0078	OG0010406	Tfasc_v1.07771
+BP	GO:1903292	protein localization to Golgi membrane	0.0078	OG0002924	Tfasc_v1.22930
+BP	GO:0006104	succinyl-CoA metabolic process	0.0078	OG0010484	Tfasc_v1.07613
+BP	GO:0010269	response to selenium ion	0.0078	OG0011802	Tfasc_v1.12454
+BP	GO:1903424	fluoride transmembrane transport	0.0078	OG0004613	Tfasc_v1.06597
+BP	GO:0006489	dolichyl diphosphate biosynthetic process	0.0078	OG0006992	Tfasc_v1.27263
+BP	GO:0018283	iron incorporation into metallo-sulfur cluster	0.0156	OG0011802	Tfasc_v1.12454
+BP	GO:0006557	S-adenosylmethioninamine biosynthetic process	0.0156	OG0002446	Tfasc_v1.05044
+BP	GO:0001887	selenium compound metabolic process	0.0156	OG0011802	Tfasc_v1.12454
+BP	GO:0043968	histone H2A acetylation	0.0156	OG0008410	Tfasc_v1.09333
+BP	GO:0042766	nucleosome mobilization	0.0156	OG0018411	Tfasc_v1.01431
+BP	GO:0006865	amino acid transport	0.0232	OG0018838, OG0009365	Tfasc_v1.02745, Tfasc_v1.30089
+BP	GO:0055129	L-proline biosynthetic process	0.0233	OG0005208	Tfasc_v1.29541
+BP	GO:0005980	glycogen catabolic process	0.0233	OG0010694	Tfasc_v1.12084
+BP	GO:0019408	dolichol biosynthetic process	0.031	OG0002397	Tfasc_v1.23327
+BP	GO:0006123	mitochondrial electron transport, cytochrome c to oxygen	0.031	OG0008907	Tfasc_v1.24259
+BP	GO:0006597	spermine biosynthetic process	0.031	OG0002446	Tfasc_v1.05044
+BP	GO:1902600	proton transmembrane transport	0.0314	OG0000539, OG0001644, OG0001380, OG0008907, OG0009391	Tfasc_v1.04022, Tfasc_v1.11136, Tfasc_v1.23324, Tfasc_v1.24259, Tfasc_v1.30148
+BP	GO:1904482	cellular response to tetrahydrofolate	0.0386	OG0014757	Tfasc_v1.21774
+BP	GO:0006565	L-serine catabolic process	0.0386	OG0014757	Tfasc_v1.21774
+BP	GO:0019264	glycine biosynthetic process from serine	0.0386	OG0014757	Tfasc_v1.21774
+BP	GO:0009567	double fertilization forming a zygote and endosperm	0.0386	OG0013075	Tfasc_v1.13058
+BP	GO:0046323	glucose import	0.0409	OG0001644, OG0001380	Tfasc_v1.11136, Tfasc_v1.23324
+BP	GO:0043328	protein transport to vacuole involved in ubiquitin-dependent protein catabolic process via the multivesicular body sorting pathway	0.0461	OG0009174	Tfasc_v1.29815
+BP	GO:0015706	nitrate transport	0.0461	OG0002094	Tfasc_v1.02010
+BP	GO:0043486	histone exchange	0.0461	OG0008410	Tfasc_v1.09333
+BP	GO:0015908	fatty acid transport	0.0461	OG0009148	Tfasc_v1.29752
+BP	GO:0033353	S-adenosylmethionine cycle	0.0461	OG0001683	Tfasc_v1.21769
+BP	GO:0043966	histone H3 acetylation	0.0461	OG0009486	Tfasc_v1.25264
+BP	GO:0043967	histone H4 acetylation	0.0461	OG0008410	Tfasc_v1.09333
+BP	GO:0006419	alanyl-tRNA aminoacylation	0.0461	OG0001604	Tfasc_v1.16907
+BP	GO:0006623	protein targeting to vacuole	0.0484	OG0005112, OG0001435	Tfasc_v1.20972, Tfasc_v1.23961
+MF	GO:0003844	1,4-alpha-glucan branching enzyme activity	0.00044	OG0014321, OG0005268	Tfasc_v1.15702, Tfasc_v1.15703
+MF	GO:0030170	pyridoxal phosphate binding	0.00403	OG0000595, OG0010694, OG0011802, OG0014757	Tfasc_v1.08546, Tfasc_v1.12084, Tfasc_v1.12454, Tfasc_v1.21774
+MF	GO:0030955	potassium ion binding	0.00641	OG0001011, OG0001331	Tfasc_v1.22858, Tfasc_v1.26457
+MF	GO:0004743	pyruvate kinase activity	0.00641	OG0001011, OG0001331	Tfasc_v1.22858, Tfasc_v1.26457
+MF	GO:0009000	selenocysteine lyase activity	0.00674	OG0011802	Tfasc_v1.12454
+MF	GO:0003975	UDP-N-acetylglucosamine-dolichyl-phosphate N-acetylglucosaminephosphotransferase activity	0.00674	OG0006992	Tfasc_v1.27263
+MF	GO:0004350	glutamate-5-semialdehyde dehydrogenase activity	0.00674	OG0005208	Tfasc_v1.29541
+MF	GO:1903425	fluoride transmembrane transporter activity	0.00674	OG0004613	Tfasc_v1.06597
+MF	GO:1990585	hydroxyproline O-arabinosyltransferase activity	0.00674	OG0011104	Tfasc_v1.08022
+MF	GO:0004349	glutamate 5-kinase activity	0.00674	OG0005208	Tfasc_v1.29541
+MF	GO:0003756	protein disulfide isomerase activity	0.00714	OG0001292, OG0013075	Tfasc_v1.05605, Tfasc_v1.13058
+MF	GO:0004013	adenosylhomocysteinase activity	0.01343	OG0001683	Tfasc_v1.21769
+MF	GO:0033818	beta-ketoacyl-acyl-carrier-protein synthase III activity	0.01343	OG0007133	Tfasc_v1.08878
+MF	GO:0004775	succinate-CoA ligase (ADP-forming) activity	0.01343	OG0010484	Tfasc_v1.07613
+MF	GO:0004776	succinate-CoA ligase (GDP-forming) activity	0.01343	OG0010484	Tfasc_v1.07613
+MF	GO:0004608	phosphatidylethanolamine N-methyltransferase activity	0.01343	OG0005301	Tfasc_v1.18869
+MF	GO:0004324	ferredoxin-NADP+ reductase activity	0.01343	OG0008609	Tfasc_v1.04451
+MF	GO:0000773	phosphatidyl-N-methylethanolamine N-methyltransferase activity	0.01343	OG0005301	Tfasc_v1.18869
+MF	GO:0004109	coproporphyrinogen oxidase activity	0.01343	OG0003297	Tfasc_v1.22353
+MF	GO:0008184	glycogen phosphorylase activity	0.01343	OG0010694	Tfasc_v1.12084
+MF	GO:0080101	phosphatidyl-N-dimethylethanolamine N-methyltransferase activity	0.01343	OG0005301	Tfasc_v1.18869
+MF	GO:0004014	adenosylmethionine decarboxylase activity	0.02008	OG0002446	Tfasc_v1.05044
+MF	GO:0008441	3'(2'),5'-bisphosphate nucleotidase activity	0.02008	OG0007357	Tfasc_v1.22603
+MF	GO:0016251	RNA polymerase II general transcription initiation factor activity	0.02008	OG0009486	Tfasc_v1.25264
+MF	GO:0042781	3'-tRNA processing endoribonuclease activity	0.02008	OG0009054	Tfasc_v1.16525
+MF	GO:0045547	dehydrodolichyl diphosphate synthase activity	0.02008	OG0002397	Tfasc_v1.23327
+MF	GO:0008964	phosphoenolpyruvate carboxylase activity	0.02008	OG0001504	Tfasc_v1.16311
+MF	GO:0043169	cation binding	0.02426	OG0001443, OG0006091, OG0010484, OG0002037, OG0011132, OG0010975, OG0019293, OG0014321, OG0005268, OG0014757, OG0013601, OG0001011, OG0001331, OG0001766, OG0010281, OG0002690	Tfasc_v1.04396, Tfasc_v1.06439, Tfasc_v1.07613, Tfasc_v1.07823, Tfasc_v1.07960, Tfasc_v1.10844, Tfasc_v1.11853, Tfasc_v1.15702, Tfasc_v1.15703, Tfasc_v1.21774, Tfasc_v1.22068, Tfasc_v1.22858, Tfasc_v1.26457, Tfasc_v1.26927, Tfasc_v1.28970, Tfasc_v1.29532
+MF	GO:0031071	cysteine desulfurase activity	0.02668	OG0011802	Tfasc_v1.12454
+MF	GO:1990841	promoter-specific chromatin binding	0.02668	OG0009486	Tfasc_v1.25264
+MF	GO:0052691	UDP-arabinopyranose mutase activity	0.02668	OG0000322	Tfasc_v1.23188
+MF	GO:0102250	linear malto-oligosaccharide phosphorylase activity	0.02668	OG0010694	Tfasc_v1.12084
+MF	GO:0102499	SHG alpha-glucan phosphorylase activity	0.02668	OG0010694	Tfasc_v1.12084
+MF	GO:0004345	glucose-6-phosphate dehydrogenase activity	0.02668	OG0003158	Tfasc_v1.27696
+MF	GO:0008963	phospho-N-acetylmuramoyl-pentapeptide-transferase activity	0.02668	OG0006992	Tfasc_v1.27263
+MF	GO:0005351	carbohydrate:proton symporter activity	0.0311	OG0001644, OG0001380	Tfasc_v1.11136, Tfasc_v1.23324
+MF	GO:0004617	phosphoglycerate dehydrogenase activity	0.03324	OG0017127	Tfasc_v1.11958
+MF	GO:0016297	acyl-[acyl-carrier-protein] hydrolase activity	0.03324	OG0010132	Tfasc_v1.17488
+MF	GO:0070905	serine binding	0.03324	OG0014757	Tfasc_v1.21774
+MF	GO:0004129	cytochrome-c oxidase activity	0.03324	OG0008907	Tfasc_v1.24259
+MF	GO:0004372	glycine hydroxymethyltransferase activity	0.03324	OG0014757	Tfasc_v1.21774
+MF	GO:0004049	anthranilate synthase activity	0.03975	OG0013925	Tfasc_v1.12136
+MF	GO:0004813	alanine-tRNA ligase activity	0.03975	OG0001604	Tfasc_v1.16907
+MF	GO:0015112	nitrate transmembrane transporter activity	0.03975	OG0002094	Tfasc_v1.02010
+MF	GO:0004351	glutamate decarboxylase activity	0.03975	OG0000595	Tfasc_v1.08546
+MF	GO:0008195	phosphatidate phosphatase activity	0.03975	OG0001089	Tfasc_v1.10307
+MF	GO:0004097	catechol oxidase activity	0.03975	OG0001766	Tfasc_v1.26927
+MF	GO:0030628	pre-mRNA 3'-splice site binding	0.03975	OG0006091	Tfasc_v1.06439
+MF	GO:0016757	transferase activity, transferring glycosyl groups	0.04169	OG0011104, OG0015158, OG0010694, OG0014321, OG0005268, OG0001626, OG0001604, OG0014641	Tfasc_v1.08022, Tfasc_v1.11224, Tfasc_v1.12084, Tfasc_v1.15702, Tfasc_v1.15703, Tfasc_v1.15982, Tfasc_v1.16907, Tfasc_v1.17469
+MF	GO:0008483	transaminase activity	0.04469	OG0019293, OG0011802	Tfasc_v1.11853, Tfasc_v1.12454
+MF	GO:0015098	molybdate ion transmembrane transporter activity	0.04623	OG0001576	Tfasc_v1.02364
+MF	GO:0032266	phosphatidylinositol-3-phosphate binding	0.04623	OG0009174	Tfasc_v1.29815
+MF	GO:0004315	3-oxoacyl-[acyl-carrier-protein] synthase activity	0.04623	OG0007133	Tfasc_v1.08878
+CC	GO:0031902	late endosome membrane	0.0053	OG0001435, OG0009174	Tfasc_v1.23961, Tfasc_v1.29815
+CC	GO:0035658	Mon1-Ccz1 complex	0.0157	OG0006237	Tfasc_v1.06048
+CC	GO:0042709	succinate-CoA ligase complex	0.0157	OG0010484	Tfasc_v1.07613
+CC	GO:1904423	dehydrodolichyl diphosphate synthase complex	0.0157	OG0002397	Tfasc_v1.23327
+CC	GO:0032777	Piccolo NuA4 histone acetyltransferase complex	0.0234	OG0014538	Tfasc_v1.13579
+CC	GO:0000814	ESCRT II complex	0.0234	OG0009174	Tfasc_v1.29815
+CC	GO:0005672	transcription factor TFIIA complex	0.0234	OG0006711	Tfasc_v1.28014
+CC	GO:0033186	CAF-1 complex	0.0234	OG0011418	Tfasc_v1.17238
+CC	GO:0005911	cell-cell junction	0.0237	OG0010786, OG0001146	Tfasc_v1.11900, Tfasc_v1.12614
+CC	GO:0030124	AP-4 adaptor complex	0.0311	OG0002091	Tfasc_v1.09448
+CC	GO:0000812	Swr1 complex	0.0388	OG0008410	Tfasc_v1.09333
+CC	GO:0005802	trans-Golgi network	0.0453	OG0011104, OG0002091, OG0015158, OG0002924	Tfasc_v1.08022, Tfasc_v1.09448, Tfasc_v1.11224, Tfasc_v1.22930
+CC	GO:0035267	NuA4 histone acetyltransferase complex	0.0459	OG0008410, OG0014538	Tfasc_v1.09333, Tfasc_v1.13579
+CC	GO:0089701	U2AF complex	0.0463	OG0006091	Tfasc_v1.06439

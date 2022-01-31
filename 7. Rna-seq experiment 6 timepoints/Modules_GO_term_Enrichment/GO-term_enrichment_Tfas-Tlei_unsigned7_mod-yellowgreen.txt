@@ -1,0 +1,66 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0016540	protein autoprocessing	0.00021	OG0005386	Tfasc_v1.05294, Tfasc_v1.05298
+BP	GO:0016125	sterol metabolic process	0.00129	OG0019261, OG0002321	Tfasc_v1.11173, Tfasc_v1.19374, Tfasc_v1.19375, Tfasc_v1.19379
+BP	GO:0006355	regulation of transcription, DNA-templated	0.00174	OG0003086, OG0018774, OG0008490, OG0003199, OG0008179, OG0011814, OG0005063, OG0019366, OG0011973, OG0011478, OG0008945, OG0000312, OG0009512, OG0006943, OG0006881, OG0009795, OG0016025	Tfasc_v1.01346, Tfasc_v1.01696, Tfasc_v1.04665, Tfasc_v1.08686, Tfasc_v1.09781, Tfasc_v1.12495, Tfasc_v1.13645, Tfasc_v1.18214, Tfasc_v1.21710, Tfasc_v1.23121, Tfasc_v1.24334, Tfasc_v1.25124, Tfasc_v1.25191, Tfasc_v1.27553, Tfasc_v1.27731, Tfasc_v1.28196, Tfasc_v1.30705
+BP	GO:0031408	oxylipin biosynthetic process	0.00183	OG0002321, OG0000806	Tfasc_v1.19374, Tfasc_v1.23382
+BP	GO:0010342	endosperm cellularization	0.00591	OG0017836	Tfasc_v1.29426
+BP	GO:0010024	phytochromobilin biosynthetic process	0.00591	OG0006581	Tfasc_v1.01403
+BP	GO:2000024	regulation of leaf development	0.00948	OG0004163, OG0010126	Tfasc_v1.07766, Tfasc_v1.26862
+BP	GO:0080006	internode patterning	0.01179	OG0010126	Tfasc_v1.26862
+BP	GO:1990575	mitochondrial L-ornithine transmembrane transport	0.01763	OG0010946	Tfasc_v1.10880
+BP	GO:0010731	protein glutathionylation	0.02344	OG0001960	Tfasc_v1.27927
+BP	GO:0006747	FAD biosynthetic process	0.02344	OG0013529	Tfasc_v1.04841
+BP	GO:0010222	stem vascular tissue pattern formation	0.02344	OG0010126	Tfasc_v1.26862
+BP	GO:0051647	nucleus localization	0.02344	OG0017836	Tfasc_v1.29426
+BP	GO:0042545	cell wall modification	0.02665	OG0013333, OG0008811	Tfasc_v1.02415, Tfasc_v1.24095
+BP	GO:0010019	chloroplast-nucleus signaling pathway	0.02921	OG0006581	Tfasc_v1.01403
+BP	GO:0048205	COPI coating of Golgi vesicle	0.02921	OG0001143	Tfasc_v1.06549
+BP	GO:0045490	pectin catabolic process	0.0302	OG0013333, OG0008811	Tfasc_v1.02415, Tfasc_v1.24095
+BP	GO:2000034	regulation of seed maturation	0.03495	OG0006486	Tfasc_v1.01227
+BP	GO:0052324	plant-type cell wall cellulose biosynthetic process	0.03495	OG0000603	Tfasc_v1.23190
+BP	GO:0042908	xenobiotic transport	0.0365	OG0001503, OG0010507	Tfasc_v1.16245, Tfasc_v1.28689
+BP	GO:0010158	abaxial cell fate specification	0.04066	OG0004163	Tfasc_v1.07766
+BP	GO:0010581	regulation of starch biosynthetic process	0.04066	OG0017836	Tfasc_v1.29426
+BP	GO:0009635	response to herbicide	0.04066	OG0009975	Tfasc_v1.26564
+BP	GO:0010196	nonphotochemical quenching	0.04066	OG0013803	Tfasc_v1.02348
+BP	GO:1902183	regulation of shoot apical meristem development	0.04633	OG0004163	Tfasc_v1.07766
+BP	GO:0009944	polarity specification of adaxial/abaxial axis	0.04633	OG0004163	Tfasc_v1.07766
+MF	GO:0003700	DNA-binding transcription factor activity	5.8e-07	OG0003086, OG0018774, OG0003199, OG0008179, OG0005063, OG0019366, OG0011478, OG0008945, OG0000312, OG0009512, OG0006943, OG0006881, OG0009795, OG0016025	Tfasc_v1.01346, Tfasc_v1.01696, Tfasc_v1.08686, Tfasc_v1.09781, Tfasc_v1.13645, Tfasc_v1.18214, Tfasc_v1.23121, Tfasc_v1.24334, Tfasc_v1.25124, Tfasc_v1.25191, Tfasc_v1.27553, Tfasc_v1.27731, Tfasc_v1.28196, Tfasc_v1.30705
+MF	GO:0008798	beta-aspartyl-peptidase activity	6.7e-05	OG0005386	Tfasc_v1.05294, Tfasc_v1.05298
+MF	GO:0004067	asparaginase activity	6.7e-05	OG0005386	Tfasc_v1.05294, Tfasc_v1.05298
+MF	GO:0050619	phytochromobilin:ferredoxin oxidoreductase activity	0.0048	OG0006581	Tfasc_v1.01403
+MF	GO:0033984	indole-3-glycerol-phosphate lyase activity	0.0048	OG0007849	Tfasc_v1.20454
+MF	GO:0047987	hydroperoxide dehydratase activity	0.0048	OG0002321	Tfasc_v1.19374
+MF	GO:0016702	oxidoreductase activity, acting on single donors with incorporation of molecular oxygen, incorporation of two atoms of oxygen	0.0083	OG0010815, OG0000806	Tfasc_v1.11834, Tfasc_v1.23382
+MF	GO:0003677	DNA binding	0.0092	OG0003086, OG0018774, OG0003199, OG0008179, OG0011814, OG0005063, OG0019366, OG0011973, OG0011478, OG0008945, OG0000312, OG0009512, OG0006943, OG0009795, OG0016025	Tfasc_v1.01346, Tfasc_v1.01696, Tfasc_v1.08686, Tfasc_v1.09781, Tfasc_v1.12495, Tfasc_v1.13645, Tfasc_v1.18214, Tfasc_v1.21710, Tfasc_v1.23121, Tfasc_v1.24334, Tfasc_v1.25124, Tfasc_v1.25191, Tfasc_v1.27553, Tfasc_v1.28196, Tfasc_v1.30705
+MF	GO:0008115	sarcosine oxidase activity	0.0095	OG0004541	Tfasc_v1.04910
+MF	GO:0045330	aspartyl esterase activity	0.0107	OG0013333, OG0008811	Tfasc_v1.02415, Tfasc_v1.24095
+MF	GO:0030599	pectinesterase activity	0.0113	OG0013333, OG0008811	Tfasc_v1.02415, Tfasc_v1.24095
+MF	GO:0004497	monooxygenase activity	0.0128	OG0019261, OG0002321	Tfasc_v1.11173, Tfasc_v1.19374, Tfasc_v1.19375, Tfasc_v1.19379
+MF	GO:0038199	ethylene receptor activity	0.0189	OG0009901	Tfasc_v1.03415
+MF	GO:0047746	chlorophyllase activity	0.0189	OG0009915	Tfasc_v1.03388
+MF	GO:0000064	L-ornithine transmembrane transporter activity	0.0189	OG0010946	Tfasc_v1.10880
+MF	GO:0051740	ethylene binding	0.0189	OG0009901	Tfasc_v1.03415
+MF	GO:0046524	sucrose-phosphate synthase activity	0.0189	OG0009472	Tfasc_v1.25345
+MF	GO:0000254	C-4 methylsterol oxidase activity	0.0189	OG0019261	Tfasc_v1.11173
+MF	GO:0003919	FMN adenylyltransferase activity	0.0235	OG0013529	Tfasc_v1.04841
+MF	GO:0004792	thiosulfate sulfurtransferase activity	0.0235	OG0002934	Tfasc_v1.14157
+MF	GO:0004834	tryptophan synthase activity	0.0235	OG0007849	Tfasc_v1.20454
+MF	GO:0004367	glycerol-3-phosphate dehydrogenase [NAD+] activity	0.0235	OG0017836	Tfasc_v1.29426
+MF	GO:0042910	xenobiotic transmembrane transporter activity	0.0263	OG0001503, OG0010507	Tfasc_v1.16245, Tfasc_v1.28689
+MF	GO:0004097	catechol oxidase activity	0.0282	OG0001766	Tfasc_v1.26926
+MF	GO:0030628	pre-mRNA 3'-splice site binding	0.0282	OG0000916	Tfasc_v1.18520
+MF	GO:0004340	glucokinase activity	0.0328	OG0002210	Tfasc_v1.26542
+MF	GO:0016157	sucrose synthase activity	0.0328	OG0009472	Tfasc_v1.25345
+MF	GO:0019158	mannokinase activity	0.0328	OG0002210	Tfasc_v1.26542
+MF	GO:0008134	transcription factor binding	0.0372	OG0005063, OG0009795	Tfasc_v1.13645, Tfasc_v1.28196
+MF	GO:0016872	intramolecular lyase activity	0.0374	OG0015889	Tfasc_v1.05502
+MF	GO:0005506	iron ion binding	0.0378	OG0003248, OG0019261, OG0002321	Tfasc_v1.09106, Tfasc_v1.11173, Tfasc_v1.19374, Tfasc_v1.19375, Tfasc_v1.19379
+MF	GO:0016705	oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen	0.0402	OG0019261, OG0002321	Tfasc_v1.11173, Tfasc_v1.19374, Tfasc_v1.19375, Tfasc_v1.19379
+MF	GO:0008144	drug binding	0.0465	OG0009975	Tfasc_v1.26564
+MF	GO:0005536	glucose binding	0.0465	OG0002210	Tfasc_v1.26542
+MF	GO:0046983	protein dimerization activity	0.049	OG0006471, OG0005063, OG0003605, OG0009975, OG0009795	Tfasc_v1.01192, Tfasc_v1.13645, Tfasc_v1.16348, Tfasc_v1.26564, Tfasc_v1.28196
+MF	GO:0016701	oxidoreductase activity, acting on single donors with incorporation of molecular oxygen	0.0499	OG0003248, OG0010815, OG0000806	Tfasc_v1.09106, Tfasc_v1.11834, Tfasc_v1.23382
+CC	GO:0089701	U2AF complex	0.034	OG0000916	Tfasc_v1.18520
+CC	GO:0034657	GID complex	0.034	OG0006468	Tfasc_v1.01196
+CC	GO:0009331	glycerol-3-phosphate dehydrogenase complex	0.034	OG0017836	Tfasc_v1.29426

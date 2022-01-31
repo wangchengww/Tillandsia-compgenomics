@@ -20,6 +20,7 @@ sft = pickSoftThreshold(datExpr, powerVector = powers, verbose = 5)
 softpower_table <- sft[["fitIndices"]]
 softpower_table$SFT.R.sq <- format(softpower_table$SFT.R.sq, scientific = F)
 write.table(softpower_table, file = "SoftPower_table_Tlei_unsigned_vsd10c4s.txt")
+softpower_table <- read.table("SoftPower_table_Tlei_unsigned_vsd10c4s.txt", header = T)
 # Plot the results:
 sizeGrWindow(9, 5)
 par(mfrow = c(1,2));
@@ -76,7 +77,7 @@ dynamicMods = cutreeDynamic(dendro = geneTree, distM = dissTOM,
 
 table(dynamicMods) 
 mean(table(dynamicMods))
-write.table(table(dynamicMods), file = "Modules_soft8_unsigned.txt")
+write.table(table(dynamicMods), file = "Modules_Tlei_soft8_unsigned.txt")
 #write.table(table(dynamicMods2), file = "Modules_soft7_unsigned.txt")
 
 #modules8 <- read.table("Modules_soft8_unsigned.txt")
@@ -90,14 +91,14 @@ write.table(table(dynamicMods), file = "Modules_soft8_unsigned.txt")
 #ggplot(modules_m, aes(x=value, color=variable)) +
 #        geom_density()
 
-# We end up with 109 modules, the largest one contains 1631 genes, the smallest
-# contains 34 genes. Now we display the modules under the dendrogram.
+# We end up with 99 modules, the largest one contains 1737 genes, the smallest
+# contains 48 genes. Now we display the modules under the dendrogram.
 # Convert numeric lables into colors
 dynamicColors = labels2colors(dynamicMods)
 table(dynamicColors)
 # Plot the dendrogram and colors underneath
 sizeGrWindow(8,6)
-plotDendroAndColors(geneTree3, dynamicColors, "Dynamic Tree Cut",
+plotDendroAndColors(geneTree, dynamicColors, "Dynamic Tree Cut",
                     dendroLabels = FALSE, hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05,
                     main = "Gene dendrogram and module colors")
@@ -126,7 +127,7 @@ mergedColors = merge$colors;
 # Eigengenes of the new merged modules:
 mergedMEs = merge$newMEs;
 sizeGrWindow(12, 9)
-plotDendroAndColors(geneTree3, cbind(dynamicColors, mergedColors),
+plotDendroAndColors(geneTree, cbind(dynamicColors, mergedColors),
                     c("Dynamic Tree Cut", "Merged dynamic"),
                     dendroLabels = FALSE, hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05)
@@ -139,9 +140,9 @@ colorOrder = c("grey", standardColors(50));
 moduleLabels = match(moduleColors, colorOrder)-1;
 MEs = mergedMEs;
 # Save module colors and labels for use in subsequent parts
-save(MEs, moduleLabels, moduleColors, geneTree, file = "coexpression_network_unsigned8_Tfas_vsd_10c4s.RData")
-lnames = load("coexpression_network_unsigned8_Tfas_vsd_10c4s.RData")
-lnames = load("coexpression_input_Tfas_vsd_10c4s.RData")
+save(MEs, moduleLabels, moduleColors, geneTree, file = "coexpression_network_unsigned8_Tlei_vsd_10c4s.RData")
+lnames = load("coexpression_network_unsigned8_Tlei_vsd_10c4s.RData")
+lnames = load("coexpression_input_Tlei_vsd_10c4s.RData")
 lnames
 # Define numbers of genes and samples
 nGenes = ncol(datExpr);
@@ -153,7 +154,7 @@ moduleTraitCor = cor(MEs, datTraits, use = "p");
 moduleTraitPvalue = corPvalueStudent(moduleTraitCor, nSamples)
 module_corr <- cbind(as.data.frame(moduleTraitCor), moduleTraitPvalue)
 colnames(module_corr) <- c("corr_sample", "corr_time", "pvalue_sample", "pvalue_time")
-write.table(module_corr, file = "Correlation_Modules_to_Traits_Tfas_unsigned8_vsd10c4s.txt", quote = F, sep = "\t")
+write.table(module_corr, file = "Correlation_Modules_to_Traits_Tlei_unsigned8_vsd10c4s.txt", quote = F, sep = "\t")
 #Gather some info on significant modules
 modules_sign_time <- as.data.frame(moduleTraitCor[moduleTraitPvalue[,2] < 0.05,])
 colnames(modules_sign_time) <- c("corr_to_sample", "corr_to_time")
@@ -161,7 +162,7 @@ nr_genes_module <- table(moduleColors)
 modules_sign_time$gene_count <- nr_genes_module[substring(rownames(modules_sign_time),3)]
 modules_sign_time$pvalue_sample <- moduleTraitPvalue[rownames(modules_sign_time),1]
 modules_sign_time$pvalue_time <- moduleTraitPvalue[rownames(modules_sign_time),2]
-write.csv(modules_sign_time, file = "Modules_sign-Time_soft8.txt", quote = F, sep = "\t")
+write.table(modules_sign_time, file = "Modules_sign-Time_Tlei_soft8.txt", quote = F, sep = "\t")
 sizeGrWindow(10,6)
 # Will display correlations and their p-values
 textMatrix = paste(signif(moduleTraitCor, 2), "\n(",
@@ -198,7 +199,7 @@ names(GSPvalue) = paste("p.GS.", names(time), sep="")
 # Plot for each gene in the module the relationship between module membership 
 # (i.e. how strongly the gene belongs to the module) and its significance for time 
 # (correlation of expression and time, not actually a p-value)
-module = "blueviolet"
+module = "brown"
 column = match(module, modNames);
 moduleGenes = moduleColors==module;
 sizeGrWindow(7, 7);
@@ -232,7 +233,7 @@ for (mod in 1:ncol(geneModuleMembership))
 # Order the genes in the geneInfo variable first by module color, then by geneTraitSignificance
 geneOrder = order(geneInfo0$moduleColor, -abs(geneInfo0$GS.time));
 geneInfo = geneInfo0[geneOrder, ]
-write.table(geneInfo, file = "geneInfo_co-expression_Tfasc_vsd_10c4s_unsigned8.txt", quote = F, sep = "\t")
+write.table(geneInfo, file = "geneInfo_co-expression_Tlei_vsd_10c4s_unsigned8.txt", quote = F, sep = "\t")
 
 # Make gene lists for all modules that are correlated with time so that we can run GOterm enrichment for them
 modNames <- substring(rownames(modules_sign_time), 3)
@@ -240,7 +241,7 @@ for (module in modNames){
         # Select module probes
         modGenes = rownames(geneInfo[geneInfo$moduleColor == module,])
         # Write them into a file
-        fileName = paste("Genes-for-Enrichment_T.fasciculata_unsigned_vst10cs4_", module, ".txt", sep="");
+        fileName = paste("Genes-for-Enrichment_T.leiboldiana_unsigned8_vst10cs4_", module, ".txt", sep="");
         write.table(as.data.frame(modGenes), file = fileName,
                     row.names = FALSE, col.names = FALSE, quote = F)
 }

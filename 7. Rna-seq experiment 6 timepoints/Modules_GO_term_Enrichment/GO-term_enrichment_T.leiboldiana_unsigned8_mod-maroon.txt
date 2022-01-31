@@ -1,0 +1,83 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0016132	brassinosteroid biosynthetic process	0.0054	OG0009714, OG0014813	Tfasc_v1.16184, Tfasc_v1.29520
+BP	GO:0007219	Notch signaling pathway	0.0055	OG0008467	Tfasc_v1.04686
+BP	GO:1990110	callus formation	0.0055	OG0011086	Tfasc_v1.08049
+BP	GO:0060178	regulation of exocyst localization	0.0055	OG0003902	Tfasc_v1.17491
+BP	GO:0006679	glucosylceramide biosynthetic process	0.0055	OG0008027	Tfasc_v1.15059
+BP	GO:0010268	brassinosteroid homeostasis	0.0065	OG0009714, OG0014813	Tfasc_v1.16184, Tfasc_v1.29520
+BP	GO:0015783	GDP-fucose transmembrane transport	0.0111	OG0004385	Tfasc_v1.17561
+BP	GO:0070476	rRNA (guanine-N7)-methylation	0.0111	OG0011086	Tfasc_v1.08049
+BP	GO:0010078	maintenance of root meristem identity	0.0111	OG0011086	Tfasc_v1.08049
+BP	GO:0000381	regulation of alternative mRNA splicing, via spliceosome	0.0127	OG0019406, OG0002688	Tfasc_v1.12833, Tfasc_v1.13062
+BP	GO:0005992	trehalose biosynthetic process	0.0135	OG0018793, OG0002089	Tfasc_v1.02016, Tfasc_v1.09493
+BP	GO:0015713	phosphoglycerate transmembrane transport	0.0165	OG0015738	Tfasc_v1.26941
+BP	GO:0051645	Golgi localization	0.0165	OG0000760	Tfasc_v1.03367
+BP	GO:0046705	CDP biosynthetic process	0.0165	OG0018467	Tfasc_v1.05501
+BP	GO:0046656	folic acid biosynthetic process	0.0165	OG0014416	Tfasc_v1.25113
+BP	GO:0097359	UDP-glucosylation	0.0165	OG0002253	Tfasc_v1.07607
+BP	GO:0015031	protein transport	0.0205	OG0000760, OG0003902, OG0012930, OG0019506	Tfasc_v1.03367, Tfasc_v1.17491, Tfasc_v1.18409, Tfasc_v1.19478
+BP	GO:0035436	triose phosphate transmembrane transport	0.022	OG0015738	Tfasc_v1.26941
+BP	GO:0019346	transsulfuration	0.022	OG0003523	Tfasc_v1.25050
+BP	GO:0048731	system development	0.0221	OG0013136, OG0011086, OG0010820, OG0001607	Tfasc_v1.07592, Tfasc_v1.08049, Tfasc_v1.11820, Tfasc_v1.12396
+BP	GO:0006225	UDP biosynthetic process	0.0274	OG0018467	Tfasc_v1.05501
+BP	GO:0060321	acceptance of pollen	0.0274	OG0012930	Tfasc_v1.18409
+BP	GO:0019375	galactolipid biosynthetic process	0.0328	OG0001012	Tfasc_v1.22751
+BP	GO:1902389	ceramide 1-phosphate transport	0.0328	OG0004075	Tfasc_v1.11902
+BP	GO:0002943	tRNA dihydrouridine synthesis	0.0328	OG0004034	Tfasc_v1.28358
+BP	GO:0046654	tetrahydrofolate biosynthetic process	0.0382	OG0014416	Tfasc_v1.25113
+BP	GO:0042335	cuticle development	0.0435	OG0013136	Tfasc_v1.07592
+BP	GO:0009228	thiamine biosynthetic process	0.0435	OG0012970	Tfasc_v1.02373
+BP	GO:0018279	protein N-linked glycosylation via asparagine	0.0435	OG0002253	Tfasc_v1.07607
+BP	GO:0006782	protoporphyrinogen IX biosynthetic process	0.0435	OG0010011	Tfasc_v1.26617
+BP	GO:0015969	guanosine tetraphosphate metabolic process	0.0435	OG0011461	Tfasc_v1.23149
+BP	GO:0045338	farnesyl diphosphate metabolic process	0.0435	OG0014626	Tfasc_v1.04208
+BP	GO:2000779	regulation of double-strand break repair	0.0435	OG0015952	Tfasc_v1.12116
+BP	GO:0046512	sphingosine biosynthetic process	0.0488	OG0017488	Tfasc_v1.06121
+BP	GO:0034497	protein localization to phagophore assembly site	0.0488	OG0011719	Tfasc_v1.00379
+BP	GO:0010025	wax biosynthetic process	0.0488	OG0013136	Tfasc_v1.07592
+MF	GO:0009917	sterol 5-alpha reductase activity	0.0052	OG0014813	Tfasc_v1.29520
+MF	GO:0047751	cholestenone 5-alpha-reductase activity	0.0052	OG0014813	Tfasc_v1.29520
+MF	GO:0004077	biotin-[acetyl-CoA-carboxylase] ligase activity	0.0052	OG0003523	Tfasc_v1.25050
+MF	GO:0004150	dihydroneopterin aldolase activity	0.0052	OG0014416	Tfasc_v1.25113
+MF	GO:0050213	progesterone 5-alpha-reductase activity	0.0052	OG0014813	Tfasc_v1.29520
+MF	GO:0008120	ceramide glucosyltransferase activity	0.0052	OG0008027	Tfasc_v1.15059
+MF	GO:0016971	flavin-linked sulfhydryl oxidase activity	0.0103	OG0007628	Tfasc_v1.19842
+MF	GO:0061634	alpha-D-xyloside xylohydrolase	0.0103	OG0003626	Tfasc_v1.15214
+MF	GO:0004729	oxygen-dependent protoporphyrinogen oxidase activity	0.0103	OG0010011	Tfasc_v1.26617
+MF	GO:0005457	GDP-fucose transmembrane transporter activity	0.0103	OG0004385	Tfasc_v1.17561
+MF	GO:0016435	rRNA (guanine) methyltransferase activity	0.0154	OG0011086	Tfasc_v1.08049
+MF	GO:0003865	3-oxo-5-alpha-steroid 4-dehydrogenase activity	0.0154	OG0014813	Tfasc_v1.29520
+MF	GO:0015120	phosphoglycerate transmembrane transporter activity	0.0154	OG0015738	Tfasc_v1.26941
+MF	GO:0004719	protein-L-isoaspartate (D-aspartate) O-methyltransferase activity	0.0154	OG0008023	Tfasc_v1.15062
+MF	GO:0003980	UDP-glucose:glycoprotein glucosyltransferase activity	0.0154	OG0002253	Tfasc_v1.07607
+MF	GO:0004176	ATP-dependent peptidase activity	0.0182	OG0012970, OG0006957	Tfasc_v1.02373, Tfasc_v1.27524
+MF	GO:0071917	triose-phosphate transmembrane transporter activity	0.0205	OG0015738	Tfasc_v1.26941
+MF	GO:0000150	recombinase activity	0.0205	OG0002688	Tfasc_v1.13062
+MF	GO:0051996	squalene synthase activity	0.0256	OG0014626	Tfasc_v1.04208
+MF	GO:0080025	phosphatidylinositol-3,5-bisphosphate binding	0.0256	OG0011719	Tfasc_v1.00379
+MF	GO:0080030	methyl indole-3-acetate esterase activity	0.0256	OG0007680	Tfasc_v1.20070
+MF	GO:0080031	methyl salicylate esterase activity	0.0256	OG0007680	Tfasc_v1.20070
+MF	GO:0080032	methyl jasmonate esterase activity	0.0256	OG0007680	Tfasc_v1.20070
+MF	GO:0004792	thiosulfate sulfurtransferase activity	0.0256	OG0003523	Tfasc_v1.25050
+MF	GO:0017050	D-erythro-sphingosine kinase activity	0.0256	OG0017488	Tfasc_v1.06121
+MF	GO:0004325	ferrochelatase activity	0.0256	OG0009408	Tfasc_v1.30163
+MF	GO:0004310	farnesyl-diphosphate farnesyltransferase activity	0.0256	OG0014626	Tfasc_v1.04208
+MF	GO:0033862	UMP kinase activity	0.0256	OG0018467	Tfasc_v1.05501
+MF	GO:0004566	beta-glucuronidase activity	0.0256	OG0007657	Tfasc_v1.20033
+MF	GO:0004602	glutathione peroxidase activity	0.0306	OG0002440	Tfasc_v1.06726
+MF	GO:0017150	tRNA dihydrouridine synthase activity	0.0306	OG0004034	Tfasc_v1.28358
+MF	GO:0032266	phosphatidylinositol-3-phosphate binding	0.0357	OG0011719	Tfasc_v1.00379
+MF	GO:1902387	ceramide 1-phosphate binding	0.0357	OG0004075	Tfasc_v1.11902
+MF	GO:1902388	ceramide 1-phosphate transfer activity	0.0357	OG0004075	Tfasc_v1.11902
+MF	GO:0004127	cytidylate kinase activity	0.0357	OG0018467	Tfasc_v1.05501
+MF	GO:0003825	alpha,alpha-trehalose-phosphate synthase (UDP-forming) activity	0.0357	OG0002089	Tfasc_v1.09493
+MF	GO:0001727	lipid kinase activity	0.0407	OG0017488	Tfasc_v1.06121
+MF	GO:0042803	protein homodimerization activity	0.0446	OG0003902, OG0006781	Tfasc_v1.17491, Tfasc_v1.27881
+MF	GO:0043539	protein serine/threonine kinase activator activity	0.0456	OG0011870	Tfasc_v1.23352
+CC	GO:0005739	mitochondrion	0.0025	OG0012970, OG0002440, OG0013144, OG0018983, OG0001607, OG0014307, OG0012916, OG0007628, OG0003523, OG0006957, OG0009408	Tfasc_v1.02373, Tfasc_v1.06726, Tfasc_v1.07575, Tfasc_v1.08861, Tfasc_v1.12396, Tfasc_v1.17017, Tfasc_v1.18438, Tfasc_v1.19842, Tfasc_v1.25050, Tfasc_v1.27524, Tfasc_v1.30163
+CC	GO:0043668	exine	0.0062	OG0013136	Tfasc_v1.07592
+CC	GO:0070062	extracellular exosome	0.0062	OG0012930	Tfasc_v1.18409
+CC	GO:0009707	chloroplast outer membrane	0.0239	OG0019506, OG0001012	Tfasc_v1.19478, Tfasc_v1.22751
+CC	GO:0000139	Golgi membrane	0.0301	OG0000760, OG0008467, OG0005880, OG0004385	Tfasc_v1.03367, Tfasc_v1.04686, Tfasc_v1.14180, Tfasc_v1.17561
+CC	GO:0005787	signal peptidase complex	0.0482	OG0000927	Tfasc_v1.05680
+CC	GO:0034045	phagophore assembly site membrane	0.0482	OG0011719	Tfasc_v1.00379

@@ -1,0 +1,52 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0017157	regulation of exocytosis	0.00094	OG0005971, OG0006786	Tfasc_v1.14355, Tfasc_v1.27877
+BP	GO:0042797	tRNA transcription by RNA polymerase III	0.00199	OG0016760	Tfasc_v1.22623
+BP	GO:0009827	plant-type cell wall modification	0.00399	OG0016692	Tfasc_v1.27874
+BP	GO:0043547	positive regulation of GTPase activity	0.00673	OG0001402, OG0006879	Tfasc_v1.15219, Tfasc_v1.27735
+BP	GO:0033540	fatty acid beta-oxidation using acyl-CoA oxidase	0.00796	OG0011515	Tfasc_v1.23056
+BP	GO:0106005	RNA 5'-cap (guanine-N7)-methylation	0.00796	OG0004363	Tfasc_v1.08243
+BP	GO:0070125	mitochondrial translational elongation	0.00796	OG0014031	Tfasc_v1.17298
+BP	GO:2000012	regulation of auxin polar transport	0.00994	OG0007564	Tfasc_v1.22183
+BP	GO:0007584	response to nutrient	0.01191	OG0019296	Tfasc_v1.11885
+BP	GO:0006370	7-methylguanosine mRNA capping	0.01191	OG0004363	Tfasc_v1.08243
+BP	GO:0070734	histone H3-K27 methylation	0.01388	OG0015115	Tfasc_v1.22744
+BP	GO:0009294	DNA mediated transformation	0.01585	OG0015115	Tfasc_v1.22744
+BP	GO:0009631	cold acclimation	0.02174	OG0007694	Tfasc_v1.20105
+BP	GO:0009231	riboflavin biosynthetic process	0.02758	OG0013695	Tfasc_v1.12992
+BP	GO:0006360	transcription by RNA polymerase I	0.02953	OG0016760	Tfasc_v1.22623
+BP	GO:0009626	plant-type hypersensitive response	0.02953	OG0011797	Tfasc_v1.12431
+BP	GO:0001732	formation of cytoplasmic translation initiation complex	0.0334	OG0014007	Tfasc_v1.18830
+BP	GO:0001676	long-chain fatty acid metabolic process	0.03533	OG0011515	Tfasc_v1.23056
+BP	GO:0006904	vesicle docking involved in exocytosis	0.03726	OG0005971	Tfasc_v1.14355
+BP	GO:0009306	protein secretion	0.03918	OG0005971	Tfasc_v1.14355
+BP	GO:0001522	pseudouridine synthesis	0.04301	OG0015189	Tfasc_v1.19054
+BP	GO:0042542	response to hydrogen peroxide	0.04493	OG0007694	Tfasc_v1.20105
+MF	GO:0005096	GTPase activator activity	0.00018	OG0001402, OG0006879, OG0006786	Tfasc_v1.15219, Tfasc_v1.27735, Tfasc_v1.27877
+MF	GO:1990538	xylan O-acetyltransferase activity	0.00162	OG0016692	Tfasc_v1.27874
+MF	GO:0004746	riboflavin synthase activity	0.00162	OG0013695	Tfasc_v1.12992
+MF	GO:0045159	myosin II binding	0.00325	OG0006786	Tfasc_v1.27877
+MF	GO:0004318	enoyl-[acyl-carrier-protein] reductase (NADH) activity	0.00325	OG0004587	Tfasc_v1.25826
+MF	GO:0016631	enoyl-[acyl-carrier-protein] reductase activity	0.00325	OG0004587	Tfasc_v1.25826
+MF	GO:0046976	histone methyltransferase activity (H3-K27 specific)	0.00486	OG0015115	Tfasc_v1.22744
+MF	GO:0004482	mRNA (guanine-N7-)-methyltransferase activity	0.00648	OG0004363	Tfasc_v1.08243
+MF	GO:0003997	acyl-CoA oxidase activity	0.0081	OG0011515	Tfasc_v1.23056
+MF	GO:0003743	translation initiation factor activity	0.01415	OG0013750, OG0014007	Tfasc_v1.01775, Tfasc_v1.18830
+MF	GO:0005504	fatty acid binding	0.02251	OG0011515	Tfasc_v1.23056
+MF	GO:0019905	syntaxin binding	0.02568	OG0006786	Tfasc_v1.27877
+MF	GO:0009982	pseudouridine synthase activity	0.03043	OG0015189	Tfasc_v1.19054
+MF	GO:0017069	snRNA binding	0.03358	OG0008128	Tfasc_v1.15275
+MF	GO:0003924	GTPase activity	0.03393	OG0005971, OG0014031	Tfasc_v1.14355, Tfasc_v1.17298
+MF	GO:0004402	histone acetyltransferase activity	0.03829	OG0015115	Tfasc_v1.22744
+CC	GO:0034693	U11/U12 snRNP	0.0023	OG0008128	Tfasc_v1.15275
+CC	GO:0009536	plastid	0.0039	OG0019296, OG0013695, OG0015115, OG0004587, OG0015896	Tfasc_v1.11885, Tfasc_v1.12992, Tfasc_v1.22744, Tfasc_v1.25826, Tfasc_v1.26191
+CC	GO:0071203	WASH complex	0.009	OG0014031	Tfasc_v1.17298
+CC	GO:0005743	mitochondrial inner membrane	0.0132	OG0006253, OG0015244, OG0004227	Tfasc_v1.06027, Tfasc_v1.15691, Tfasc_v1.18313
+CC	GO:0005845	mRNA cap binding complex	0.0134	OG0004363	Tfasc_v1.08243
+CC	GO:0016272	prefoldin complex	0.0201	OG0004885	Tfasc_v1.03242
+CC	GO:0005736	RNA polymerase I complex	0.0245	OG0016760	Tfasc_v1.22623
+CC	GO:0016282	eukaryotic 43S preinitiation complex	0.0289	OG0014007	Tfasc_v1.18830
+CC	GO:0033290	eukaryotic 48S preinitiation complex	0.0311	OG0014007	Tfasc_v1.18830
+CC	GO:0005852	eukaryotic translation initiation factor 3 complex	0.0311	OG0014007	Tfasc_v1.18830
+CC	GO:0005665	RNA polymerase II, core complex	0.0332	OG0016760	Tfasc_v1.22623
+CC	GO:0005666	RNA polymerase III complex	0.0398	OG0016760	Tfasc_v1.22623
+CC	GO:0005689	U12-type spliceosomal complex	0.0441	OG0008128	Tfasc_v1.15275

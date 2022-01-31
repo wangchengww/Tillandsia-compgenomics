@@ -1,0 +1,56 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0007623	circadian rhythm	7.6e-07	OG0011290, OG0006526, OG0000628, OG0003213	Tfasc_v1.00710, Tfasc_v1.01323, Tfasc_v1.01880, Tfasc_v1.08520, Tfasc_v1.08812
+BP	GO:0006012	galactose metabolic process	9.6e-05	OG0003454, OG0018029	Tfasc_v1.09728, Tfasc_v1.09734, Tfasc_v1.09735
+BP	GO:0010024	phytochromobilin biosynthetic process	0.0038	OG0006581	Tfasc_v1.01403
+BP	GO:0017014	protein nitrosylation	0.0075	OG0000628	Tfasc_v1.01880
+BP	GO:0033484	nitric oxide homeostasis	0.0075	OG0000628	Tfasc_v1.01880
+BP	GO:0106167	extracellular ATP signaling	0.0075	OG0011513	Tfasc_v1.23069
+BP	GO:0051391	tRNA acetylation	0.0113	OG0000755	Tfasc_v1.23951
+BP	GO:1900367	positive regulation of defense response to insect	0.0113	OG0011513	Tfasc_v1.23069
+BP	GO:0048577	negative regulation of short-day photoperiodism, flowering	0.0113	OG0004240	Tfasc_v1.26061
+BP	GO:0050665	hydrogen peroxide biosynthetic process	0.0113	OG0000628	Tfasc_v1.01880
+BP	GO:1904812	rRNA acetylation involved in maturation of SSU-rRNA	0.0113	OG0000755	Tfasc_v1.23951
+BP	GO:0010117	photoprotection	0.015	OG0003932	Tfasc_v1.21651
+BP	GO:0090391	granum assembly	0.015	OG0008776	Tfasc_v1.24011
+BP	GO:1990641	response to iron ion starvation	0.0187	OG0011913	Tfasc_v1.23254
+BP	GO:0010019	chloroplast-nucleus signaling pathway	0.0187	OG0006581	Tfasc_v1.01403
+BP	GO:1902074	response to salt	0.0224	OG0000628	Tfasc_v1.01880
+BP	GO:0010196	nonphotochemical quenching	0.0261	OG0008776	Tfasc_v1.24011
+BP	GO:0006086	acetyl-CoA biosynthetic process from pyruvate	0.0261	OG0003423	Tfasc_v1.17337
+BP	GO:0071484	cellular response to light intensity	0.0261	OG0003932	Tfasc_v1.21651
+BP	GO:0006777	Mo-molybdopterin cofactor biosynthetic process	0.0298	OG0004586	Tfasc_v1.25831
+BP	GO:0009440	cyanate catabolic process	0.0334	OG0013132	Tfasc_v1.07594
+BP	GO:0009773	photosynthetic electron transport in photosystem I	0.0371	OG0003932	Tfasc_v1.21651
+BP	GO:0051017	actin filament bundle assembly	0.0407	OG0009063	Tfasc_v1.16593
+BP	GO:0070413	trehalose metabolism in response to stress	0.0407	OG0004525	Tfasc_v1.05016
+BP	GO:0071586	CAAX-box protein processing	0.0407	OG0002028	Tfasc_v1.22160
+BP	GO:0009617	response to bacterium	0.043	OG0000628, OG0003423, OG0011513	Tfasc_v1.01880, Tfasc_v1.17337, Tfasc_v1.23069
+BP	GO:0070417	cellular response to cold	0.0443	OG0011513	Tfasc_v1.23069
+BP	GO:0055114	oxidation-reduction process	0.0468	OG0006581, OG0000628, OG0010912, OG0009063, OG0003423, OG0005358, OG0004415, OG0003932, OG0007305, OG0006995, OG0009418	Tfasc_v1.01403, Tfasc_v1.01880, Tfasc_v1.10942, Tfasc_v1.16593, Tfasc_v1.17337, Tfasc_v1.20832, Tfasc_v1.20837, Tfasc_v1.21519, Tfasc_v1.21651, Tfasc_v1.22694, Tfasc_v1.27246, Tfasc_v1.30190
+BP	GO:0015866	ADP transport	0.0479	OG0009135	Tfasc_v1.29728
+MF	GO:0047216	inositol 3-alpha-galactosyltransferase activity	8e-07	OG0003454, OG0018029	Tfasc_v1.09728, Tfasc_v1.09734, Tfasc_v1.09735
+MF	GO:0050619	phytochromobilin:ferredoxin oxidoreductase activity	0.0035	OG0006581	Tfasc_v1.01403
+MF	GO:0008824	cyanate hydratase activity	0.0035	OG0013132	Tfasc_v1.07594
+MF	GO:0046863	ribulose-1,5-bisphosphate carboxylase/oxygenase activator activity	0.007	OG0000947	Tfasc_v1.26167
+MF	GO:1990883	rRNA cytidine N-acetyltransferase activity	0.0104	OG0000755	Tfasc_v1.23951
+MF	GO:0004096	catalase activity	0.0139	OG0000628	Tfasc_v1.01880
+MF	GO:0010277	chlorophyllide a oxygenase [overall] activity	0.0173	OG0007305	Tfasc_v1.22694
+MF	GO:0004222	metalloendopeptidase activity	0.0192	OG0009858, OG0002028	Tfasc_v1.03518, Tfasc_v1.22160
+MF	GO:0045156	electron transporter, transferring electrons within the cyclic electron transport pathway of photosynthesis activity	0.0208	OG0010912	Tfasc_v1.10942
+MF	GO:0004739	pyruvate dehydrogenase (acetyl-transferring) activity	0.0208	OG0003423	Tfasc_v1.17337
+MF	GO:0005471	ATP:ADP antiporter activity	0.0411	OG0009135	Tfasc_v1.29728
+CC	GO:0009535	chloroplast thylakoid membrane	0.00057	OG0003448, OG0003932, OG0007305, OG0008776, OG0009385	Tfasc_v1.09793, Tfasc_v1.21651, Tfasc_v1.22694, Tfasc_v1.24011, Tfasc_v1.30132
+CC	GO:0009579	thylakoid	0.00203	OG0011964, OG0003448, OG0010912, OG0011236, OG0003932, OG0007305, OG0008776, OG0000947, OG0009384, OG0009385	Tfasc_v1.03881, Tfasc_v1.09793, Tfasc_v1.10942, Tfasc_v1.13567, Tfasc_v1.21651, Tfasc_v1.22694, Tfasc_v1.24011, Tfasc_v1.26167, Tfasc_v1.30117, Tfasc_v1.30132
+CC	GO:0009654	photosystem II oxygen evolving complex	0.00328	OG0010912, OG0009384	Tfasc_v1.10942, Tfasc_v1.30117
+CC	GO:1990879	CST complex	0.0039	OG0006643	Tfasc_v1.01537
+CC	GO:0009536	plastid	0.006	OG0006581, OG0011964, OG0003448, OG0010912, OG0011236, OG0005358, OG0002411, OG0003932, OG0007305, OG0008776, OG0000947, OG0006995, OG0010540, OG0009384, OG0009385	Tfasc_v1.01403, Tfasc_v1.03881, Tfasc_v1.09793, Tfasc_v1.10942, Tfasc_v1.13567, Tfasc_v1.20832, Tfasc_v1.20837, Tfasc_v1.21624, Tfasc_v1.21651, Tfasc_v1.22694, Tfasc_v1.24011, Tfasc_v1.26167, Tfasc_v1.27246, Tfasc_v1.28761, Tfasc_v1.30117, Tfasc_v1.30132
+CC	GO:0009515	granal stacked thylakoid	0.00779	OG0008776	Tfasc_v1.24011
+CC	GO:0019008	molybdopterin synthase complex	0.01166	OG0004586	Tfasc_v1.25831
+CC	GO:0005967	mitochondrial pyruvate dehydrogenase complex	0.01551	OG0003423	Tfasc_v1.17337
+CC	GO:0005884	actin filament	0.01935	OG0009063	Tfasc_v1.16593
+CC	GO:0009534	chloroplast thylakoid	0.02061	OG0011964, OG0003448, OG0003932, OG0007305, OG0008776, OG0009384, OG0009385	Tfasc_v1.03881, Tfasc_v1.09793, Tfasc_v1.21651, Tfasc_v1.22694, Tfasc_v1.24011, Tfasc_v1.30117, Tfasc_v1.30132
+CC	GO:0019898	extrinsic component of membrane	0.0273	OG0010912, OG0009384	Tfasc_v1.10942, Tfasc_v1.30117
+CC	GO:0010598	NAD(P)H dehydrogenase complex (plastoquinone)	0.03457	OG0009385	Tfasc_v1.30132
+CC	GO:0005776	autophagosome	0.03457	OG0012564	Tfasc_v1.01793
+CC	GO:0009507	chloroplast	0.03538	OG0006581, OG0011964, OG0003448, OG0010912, OG0011236, OG0002411, OG0003932, OG0007305, OG0008776, OG0000947, OG0006995, OG0010540, OG0009384, OG0009385	Tfasc_v1.01403, Tfasc_v1.03881, Tfasc_v1.09793, Tfasc_v1.10942, Tfasc_v1.13567, Tfasc_v1.21624, Tfasc_v1.21651, Tfasc_v1.22694, Tfasc_v1.24011, Tfasc_v1.26167, Tfasc_v1.27246, Tfasc_v1.28761, Tfasc_v1.30117, Tfasc_v1.30132
+CC	GO:0005736	RNA polymerase I complex	0.04209	OG0014375	Tfasc_v1.28136

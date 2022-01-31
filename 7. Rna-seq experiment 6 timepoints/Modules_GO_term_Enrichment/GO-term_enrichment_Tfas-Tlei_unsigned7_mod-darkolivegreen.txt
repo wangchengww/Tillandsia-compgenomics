@@ -1,0 +1,77 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0005978	glycogen biosynthetic process	0.0031	OG0014321, OG0005268	Tfasc_v1.15702, Tfasc_v1.15703
+BP	GO:0006646	phosphatidylethanolamine biosynthetic process	0.007	OG0012953	Tfasc_v1.18365
+BP	GO:1901962	S-adenosyl-L-methionine transmembrane transport	0.007	OG0011750	Tfasc_v1.12320
+BP	GO:0046967	cytosol to endoplasmic reticulum transport	0.007	OG0010811	Tfasc_v1.11856
+BP	GO:0015783	GDP-fucose transmembrane transport	0.014	OG0004385	Tfasc_v1.23193
+BP	GO:0080021	response to benzoic acid	0.014	OG0006951	Tfasc_v1.27531
+BP	GO:0006434	seryl-tRNA aminoacylation	0.014	OG0014190	Tfasc_v1.17733
+BP	GO:0043066	negative regulation of apoptotic process	0.0209	OG0015356	Tfasc_v1.28274
+BP	GO:0030155	regulation of cell adhesion	0.0209	OG0004793	Tfasc_v1.02551
+BP	GO:0048759	xylem vessel member cell differentiation	0.0209	OG0007440	Tfasc_v1.22437
+BP	GO:0007023	post-chaperonin tubulin folding pathway	0.0209	OG0013335	Tfasc_v1.02413
+BP	GO:0009098	leucine biosynthetic process	0.0209	OG0015708	Tfasc_v1.26888
+BP	GO:0006044	N-acetylglucosamine metabolic process	0.0209	OG0001370	Tfasc_v1.18419
+BP	GO:1900459	positive regulation of brassinosteroid mediated signaling pathway	0.0209	OG0010575	Tfasc_v1.28850
+BP	GO:0030574	collagen catabolic process	0.0209	OG0013239	Tfasc_v1.02035
+BP	GO:0010508	positive regulation of autophagy	0.0209	OG0010335	Tfasc_v1.13253
+BP	GO:0009742	brassinosteroid mediated signaling pathway	0.0219	OG0014093, OG0011555, OG0010575	Tfasc_v1.06578, Tfasc_v1.22989, Tfasc_v1.28850
+BP	GO:0019408	dolichol biosynthetic process	0.0278	OG0002397	Tfasc_v1.23336
+BP	GO:0007021	tubulin complex assembly	0.0278	OG0013335	Tfasc_v1.02413
+BP	GO:0007229	integrin-mediated signaling pathway	0.0278	OG0011555	Tfasc_v1.22989
+BP	GO:0016540	protein autoprocessing	0.0278	OG0012953	Tfasc_v1.18365
+BP	GO:0046168	glycerol-3-phosphate catabolic process	0.0278	OG0005985	Tfasc_v1.14399
+BP	GO:0006096	glycolytic process	0.03	OG0014093, OG0001011, OG0008868	Tfasc_v1.06578, Tfasc_v1.22858, Tfasc_v1.24198
+BP	GO:0030104	water homeostasis	0.0346	OG0010335	Tfasc_v1.13253
+BP	GO:0006382	adenosine to inosine editing	0.0346	OG0012073	Tfasc_v1.21520
+BP	GO:0035067	negative regulation of histone acetylation	0.0346	OG0007492	Tfasc_v1.22343
+BP	GO:0043132	NAD transport	0.0346	OG0016678	Tfasc_v1.28060
+BP	GO:0033169	histone H3-K9 demethylation	0.0414	OG0007492	Tfasc_v1.22343
+BP	GO:0007584	response to nutrient	0.0414	OG0010825	Tfasc_v1.11825
+BP	GO:0070525	tRNA threonylcarbamoyladenosine metabolic process	0.0414	OG0008095	Tfasc_v1.15193
+BP	GO:0051026	chiasma assembly	0.0414	OG0014365	Tfasc_v1.14821
+BP	GO:0015074	DNA integration	0.0414	OG0016104	Tfasc_v1.00939
+BP	GO:0002221	pattern recognition receptor signaling pathway	0.0414	OG0003704	Tfasc_v1.22595
+BP	GO:0044375	regulation of peroxisome size	0.0414	OG0016678	Tfasc_v1.28060
+BP	GO:0006487	protein N-linked glycosylation	0.043	OG0001370, OG0002397	Tfasc_v1.18419, Tfasc_v1.23336
+BP	GO:0046486	glycerolipid metabolic process	0.0477	OG0005985, OG0012953, OG0013396	Tfasc_v1.14399, Tfasc_v1.18365, Tfasc_v1.23883
+BP	GO:0002238	response to molecule of fungal origin	0.0481	OG0010335	Tfasc_v1.13253
+MF	GO:0030955	potassium ion binding	0.00018	OG0014093, OG0001011, OG0008868	Tfasc_v1.06578, Tfasc_v1.22858, Tfasc_v1.24198
+MF	GO:0004743	pyruvate kinase activity	0.00018	OG0014093, OG0001011, OG0008868	Tfasc_v1.06578, Tfasc_v1.22858, Tfasc_v1.24198
+MF	GO:0003844	1,4-alpha-glucan branching enzyme activity	0.00038	OG0014321, OG0005268	Tfasc_v1.15702, Tfasc_v1.15703
+MF	GO:0004401	histidinol-phosphatase activity	0.0062	OG0005234	Tfasc_v1.17116
+MF	GO:0003862	3-isopropylmalate dehydrogenase activity	0.0062	OG0015708	Tfasc_v1.26888
+MF	GO:0004609	phosphatidylserine decarboxylase activity	0.0062	OG0012953	Tfasc_v1.18365
+MF	GO:0050242	pyruvate, phosphate dikinase activity	0.0062	OG0013317	Tfasc_v1.00845
+MF	GO:0003726	double-stranded RNA adenosine deaminase activity	0.0062	OG0012073	Tfasc_v1.21520
+MF	GO:0000287	magnesium ion binding	0.01204	OG0014093, OG0001011, OG0008868, OG0015708	Tfasc_v1.06578, Tfasc_v1.22858, Tfasc_v1.24198, Tfasc_v1.26888
+MF	GO:0000095	S-adenosyl-L-methionine transmembrane transporter activity	0.01235	OG0011750	Tfasc_v1.12320
+MF	GO:0003826	alpha-ketoacid dehydrogenase activity	0.01235	OG0010825	Tfasc_v1.11825
+MF	GO:0008115	sarcosine oxidase activity	0.01235	OG0004541	Tfasc_v1.04915
+MF	GO:0004828	serine-tRNA ligase activity	0.01235	OG0014190	Tfasc_v1.17733
+MF	GO:0005457	GDP-fucose transmembrane transporter activity	0.01235	OG0004385	Tfasc_v1.23193
+MF	GO:0043169	cation binding	0.01737	OG0002342, OG0013317, OG0016104, OG0013239, OG0014093, OG0012309, OG0011750, OG0014365, OG0014321, OG0005268, OG0012953, OG0004629, OG0001011, OG0008868, OG0008742, OG0009479, OG0017858, OG0015708, OG0014426, OG0006951, OG0006837, OG0010547, OG0009322	Tfasc_v1.00706, Tfasc_v1.00845, Tfasc_v1.00939, Tfasc_v1.02035, Tfasc_v1.06578, Tfasc_v1.06689, Tfasc_v1.12320, Tfasc_v1.14821, Tfasc_v1.15702, Tfasc_v1.15703, Tfasc_v1.18365, Tfasc_v1.21961, Tfasc_v1.22858, Tfasc_v1.24198, Tfasc_v1.24584, Tfasc_v1.25314, Tfasc_v1.26334, Tfasc_v1.26888, Tfasc_v1.27089, Tfasc_v1.27531, Tfasc_v1.27798, Tfasc_v1.28771, Tfasc_v1.29971
+MF	GO:0080048	GDP-D-glucose phosphorylase activity	0.01847	OG0002103	Tfasc_v1.04456
+MF	GO:0045547	dehydrodolichyl diphosphate synthase activity	0.01847	OG0002397	Tfasc_v1.23336
+MF	GO:0004140	dephospho-CoA kinase activity	0.01847	OG0006040	Tfasc_v1.14471
+MF	GO:0003830	beta-1,4-mannosylglycoprotein 4-beta-N-acetylglucosaminyltransferase activity	0.01847	OG0001370	Tfasc_v1.18419
+MF	GO:0048487	beta-tubulin binding	0.02456	OG0013335	Tfasc_v1.02413
+MF	GO:0005484	SNAP receptor activity	0.02665	OG0015216, OG0007662	Tfasc_v1.18904, Tfasc_v1.20041
+MF	GO:0004367	glycerol-3-phosphate dehydrogenase [NAD+] activity	0.0306	OG0005985	Tfasc_v1.14399
+MF	GO:0030942	endoplasmic reticulum signal peptide binding	0.0306	OG0010326	Tfasc_v1.13208
+MF	GO:0008251	tRNA-specific adenosine deaminase activity	0.0306	OG0012073	Tfasc_v1.21520
+MF	GO:0004566	beta-glucuronidase activity	0.0306	OG0010693	Tfasc_v1.12082
+MF	GO:0003854	3-beta-hydroxy-delta5-steroid dehydrogenase activity	0.03661	OG0002743	Tfasc_v1.06545
+MF	GO:0004197	cysteine-type endopeptidase activity	0.0427	OG0013357, OG0013817	Tfasc_v1.02512, Tfasc_v1.05306
+MF	GO:0003918	DNA topoisomerase type II (double strand cut, ATP-hydrolyzing) activity	0.04852	OG0002342	Tfasc_v1.00706
+MF	GO:0008296	3'-5'-exodeoxyribonuclease activity	0.04852	OG0016880	Tfasc_v1.04391
+CC	GO:0005712	chiasma	0.014	OG0014365	Tfasc_v1.14821
+CC	GO:0005947	mitochondrial alpha-ketoglutarate dehydrogenase complex	0.014	OG0010825	Tfasc_v1.11825
+CC	GO:0005853	eukaryotic translation elongation factor 1 complex	0.014	OG0017034	Tfasc_v1.26550
+CC	GO:1904423	dehydrodolichyl diphosphate synthase complex	0.014	OG0002397	Tfasc_v1.23336
+CC	GO:0005797	Golgi medial cisterna	0.028	OG0015216	Tfasc_v1.18904
+CC	GO:0000408	EKC/KEOPS complex	0.028	OG0008095	Tfasc_v1.15193
+CC	GO:0000276	mitochondrial proton-transporting ATP synthase complex, coupling factor F(o)	0.035	OG0001428	Tfasc_v1.10566
+CC	GO:0005884	actin filament	0.035	OG0015220	Tfasc_v1.18885
+CC	GO:0009331	glycerol-3-phosphate dehydrogenase complex	0.042	OG0005985	Tfasc_v1.14399
+CC	GO:0031012	extracellular matrix	0.049	OG0013239	Tfasc_v1.02035

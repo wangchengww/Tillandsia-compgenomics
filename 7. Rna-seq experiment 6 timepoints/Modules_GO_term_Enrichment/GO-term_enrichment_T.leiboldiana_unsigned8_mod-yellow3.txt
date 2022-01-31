@@ -1,0 +1,55 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0009735	response to cytokinin	3e-04	OG0006013, OG0014786, OG0001342	Tfasc_v1.14449, Tfasc_v1.18805, Tfasc_v1.27175
+BP	GO:0032960	regulation of inositol trisphosphate biosynthetic process	0.003	OG0014786	Tfasc_v1.18805
+BP	GO:0000372	Group I intron splicing	0.003	OG0015805	Tfasc_v1.18608
+BP	GO:0007202	activation of phospholipase C activity	0.003	OG0014786	Tfasc_v1.18805
+BP	GO:0031116	positive regulation of microtubule polymerization	0.006	OG0010746	Tfasc_v1.11966
+BP	GO:0010244	response to low fluence blue light stimulus by blue low-fluence system	0.0091	OG0014786	Tfasc_v1.18805
+BP	GO:0009939	positive regulation of gibberellic acid mediated signaling pathway	0.0091	OG0014786	Tfasc_v1.18805
+BP	GO:0006571	tyrosine biosynthetic process	0.0121	OG0014786	Tfasc_v1.18805
+BP	GO:0010231	maintenance of seed dormancy	0.0121	OG0014786	Tfasc_v1.18805
+BP	GO:0019346	transsulfuration	0.0121	OG0000326	Tfasc_v1.07819
+BP	GO:0006747	FAD biosynthetic process	0.0121	OG0012999	Tfasc_v1.23777
+BP	GO:0009558	embryo sac cellularization	0.018	OG0010746	Tfasc_v1.11966
+BP	GO:0000160	phosphorelay signal transduction system	0.0205	OG0006013, OG0001342	Tfasc_v1.14449, Tfasc_v1.27175
+BP	GO:0009785	blue light signaling pathway	0.021	OG0014786	Tfasc_v1.18805
+BP	GO:0080142	regulation of salicylic acid biosynthetic process	0.024	OG0010352	Tfasc_v1.13311
+BP	GO:0030259	lipid glycosylation	0.024	OG0008731	Tfasc_v1.04816
+BP	GO:0043618	regulation of transcription from RNA polymerase II promoter in response to stress	0.0263	OG0010667, OG0002102	Tfasc_v1.07084, Tfasc_v1.10912
+BP	GO:0009960	endosperm development	0.0269	OG0010746	Tfasc_v1.11966
+BP	GO:0005987	sucrose catabolic process	0.0269	OG0018289	Tfasc_v1.29142
+BP	GO:0009094	L-phenylalanine biosynthetic process	0.0299	OG0014786	Tfasc_v1.18805
+BP	GO:0015743	malate transport	0.0328	OG0007222	Tfasc_v1.09028
+BP	GO:0009737	response to abscisic acid	0.0329	OG0008731, OG0014786, OG0015712	Tfasc_v1.04816, Tfasc_v1.18805, Tfasc_v1.26887
+BP	GO:0048209	regulation of vesicle targeting, to, from or within Golgi	0.0358	OG0012857	Tfasc_v1.02395
+BP	GO:0061408	positive regulation of transcription from RNA polymerase II promoter in response to heat stress	0.0358	OG0002102	Tfasc_v1.10912
+BP	GO:0016925	protein sumoylation	0.0358	OG0011244	Tfasc_v1.27163
+BP	GO:0000122	negative regulation of transcription by RNA polymerase II	0.0416	OG0007368	Tfasc_v1.22593
+BP	GO:0009768	photosynthesis, light harvesting in photosystem I	0.0445	OG0000325	Tfasc_v1.15053
+MF	GO:0003700	DNA-binding transcription factor activity	0.0025	OG0006112, OG0010667, OG0002102, OG0010352, OG0012251, OG0000768, OG0018329, OG0009383	Tfasc_v1.00216, Tfasc_v1.07084, Tfasc_v1.10912, Tfasc_v1.13311, Tfasc_v1.21259, Tfasc_v1.26701, Tfasc_v1.29595, Tfasc_v1.30136
+MF	GO:0018826	methionine gamma-lyase activity	0.0029	OG0000326	Tfasc_v1.07819
+MF	GO:0047040	pteridine reductase activity	0.0029	OG0003906	Tfasc_v1.17500
+MF	GO:0019948	SUMO activating enzyme activity	0.0058	OG0011244	Tfasc_v1.27163
+MF	GO:0000978	RNA polymerase II cis-regulatory region sequence-specific DNA binding	0.0081	OG0002102, OG0000768	Tfasc_v1.10912, Tfasc_v1.26701
+MF	GO:0001102	RNA polymerase II activating transcription factor binding	0.0086	OG0007368	Tfasc_v1.22593
+MF	GO:0033188	sphingomyelin synthase activity	0.0086	OG0009336	Tfasc_v1.30009
+MF	GO:0045140	inositol phosphoceramide synthase activity	0.0086	OG0009336	Tfasc_v1.30009
+MF	GO:0047493	ceramide cholinephosphotransferase activity	0.0086	OG0009336	Tfasc_v1.30009
+MF	GO:0003919	FMN adenylyltransferase activity	0.0144	OG0012999	Tfasc_v1.23777
+MF	GO:0043565	sequence-specific DNA binding	0.0166	OG0010667, OG0002102, OG0010352, OG0012251, OG0000768, OG0018329	Tfasc_v1.07084, Tfasc_v1.10912, Tfasc_v1.13311, Tfasc_v1.21259, Tfasc_v1.26701, Tfasc_v1.29595
+MF	GO:0004888	transmembrane signaling receptor activity	0.017	OG0014786, OG0012773	Tfasc_v1.18805, Tfasc_v1.21946
+MF	GO:0008195	phosphatidate phosphatase activity	0.0172	OG0003639	Tfasc_v1.29637
+MF	GO:0033926	glycopeptide alpha-N-acetylgalactosaminidase activity	0.02	OG0018289	Tfasc_v1.29142
+MF	GO:0004722	protein serine/threonine phosphatase activity	0.025	OG0003181	Tfasc_v1.27363, Tfasc_v1.27372
+MF	GO:0019903	protein phosphatase binding	0.0313	OG0009592	Tfasc_v1.25012
+MF	GO:0005516	calmodulin binding	0.0313	OG0012577, OG0010352	Tfasc_v1.01829, Tfasc_v1.13311
+MF	GO:0004575	sucrose alpha-glucosidase activity	0.0341	OG0018289	Tfasc_v1.29142
+MF	GO:0001228	DNA-binding transcription activator activity, RNA polymerase II-specific	0.0369	OG0006112	Tfasc_v1.00216
+MF	GO:0016168	chlorophyll binding	0.0452	OG0000325	Tfasc_v1.15053
+CC	GO:0031510	SUMO activating enzyme complex	0.0063	OG0011244	Tfasc_v1.27163
+CC	GO:0010287	plastoglobule	0.0063	OG0004105, OG0000325	Tfasc_v1.10911, Tfasc_v1.15053
+CC	GO:0005797	Golgi medial cisterna	0.0125	OG0012857	Tfasc_v1.02395
+CC	GO:0000139	Golgi membrane	0.0135	OG0012857, OG0009718, OG0003655, OG0009336	Tfasc_v1.02395, Tfasc_v1.16196, Tfasc_v1.29784, Tfasc_v1.30009
+CC	GO:0009532	plastid stroma	0.0184	OG0004105, OG0000325, OG0015805	Tfasc_v1.10911, Tfasc_v1.15053, Tfasc_v1.18608
+CC	GO:0005634	nucleus	0.0413	OG0006112, OG0012577, OG0010667, OG0002102, OG0010352, OG0006013, OG0012251, OG0007368, OG0000768, OG0010083, OG0015712, OG0011244, OG0001342, OG0018329, OG0009396	Tfasc_v1.00216, Tfasc_v1.01829, Tfasc_v1.07084, Tfasc_v1.10912, Tfasc_v1.13311, Tfasc_v1.14449, Tfasc_v1.21259, Tfasc_v1.22593, Tfasc_v1.26701, Tfasc_v1.26780, Tfasc_v1.26887, Tfasc_v1.27163, Tfasc_v1.27175, Tfasc_v1.29595, Tfasc_v1.30152
+CC	GO:0070461	SAGA-type complex	0.0493	OG0010083	Tfasc_v1.26780
