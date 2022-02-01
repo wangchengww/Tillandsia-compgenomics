@@ -1,0 +1,42 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0032194	ubiquinone biosynthetic process via 3,4-dihydroxy-5-polyprenylbenzoate	0.0018	OG0016807	Tfasc_v1.20276
+BP	GO:0002939	tRNA N1-guanine methylation	0.0035	OG0013554	Tfasc_v1.06100
+BP	GO:0009772	photosynthetic electron transport in photosystem II	0.0035	OG0016807	Tfasc_v1.20276
+BP	GO:0009958	positive gravitropism	0.0088	OG0015047	Tfasc_v1.17961
+BP	GO:0051014	actin filament severing	0.0088	OG0001022	Tfasc_v1.25181
+BP	GO:0048579	negative regulation of long-day photoperiodism, flowering	0.0088	OG0009657	Tfasc_v1.16092
+BP	GO:0019632	shikimate metabolic process	0.0105	OG0013730	Tfasc_v1.18494
+BP	GO:0010236	plastoquinone biosynthetic process	0.0105	OG0016807	Tfasc_v1.20276
+BP	GO:0009645	response to low light intensity stimulus	0.014	OG0003201	Tfasc_v1.08676
+BP	GO:0010275	NAD(P)H dehydrogenase complex assembly	0.014	OG0008471	Tfasc_v1.04688
+BP	GO:0010452	histone H3-K36 methylation	0.014	OG0009657	Tfasc_v1.16092
+BP	GO:0042372	phylloquinone biosynthetic process	0.0157	OG0016807	Tfasc_v1.20276
+BP	GO:0009686	gibberellin biosynthetic process	0.0157	OG0009658	Tfasc_v1.16097
+BP	GO:0010218	response to far red light	0.0209	OG0019426	Tfasc_v1.14591
+BP	GO:0046838	phosphorylated carbohydrate dephosphorylation	0.0227	OG0017324	Tfasc_v1.06749
+BP	GO:0005983	starch catabolic process	0.0227	OG0017324	Tfasc_v1.06749
+BP	GO:0010252	auxin homeostasis	0.0244	OG0015047	Tfasc_v1.17961
+BP	GO:0010099	regulation of photomorphogenesis	0.0244	OG0019426	Tfasc_v1.14591
+BP	GO:0010017	red or far-red light signaling pathway	0.0244	OG0019426	Tfasc_v1.14591
+BP	GO:0009768	photosynthesis, light harvesting in photosystem I	0.0261	OG0003201	Tfasc_v1.08676
+BP	GO:0009740	gibberellic acid mediated signaling pathway	0.0295	OG0009657	Tfasc_v1.16092
+BP	GO:0018298	protein-chromophore linkage	0.0347	OG0003201	Tfasc_v1.08676
+BP	GO:0010114	response to red light	0.0364	OG0019426	Tfasc_v1.14591
+BP	GO:0009644	response to high light intensity	0.0381	OG0003201	Tfasc_v1.08676
+BP	GO:0006896	Golgi to vacuole transport	0.0465	OG0015047	Tfasc_v1.17961
+MF	GO:0016707	gibberellin 3-beta-dioxygenase activity	0.0016	OG0009658	Tfasc_v1.16097
+MF	GO:0052906	tRNA (guanine(37)-N(1))-methyltransferase activity	0.0033	OG0013554	Tfasc_v1.06100
+MF	GO:0031409	pigment binding	0.0033	OG0003201	Tfasc_v1.08676
+MF	GO:0004765	shikimate kinase activity	0.0081	OG0013730	Tfasc_v1.18494
+MF	GO:2001070	starch binding	0.0226	OG0017324	Tfasc_v1.06749
+MF	GO:0016168	chlorophyll binding	0.0258	OG0003201	Tfasc_v1.08676
+MF	GO:0008138	protein tyrosine/serine/threonine phosphatase activity	0.0274	OG0017324	Tfasc_v1.06749
+MF	GO:0019203	carbohydrate phosphatase activity	0.0321	OG0017324	Tfasc_v1.06749
+MF	GO:0004177	aminopeptidase activity	0.0416	OG0012792	Tfasc_v1.21994
+CC	GO:0009782	photosystem I antenna complex	0.0035	OG0003201	Tfasc_v1.08676
+CC	GO:0009507	chloroplast	0.0077	OG0005430, OG0008471, OG0006343, OG0017324, OG0003201, OG0013730, OG0016807, OG0019575	Tfasc_v1.00899, Tfasc_v1.04688, Tfasc_v1.05802, Tfasc_v1.06749, Tfasc_v1.08676, Tfasc_v1.18494, Tfasc_v1.20276, Tfasc_v1.20418
+CC	GO:0030904	retromer complex	0.012	OG0015047	Tfasc_v1.17961
+CC	GO:0009570	chloroplast stroma	0.0264	OG0008471, OG0006343, OG0013730	Tfasc_v1.04688, Tfasc_v1.05802, Tfasc_v1.18494
+CC	GO:0005771	multivesicular body	0.0323	OG0015047	Tfasc_v1.17961
+CC	GO:0009523	photosystem II	0.0342	OG0005430, OG0003201	Tfasc_v1.00899, Tfasc_v1.08676
+CC	GO:0009654	photosystem II oxygen evolving complex	0.0373	OG0005430	Tfasc_v1.00899
