@@ -94,11 +94,19 @@ Count normalization, low-expression filtering and variance stabilization was don
     Rscript ../5.\ Gene-family-evo-tfas-tlei/script_GO_term_enrichment.R genes_to_GO_Tfas_orthologs.map $i GO-term_enrichment_mod-$mod.txt orthogroup_info_for_GOterm_enrichment.txt
   done
 
-  For T. fasciculata, I tested several parameters in calling the co-expression network, and ran both a signed and un-signed network. Frustratingly, both ways give interesting results that don't overlap. The unsigned network was run with a soft-thresholding power of 8, and the signed with a power of 18 (16 was also tested but 18 gave more inclusive modules). In both cases, modules with 90 % correlation in expression were merged. The unsigned network has 100 modules, of which 10 are significantly correlated with time points. These modules range from 939 genes to 55 genes. The signed network has 106 modules of which 11 are significant. These range from 467 to 36 genes.
+For T. fasciculata, I tested several parameters in calling the co-expression network, and ran both a signed and un-signed network. Frustratingly, both ways give interesting results that don't overlap. The unsigned network was run with a soft-thresholding power of 8, and the signed with a power of 18 (16 was also tested but 18 gave more inclusive modules). In both cases, modules with 90 % correlation in expression were merged. The unsigned network has 100 modules, of which 10 are significantly correlated with time points. These modules range from 939 genes to 55 genes. The signed network has 106 modules of which 11 are significant. These range from 467 to 36 genes.
 
-  In the end, I constructed unsigned networks for Tfas and Tlei separately with SFT 8. Expression curves were plotted with the automatic R script `Script_Expression_curves_modules.R`. Genes underlying certain GO terms, such as "Malate", "PhosphoEnolPyruvate", "Stomata" or "Vacuole" were highlighted in certain colors.
+In the end, I constructed unsigned networks for Tfas and Tlei separately with SFT 8. Expression curves were plotted with the automatic R script `Script_Expression_curves_modules.R`:
 
-  I calculated the overlap in genes between time-significant modules with the following bash script:
+		for i in Genes-for-Enrichment_T.fasciculata_*; do
+			mod=`echo $i | sed "s/_/\t/g" | cut -f 5 | sed "s/.txt//g"`
+    		echo $mod
+    		Rscript ../Script_Expression_curves_modules.R ../counts.Tfas.6_timepoints.filtr-normalized_DESEQ2.logtransformed.txt $i GO-term_enrichment_unsigned_mod-$mod.txt
+  		done
+
+ Genes underlying certain GO terms, such as "Malate", "PhosphoEnolPyruvate", "Stomata" or "Vacuole" were highlighted in certain colors.
+
+ I calculated the overlap in genes between time-significant modules with the following bash script:
 
   		echo "Tfas_mod Tlei_mod overlap count_Tfas count_Tlei" > Overlap_genes_Tfas_Tlei_mods_unsigned8.txt
   		R1=(Genes-for-Enrichment_T.fasciculata_unsigned_vst10cs4_*)
@@ -112,4 +120,4 @@ Count normalization, low-expression filtering and variance stabilization was don
   			echo $mod1 $mod2 $overlap $count1 $count2 >> Overlap_genes_Tfas_Tlei_mods_unsigned8.txt
   		done; done
 
-I also visualized singular gene expression curves in both species with the Rscript `Expression_curves_genes.R`. 
+I also visualized singular gene expression curves in both species with the Rscript `Expression_curves_genes.R`.

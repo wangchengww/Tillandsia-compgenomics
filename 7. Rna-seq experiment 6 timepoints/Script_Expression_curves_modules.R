@@ -16,10 +16,11 @@ genes <- scan(args[[2]], character(), quote = "")
 module <- str_split(args[[2]], "\\_|\\.")[[1]][6]
 species <- str_split(args[[2]], "\\_|\\.")[[1]][3]
 network <- str_split(args[[2]], "\\_|\\.")[[1]][4]
-goterms <- read.table(args[[3]], sep = "\t", header = T)
+goterms <- read.delim(args[[3]], sep = "\t", header = T)
 
 # Subset counts
-module_counts<- subset(counts, rownames(counts) %in% genes)
+module_counts <- subset(counts, rownames(counts) %in% genes)
+mod_size <- as.character(nrow(module_counts))
 
 # Calculate mean of each gene across individuals for each timepoint
 mean_count <- as.data.frame(sapply(seq(1, 6, 1), function(j) rowMeans(module_counts[, c(j,j+6,j+12,j+18,j+24,j+30)])))
@@ -53,7 +54,7 @@ means <- data.frame(time=c("0100", "0500","0900", "1300", "1700", "2100"),
 
 
 # Highlight genes of interest
-pdf(paste("Expression_curve_", species, "_", network, "_", module,".pdf"), width = 8, height = 10)
+pdf(paste("Expression_curve_", species, "_", network, "_", module, "_logtransformed.pdf", sep = ""), width = 8, height = 10)
 cols <- c('Malate'='red', 'PhosphoEnolPyruvate'='blue', 'Vacuole'='purple', 'Stomata'='darkgreen')
 ggplot(mean_count_m, aes(x=time, y=count, group = gene_id)) +
   geom_point(color = "grey") +
@@ -63,5 +64,7 @@ ggplot(mean_count_m, aes(x=time, y=count, group = gene_id)) +
   geom_line(data = phospho_expr, aes(group = gene_id), size = 1, color = "blue") +
   geom_line(data = vacuole_expr, aes(group = gene_id), size = 1, color = "purple") +
   geom_line(data = stomata_expr, aes(group = gene_id), size = 1, color = "darkgreen") +
-  ggtitle(paste("Expression curve of ",module, "in", species, "_", network))
+  ggtitle(paste("Expression curve of ",module, " (", mod_size, ") in ", species, ", ", network, sep = "")) +
+  geom_vline(xintercept = 4.75, linetype = "dashed") +
+  geom_vline(xintercept = 1.75, linetype = "dashed")
 dev.off()

@@ -1,15 +1,18 @@
 setwd('/home/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/GO-term_Enrichment_Modules/')
-setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/')
+setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/GO-term_Enrichment_Modules/')
 library("ggplot2")
 library("reshape2")
 library("stringr")
 
-counts <- read.table("../counts.Tfas.6_timepoints.filtr-normalized_DESEQ2.txt", header = T, row.names = 1)
-genes <- scan("Genes-for-Enrichment_T.fasciculata_signed18_vst10c4s_lightcyan.txt", character(), quote = "")
+counts <- read.table("../counts.Tlei.6_timepoints.filtr-normalized_DESEQ2.logtransformed.txt", header = T, row.names = 1)
+#counts_log <- log(counts+1)
+#write.table(counts_log, file = "../counts.Tfas.6_timepoints.filtr-normalized_DESEQ2.logtransformed.txt")
+genes <- scan("Genes-for-Enrichment_T.leiboldiana_unsigned8_vst10cs4_yellowgreen.txt", character(), quote = "")
 geneInfo <- read.table("geneInfo_co-expression_Tfasc_vsd_10c4s_signed18.csv")
-goterms <- read.table("GO-term_enrichment_signed18_mod-lightcyan.txt", sep = "\t", header = T)
+goterms <- read.delim("GO-term_enrichment_T.leiboldiana_unsigned8_mod-yellowgreen.txt", sep = "\t", header = T)
 
 module_counts<- subset(counts, rownames(counts) %in% genes)
+setdiff(genes, rownames(module_counts))
 
 mean_count <- as.data.frame(sapply(seq(1, 6, 1), function(j) rowMeans(module_counts[, c(j,j+6,j+12,j+18,j+24,j+30)])))
 colnames(mean_count) <- c("0100", "0500", "0900","1300", "1700", "2100")
