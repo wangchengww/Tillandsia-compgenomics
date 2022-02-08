@@ -1,14 +1,21 @@
-setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/GO-term_Enrichment_Modules/')
-setwd('/home/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/GO-term_Enrichment_Modules/')
-library("ggplot2")
-library(matrixStats)
-library(stringr)
+#!/usr/bin/Rscript --vanilla
 
-counts_Tfas <- read.table("../counts.Tfas.6_timepoints.filtr-normalized_DESEQ2.txt", header = T)
-counts_Tlei <- read.table("../counts.Tlei.6_timepoints.filtr-normalized_DESEQ2.txt", header = T)
-orthoinfo <- read.delim("../orthogroup_info_for_GOterm_enrichment.txt", sep = "\t", header = F)
+# Installation and loading
+# Pacman will only install missing packages
+if (!require("pacman")) install.packages("pacman", repos = "
+http://cran.us.r-project.org")
+pacman::p_load("ggplot2", "matrixStats", "stringr")
 
-gene = "Tfasc_v1.03128"
+# Load arguments
+# 1 is counts Tfas, 2 is counts Tlei, 3 is the gene of interest, 4 is orthology info.
+args <- commandArgs(trailingOnly = TRUE)
+
+# Load data
+counts_Tfas <- read.table(args[[1]], header = T)
+counts_Tlei <- read.table(args[[2]], header = T)
+orthoinfo <- read.delim(args[[4]], sep = "\t", header = F)
+
+gene = args[[3]]
 func <- orthoinfo[orthoinfo$V1 == gene, 6]
 func <- str_split(func, "=")[[1]][2]
 orthology <- orthoinfo[orthoinfo$V1 == gene, c(8,9,10)]
@@ -30,7 +37,8 @@ colnames(mean_gene_expression_Tlei) <- c("mean_log_counts", "standard_dev", "tim
 mean_gene_expression_Tlei$species <- "T.leiboldiana"
 mean_gene_expression <- rbind(mean_gene_expression_Tfas, mean_gene_expression_Tlei)
 
-ggplot(mean_gene_expression, aes(x=time, y=mean_log_counts, group = species)) + 
+pdf(paste("Expression_curve_", gene, ".pdf", sep = ""), width = 10, height = 8)
+ggplot(mean_gene_expression, aes(x=time, y=mean_log_counts, group = species)) +
   geom_point(aes(color = species)) +
   geom_line(aes(color = species)) +
   geom_vline(xintercept = 4.75, linetype = "dashed") +
@@ -38,7 +46,7 @@ ggplot(mean_gene_expression, aes(x=time, y=mean_log_counts, group = species)) +
   ggtitle(paste("Expression curve for ", gene, "\nFunction: " , func, "\nOrthology: ", orthology$V8, ":",
                 orthology$V9, ":", orthology$V10, sep = "")) +
   geom_errorbar(aes(ymin=mean_log_counts-standard_dev, ymax=mean_log_counts+standard_dev), width=.2,
-                position=position_dodge(0.05), colour = "darkgrey")
-
-
-
+                position=position_dodge(0.05), colour = "darkgrey") +
+  ylab("Read counts") +
+  xlab ("Time")
+dev.off()
