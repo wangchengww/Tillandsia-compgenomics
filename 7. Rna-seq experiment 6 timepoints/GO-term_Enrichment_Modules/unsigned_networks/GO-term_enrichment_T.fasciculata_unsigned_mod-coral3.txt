@@ -1,0 +1,70 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0071461	cellular response to redox state	0.0034	OG0012693	Tfasc_v1.20572
+BP	GO:0043448	alkane catabolic process	0.0034	OG0006573	Tfasc_v1.01385
+BP	GO:2000541	positive regulation of protein geranylgeranylation	0.0034	OG0012883	Tfasc_v1.09242
+BP	GO:0080005	photosystem stoichiometry adjustment	0.0068	OG0012693	Tfasc_v1.20572
+BP	GO:0061635	regulation of protein complex stability	0.0068	OG0007383	Tfasc_v1.22572
+BP	GO:0033355	ascorbate glutathione cycle	0.0068	OG0007157	Tfasc_v1.08905
+BP	GO:0009448	gamma-aminobutyric acid metabolic process	0.0102	OG0001525	Tfasc_v1.26860
+BP	GO:0042549	photosystem II stabilization	0.0102	OG0008703	Tfasc_v1.04772
+BP	GO:0010270	photosystem II oxygen evolving complex assembly	0.0102	OG0013747	Tfasc_v1.29236
+BP	GO:0046656	folic acid biosynthetic process	0.0102	OG0014416	Tfasc_v1.25113
+BP	GO:0018344	protein geranylgeranylation	0.0132	OG0006090, OG0012883	Tfasc_v1.06433, Tfasc_v1.09242
+BP	GO:0090391	granum assembly	0.0135	OG0010969	Tfasc_v1.10837
+BP	GO:0010731	protein glutathionylation	0.0135	OG0007157	Tfasc_v1.08905
+BP	GO:0046655	folic acid metabolic process	0.0165	OG0011342, OG0014416	Tfasc_v1.18282, Tfasc_v1.25113
+BP	GO:0019264	glycine biosynthetic process from serine	0.0169	OG0011342	Tfasc_v1.18282
+BP	GO:1904482	cellular response to tetrahydrofolate	0.0169	OG0011342	Tfasc_v1.18282
+BP	GO:0009102	biotin biosynthetic process	0.0169	OG0001525	Tfasc_v1.26860
+BP	GO:0006565	L-serine catabolic process	0.0169	OG0011342	Tfasc_v1.18282
+BP	GO:0010236	plastoquinone biosynthetic process	0.0202	OG0001497	Tfasc_v1.26913
+BP	GO:0032544	plastid translation	0.0202	OG0013697	Tfasc_v1.12978
+BP	GO:1902600	proton transmembrane transport	0.0231	OG0004287, OG0019211, OG0004150	Tfasc_v1.02710, Tfasc_v1.14165, Tfasc_v1.16080
+BP	GO:0046654	tetrahydrofolate biosynthetic process	0.0236	OG0014416	Tfasc_v1.25113
+BP	GO:0010506	regulation of autophagy	0.0269	OG0007696	Tfasc_v1.20111
+BP	GO:0010275	NAD(P)H dehydrogenase complex assembly	0.0269	OG0008471	Tfasc_v1.04688
+BP	GO:0035999	tetrahydrofolate interconversion	0.0368	OG0011342	Tfasc_v1.18282
+BP	GO:0071586	CAAX-box protein processing	0.0368	OG0006288	Tfasc_v1.05950
+BP	GO:0006032	chitin catabolic process	0.04	OG0012382	Tfasc_v1.06809
+BP	GO:0006535	cysteine biosynthetic process from serine	0.04	OG0012608	Tfasc_v1.01884
+BP	GO:0000266	mitochondrial fission	0.0433	OG0000924	Tfasc_v1.06148
+BP	GO:0071555	cell wall organization	0.045	OG0001674, OG0016343, OG0011572	Tfasc_v1.06530, Tfasc_v1.08682, Tfasc_v1.22942
+BP	GO:0009969	xyloglucan biosynthetic process	0.0466	OG0016343	Tfasc_v1.08682
+BP	GO:0036065	fucosylation	0.0466	OG0016343	Tfasc_v1.08682
+BP	GO:0009809	lignin biosynthetic process	0.0498	OG0017179	Tfasc_v1.26137
+MF	GO:0046961	proton-transporting ATPase activity, rotational mechanism	0.0023	OG0019211, OG0004150	Tfasc_v1.14165, Tfasc_v1.16080
+MF	GO:0016314	phosphatidylinositol-3,4,5-trisphosphate 3-phosphatase activity	0.0029	OG0003562	Tfasc_v1.23953
+MF	GO:0004150	dihydroneopterin aldolase activity	0.0029	OG0014416	Tfasc_v1.25113
+MF	GO:0052924	all-trans-nonaprenyl-diphosphate synthase (geranylgeranyl-diphosphate specific) activity	0.0029	OG0001497	Tfasc_v1.26913
+MF	GO:0004663	Rab geranylgeranyltransferase activity	0.0059	OG0006090	Tfasc_v1.06433
+MF	GO:0034387	4-aminobutyrate:pyruvate transaminase activity	0.0059	OG0001525	Tfasc_v1.26860
+MF	GO:0102351	gamma-aminobutyrate transaminase (glyoxylate dependent) activity	0.0059	OG0001525	Tfasc_v1.26860
+MF	GO:0045174	glutathione dehydrogenase (ascorbate) activity	0.0059	OG0007157	Tfasc_v1.08905
+MF	GO:0004364	glutathione transferase activity	0.0068	OG0006362, OG0007157	Tfasc_v1.05745, Tfasc_v1.08905
+MF	GO:0004015	adenosylmethionine-8-amino-7-oxononanoate transaminase activity	0.0088	OG0001525	Tfasc_v1.26860
+MF	GO:0009001	serine O-acetyltransferase activity	0.0088	OG0012608	Tfasc_v1.01884
+MF	GO:0050347	trans-octaprenyltranstransferase activity	0.0088	OG0001497	Tfasc_v1.26913
+MF	GO:0070905	serine binding	0.0147	OG0011342	Tfasc_v1.18282
+MF	GO:0004372	glycine hydroxymethyltransferase activity	0.0147	OG0011342	Tfasc_v1.18282
+MF	GO:0004618	phosphoglycerate kinase activity	0.0147	OG0001525	Tfasc_v1.26860
+MF	GO:0045551	cinnamyl-alcohol dehydrogenase activity	0.0176	OG0017179	Tfasc_v1.26137
+MF	GO:0016987	sigma factor activity	0.0233	OG0012693	Tfasc_v1.20572
+MF	GO:0016149	translation release factor activity, codon specific	0.0262	OG0013697	Tfasc_v1.12978
+MF	GO:0005092	GDP-dissociation inhibitor activity	0.032	OG0012883	Tfasc_v1.09242
+MF	GO:0004311	farnesyltranstransferase activity	0.032	OG0001497	Tfasc_v1.26913
+MF	GO:0030170	pyridoxal phosphate binding	0.0326	OG0011342, OG0001525	Tfasc_v1.18282, Tfasc_v1.26860
+MF	GO:0008107	galactoside 2-alpha-L-fucosyltransferase activity	0.0348	OG0016343	Tfasc_v1.08682
+MF	GO:0008121	ubiquinol-cytochrome-c reductase activity	0.0377	OG0003424	Tfasc_v1.30706
+MF	GO:0004568	chitinase activity	0.0462	OG0012382	Tfasc_v1.06809
+MF	GO:0052716	hydroquinone:oxygen oxidoreductase activity	0.049	OG0007138	Tfasc_v1.08854
+CC	GO:0009507	chloroplast	1e-05	OG0005430, OG0006573, OG0015187, OG0008471, OG0008703, OG0010403, OG0007138, OG0007157, OG0003480, OG0010969, OG0013697, OG0011384, OG0011412, OG0012693, OG0007383, OG0011459, OG0004769, OG0013747	Tfasc_v1.00899, Tfasc_v1.01385, Tfasc_v1.02927, Tfasc_v1.04688, Tfasc_v1.04772, Tfasc_v1.07764, Tfasc_v1.08854, Tfasc_v1.08905, Tfasc_v1.09347, Tfasc_v1.10837, Tfasc_v1.12978, Tfasc_v1.17187, Tfasc_v1.17235, Tfasc_v1.20572, Tfasc_v1.22572, Tfasc_v1.23161, Tfasc_v1.23524, Tfasc_v1.29236
+CC	GO:0005968	Rab-protein geranylgeranyltransferase complex	4.3e-05	OG0006090, OG0012883	Tfasc_v1.06433, Tfasc_v1.09242
+CC	GO:0009535	chloroplast thylakoid membrane	0.0043	OG0008703, OG0010403, OG0007383, OG0011459	Tfasc_v1.04772, Tfasc_v1.07764, Tfasc_v1.22572, Tfasc_v1.23161
+CC	GO:0035658	Mon1-Ccz1 complex	0.0076	OG0007696	Tfasc_v1.20111
+CC	GO:0009534	chloroplast thylakoid	0.017	OG0008703, OG0010403, OG0007138, OG0011412, OG0007383, OG0011459	Tfasc_v1.04772, Tfasc_v1.07764, Tfasc_v1.08854, Tfasc_v1.17235, Tfasc_v1.22572, Tfasc_v1.23161
+CC	GO:0009504	cell plate	0.0227	OG0007317	Tfasc_v1.22674
+CC	GO:0005844	polysome	0.0265	OG0008423	Tfasc_v1.09301
+CC	GO:0009543	chloroplast thylakoid lumen	0.0339	OG0010403	Tfasc_v1.07764
+CC	GO:0005750	mitochondrial respiratory chain complex III	0.0413	OG0003424	Tfasc_v1.30706
+CC	GO:0033179	proton-transporting V-type ATPase, V0 domain	0.0413	OG0004150	Tfasc_v1.16080
+CC	GO:0032580	Golgi cisterna membrane	0.0486	OG0016343	Tfasc_v1.08682

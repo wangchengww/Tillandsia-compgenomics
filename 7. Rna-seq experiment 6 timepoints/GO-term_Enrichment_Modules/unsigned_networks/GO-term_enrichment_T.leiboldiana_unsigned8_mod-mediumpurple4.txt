@@ -1,0 +1,53 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0031426	polycistronic mRNA processing	2.6e-05	OG0019352, OG0013742	Tfasc_v1.17912, Tfasc_v1.17913
+BP	GO:0010239	chloroplast mRNA processing	3e-04	OG0019352, OG0013742	Tfasc_v1.17912, Tfasc_v1.17913
+BP	GO:0045694	regulation of embryo sac egg cell differentiation	0.003	OG0008882	Tfasc_v1.24233
+BP	GO:0001881	receptor recycling	0.003	OG0006306	Tfasc_v1.05914
+BP	GO:0098974	postsynaptic actin cytoskeleton organization	0.003	OG0010771	Tfasc_v1.11913
+BP	GO:0010998	regulation of translational initiation by eIF2 alpha phosphorylation	0.0059	OG0009434	Tfasc_v1.30274
+BP	GO:0000738	DNA catabolic process, exonucleolytic	0.0059	OG0008005	Tfasc_v1.15027
+BP	GO:0007623	circadian rhythm	0.0081	OG0011512, OG0009216	Tfasc_v1.23066, Tfasc_v1.29416
+BP	GO:0032049	cardiolipin biosynthetic process	0.0088	OG0003054	Tfasc_v1.01078
+BP	GO:0016139	glycoside catabolic process	0.0088	OG0016307	Tfasc_v1.28129
+BP	GO:0072321	chaperone-mediated protein transport	0.0118	OG0001884	Tfasc_v1.14418
+BP	GO:0071786	endoplasmic reticulum tubular network organization	0.0118	OG0019118	Tfasc_v1.07661
+BP	GO:0006521	regulation of cellular amino acid metabolic process	0.0176	OG0009434	Tfasc_v1.30274
+BP	GO:0010227	floral organ abscission	0.0205	OG0010771	Tfasc_v1.11913
+BP	GO:0009785	blue light signaling pathway	0.0205	OG0002720	Tfasc_v1.22809
+BP	GO:0009635	response to herbicide	0.0205	OG0009434	Tfasc_v1.30274
+BP	GO:0006627	protein processing involved in protein targeting to mitochondrion	0.0263	OG0008413	Tfasc_v1.09334
+BP	GO:0034314	Arp2/3 complex-mediated actin nucleation	0.0292	OG0001368	Tfasc_v1.22332
+BP	GO:0000467	exonucleolytic trimming to generate mature 3'-end of 5.8S rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA)	0.0292	OG0008005	Tfasc_v1.15027
+BP	GO:0048507	meristem development	0.0308	OG0019352, OG0013742	Tfasc_v1.17912, Tfasc_v1.17913
+BP	GO:0046855	inositol phosphate dephosphorylation	0.032	OG0008046	Tfasc_v1.15109
+BP	GO:0000105	histidine biosynthetic process	0.0349	OG0015703	Tfasc_v1.26878
+BP	GO:1902476	chloride transmembrane transport	0.0406	OG0000919	Tfasc_v1.18563
+MF	GO:0048027	mRNA 5'-UTR binding	1.8e-05	OG0019352, OG0013742	Tfasc_v1.17912, Tfasc_v1.17913
+MF	GO:0004424	imidazoleglycerol-phosphate dehydratase activity	0.0025	OG0015703	Tfasc_v1.26878
+MF	GO:0098973	structural constituent of postsynaptic actin cytoskeleton	0.0025	OG0010771	Tfasc_v1.11913
+MF	GO:0017168	5-oxoprolinase (ATP-hydrolyzing) activity	0.0025	OG0004202	Tfasc_v1.00100
+MF	GO:0008808	cardiolipin synthase activity	0.0049	OG0003054	Tfasc_v1.01078
+MF	GO:0004694	eukaryotic translation initiation factor 2alpha kinase activity	0.0049	OG0009434	Tfasc_v1.30274
+MF	GO:0035064	methylated histone binding	0.0074	OG0004276	Tfasc_v1.22886
+MF	GO:0009011	starch synthase activity	0.0074	OG0008356	Tfasc_v1.09430
+MF	GO:0008444	CDP-diacylglycerol-glycerol-3-phosphate 3-phosphatidyltransferase activity	0.0098	OG0003054	Tfasc_v1.01078
+MF	GO:0030619	U1 snRNA binding	0.0123	OG0013218	Tfasc_v1.29185
+MF	GO:0004373	glycogen (starch) synthase activity	0.0171	OG0008356	Tfasc_v1.09430
+MF	GO:0008137	NADH dehydrogenase (ubiquinone) activity	0.0316	OG0017825	Tfasc_v1.06515
+MF	GO:0005247	voltage-gated chloride channel activity	0.0316	OG0000919	Tfasc_v1.18563
+MF	GO:0004560	alpha-L-fucosidase activity	0.0316	OG0016307	Tfasc_v1.28129
+MF	GO:0030955	potassium ion binding	0.0435	OG0013294	Tfasc_v1.02154
+MF	GO:0004743	pyruvate kinase activity	0.0435	OG0013294	Tfasc_v1.02154
+MF	GO:0004439	phosphatidylinositol-4,5-bisphosphate 5-phosphatase activity	0.0459	OG0008046	Tfasc_v1.15109
+CC	GO:0042644	chloroplast nucleoid	0.0022	OG0019352, OG0013742	Tfasc_v1.17912, Tfasc_v1.17913
+CC	GO:0005637	nuclear inner membrane	0.0027	OG0013290	Tfasc_v1.02146
+CC	GO:0005884	actin filament	0.0134	OG0010771	Tfasc_v1.11913
+CC	GO:0071782	endoplasmic reticulum tubular network	0.0134	OG0019118	Tfasc_v1.07661
+CC	GO:0017087	mitochondrial processing peptidase complex	0.0161	OG0008413	Tfasc_v1.09334
+CC	GO:0030904	retromer complex	0.0188	OG0006306	Tfasc_v1.05914
+CC	GO:0005743	mitochondrial inner membrane	0.0188	OG0017825, OG0008413, OG0001884	Tfasc_v1.06515, Tfasc_v1.09334, Tfasc_v1.14418
+CC	GO:0005742	mitochondrial outer membrane translocase complex	0.024	OG0018674	Tfasc_v1.16453
+CC	GO:0005885	Arp2/3 protein complex	0.0267	OG0001368	Tfasc_v1.22332
+CC	GO:0005758	mitochondrial intermembrane space	0.0267	OG0001884	Tfasc_v1.14418
+CC	GO:0005739	mitochondrion	0.0328	OG0003054, OG0014217, OG0017825, OG0008413, OG0001884, OG0018674, OG0019352, OG0013742	Tfasc_v1.01078, Tfasc_v1.03761, Tfasc_v1.06515, Tfasc_v1.09334, Tfasc_v1.14418, Tfasc_v1.16453, Tfasc_v1.17912, Tfasc_v1.17913
+CC	GO:0009501	amyloplast	0.0372	OG0008356	Tfasc_v1.09430

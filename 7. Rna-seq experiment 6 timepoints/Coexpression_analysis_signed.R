@@ -46,26 +46,17 @@ text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col="red")
 # possible and a mean connectivity between 30 and 100. Therefore, I chose a soft-thresholding
 # power of 18, where R^2 is 0.7923 and the mean connectivity is 44
 softPower = 18;
-softPower2 = 16
-softPower3 = 14
 # Building the ajacency and Topological Overlap Matrix - this is the co-expression network
 adjacency = adjacency(datExpr, power = softPower, type = "signed")
-adjacency2 = adjacency(datExpr, power = softPower2, type = "signed")
-adjacency3 = adjacency(datExpr, power = softPower3, type = "signed")
 
 TOM = TOMsimilarity(adjacency);
-TOM2 = TOMsimilarity(adjacency2);
-TOM3 = TOMsimilarity(adjacency3);
 
 dissTOM = 1-TOM
-dissTOM2 = 1-TOM2
-dissTOM3 = 1-TOM3
+
 
 # Gene clustering
 # Call the hierarchical clustering function
 geneTree = hclust(as.dist(dissTOM), method = "average");
-geneTree2 = hclust(as.dist(dissTOM2), method = "average");
-geneTree3 = hclust(as.dist(dissTOM3), method = "average");
 
 # Plot the resulting clustering tree (dendrogram)
 sizeGrWindow(12,9)

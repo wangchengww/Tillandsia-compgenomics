@@ -1,0 +1,75 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0009684	indoleacetic acid biosynthetic process	0.0042	OG0015144	Tfasc_v1.02866
+BP	GO:1903457	lactate catabolic process	0.0042	OG0003070	Tfasc_v1.04355
+BP	GO:0019877	diaminopimelate biosynthetic process	0.0042	OG0002724	Tfasc_v1.26205
+BP	GO:0019252	starch biosynthetic process	0.0045	OG0001290, OG0003860	Tfasc_v1.05762, Tfasc_v1.07880
+BP	GO:0090071	negative regulation of ribosome biogenesis	0.0084	OG0012894	Tfasc_v1.09249
+BP	GO:0006750	glutathione biosynthetic process	0.0084	OG0014509	Tfasc_v1.12874
+BP	GO:0009590	detection of gravity	0.0084	OG0003860	Tfasc_v1.07880
+BP	GO:0051085	chaperone cofactor-dependent protein refolding	0.0111	OG0011476, OG0001367	Tfasc_v1.23133, Tfasc_v1.30290
+BP	GO:0005980	glycogen catabolic process	0.0126	OG0001290	Tfasc_v1.05762
+BP	GO:1901671	positive regulation of superoxide dismutase activity	0.0126	OG0011476	Tfasc_v1.23133
+BP	GO:0032955	regulation of division septum assembly	0.0126	OG0004066	Tfasc_v1.12076
+BP	GO:0045038	protein import into chloroplast thylakoid membrane	0.0126	OG0012615	Tfasc_v1.01903
+BP	GO:0070208	protein heterotrimerization	0.0126	OG0012615	Tfasc_v1.01903
+BP	GO:0071277	cellular response to calcium ion	0.0167	OG0003240	Tfasc_v1.09038
+BP	GO:0010104	regulation of ethylene-activated signaling pathway	0.0167	OG0013479	Tfasc_v1.11684
+BP	GO:0016444	somatic cell DNA recombination	0.0167	OG0000751	Tfasc_v1.23989
+BP	GO:0043489	RNA stabilization	0.0167	OG0008783	Tfasc_v1.24028
+BP	GO:0046506	sulfolipid biosynthetic process	0.0167	OG0009120	Tfasc_v1.29686
+BP	GO:0009851	auxin biosynthetic process	0.0205	OG0015144, OG0011090	Tfasc_v1.02866, Tfasc_v1.02868
+BP	GO:0006565	L-serine catabolic process	0.0209	OG0011152	Tfasc_v1.19373
+BP	GO:0019264	glycine biosynthetic process from serine	0.0209	OG0011152	Tfasc_v1.19373
+BP	GO:1904482	cellular response to tetrahydrofolate	0.0209	OG0011152	Tfasc_v1.19373
+BP	GO:0015979	photosynthesis	0.0227	OG0001269, OG0015443, OG0009367	Tfasc_v1.00232, Tfasc_v1.25888, Tfasc_v1.30088
+BP	GO:0002221	pattern recognition receptor signaling pathway	0.025	OG0003704	Tfasc_v1.22595
+BP	GO:0032544	plastid translation	0.025	OG0008783	Tfasc_v1.24028
+BP	GO:1900424	regulation of defense response to bacterium	0.0291	OG0003704	Tfasc_v1.22595
+BP	GO:0001682	tRNA 5'-leader removal	0.0291	OG0007960	Tfasc_v1.14966
+BP	GO:0010196	nonphotochemical quenching	0.0291	OG0008783	Tfasc_v1.24028
+BP	GO:0009660	amyloplast organization	0.0332	OG0001290	Tfasc_v1.05762
+BP	GO:0009704	de-etiolation	0.0332	OG0003240	Tfasc_v1.09038
+BP	GO:0046655	folic acid metabolic process	0.0332	OG0011152	Tfasc_v1.19373
+BP	GO:0006353	DNA-templated transcription, termination	0.0373	OG0008667	Tfasc_v1.04713
+BP	GO:0006011	UDP-glucose metabolic process	0.0373	OG0009120	Tfasc_v1.29686
+BP	GO:0005982	starch metabolic process	0.04	OG0001290, OG0003860, OG0005779	Tfasc_v1.05762, Tfasc_v1.07880, Tfasc_v1.14032
+BP	GO:0071483	cellular response to blue light	0.0414	OG0003822	Tfasc_v1.03043
+BP	GO:0051716	cellular response to stimulus	0.0443	OG0003822, OG0003240, OG0013479, OG0002101, OG0011152, OG0003704, OG0000751, OG0018125, OG0001367	Tfasc_v1.03043, Tfasc_v1.09038, Tfasc_v1.11684, Tfasc_v1.13229, Tfasc_v1.19373, Tfasc_v1.22595, Tfasc_v1.23989, Tfasc_v1.24489, Tfasc_v1.30290
+BP	GO:1901259	chloroplast rRNA processing	0.0454	OG0007822	Tfasc_v1.20391
+BP	GO:0090333	regulation of stomatal closure	0.0454	OG0003240	Tfasc_v1.09038
+BP	GO:0035999	tetrahydrofolate interconversion	0.0454	OG0011152	Tfasc_v1.19373
+BP	GO:0009607	response to biotic stimulus	0.0485	OG0002101, OG0015832, OG0003704	Tfasc_v1.13229, Tfasc_v1.18562, Tfasc_v1.22595
+MF	GO:0043864	indoleacetamide hydrolase activity	1.3e-05	OG0015144, OG0011090	Tfasc_v1.02866, Tfasc_v1.02868
+MF	GO:0004040	amidase activity	2e-04	OG0015144, OG0011090	Tfasc_v1.02866, Tfasc_v1.02868
+MF	GO:0043295	glutathione binding	0.0012	OG0016306, OG0014509	Tfasc_v1.06786, Tfasc_v1.12874
+MF	GO:0042803	protein homodimerization activity	0.0018	OG0005232, OG0014509, OG0006781	Tfasc_v1.10348, Tfasc_v1.12874, Tfasc_v1.27881
+MF	GO:0004458	D-lactate dehydrogenase (cytochrome) activity	0.0037	OG0003070	Tfasc_v1.04355
+MF	GO:0034336	misfolded RNA binding	0.0037	OG0008783	Tfasc_v1.24028
+MF	GO:0008720	D-lactate dehydrogenase activity	0.0037	OG0003070	Tfasc_v1.04355
+MF	GO:0004363	glutathione synthase activity	0.0037	OG0014509	Tfasc_v1.12874
+MF	GO:0097718	disordered domain specific binding	0.0074	OG0012615	Tfasc_v1.01903
+MF	GO:0019150	D-ribulokinase activity	0.0074	OG0004930	Tfasc_v1.11083
+MF	GO:0004614	phosphoglucomutase activity	0.0074	OG0003860	Tfasc_v1.07880
+MF	GO:0031405	lipoic acid binding	0.0074	OG0018415	Tfasc_v1.01516
+MF	GO:0008839	4-hydroxy-tetrahydrodipicolinate reductase	0.011	OG0002724	Tfasc_v1.26205
+MF	GO:0070402	NADPH binding	0.011	OG0002724	Tfasc_v1.26205
+MF	GO:0010301	xanthoxin dehydrogenase activity	0.011	OG0003516	Tfasc_v1.05885
+MF	GO:0019156	isoamylase activity	0.0147	OG0001290	Tfasc_v1.05762
+MF	GO:0070905	serine binding	0.0183	OG0011152	Tfasc_v1.19373
+MF	GO:0004372	glycine hydroxymethyltransferase activity	0.0183	OG0011152	Tfasc_v1.19373
+MF	GO:0003983	UTP:glucose-1-phosphate uridylyltransferase activity	0.0255	OG0009120	Tfasc_v1.29686
+MF	GO:0003729	mRNA binding	0.0279	OG0019547, OG0007822, OG0008783	Tfasc_v1.20019, Tfasc_v1.20391, Tfasc_v1.24028
+MF	GO:0016987	sigma factor activity	0.0291	OG0003822	Tfasc_v1.03043
+MF	GO:0043023	ribosomal large subunit binding	0.0327	OG0012894	Tfasc_v1.09249
+CC	GO:0009507	chloroplast	2e-07	OG0012615, OG0003822, OG0008482, OG0008667, OG0001290, OG0010432, OG0003860, OG0003240, OG0004930, OG0013846, OG0004066, OG0014509, OG0005779, OG0006025, OG0007822, OG0005261, OG0011476, OG0008783, OG0008794, OG0015443, OG0002724, OG0009238, OG0009120, OG0009367, OG0001367	Tfasc_v1.01903, Tfasc_v1.03043, Tfasc_v1.04668, Tfasc_v1.04713, Tfasc_v1.05762, Tfasc_v1.07706, Tfasc_v1.07880, Tfasc_v1.09038, Tfasc_v1.11083, Tfasc_v1.11134, Tfasc_v1.12076, Tfasc_v1.12874, Tfasc_v1.14032, Tfasc_v1.14438, Tfasc_v1.20391, Tfasc_v1.22845, Tfasc_v1.23133, Tfasc_v1.24028, Tfasc_v1.24054, Tfasc_v1.25888, Tfasc_v1.26205, Tfasc_v1.29339, Tfasc_v1.29686, Tfasc_v1.30088, Tfasc_v1.30290
+CC	GO:0009535	chloroplast thylakoid membrane	9.5e-05	OG0012615, OG0003240, OG0013846, OG0007822, OG0005261, OG0015443	Tfasc_v1.01903, Tfasc_v1.09038, Tfasc_v1.11134, Tfasc_v1.20391, Tfasc_v1.22845, Tfasc_v1.25888
+CC	GO:0009654	photosystem II oxygen evolving complex	0.0039	OG0001269, OG0009367	Tfasc_v1.00232, Tfasc_v1.30088
+CC	GO:0080085	signal recognition particle, chloroplast targeting	0.0043	OG0012615	Tfasc_v1.01903
+CC	GO:0009536	plastid	0.0043	OG0012615, OG0003822, OG0008482, OG0008667, OG0001290, OG0010432, OG0003860, OG0003240, OG0004930, OG0013846, OG0004066, OG0014509, OG0005779, OG0006025, OG0012770, OG0007822, OG0005261, OG0011476, OG0008783, OG0008794, OG0015443, OG0002724, OG0009260, OG0009238, OG0009120, OG0009367, OG0001367	Tfasc_v1.01903, Tfasc_v1.03043, Tfasc_v1.04668, Tfasc_v1.04713, Tfasc_v1.05762, Tfasc_v1.07706, Tfasc_v1.07880, Tfasc_v1.09038, Tfasc_v1.11083, Tfasc_v1.11134, Tfasc_v1.12076, Tfasc_v1.12874, Tfasc_v1.14032, Tfasc_v1.14438, Tfasc_v1.15761, Tfasc_v1.20391, Tfasc_v1.22845, Tfasc_v1.23133, Tfasc_v1.24028, Tfasc_v1.24054, Tfasc_v1.25888, Tfasc_v1.26205, Tfasc_v1.29302, Tfasc_v1.29339, Tfasc_v1.29686, Tfasc_v1.30088, Tfasc_v1.30290
+CC	GO:0009941	chloroplast envelope	0.0097	OG0012615, OG0003860, OG0013846, OG0004066, OG0005261, OG0015443	Tfasc_v1.01903, Tfasc_v1.07880, Tfasc_v1.11134, Tfasc_v1.12076, Tfasc_v1.22845, Tfasc_v1.25888
+CC	GO:0009706	chloroplast inner membrane	0.0216	OG0004066, OG0005261	Tfasc_v1.12076, Tfasc_v1.22845
+CC	GO:0043036	starch grain	0.0254	OG0005779	Tfasc_v1.14032
+CC	GO:0005737	cytoplasm	0.0284	OG0018415, OG0013777, OG0012615, OG0015144, OG0011090, OG0003822, OG0003070, OG0008482, OG0008667, OG0001290, OG0003516, OG0016306, OG0010432, OG0003860, OG0007087, OG0003240, OG0001351, OG0005232, OG0004930, OG0013846, OG0013479, OG0004066, OG0014509, OG0005779, OG0006025, OG0012770, OG0001257, OG0005543, OG0007822, OG0003704, OG0005261, OG0011476, OG0014727, OG0000751, OG0008783, OG0008794, OG0015443, OG0002724, OG0009260, OG0009238, OG0009120, OG0009367, OG0001367	Tfasc_v1.01516, Tfasc_v1.01715, Tfasc_v1.01903, Tfasc_v1.02866, Tfasc_v1.02868, Tfasc_v1.03043, Tfasc_v1.04355, Tfasc_v1.04668, Tfasc_v1.04713, Tfasc_v1.05762, Tfasc_v1.05885, Tfasc_v1.06786, Tfasc_v1.07706, Tfasc_v1.07880, Tfasc_v1.08771, Tfasc_v1.09038, Tfasc_v1.09040, Tfasc_v1.10348, Tfasc_v1.11083, Tfasc_v1.11134, Tfasc_v1.11684, Tfasc_v1.12076, Tfasc_v1.12874, Tfasc_v1.14032, Tfasc_v1.14438, Tfasc_v1.15761, Tfasc_v1.16114, Tfasc_v1.16544, Tfasc_v1.20391, Tfasc_v1.22595, Tfasc_v1.22845, Tfasc_v1.23133, Tfasc_v1.23620, Tfasc_v1.23989, Tfasc_v1.24028, Tfasc_v1.24054, Tfasc_v1.25888, Tfasc_v1.26205, Tfasc_v1.29302, Tfasc_v1.29339, Tfasc_v1.29686, Tfasc_v1.30088, Tfasc_v1.30290
+CC	GO:0019898	extrinsic component of membrane	0.0324	OG0001269, OG0009367	Tfasc_v1.00232, Tfasc_v1.30088
+CC	GO:0005786	signal recognition particle, endoplasmic reticulum targeting	0.042	OG0012615	Tfasc_v1.01903
+CC	GO:0009570	chloroplast stroma	0.0463	OG0008482, OG0003860, OG0005779, OG0008794, OG0015443, OG0002724	Tfasc_v1.04668, Tfasc_v1.07880, Tfasc_v1.14032, Tfasc_v1.24054, Tfasc_v1.25888, Tfasc_v1.26205

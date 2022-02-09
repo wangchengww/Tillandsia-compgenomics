@@ -1,0 +1,59 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0015969	guanosine tetraphosphate metabolic process	0.00031	OG0005421	Tfasc_v1.05495, Tfasc_v1.05497
+BP	GO:0009257	10-formyltetrahydrofolate biosynthetic process	0.0034	OG0007019	Tfasc_v1.08542
+BP	GO:0006069	ethanol oxidation	0.0034	OG0012006	Tfasc_v1.21640
+BP	GO:1990575	mitochondrial L-ornithine transmembrane transport	0.01016	OG0001041	Tfasc_v1.06569
+BP	GO:0006225	UDP biosynthetic process	0.01688	OG0009275	Tfasc_v1.29914
+BP	GO:0010286	heat acclimation	0.01688	OG0012006	Tfasc_v1.21640
+BP	GO:0010236	plastoquinone biosynthetic process	0.02022	OG0008183	Tfasc_v1.09775
+BP	GO:0006542	glutamine biosynthetic process	0.02022	OG0000363	Tfasc_v1.23407
+BP	GO:0045337	farnesyl diphosphate biosynthetic process	0.02022	OG0000373	Tfasc_v1.24876
+BP	GO:0019375	galactolipid biosynthetic process	0.02022	OG0001012	Tfasc_v1.29973
+BP	GO:0016567	protein ubiquitination	0.02636	OG0006208, OG0000107, OG0003622, OG0009983	Tfasc_v1.06176, Tfasc_v1.13041, Tfasc_v1.13600, Tfasc_v1.26581
+BP	GO:0006011	UDP-glucose metabolic process	0.03019	OG0013391	Tfasc_v1.03354
+BP	GO:0030497	fatty acid elongation	0.03019	OG0014846	Tfasc_v1.29625
+BP	GO:0046294	formaldehyde catabolic process	0.03019	OG0012006	Tfasc_v1.21640
+BP	GO:0009113	purine nucleobase biosynthetic process	0.03019	OG0007019	Tfasc_v1.08542
+BP	GO:0051017	actin filament bundle assembly	0.03677	OG0001242	Tfasc_v1.13825
+BP	GO:0010089	xylem development	0.04005	OG0010319	Tfasc_v1.13197
+BP	GO:0048658	anther wall tapetum development	0.04005	OG0016625	Tfasc_v1.06357
+BP	GO:0042761	very long-chain fatty acid biosynthetic process	0.04331	OG0014846	Tfasc_v1.29625
+BP	GO:0006355	regulation of transcription, DNA-templated	0.04527	OG0006248, OG0018514, OG0016625, OG0006020, OG0008139, OG0007885, OG0005486, OG0015420, OG0010124, OG0018887	Tfasc_v1.06023, Tfasc_v1.06276, Tfasc_v1.06357, Tfasc_v1.14451, Tfasc_v1.15343, Tfasc_v1.20513, Tfasc_v1.22490, Tfasc_v1.25950, Tfasc_v1.26859, Tfasc_v1.30235
+BP	GO:0009231	riboflavin biosynthetic process	0.04657	OG0006347	Tfasc_v1.05775
+MF	GO:0035639	purine ribonucleoside triphosphate binding	2.1e-05	OG0001302, OG0005421, OG0006347, OG0007019, OG0005228, OG0001137, OG0000107, OG0001812, OG0000363	Tfasc_v1.04740, Tfasc_v1.05495, Tfasc_v1.05497, Tfasc_v1.05775, Tfasc_v1.08542, Tfasc_v1.10278, Tfasc_v1.11088, Tfasc_v1.13041, Tfasc_v1.20963, Tfasc_v1.23407
+MF	GO:0032555	purine ribonucleotide binding	2.2e-05	OG0001302, OG0005421, OG0006347, OG0007019, OG0005228, OG0001137, OG0000107, OG0001812, OG0000363	Tfasc_v1.04740, Tfasc_v1.05495, Tfasc_v1.05497, Tfasc_v1.05775, Tfasc_v1.08542, Tfasc_v1.10278, Tfasc_v1.11088, Tfasc_v1.13041, Tfasc_v1.20963, Tfasc_v1.23407
+MF	GO:0004337	geranyltranstransferase activity	0.00033	OG0008183, OG0000373	Tfasc_v1.09775, Tfasc_v1.24876
+MF	GO:0080007	S-nitrosoglutathione reductase activity	0.00277	OG0012006	Tfasc_v1.21640
+MF	GO:0102158	very-long-chain 3-hydroxyacyl-CoA dehydratase activity	0.00553	OG0014846	Tfasc_v1.29625
+MF	GO:0102343	3-hydroxy-arachidoyl-CoA dehydratase activity	0.00553	OG0014846	Tfasc_v1.29625
+MF	GO:0102344	3-hydroxy-behenoyl-CoA dehydratase activity	0.00553	OG0014846	Tfasc_v1.29625
+MF	GO:0102345	3-hydroxy-lignoceroyl-CoA dehydratase activity	0.00553	OG0014846	Tfasc_v1.29625
+MF	GO:0004329	formate-tetrahydrofolate ligase activity	0.00553	OG0007019	Tfasc_v1.08542
+MF	GO:0052923	all-trans-nonaprenyl-diphosphate synthase (geranyl-diphosphate specific) activity	0.00553	OG0008183	Tfasc_v1.09775
+MF	GO:0004488	methylenetetrahydrofolate dehydrogenase (NADP+) activity	0.00828	OG0007019	Tfasc_v1.08542
+MF	GO:0004477	methenyltetrahydrofolate cyclohydrolase activity	0.00828	OG0007019	Tfasc_v1.08542
+MF	GO:0018812	3-hydroxyacyl-CoA dehydratase activity	0.00828	OG0014846	Tfasc_v1.29625
+MF	GO:0050347	trans-octaprenyltranstransferase activity	0.00828	OG0008183	Tfasc_v1.09775
+MF	GO:0000064	L-ornithine transmembrane transporter activity	0.01102	OG0001041	Tfasc_v1.06569
+MF	GO:0008686	3,4-dihydroxy-2-butanone-4-phosphate synthase activity	0.01102	OG0006347	Tfasc_v1.05775
+MF	GO:0003935	GTP cyclohydrolase II activity	0.01102	OG0006347	Tfasc_v1.05775
+MF	GO:0047631	ADP-ribose diphosphatase activity	0.01376	OG0006173	Tfasc_v1.06282
+MF	GO:0033862	UMP kinase activity	0.01376	OG0009275	Tfasc_v1.29914
+MF	GO:0004161	dimethylallyltranstransferase activity	0.01376	OG0000373	Tfasc_v1.24876
+MF	GO:0035529	NADH pyrophosphatase activity	0.01649	OG0006173	Tfasc_v1.06282
+MF	GO:0004356	glutamate-ammonia ligase activity	0.01649	OG0000363	Tfasc_v1.23407
+MF	GO:0005049	nuclear export signal receptor activity	0.01649	OG0003989	Tfasc_v1.07625
+MF	GO:0003983	UTP:glucose-1-phosphate uridylyltransferase activity	0.01921	OG0013391	Tfasc_v1.03354
+MF	GO:0004024	alcohol dehydrogenase activity, zinc-dependent	0.02193	OG0012006	Tfasc_v1.21640
+MF	GO:0051903	S-(hydroxymethyl)glutathione dehydrogenase activity	0.02193	OG0012006	Tfasc_v1.21640
+MF	GO:0033204	ribonuclease P RNA binding	0.03271	OG0000391	Tfasc_v1.10397
+MF	GO:0000171	ribonuclease MRP activity	0.03539	OG0000391	Tfasc_v1.10397
+MF	GO:0035250	UDP-galactosyltransferase activity	0.04604	OG0001012	Tfasc_v1.29973
+MF	GO:0030515	snoRNA binding	0.04604	OG0005032	Tfasc_v1.28235
+CC	GO:0005673	transcription factor TFIIE complex	0.007	OG0003998	Tfasc_v1.18344
+CC	GO:0016363	nuclear matrix	0.011	OG0005032	Tfasc_v1.28235
+CC	GO:0034457	Mpp10 complex	0.014	OG0005032	Tfasc_v1.28235
+CC	GO:0000439	transcription factor TFIIH core complex	0.018	OG0006020	Tfasc_v1.14451
+CC	GO:0009507	chloroplast	0.029	OG0005421, OG0006347, OG0001041, OG0007257, OG0008183, OG0008139, OG0001012	Tfasc_v1.05495, Tfasc_v1.05497, Tfasc_v1.05775, Tfasc_v1.06569, Tfasc_v1.09113, Tfasc_v1.09775, Tfasc_v1.15343, Tfasc_v1.29973
+CC	GO:0005675	transcription factor TFIIH holo complex	0.038	OG0006020	Tfasc_v1.14451
+CC	GO:0005634	nucleus	0.044	OG0017226, OG0013251, OG0006248, OG0006208, OG0018514, OG0016625, OG0003989, OG0000391, OG0001137, OG0003622, OG0005999, OG0006020, OG0003998, OG0007885, OG0005486, OG0014257, OG0015420, OG0010124, OG0005032	Tfasc_v1.00120, Tfasc_v1.02057, Tfasc_v1.06023, Tfasc_v1.06176, Tfasc_v1.06276, Tfasc_v1.06357, Tfasc_v1.07625, Tfasc_v1.10397, Tfasc_v1.11088, Tfasc_v1.13600, Tfasc_v1.14417, Tfasc_v1.14451, Tfasc_v1.18344, Tfasc_v1.20513, Tfasc_v1.22490, Tfasc_v1.25837, Tfasc_v1.25950, Tfasc_v1.26859, Tfasc_v1.28235

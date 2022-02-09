@@ -1,0 +1,46 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0051016	barbed-end actin filament capping	0.00015	OG0007810, OG0016443	Tfasc_v1.20340, Tfasc_v1.20344
+BP	GO:0045292	mRNA cis splicing, via spliceosome	0.00202	OG0001686	Tfasc_v1.11647, Tfasc_v1.11649
+BP	GO:0046081	dUTP catabolic process	0.00535	OG0001414	Tfasc_v1.01277
+BP	GO:0006226	dUMP biosynthetic process	0.00535	OG0001414	Tfasc_v1.01277
+BP	GO:0000902	cell morphogenesis	0.00812	OG0003412, OG0007810, OG0016443	Tfasc_v1.15104, Tfasc_v1.20340, Tfasc_v1.20344
+BP	GO:0071277	cellular response to calcium ion	0.01068	OG0003240	Tfasc_v1.09038
+BP	GO:0035542	regulation of SNARE complex assembly	0.01598	OG0016049	Tfasc_v1.13526
+BP	GO:0019375	galactolipid biosynthetic process	0.01598	OG0001012	Tfasc_v1.22751
+BP	GO:2000779	regulation of double-strand break repair	0.01862	OG0015952	Tfasc_v1.12116
+BP	GO:0006782	protoporphyrinogen IX biosynthetic process	0.02125	OG0010011	Tfasc_v1.26617
+BP	GO:0071902	positive regulation of protein serine/threonine kinase activity	0.02125	OG0011870	Tfasc_v1.23352
+BP	GO:0007155	cell adhesion	0.02125	OG0001146	Tfasc_v1.12613
+BP	GO:0009228	thiamine biosynthetic process	0.02125	OG0012970	Tfasc_v1.02373
+BP	GO:0009704	de-etiolation	0.02125	OG0003240	Tfasc_v1.09038
+BP	GO:0045338	farnesyl diphosphate metabolic process	0.02125	OG0014626	Tfasc_v1.04208
+BP	GO:0030259	lipid glycosylation	0.02125	OG0019356	Tfasc_v1.17990
+BP	GO:0010214	seed coat development	0.0265	OG0019356	Tfasc_v1.17990
+BP	GO:0007032	endosome organization	0.02911	OG0016049	Tfasc_v1.13526
+BP	GO:0070413	trehalose metabolism in response to stress	0.02911	OG0018511	Tfasc_v1.06212
+BP	GO:0090333	regulation of stomatal closure	0.02911	OG0003240	Tfasc_v1.09038
+BP	GO:0009408	response to heat	0.03043	OG0007810, OG0016443	Tfasc_v1.20340, Tfasc_v1.20344
+BP	GO:0006783	heme biosynthetic process	0.03589	OG0010011, OG0009408	Tfasc_v1.26617, Tfasc_v1.30163
+BP	GO:0080156	mitochondrial mRNA modification	0.0369	OG0018983	Tfasc_v1.08861
+BP	GO:0009813	flavonoid biosynthetic process	0.03949	OG0019356	Tfasc_v1.17990
+BP	GO:0006904	vesicle docking involved in exocytosis	0.04976	OG0016049	Tfasc_v1.13526
+BP	GO:0010229	inflorescence development	0.04976	OG0000875	Tfasc_v1.00696
+MF	GO:0004170	dUTP diphosphatase activity	0.0051	OG0001414	Tfasc_v1.01277
+MF	GO:0061634	alpha-D-xyloside xylohydrolase	0.0051	OG0003626	Tfasc_v1.15214
+MF	GO:0004729	oxygen-dependent protoporphyrinogen oxidase activity	0.0051	OG0010011	Tfasc_v1.26617
+MF	GO:0051015	actin filament binding	0.0083	OG0007810, OG0016443	Tfasc_v1.20340, Tfasc_v1.20344
+MF	GO:0016906	sterol 3-beta-glucosyltransferase activity	0.0101	OG0019356	Tfasc_v1.17990
+MF	GO:0004325	ferrochelatase activity	0.0126	OG0009408	Tfasc_v1.30163
+MF	GO:0051996	squalene synthase activity	0.0126	OG0014626	Tfasc_v1.04208
+MF	GO:0004310	farnesyl-diphosphate farnesyltransferase activity	0.0126	OG0014626	Tfasc_v1.04208
+MF	GO:0030626	U12 snRNA binding	0.0201	OG0000875	Tfasc_v1.00696
+MF	GO:0097157	pre-mRNA intronic binding	0.0226	OG0000875	Tfasc_v1.00696
+MF	GO:0043539	protein serine/threonine kinase activator activity	0.0226	OG0011870	Tfasc_v1.23352
+MF	GO:0043295	glutathione binding	0.0349	OG0012367	Tfasc_v1.06785
+MF	GO:0035250	UDP-galactosyltransferase activity	0.0423	OG0001012	Tfasc_v1.22751
+MF	GO:0015450	protein-transporting ATPase activity	0.0471	OG0019506	Tfasc_v1.19478
+CC	GO:0008290	F-actin capping protein complex	0.00017	OG0007810, OG0016443	Tfasc_v1.20340, Tfasc_v1.20344
+CC	GO:0009707	chloroplast outer membrane	0.00578	OG0019506, OG0001012	Tfasc_v1.19478, Tfasc_v1.22751
+CC	GO:0005681	spliceosomal complex	0.01992	OG0001686, OG0001146	Tfasc_v1.11647, Tfasc_v1.11649, Tfasc_v1.12613
+CC	GO:0030897	HOPS complex	0.02032	OG0016049	Tfasc_v1.13526
+CC	GO:0043229	intracellular organelle	0.03354	OG0000875, OG0012970, OG0014626, OG0006317, OG0012363, OG0011093, OG0018983, OG0003240, OG0017584, OG0001686, OG0015952, OG0013995, OG0001146, OG0013031, OG0005319, OG0016049, OG0018700, OG0019356, OG0011316, OG0019506, OG0011225, OG0007720, OG0007810, OG0016443, OG0001012, OG0010011, OG0009408	Tfasc_v1.00696, Tfasc_v1.02373, Tfasc_v1.04208, Tfasc_v1.05903, Tfasc_v1.06773, Tfasc_v1.08031, Tfasc_v1.08861, Tfasc_v1.09038, Tfasc_v1.09896, Tfasc_v1.11647, Tfasc_v1.11649, Tfasc_v1.12116, Tfasc_v1.12302, Tfasc_v1.12613, Tfasc_v1.13168, Tfasc_v1.13329, Tfasc_v1.13526, Tfasc_v1.16864, Tfasc_v1.17990, Tfasc_v1.18235, Tfasc_v1.19478, Tfasc_v1.19536, Tfasc_v1.20151, Tfasc_v1.20340, Tfasc_v1.20344, Tfasc_v1.22751, Tfasc_v1.26617, Tfasc_v1.30163

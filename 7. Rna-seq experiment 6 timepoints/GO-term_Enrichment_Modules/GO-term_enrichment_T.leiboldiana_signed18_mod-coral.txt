@@ -1,0 +1,37 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0080163	regulation of protein serine/threonine phosphatase activity	3.9e-06	OG0000495	Tfasc_v1.27451, Tfasc_v1.27588, Tfasc_v1.27589
+BP	GO:0032515	negative regulation of phosphoprotein phosphatase activity	7.8e-06	OG0000495	Tfasc_v1.27451, Tfasc_v1.27588, Tfasc_v1.27589
+BP	GO:0009738	abscisic acid-activated signaling pathway	0.00027	OG0000495	Tfasc_v1.27451, Tfasc_v1.27588, Tfasc_v1.27589
+BP	GO:0006284	base-excision repair	0.00094	OG0001592	Tfasc_v1.18873, Tfasc_v1.18874
+BP	GO:0009808	lignin metabolic process	0.00243	OG0004547	Tfasc_v1.04866, Tfasc_v1.06459
+BP	GO:0042218	1-aminocyclopropane-1-carboxylate biosynthetic process	0.00398	OG0013764	Tfasc_v1.01748
+BP	GO:0046345	abscisic acid catabolic process	0.00398	OG0018968	Tfasc_v1.08669
+BP	GO:0016125	sterol metabolic process	0.00512	OG0015366, OG0018968	Tfasc_v1.02329, Tfasc_v1.08669
+BP	GO:0071918	urea transmembrane transport	0.00596	OG0011621	Tfasc_v1.00136
+BP	GO:0009718	anthocyanin-containing compound biosynthetic process	0.00596	OG0006291	Tfasc_v1.05961
+BP	GO:0046177	D-gluconate catabolic process	0.00794	OG0014386	Tfasc_v1.28118
+BP	GO:0006542	glutamine biosynthetic process	0.01189	OG0000363	Tfasc_v1.28774
+BP	GO:0009607	response to biotic stimulus	0.01374	OG0000495	Tfasc_v1.27451, Tfasc_v1.27588, Tfasc_v1.27589
+BP	GO:0009687	abscisic acid metabolic process	0.01522	OG0015366, OG0018968	Tfasc_v1.02329, Tfasc_v1.08669
+BP	GO:0009959	negative gravitropism	0.02754	OG0007901	Tfasc_v1.14830
+BP	GO:0006833	water transport	0.03334	OG0011621	Tfasc_v1.00136
+BP	GO:0016132	brassinosteroid biosynthetic process	0.03911	OG0018968	Tfasc_v1.08669
+BP	GO:0010268	brassinosteroid homeostasis	0.04294	OG0018968	Tfasc_v1.08669
+MF	GO:0010427	abscisic acid binding	6.8e-06	OG0000495	Tfasc_v1.27451, Tfasc_v1.27588, Tfasc_v1.27589
+MF	GO:0004864	protein phosphatase inhibitor activity	1.4e-05	OG0000495	Tfasc_v1.27451, Tfasc_v1.27588, Tfasc_v1.27589
+MF	GO:0008725	DNA-3-methyladenine glycosylase activity	3.8e-05	OG0001592	Tfasc_v1.18873, Tfasc_v1.18874
+MF	GO:0016710	trans-cinnamate 4-monooxygenase activity	3.8e-05	OG0004547	Tfasc_v1.04866, Tfasc_v1.06459
+MF	GO:0005506	iron ion binding	0.00022	OG0015366, OG0004547, OG0002986, OG0018968	Tfasc_v1.02329, Tfasc_v1.04866, Tfasc_v1.06236, Tfasc_v1.06459, Tfasc_v1.08669
+MF	GO:0020037	heme binding	0.00044	OG0015366, OG0004547, OG0002986, OG0018968	Tfasc_v1.02329, Tfasc_v1.04866, Tfasc_v1.06236, Tfasc_v1.06459, Tfasc_v1.08669
+MF	GO:0046316	gluconokinase activity	0.00199	OG0014386	Tfasc_v1.28118
+MF	GO:0016847	1-aminocyclopropane-1-carboxylate synthase activity	0.00398	OG0013764	Tfasc_v1.01748
+MF	GO:0010295	(+)-abscisic acid 8'-hydroxylase activity	0.00597	OG0018968	Tfasc_v1.08669
+MF	GO:0015204	urea transmembrane transporter activity	0.00597	OG0011621	Tfasc_v1.00136
+MF	GO:0008447	L-ascorbate oxidase activity	0.00795	OG0015019	Tfasc_v1.14727
+MF	GO:0038023	signaling receptor activity	0.00807	OG0000495	Tfasc_v1.27451, Tfasc_v1.27588, Tfasc_v1.27589
+MF	GO:0033897	ribonuclease T2 activity	0.00992	OG0006291	Tfasc_v1.05961
+MF	GO:0003677	DNA binding	0.01016	OG0013295, OG0017025, OG0004818, OG0010472, OG0003199, OG0007958, OG0012081, OG0003896	Tfasc_v1.02162, Tfasc_v1.03416, Tfasc_v1.06536, Tfasc_v1.07636, Tfasc_v1.08675, Tfasc_v1.14962, Tfasc_v1.21467, Tfasc_v1.26868
+MF	GO:0004356	glutamate-ammonia ligase activity	0.0119	OG0000363	Tfasc_v1.28774
+MF	GO:0016174	NAD(P)H oxidase H2O2-forming activity	0.0256	OG0018428	Tfasc_v1.04944
+MF	GO:0015250	water channel activity	0.02948	OG0011621	Tfasc_v1.00136
+MF	GO:0046983	protein dimerization activity	0.03362	OG0003044, OG0006197, OG0007757	Tfasc_v1.05645, Tfasc_v1.06204, Tfasc_v1.20263
