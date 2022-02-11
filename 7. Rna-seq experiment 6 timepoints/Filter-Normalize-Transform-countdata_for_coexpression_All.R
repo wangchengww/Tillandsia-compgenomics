@@ -43,6 +43,11 @@ sum(idx)
 dds <- dds[idx,]
 
 write.table(counts(dds, normalized=TRUE), file = "counts.Tfas_Tlei_6_timepoints.filtr-normalized_DESEQ2.txt")
+t <- read.delim("counts.Tfas_Tlei_6_timepoints.filtr-normalized_DESEQ2.txt", sep = " ")
+tfas <- t[, c(1:36)]
+write.table(tfas, file = "counts.Tfas.6_timepoints.filtr-JOINTLY-normalized_DESEQ2.txt", sep = "\t", quote = F)
+tlei <- t[, c(37:72)]
+write.table(tlei, file = "counts.Tlei.6_timepoints.filtr-JOINTLY-normalized_DESEQ2.txt", sep = "\t", quote = F)
 
 dds <- DESeq(dds)
 
