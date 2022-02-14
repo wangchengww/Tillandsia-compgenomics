@@ -120,4 +120,10 @@ In the end, I constructed unsigned networks for Tfas and Tlei separately with SF
   			echo $mod1 $mod2 $overlap $count1 $count2 >> Overlap_genes_Tfas_Tlei_mods_unsigned8.txt
   		done; done
 
-I also visualized singular gene expression curves in both species with the Rscript `Expression_curves_genes.R`.
+I also visualized singular gene expression curves in both species with the Rscript `Expression_curves_genes.R`:
+
+		cat ../malate_genes_T.leiboldiana_unsigned8.txt | while read line; do   
+			gene=`echo $line`;   
+			echo $gene;   
+			Rscript ../../Script_Expression_curves_per-gene.R ../../counts.Tfas.6_timepoints.filtr-normalized_DESEQ2.txt ../../counts.Tlei.6_timepoints.filtr-normalized_DESEQ2.txt $gene ../../orthogroup_info_for_GOterm_enrichment.txt;
+		done

@@ -13,7 +13,7 @@ args <- commandArgs(trailingOnly = TRUE)
 # Load data
 counts <- read.table(args[[1]], header = T, row.names = 1)
 genes <- scan(args[[2]], character(), quote = "")
-module <- str_split(args[[2]], "\\_|\\.")[[1]][6]
+module <- str_split(args[[2]], "\\_|\\.")[[1]][5]
 species <- str_split(args[[2]], "\\_|\\.")[[1]][3]
 network <- str_split(args[[2]], "\\_|\\.")[[1]][4]
 goterms <- read.delim(args[[3]], sep = "\t", header = T)

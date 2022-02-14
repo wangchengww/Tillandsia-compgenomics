@@ -1,0 +1,56 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0006517	protein deglycosylation	0.00015	OG0004317, OG0006448	Tfasc_v1.00307, Tfasc_v1.01132
+BP	GO:0055089	fatty acid homeostasis	0.00273	OG0013533	Tfasc_v1.20949
+BP	GO:0044794	positive regulation by host of viral process	0.00273	OG0004303	Tfasc_v1.00244
+BP	GO:0070328	triglyceride homeostasis	0.00273	OG0013533	Tfasc_v1.20949
+BP	GO:0006166	purine ribonucleoside salvage	0.00273	OG0003987	Tfasc_v1.07641
+BP	GO:0016045	detection of bacterium	0.00273	OG0015710	Tfasc_v1.26891
+BP	GO:0006516	glycoprotein catabolic process	0.00273	OG0006448	Tfasc_v1.01132
+BP	GO:0055091	phospholipid homeostasis	0.00273	OG0013533	Tfasc_v1.20949
+BP	GO:0006468	protein phosphorylation	0.00467	OG0011299, OG0012654, OG0018015, OG0018044, OG0014130, OG0010742, OG0000892, OG0018223, OG0015710	Tfasc_v1.00594, Tfasc_v1.01962, Tfasc_v1.09444, Tfasc_v1.09898, Tfasc_v1.09900, Tfasc_v1.11965, Tfasc_v1.11982, Tfasc_v1.22692, Tfasc_v1.26891
+BP	GO:0010188	response to microbial phytotoxin	0.00546	OG0006448	Tfasc_v1.01132
+BP	GO:0010359	regulation of anion channel activity	0.00546	OG0015710	Tfasc_v1.26891
+BP	GO:0006865	amino acid transport	0.00778	OG0000420, OG0013876, OG0009365	Tfasc_v1.17474, Tfasc_v1.18001, Tfasc_v1.30089
+BP	GO:0006167	AMP biosynthetic process	0.00818	OG0003987	Tfasc_v1.07641
+BP	GO:0052544	defense response by callose deposition in cell wall	0.00818	OG0015710	Tfasc_v1.26891
+BP	GO:0003333	amino acid transmembrane transport	0.01605	OG0000420, OG0013876	Tfasc_v1.17474, Tfasc_v1.18001
+BP	GO:0006574	valine catabolic process	0.01629	OG0003445	Tfasc_v1.09795
+BP	GO:0015977	carbon fixation	0.01898	OG0001504	Tfasc_v1.09872
+BP	GO:0006898	receptor-mediated endocytosis	0.02372	OG0015710, OG0003130	Tfasc_v1.26891, Tfasc_v1.27985
+BP	GO:0043162	ubiquitin-dependent protein catabolic process via the multivesicular body sorting pathway	0.02434	OG0005869	Tfasc_v1.14164
+BP	GO:0048268	clathrin coat assembly	0.02968	OG0003130	Tfasc_v1.27985
+BP	GO:1901642	nucleoside transmembrane transport	0.02968	OG0011007	Tfasc_v1.10782
+BP	GO:0010193	response to ozone	0.03498	OG0006448	Tfasc_v1.01132
+BP	GO:0071712	ER-associated misfolded protein catabolic process	0.03762	OG0010735	Tfasc_v1.12004
+BP	GO:0009691	cytokinin biosynthetic process	0.04025	OG0008786	Tfasc_v1.24027
+BP	GO:0006654	phosphatidic acid biosynthetic process	0.04025	OG0013533	Tfasc_v1.20949
+BP	GO:0042742	defense response to bacterium	0.04181	OG0018223, OG0015710	Tfasc_v1.22692, Tfasc_v1.26891
+BP	GO:0006085	acetyl-CoA biosynthetic process	0.04288	OG0001319	Tfasc_v1.01600
+BP	GO:0046470	phosphatidylcholine metabolic process	0.0455	OG0001499	Tfasc_v1.14561
+BP	GO:0009395	phospholipid catabolic process	0.04811	OG0001499	Tfasc_v1.14561
+BP	GO:0072583	clathrin-dependent endocytosis	0.04811	OG0003130	Tfasc_v1.27985
+MF	GO:0004672	protein kinase activity	1e-05	OG0011299, OG0012654, OG0018015, OG0018044, OG0014130, OG0010742, OG0000892, OG0018223, OG0015710	Tfasc_v1.00594, Tfasc_v1.01962, Tfasc_v1.09444, Tfasc_v1.09898, Tfasc_v1.09900, Tfasc_v1.11965, Tfasc_v1.11982, Tfasc_v1.22692, Tfasc_v1.26891
+MF	GO:0004001	adenosine kinase activity	0.0025	OG0003987	Tfasc_v1.07641
+MF	GO:0033925	mannosyl-glycoprotein endo-beta-N-acetylglucosaminidase activity	0.0025	OG0004317	Tfasc_v1.00307
+MF	GO:0033853	aspartate-prephenate aminotransferase activity	0.005	OG0009659	Tfasc_v1.16099
+MF	GO:0033854	glutamate-prephenate aminotransferase activity	0.005	OG0009659	Tfasc_v1.16099
+MF	GO:0000224	peptide-N4-(N-acetyl-beta-glucosaminyl)asparagine amidase activity	0.005	OG0006448	Tfasc_v1.01132
+MF	GO:0003878	ATP citrate synthase activity	0.005	OG0001319	Tfasc_v1.01600
+MF	GO:0008964	phosphoenolpyruvate carboxylase activity	0.0076	OG0001504	Tfasc_v1.09872
+MF	GO:0003871	5-methyltetrahydropteroyltriglutamate-homocysteine S-methyltransferase activity	0.0076	OG0000589	Tfasc_v1.04346
+MF	GO:0015171	amino acid transmembrane transporter activity	0.0117	OG0000420, OG0013876	Tfasc_v1.17474, Tfasc_v1.18001
+MF	GO:0003841	1-acylglycerol-3-phosphate O-acyltransferase activity	0.0126	OG0013533	Tfasc_v1.20949
+MF	GO:0017112	Rab guanyl-nucleotide exchange factor activity	0.0126	OG0012492	Tfasc_v1.04983
+MF	GO:0003860	3-hydroxyisobutyryl-CoA hydrolase activity	0.0126	OG0003445	Tfasc_v1.09795
+MF	GO:0004623	phospholipase A2 activity	0.0176	OG0013533	Tfasc_v1.20949
+MF	GO:0004576	oligosaccharyl transferase activity	0.0176	OG0008345	Tfasc_v1.09475
+MF	GO:0004069	L-aspartate:2-oxoglutarate aminotransferase activity	0.0176	OG0009659	Tfasc_v1.16099
+MF	GO:0005545	1-phosphatidylinositol binding	0.0225	OG0003130	Tfasc_v1.27985
+MF	GO:0032050	clathrin heavy chain binding	0.025	OG0003130	Tfasc_v1.27985
+MF	GO:0005546	phosphatidylinositol-4,5-bisphosphate binding	0.0275	OG0003130	Tfasc_v1.27985
+MF	GO:0005337	nucleoside transmembrane transporter activity	0.0275	OG0011007	Tfasc_v1.10782
+MF	GO:0032440	2-alkenal reductase [NAD(P)+] activity	0.0348	OG0001504	Tfasc_v1.09872
+CC	GO:0034066	RIC1-RGP1 guanyl-nucleotide exchange factor complex	0.0031	OG0012492	Tfasc_v1.04983
+CC	GO:0016021	integral component of membrane	0.0105	OG0012492, OG0004849, OG0013544, OG0010425, OG0016964, OG0011127, OG0012879, OG0018015, OG0008345, OG0018044, OG0014130, OG0011007, OG0000543, OG0010742, OG0000892, OG0010735, OG0013992, OG0015261, OG0008015, OG0000420, OG0013876, OG0001380, OG0015710, OG0009365	Tfasc_v1.04983, Tfasc_v1.06070, Tfasc_v1.06127, Tfasc_v1.07697, Tfasc_v1.07963, Tfasc_v1.07964, Tfasc_v1.09234, Tfasc_v1.09444, Tfasc_v1.09475, Tfasc_v1.09898, Tfasc_v1.09900, Tfasc_v1.10782, Tfasc_v1.11648, Tfasc_v1.11965, Tfasc_v1.11982, Tfasc_v1.12004, Tfasc_v1.12292, Tfasc_v1.13333, Tfasc_v1.15037, Tfasc_v1.17474, Tfasc_v1.18001, Tfasc_v1.23324, Tfasc_v1.26891, Tfasc_v1.30089
+CC	GO:0005829	cytosol	0.0134	OG0006448, OG0001319, OG0000589, OG0012492, OG0003987, OG0001665, OG0001504, OG0008786	Tfasc_v1.01132, Tfasc_v1.01600, Tfasc_v1.04346, Tfasc_v1.04983, Tfasc_v1.07641, Tfasc_v1.08304, Tfasc_v1.09872, Tfasc_v1.24027
+CC	GO:0000813	ESCRT I complex	0.0153	OG0005869	Tfasc_v1.14164
