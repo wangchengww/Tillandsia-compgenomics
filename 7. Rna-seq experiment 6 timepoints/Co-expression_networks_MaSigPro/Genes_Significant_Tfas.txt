@@ -1,0 +1,9 @@
+summary[apply(summary, 1, not.all.empty), ]
+Tfasc_v1.09772
+Tfasc_v1.23972
+Tfasc_v1.03128
+Tfasc_v1.08596
+Tfasc_v1.08668
+Tfasc_v1.19305
+Tfasc_v1.15727
+Tfasc_v1.28072
