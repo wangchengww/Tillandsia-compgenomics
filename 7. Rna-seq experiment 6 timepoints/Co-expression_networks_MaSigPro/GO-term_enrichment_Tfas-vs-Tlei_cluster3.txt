@@ -1,0 +1,60 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:1902600	proton transmembrane transport	0.00041	OG0008394, OG0019211, OG0014852, OG0004150, OG0004832, OG0004636	Tfasc_v1.09378, Tfasc_v1.14165, Tfasc_v1.15749, Tfasc_v1.16080, Tfasc_v1.17712, Tfasc_v1.18209
+BP	GO:0033316	meiotic spindle assembly checkpoint	0.00539	OG0017117	Tfasc_v1.23880
+BP	GO:0034501	protein localization to kinetochore	0.00539	OG0017117	Tfasc_v1.23880
+BP	GO:0019252	starch biosynthetic process	0.00734	OG0009067, OG0001599	Tfasc_v1.16595, Tfasc_v1.25528
+BP	GO:0000045	autophagosome assembly	0.0106	OG0009931, OG0015143	Tfasc_v1.25482, Tfasc_v1.25483
+BP	GO:0000381	regulation of alternative mRNA splicing, via spliceosome	0.01206	OG0002688	Tfasc_v1.12834, Tfasc_v1.12835
+BP	GO:0032955	regulation of division septum assembly	0.0161	OG0004066	Tfasc_v1.12076
+BP	GO:0010142	farnesyl diphosphate biosynthetic process, mevalonate pathway	0.0161	OG0015395	Tfasc_v1.02234
+BP	GO:0080178	5-carbamoylmethyl uridine residue modification	0.0161	OG0004228	Tfasc_v1.28947
+BP	GO:0051391	tRNA acetylation	0.0161	OG0000755	Tfasc_v1.29359
+BP	GO:1904812	rRNA acetylation involved in maturation of SSU-rRNA	0.0161	OG0000755	Tfasc_v1.29359
+BP	GO:0019287	isopentenyl diphosphate biosynthetic process, mevalonate pathway	0.0214	OG0015395	Tfasc_v1.02234
+BP	GO:0018027	peptidyl-lysine dimethylation	0.0214	OG0013508	Tfasc_v1.24566
+BP	GO:0106005	RNA 5'-cap (guanine-N7)-methylation	0.0214	OG0004363	Tfasc_v1.08243
+BP	GO:0010021	amylopectin biosynthetic process	0.02668	OG0009067	Tfasc_v1.16595
+BP	GO:0007035	vacuolar acidification	0.02668	OG0008394	Tfasc_v1.09378
+BP	GO:0071481	cellular response to X-ray	0.02668	OG0005479	Tfasc_v1.24843
+BP	GO:0033542	fatty acid beta-oxidation, unsaturated, even number	0.02668	OG0016186	Tfasc_v1.13574
+BP	GO:0019427	acetyl-CoA biosynthetic process from acetate	0.03194	OG0018842	Tfasc_v1.02800
+BP	GO:0070979	protein K11-linked ubiquitination	0.03194	OG0008581	Tfasc_v1.04493
+BP	GO:0071480	cellular response to gamma radiation	0.03194	OG0005479	Tfasc_v1.24843
+BP	GO:0006370	7-methylguanosine mRNA capping	0.03194	OG0004363	Tfasc_v1.08243
+BP	GO:0006120	mitochondrial electron transport, NADH to ubiquinone	0.03716	OG0010628	Tfasc_v1.28371
+BP	GO:0006624	vacuolar protein processing	0.03716	OG0001645	Tfasc_v1.28420
+BP	GO:0045842	positive regulation of mitotic metaphase/anaphase transition	0.04236	OG0008581	Tfasc_v1.04493
+BP	GO:0009960	endosperm development	0.04752	OG0009067	Tfasc_v1.16595
+MF	GO:0046961	proton-transporting ATPase activity, rotational mechanism	4.2e-06	OG0008394, OG0019211, OG0004150, OG0004832	Tfasc_v1.09378, Tfasc_v1.14165, Tfasc_v1.16080, Tfasc_v1.17712
+MF	GO:0008553	proton-exporting ATPase activity, phosphorylative mechanism	7.4e-05	OG0008394, OG0004832, OG0004636	Tfasc_v1.09378, Tfasc_v1.17712, Tfasc_v1.18209
+MF	GO:0004373	glycogen (starch) synthase activity	0.00044	OG0009067, OG0001599	Tfasc_v1.16595, Tfasc_v1.25528
+MF	GO:0033201	alpha-1,4-glucan synthase activity	0.00463	OG0009067	Tfasc_v1.16595
+MF	GO:0004631	phosphomevalonate kinase activity	0.00463	OG0015395	Tfasc_v1.02234
+MF	GO:0000248	C-5 sterol desaturase activity	0.00463	OG0012416	Tfasc_v1.16794
+MF	GO:0004691	cAMP-dependent protein kinase activity	0.00463	OG0005854	Tfasc_v1.14130
+MF	GO:0018392	glycoprotein 3-alpha-L-fucosyltransferase activity	0.00463	OG0014590	Tfasc_v1.18741
+MF	GO:1990883	rRNA cytidine N-acetyltransferase activity	0.01383	OG0000755	Tfasc_v1.29359
+MF	GO:0009011	starch synthase activity	0.01383	OG0009067	Tfasc_v1.16595
+MF	GO:0004482	mRNA (guanine-N7-)-methyltransferase activity	0.0184	OG0004363	Tfasc_v1.08243
+MF	GO:0080023	3R-hydroxyacyl-CoA dehydratase activity	0.02295	OG0016186	Tfasc_v1.13574
+MF	GO:0047196	long-chain-alcohol O-fatty-acyltransferase activity	0.02295	OG0014986	Tfasc_v1.14811
+MF	GO:0004300	enoyl-CoA hydratase activity	0.02748	OG0006909	Tfasc_v1.27667
+MF	GO:0004386	helicase activity	0.03051	OG0001795, OG0016188, OG0005479, OG0001517	Tfasc_v1.12854, Tfasc_v1.16552, Tfasc_v1.24843, Tfasc_v1.27134
+MF	GO:0004362	glutathione-disulfide reductase activity	0.03198	OG0001663	Tfasc_v1.15855
+MF	GO:0003987	acetate-CoA ligase activity	0.03647	OG0018842	Tfasc_v1.02800
+MF	GO:0004712	protein serine/threonine/tyrosine kinase activity	0.03647	OG0017117	Tfasc_v1.23880
+MF	GO:0004144	diacylglycerol O-acyltransferase activity	0.03647	OG0014986	Tfasc_v1.14811
+MF	GO:0003690	double-stranded DNA binding	0.04801	OG0016220, OG0001132, OG0005479	Tfasc_v1.00558, Tfasc_v1.01781, Tfasc_v1.24843
+MF	GO:0016208	AMP binding	0.0498	OG0018842	Tfasc_v1.02800
+CC	GO:0000421	autophagosome membrane	4.6e-06	OG0009931, OG0015143, OG0000014	Tfasc_v1.25482, Tfasc_v1.25483, Tfasc_v1.26924
+CC	GO:0016471	vacuolar proton-transporting V-type ATPase complex	0.00025	OG0008394, OG0004832, OG0004636	Tfasc_v1.09378, Tfasc_v1.17712, Tfasc_v1.18209
+CC	GO:0033179	proton-transporting V-type ATPase, V0 domain	0.00141	OG0008394, OG0004150	Tfasc_v1.09378, Tfasc_v1.16080
+CC	GO:0009501	amyloplast	0.00231	OG0009067, OG0001599	Tfasc_v1.16595, Tfasc_v1.25528
+CC	GO:0005952	cAMP-dependent protein kinase complex	0.00518	OG0005854	Tfasc_v1.14130
+CC	GO:0030126	COPI vesicle coat	0.00677	OG0009931, OG0015143	Tfasc_v1.25482, Tfasc_v1.25483
+CC	GO:0043564	Ku70:Ku80 complex	0.02054	OG0005479	Tfasc_v1.24843
+CC	GO:0005777	peroxisome	0.0232	OG0015395, OG0016186, OG0006909	Tfasc_v1.02234, Tfasc_v1.13574, Tfasc_v1.27667
+CC	GO:0044613	nuclear pore central transport channel	0.02561	OG0004904	Tfasc_v1.18482
+CC	GO:0005845	mRNA cap binding complex	0.03066	OG0004363	Tfasc_v1.08243
+CC	GO:0005765	lysosomal membrane	0.03568	OG0008394	Tfasc_v1.09378
+CC	GO:0033178	proton-transporting two-sector ATPase complex, catalytic domain	0.04991	OG0019211, OG0004832	Tfasc_v1.14165, Tfasc_v1.17712

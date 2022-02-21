@@ -1,0 +1,38 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0080021	response to benzoic acid	0.0034	OG0006621	Tfasc_v1.01496
+BP	GO:0015938	coenzyme A catabolic process	0.0034	OG0010193	Tfasc_v1.17595
+BP	GO:1900364	negative regulation of mRNA polyadenylation	0.0068	OG0006121	Tfasc_v1.00228
+BP	GO:0046177	D-gluconate catabolic process	0.0068	OG0014386	Tfasc_v1.28118
+BP	GO:0006529	asparagine biosynthetic process	0.0068	OG0000414	Tfasc_v1.12343
+BP	GO:0043488	regulation of mRNA stability	0.0152	OG0006121	Tfasc_v1.00228
+BP	GO:0010167	response to nitrate	0.0169	OG0006621	Tfasc_v1.01496
+BP	GO:0009697	salicylic acid biosynthetic process	0.0169	OG0006621	Tfasc_v1.01496
+BP	GO:0006102	isocitrate metabolic process	0.0169	OG0001397	Tfasc_v1.30360
+BP	GO:0009088	threonine biosynthetic process	0.0169	OG0000529	Tfasc_v1.23648
+BP	GO:0009097	isoleucine biosynthetic process	0.0185	OG0000529	Tfasc_v1.23648
+BP	GO:0010337	regulation of salicylic acid metabolic process	0.0185	OG0006621	Tfasc_v1.01496
+BP	GO:0070574	cadmium ion transmembrane transport	0.0235	OG0000577	Tfasc_v1.04652
+BP	GO:0009626	plant-type hypersensitive response	0.0252	OG0006621	Tfasc_v1.01496
+BP	GO:0009089	lysine biosynthetic process via diaminopimelate	0.0318	OG0000529	Tfasc_v1.23648
+BP	GO:0071421	manganese ion transmembrane transport	0.0335	OG0000577	Tfasc_v1.04652
+BP	GO:0009627	systemic acquired resistance	0.0368	OG0006621	Tfasc_v1.01496
+BP	GO:0009086	methionine biosynthetic process	0.0417	OG0000529	Tfasc_v1.23648
+BP	GO:0015986	ATP synthesis coupled proton transport	0.0449	OG0013509	Tfasc_v1.24559
+BP	GO:0009561	megagametogenesis	0.0482	OG0002145	Tfasc_v1.29840
+BP	GO:0000470	maturation of LSU-rRNA	0.0498	OG0002559	Tfasc_v1.07889
+MF	GO:0046316	gluconokinase activity	0.0014	OG0014386	Tfasc_v1.28118
+MF	GO:0003986	acetyl-CoA hydrolase activity	0.0029	OG0010193	Tfasc_v1.17595
+MF	GO:0004066	asparagine synthase (glutamine-hydrolyzing) activity	0.0058	OG0000414	Tfasc_v1.12343
+MF	GO:0004420	hydroxymethylglutaryl-CoA reductase (NADPH) activity	0.0058	OG0008457	Tfasc_v1.04700
+MF	GO:0004449	isocitrate dehydrogenase (NAD+) activity	0.0072	OG0001397	Tfasc_v1.30360
+MF	GO:0004073	aspartate-semialdehyde dehydrogenase activity	0.0101	OG0000529	Tfasc_v1.23648
+MF	GO:0008143	poly(A) binding	0.0129	OG0006121	Tfasc_v1.00228
+MF	GO:0004560	alpha-L-fucosidase activity	0.0186	OG0013055	Tfasc_v1.13126
+MF	GO:0005388	calcium transmembrane transporter activity, phosphorylative mechanism	0.02	OG0000730	Tfasc_v1.27284
+MF	GO:0015086	cadmium ion transmembrane transporter activity	0.0214	OG0000577	Tfasc_v1.04652
+MF	GO:0022857	transmembrane transporter activity	0.0284	OG0000577, OG0008457, OG0007038, OG0000730, OG0009199	Tfasc_v1.04652, Tfasc_v1.04700, Tfasc_v1.08627, Tfasc_v1.27284, Tfasc_v1.29436
+MF	GO:0005384	manganese ion transmembrane transporter activity	0.0313	OG0000577	Tfasc_v1.04652
+MF	GO:0051537	2 iron, 2 sulfur cluster binding	0.0466	OG0010547	Tfasc_v1.28771
+CC	GO:0005758	mitochondrial intermembrane space	0.015	OG0010547	Tfasc_v1.28771
+CC	GO:0030687	preribosome, large subunit precursor	0.041	OG0002559	Tfasc_v1.07889
+CC	GO:0005739	mitochondrion	0.047	OG0008457, OG0000529, OG0010547, OG0001397	Tfasc_v1.04700, Tfasc_v1.23648, Tfasc_v1.28771, Tfasc_v1.30360
