@@ -78,13 +78,7 @@ For each species, we get a list of DE genes. This will give us an idea of gradua
 
 The overlap could then be compared between species, or the timing at which certain genes are "on/off".
 
-# Co-expression analysis
-
-Starts from the count data. Data needs to be normalized, which is apparently a different normalization approach from classic DGE. Possible packages are TMM, DEseq2
-...
-Co-expression modules can be called using WCGNA (most classical approach), but DICER could also be interesting: "By design, DICER is tailored to identify module pairs that correlate differently between sample groups, e.g. modules that form one large interconnected module in one group compared with several smaller modules in another (Figure 3D). DICER may be particularly useful for time series ex- periments in which co-expression changes are gradual, e.g. cell cycle series experiments, where modules are specific to a par- ticular phase and co-expressed in transitions between phases"
-...
-Since WGCNA and DICER identify slightly different types of module changes, both approaches could be used and combined
+# Co-expression analysis with WGCNA
 
 Count normalization, low-expression filtering and variance stabilization was done with DESeq2 in R using the script `Filter-Normalize-Transform-countdata_for_coexpression.R`. Coexpression networks were called for each species separately using `Coexpression_analysis.R`. At the end of this script, I compile gene names for each module that is significantly correlated with time. Then, I ran GOterm enrichment for each module using the script `script_GO_term_enrichment.R` in folder 5. This was done sequentially in the following loop:
 
@@ -120,10 +114,33 @@ In the end, I constructed unsigned networks for Tfas and Tlei separately with SF
   			echo $mod1 $mod2 $overlap $count1 $count2 >> Overlap_genes_Tfas_Tlei_mods_unsigned8.txt
   		done; done
 
-I also visualized singular gene expression curves in both species with the Rscript `Expression_curves_genes.R`:
+I also visualized singular gene expression curves in both species with the Rscript `Script_Expression_curves_per-gene.R`:
 
 		cat ../malate_genes_T.leiboldiana_unsigned8.txt | while read line; do   
 			gene=`echo $line`;   
 			echo $gene;   
 			Rscript ../../Script_Expression_curves_per-gene.R ../../counts.Tfas.6_timepoints.filtr-normalized_DESEQ2.txt ../../counts.Tlei.6_timepoints.filtr-normalized_DESEQ2.txt $gene ../../orthogroup_info_for_GOterm_enrichment.txt;
 		done
+
+WGCNA produced very large and non-overlapping modules when working on a per-species level. The programme does not seem to deal well with noisy data such as ours, therefore creating very large clusters and seemingly arbirtary modules. We do recover genes of interest, but the results don't allow us to narrow down to a concrete list of genes. On a recommendation, we switched to working with maSigPro, which is tailored towards time series data.
+
+# Co-expression analysis with maSigPro
+
+We ran maSigPro both for species only (`maSigPro_script_Tfas.R` and `maSigPro_script_Tlei.R`) and for species combined (`maSigPro_script_Tfas-Tlei.R`). These script are modifications from Karolina Heyduk's script.
+
+The steps in maSigPro are as follows: we normalize the data in EdgeR and remove all genes with a mean(cpm) < 1. Then, we create the design matrix, containing the time points, replicates and then experimental groups (in the versus model, these are Tfas and Tlei). Then, maSigPro does two steps into detecting genes that vary between groups across time points. This involves fitting the expression curve to a regression line. We used a Negative Binomial model here.
+
+Finally, significant genes are clustered by expression, into 9 different modules. This resulted in:
+
+     162  cluster1
+     229  cluster2
+     135  cluster3
+     79   cluster4
+     99   cluster5
+     43   cluster6
+     50   cluster7
+     89   cluster8
+     21   cluster9
+     907  total
+
+GO term enrichment on these clusters was performed as above, and expression curves were drawn using `Script_Expression_curves_modules_maSigPro.R`
