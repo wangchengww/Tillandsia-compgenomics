@@ -1,0 +1,30 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0031535	plus-end directed microtubule sliding	0.0021	OG0011987	Tfasc_v1.21676
+BP	GO:0006006	glucose metabolic process	0.0035	OG0002103, OG0000320	Tfasc_v1.04456, Tfasc_v1.17763
+BP	GO:0015938	coenzyme A catabolic process	0.0041	OG0010193	Tfasc_v1.17595
+BP	GO:0000160	phosphorelay signal transduction system	0.0099	OG0015106, OG0003182	Tfasc_v1.22759, Tfasc_v1.22830
+BP	GO:0070979	protein K11-linked ubiquitination	0.0123	OG0008581	Tfasc_v1.04493
+BP	GO:0010189	vitamin E biosynthetic process	0.0144	OG0009511	Tfasc_v1.25188
+BP	GO:0051177	meiotic sister chromatid cohesion	0.0144	OG0019311	Tfasc_v1.12097
+BP	GO:0045842	positive regulation of mitotic metaphase/anaphase transition	0.0164	OG0008581	Tfasc_v1.04493
+BP	GO:0034508	centromere complex assembly	0.0164	OG0019311	Tfasc_v1.12097
+BP	GO:0003400	regulation of COPII vesicle coating	0.0185	OG0003360	Tfasc_v1.20247
+BP	GO:0031145	anaphase-promoting complex-dependent catabolic process	0.0306	OG0008581	Tfasc_v1.04493
+BP	GO:0019827	stem cell population maintenance	0.0346	OG0003787	Tfasc_v1.16091
+BP	GO:0009306	protein secretion	0.0406	OG0003360	Tfasc_v1.20247
+MF	GO:0004691	cAMP-dependent protein kinase activity	0.0017	OG0005854	Tfasc_v1.14130
+MF	GO:0003986	acetyl-CoA hydrolase activity	0.0034	OG0010193	Tfasc_v1.17595
+MF	GO:0080048	GDP-D-glucose phosphorylase activity	0.0051	OG0002103	Tfasc_v1.04456
+MF	GO:0046408	chlorophyll synthetase activity	0.0067	OG0009511	Tfasc_v1.25188
+MF	GO:0005096	GTPase activator activity	0.0071	OG0003360, OG0004753	Tfasc_v1.20247, Tfasc_v1.25743
+MF	GO:0004365	glyceraldehyde-3-phosphate dehydrogenase (NAD+) (phosphorylating) activity	0.0101	OG0000320	Tfasc_v1.17763
+MF	GO:0008157	protein phosphatase 1 binding	0.0101	OG0006747	Tfasc_v1.27941
+MF	GO:0004560	alpha-L-fucosidase activity	0.0218	OG0013055	Tfasc_v1.13126
+MF	GO:0016760	cellulose synthase (UDP-forming) activity	0.0479	OG0000921	Tfasc_v1.06297
+CC	GO:0005952	cAMP-dependent protein kinase complex	0.0017	OG0005854	Tfasc_v1.14130
+CC	GO:0005682	U5 snRNP	0.0256	OG0015690	Tfasc_v1.07903
+CC	GO:0005886	plasma membrane	0.0272	OG0000921, OG0005854, OG0007983, OG0002193, OG0006747, OG0010509	Tfasc_v1.06297, Tfasc_v1.14130, Tfasc_v1.14991, Tfasc_v1.16247, Tfasc_v1.27941, Tfasc_v1.28707
+CC	GO:0046540	U4/U6 x U5 tri-snRNP complex	0.034	OG0015690	Tfasc_v1.07903
+CC	GO:0005680	anaphase-promoting complex	0.0373	OG0008581	Tfasc_v1.04493
+CC	GO:0009524	phragmoplast	0.039	OG0011987	Tfasc_v1.21676
+CC	GO:0005737	cytoplasm	0.0498	OG0001822, OG0002103, OG0000921, OG0017081, OG0015690, OG0007983, OG0003787, OG0000320, OG0003360, OG0011987, OG0001309, OG0009511, OG0001699	Tfasc_v1.02978, Tfasc_v1.04456, Tfasc_v1.06297, Tfasc_v1.07832, Tfasc_v1.07903, Tfasc_v1.14991, Tfasc_v1.16091, Tfasc_v1.17763, Tfasc_v1.20247, Tfasc_v1.21676, Tfasc_v1.23181, Tfasc_v1.25188, Tfasc_v1.29220

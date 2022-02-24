@@ -13,7 +13,7 @@ args <- commandArgs(trailingOnly = TRUE)
 # Load data
 counts <- read.table(args[[1]], header = T, row.names = 1)
 genes <- scan(args[[2]], character(), quote = "")
-module <- str_split(args[[2]], "\\-|\\_|\\.")[[1]][9]
+module <- str_split(args[[2]], "\\-|\\_|\\.")[[1]][11]
 goterms <- read.delim(args[[3]], sep = "\t", header = T)
 
 module_counts <- subset(counts, rownames(counts) %in% genes)
@@ -84,16 +84,15 @@ means_Tlei <- data.frame(time=c("0100", "0500","0900", "1300", "1700", "2100"),
                                    mean(mean_count_Tlei$`1700`), mean(mean_count_Tlei$`2100`)))
 
 # Highlight genes of interest
-pdf(paste("Expression_curve_Tfas-vs-Tlei","_", module, "_logtransformed.pdf", sep = ""), width = 12, height = 8)
-cols <- c('Malate'='darkgreen', 'PhosphoEnolPyruvate'='blue', 'Vacuole'='purple', 'Stomata'='red')
+pdf(paste("Expression_curve_Tfas-vs-Tlei_TLEI-REF_", module, "_logtransformed.pdf", sep = ""), width = 12, height = 8)
 p1 <- ggplot(mean_count_Tfas_m, aes(x=time, y=count, group = gene_id)) +
   geom_point(color = "grey") +
   geom_line(color = "grey") +
   geom_line(data = means_Tfas, aes(group = 1), size = 1, color = "black") +
-  geom_line(data = malate_expr_Tfas, aes(group = gene_id), size = 1, color = "red") +
+  geom_line(data = malate_expr_Tfas, aes(group = gene_id), size = 1, color = "darkgreen") +
   geom_line(data = phospho_expr_Tfas, aes(group = gene_id), size = 1, color = "blue") +
   geom_line(data = vacuole_expr_Tfas, aes(group = gene_id), size = 1, color = "purple") +
-  geom_line(data = stomata_expr_Tfas, aes(group = gene_id), size = 1, color = "darkgreen") +
+  geom_line(data = stomata_expr_Tfas, aes(group = gene_id), size = 1, color = "red") +
   geom_vline(xintercept = 4.75, linetype = "dashed") +
   geom_vline(xintercept = 1.75, linetype = "dashed") +
   ylim(c(ymin, ymax))
@@ -102,10 +101,10 @@ p2 <- ggplot(mean_count_Tlei_m, aes(x=time, y=count, group = gene_id)) +
   geom_point(color = "grey") +
   geom_line(color = "grey") +
   geom_line(data = means_Tlei, aes(group = 1), size = 1, color = "black") +
-  geom_line(data = malate_expr_Tlei, aes(group = gene_id), size = 1, color = "red") +
+  geom_line(data = malate_expr_Tlei, aes(group = gene_id), size = 1, color = "darkgreen") +
   geom_line(data = phospho_expr_Tlei, aes(group = gene_id), size = 1, color = "blue") +
   geom_line(data = vacuole_expr_Tlei, aes(group = gene_id), size = 1, color = "purple") +
-  geom_line(data = stomata_expr_Tlei, aes(group = gene_id), size = 1, color = "darkgreen") +
+  geom_line(data = stomata_expr_Tlei, aes(group = gene_id), size = 1, color = "red") +
   geom_vline(xintercept = 4.75, linetype = "dashed") +
   geom_vline(xintercept = 1.75, linetype = "dashed") +
   ylim(ymin, ymax)

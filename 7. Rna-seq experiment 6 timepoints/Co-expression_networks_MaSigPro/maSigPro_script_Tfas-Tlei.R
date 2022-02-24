@@ -32,20 +32,15 @@ write.table(normd_trim_log, file = "counts.Tfas_Tlei_6_timepoints.normalized-cpm
 ##remove genes that have all zero read counts
 normd_trim <- normd_trim[ rowSums(normd_trim)!=0, ]
 ##load design object for masigpro. row order must be the same as the order of libraries in count matrix
+# First experimental group will be the baseline, here it is Tlei
 design <- data.frame(time = c(rep(c(1,2,3,4,5,6))), 
-                     sample = c(rep(c(rep(1,6), rep(2,6), rep(3,6), rep(4,6),rep(5,6), rep(6,6)),2)),
-                     Tfas = c(rep(1, 36), rep(0,36)),
-                     Tlei = c(rep(0, 36), rep(1,36))
+                     sample = c(rep(1,6), rep(2,6), rep(3,6), rep(4,6),rep(5,6), rep(6,6), 
+                                rep(7,6), rep(8,6), rep(9,6), rep(10,6),rep(11,6), rep(12,6)),
+                     Tlei = c(rep(0, 36), rep(1,36)),
+                     Tfas = c(rep(1, 36), rep(0,36))
                      )
-rownames(design) <- colnames(counts_trim)
+rownames(design) <- colnames(counts)
 d<-make.design.matrix(design, degree=5)
-
-# Needed for curve figures
-alt_design <- data.frame(time = c(rep(c(rep(1,6), rep(2,6), rep(3,6), rep(4,6),rep(5,6), rep(6,6)),2)), 
-                         sample = c(1:72),
-                         Tfas = c(rep(1, 36), rep(0,36)),
-                         Tlei = c(rep(0, 36), rep(1,36)))
-
 
 ##using the negative binomial options in masigpro, calculate polynomial regressions for each gene
 NBp<-p.vector(normd_trim, d, counts=TRUE) #please choose dis. family with care. default for counts is neg. binomial
@@ -59,36 +54,37 @@ normd<-normd[!rownames(normd) %in% inf.genenames, ]
 
 # Get significant genes 
 sigs <- get.siggenes(NBt, rsq = 0.7, vars = "groups")
+dim(sigs$summary)
+genes <- sigs$summary
 suma2Venn(sigs$summary[, c(1:2)])
-write.table(sigs$summary$TleivsTfas, file = "Genes_Significant_Tfas-vs-Tlei_0.7-trimmed.txt", quote = F, sep = "\t", row.names = F)
+write.table(sigs$summary$TfasvsTlei, file = "Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.txt", quote = F, sep = "\t", row.names = F)
 
-save(sigs, d, normd, NBp, NBt, file = "maSigPro_data_run_Tfas-vs-Tlei_0.7-trimmed.RData")
+save(sigs, d, normd, NBp, NBt, file = "maSigPro_data_run_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.RData")
 dat <- load("maSigPro_data_run_Tfas-vs-Tlei_0.7-pretrimming.RData")  
 
-cluster <- see.genes(sigs$sig.genes$TleivsTfas, show.fit = T, dis=d$dis,
-                     cluster.method="hclust" ,cluster.data = 1, k = 9)
+##pick k
+old.par <- par(mar = c(0, 0, 0, 0))
+par(old.par)
+wss<-(nrow(NBp$SELEC)-1)*sum(apply(NBp$SELEC,2,var))
+for (i in 2:15) wss[i]<- sum(kmeans(NBp$SELEC, centers=i, iter.max=20)$withinss)
+plot(1:15, wss, type="b")
+# The transition is not super clear, it is either 6 or 7. I picked 7.
+
+cluster <- see.genes(sigs$sig.genes$TfasvsTlei, show.fit = T, dis=d$dis,
+                     cluster.method="hclust" ,cluster.data = 1, k = 7)
 # Cut out genes per cluster
 cut <- as.data.frame(cluster$cut)
-k = 9
+k = 7
 for (i in 1:k){
   print(i)
   genes <- row.names(cut)[which(cut$`cluster$cut`==i)]
   genes <- normd_trim[rownames(normd_trim) %in% genes, ]
-  PlotGroups(genes, edesign = alt_design)
   genelist = rownames(genes)
   # Write them into a file
-  fileName = paste("Genes_Significant_Tfas-vs-Tlei_0.7-trimmed-cluster", i, ".txt", sep="");
+  fileName = paste("Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF-cluster", i, ".txt", sep="");
   write.table(as.data.frame(genelist), file = fileName,
               row.names = FALSE, col.names = FALSE, quote = F)
 }
-
-pepck = "Tfasc_v1.03128"
-pepck_data <- normd[rownames(normd)==pepck, ]
-PlotGroups(pepck_data, edesign = alt_design)
-##pick k
-NBp<-p.vector(normd, d, counts=TRUE)
-wss<-(nrow(NBp$SELEC)-1)*sum(apply(NBp$SELEC,2,var))
-for (i in 2:15) wss[i]<- sum(kmeans(NBp$SELEC, centers=i, iter.max=20)$withinss)
-plot(1:15, wss, type="b")
-
-
+cut[row.names(cut) == "Tfas_v1.03126",]
+dim(cut)
+genes

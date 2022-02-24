@@ -130,17 +130,17 @@ We ran maSigPro both for species only (`maSigPro_script_Tfas.R` and `maSigPro_sc
 
 The steps in maSigPro are as follows: we normalize the data in EdgeR and remove all genes with a mean(cpm) < 1. Then, we create the design matrix, containing the time points, replicates and then experimental groups (in the versus model, these are Tfas and Tlei). Then, maSigPro does two steps into detecting genes that vary between groups across time points. This involves fitting the expression curve to a regression line. We used a Negative Binomial model here.
 
-Finally, significant genes are clustered by expression, into 9 different modules. This resulted in:
+Since the within-species analysis recovered very few genes, especially for T.fasciculata (13), we decided to work with the Tfas-vs-Tlei model. The results vary slightly depending on which species is chosen as the baseline group (first experimental group in the design matrix). I decided to work with T. leiboldiana as the baseline, since this is the C3 plant. The difference is only 36 genes and their functions don't stand out as CAM-related.
 
-     162  cluster1
-     229  cluster2
-     135  cluster3
-     79   cluster4
-     99   cluster5
-     43   cluster6
-     50   cluster7
-     89   cluster8
-     21   cluster9
-     907  total
+Finally, significant genes are clustered by expression, into 7 different modules. The number of clusters was chosen by the "elbow" method. This resulted in:
+
+     204  cluster1
+     280  cluster2
+     77  cluster3
+     175   cluster4
+     46   cluster5
+     75   cluster6
+     60   cluster7
+     917  total
 
 GO term enrichment on these clusters was performed as above, and expression curves were drawn using `Script_Expression_curves_modules_maSigPro.R`
