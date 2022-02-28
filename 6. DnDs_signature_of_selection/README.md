@@ -4,7 +4,7 @@ In this section, we infer dN / dS ratios for all single-copy pairs of orthologou
 
 # Selecting single-copy orthogroups and compiling per-orthogroup fastafiles
 
-First I compiled the sequences of each gene into per-orthogroup fastafiles. For this, I extracted the one-to-one genes obtained in orthofinder analyses from the annotation gff files of each assembly. The orthofinder file used for this was: /scratch/grootcrego/orthofinder/run_orthofinder_Tfas_Tlei_Acom_25_scaffolds/OrthoFinder/Results_Jan22/Phylogenetic_Hierarchical_Orthogroups/one-to-one_orthogroups_Tfas_Tlei.txt and was created in the postprocessing of orthofinder results (see Orthology&Synteny notes). There are 13,128 orthologous pairs in this file.
+First I compiled the sequences of each gene into per-orthogroup fastafiles. For this, I extracted the one-to-one genes obtained in orthofinder analyses from the annotation gff files of each assembly. The orthofinder file used for this was: /scratch/grootcrego/orthofinder/run_orthofinder_Tfas_Tlei_Acom_25_scaffolds/OrthoFinder/Results_Jan22/Phylogenetic_Hierarchical_Orthogroups/one-to-one_orthogroups_Tfas_Tlei.txt and was created in the postprocessing of orthofinder results (see Orthology&Synteny notes). There are 13,128 orthologous pairs in this file. This file is a subset of orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.txt
 
 To extract the features belonging only to one-one orthologous genes:
 
@@ -193,3 +193,24 @@ Mapping was then performed against the T. leiboldiana genome (fewer multimappers
      done
 
 Unique mapping rates ranged between 56.9 % to 72.9 %. I chose for each species the individual with highest uniquely mapping rates: T.australis_C and T.sphaerocephala_A.
+
+# Running dN/dS for 1:1:2 and 1:2:1 paralogs
+
+I decided to also run parallel pairwise tests for duplicated orthogroups that are either 1:1:2 (duplicated in Tlei) or 1:2:1 (duplicated in Tfas).
+
+There are 193 orthogroups in 1:1:2 conformation, and 917 orthogroups in 1:2:1 conformation. However, when looking at the corrected orthogroup sizes, we have 175 groups in 1:1:2 and 263 in 1:2:1. I decided to be very stringent with this analysis and only work with orthogroups of the intersection of corrected and uncorrected sizes (the group is reported as 1:1:2 or 1:2:1 both in the corrected and uncorrected files). This resulted in 108 groups in 1:1:2 and 190 groups in 1:2:1.
+
+Obtaining fasta-sequences per orthogroup was done similarly as above but with a few changes. For each orthogroup, we end up with two fastafiles, for example in orthogroups of 1:1:2, we get one file with the Tfas gene and copy 1 of the Tlei gene, and another file with the Tfas gene and copy 2 of the Tlei gene. For this, I had to modify the python script to include three columns, into `script_compile_per-orthogroup_gene_list.paralog.py`. Concatenation of the fastasequences into two files happened with following loop:
+
+	cat ../orthologs-121.perOG.txt | while read line ;
+	do
+ 		Orthogroup=`echo "$line"|awk '{print $1}'`;
+ 		echo $Orthogroup;
+ 		Tfas1=`echo "$line"|awk '{print $2}'`;
+ 		Tfas2=`echo "$line"|awk '{print $3}'`;
+ 		Tlei=`echo "$line"|awk '{print $4}'`;
+ 		cat ../Tfas_seq/$Tfas1:cds.fst ../Tlei_seq/$Tlei:cds.fst > ${Orthogroup}_Tfas-copy1.fasta
+ 		cat ../Tfas_seq/$Tfas2:cds.fst ../Tlei_seq/$Tlei:cds.fst > ${Orthogroup}_Tfas-copy2.fasta
+	done
+
+Because we start with a small number of orthogroups, I decided not to do any previous filtering. So I ran macse with a modified version of run_macse.sh for 1:1:2 and 1:2:1 genes.
