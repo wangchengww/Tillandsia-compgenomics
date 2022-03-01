@@ -214,3 +214,7 @@ Obtaining fasta-sequences per orthogroup was done similarly as above but with a 
 	done
 
 Because we start with a small number of orthogroups, I decided not to do any previous filtering. So I ran macse with a modified version of run_macse.sh for 1:1:2 and 1:2:1 genes.
+
+Alignments were converted to phylip format with the above modified python script:
+
+    python 03_ConvertFastatoAXTorphylip_modfied.py -i alignments_121/ -o phylip_121/ --phylip  
