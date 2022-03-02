@@ -14,8 +14,7 @@ To extract the features belonging only to one-one orthologous genes:
 
 Then I extracted the coding sequence features and replaced ID with Name to make the below python script work:
 
-    awk '$3 == "CDS" {print $0}' [gff] > [gff.CDSonly]
-    sed 's/ID=/Name=/g' [gff.CDSonly] > [gff.CDSonly2]
+    awk '$3 == "CDS" {print $0}' [gff] | sed 's/ID=/Name=/g' > [gff.CDSonly]
 
 I then modified the scaffold names in the gff file from the old system ("scaffold_8339") to a new system ("chr1"):
 
@@ -218,3 +217,9 @@ Because we start with a small number of orthogroups, I decided not to do any pre
 Alignments were converted to phylip format with the above modified python script:
 
     python 03_ConvertFastatoAXTorphylip_modfied.py -i alignments_121/ -o phylip_121/ --phylip  
+
+And run as above with a null and alt model in codeML. I compiled the results and performed LRT with a modified version of the above python script, `script_compile_codeml_LRT.paralogs112.py`. This revealed only one orthogroup with a significant dn/ds >1 in 1:1:2 and two orthogroups in 1:2:1. These are summarized in the google spread sheet. Unfortunately, the XAP circadian timekeeper which exists in 1:2:1 conformation did not show a dN/dS > 1, which would've been interesting in combination with the RNA-seq results, where we see that different copies are recruited in either species.
+
+# dN/dS of Phosphoenolpyruvate carboxylase (PEPC)
+
+PEPC occurs in 2:2:2 conformation and only shows significant expression in both species in one of the two copies. Therefore, one could hypothesize that the other copy is not functional anymore. I thought that I could run dN/dS calculations between all four gene sequences (2 for Tlei and 2 for Tfas) to see if we see major deviation from dN/dS, especially between the highly expressed copy in Tfas and the two copies in Tlei.
