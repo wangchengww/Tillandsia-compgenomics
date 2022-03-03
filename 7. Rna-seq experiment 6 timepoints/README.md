@@ -143,4 +143,4 @@ Finally, significant genes are clustered by expression, into 7 different modules
      60   cluster7
      917  total
 
-GO term enrichment on these clusters was performed as above, and expression curves were drawn using `Script_Expression_curves_modules_maSigPro.R`
+GO term enrichment on these clusters was performed as above, and expression curves were drawn using `Script_Expression_curves_modules_maSigPro.R`. A description of each cluster, including interesting genes, go terms and overlap with other datasets can be found in the google sheet.
