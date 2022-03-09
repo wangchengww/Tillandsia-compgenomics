@@ -144,3 +144,5 @@ Finally, significant genes are clustered by expression, into 7 different modules
      917  total
 
 GO term enrichment on these clusters was performed as above, and expression curves were drawn using `Script_Expression_curves_modules_maSigPro.R`. A description of each cluster, including interesting genes, go terms and overlap with other datasets can be found in the google sheet.
+
+Out of the 917 genes, 102 are not present in the orthologs file, meaning that they were either removed as TEs or not assigned in the orthology section. 7 of these 102 genes were eliminated from the orthology analyses because they were annotated as TEs. 88 were unassigned during the orthology analyses. The remaining 7 genes must have been removed before the orthology analyses because they were too short. 

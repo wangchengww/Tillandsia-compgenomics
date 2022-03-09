@@ -191,7 +191,15 @@ Mapping was then performed against the T. leiboldiana genome (fewer multimappers
      --limitBAMsortRAM 10240000000 --runThreadN 48
      done
 
-Unique mapping rates ranged between 56.9 % to 72.9 %. I chose for each species the individual with highest uniquely mapping rates: T.australis_C and T.sphaerocephala_A.
+Unique mapping rates ranged between 56.9 % to 72.9 %.
+
+Tibo then took over the work to extract fasta sequences for candidate genes from all individuals of T.aus and T.sphae. This resulted in a per-gene multi fasta containing two fastasequences for each individual. The second sequence contains non-ref heterozygous (unfixed) variants. Therefore, we will always work with the first sequence as dN/dS rates are based on fixed variants.
+
+To choose which individual to use for each gene, I counted the number of N's: `seqtk comp  [gene.fasta] | cut -f 1,9`. This is because Tibo noted some complications leading to increased N's in the sequences and therefore the fewer N's the better, especially because length tends to be the same.
+
+For the test, I decided to work with orthogroup OG0006131. Here, in T. australis, individual C has the fewest N's (7), and for T.sphaerocephala, the number of N's is equal in all individuals so I decided to work with A as it has the highest mapping rates.
+
+
 
 # Running dN/dS for 1:1:2 and 1:2:1 paralogs
 

@@ -9,7 +9,7 @@ pacman::p_load("ggplot2", "reshape2", "stringr","grid", "gridExtra")
 # Load data
 setwd("/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/")
 counts <- read.table("counts.Tfas_Tlei_6_timepoints.normalized-cpm.EdgeR.logtransformed.txt", header = T, row.names = 1)
-genes <- scan("Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF-cluster7.txt", character(), quote = "")
+genes <- scan("Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF-cluster4.txt", character(), quote = "")
 module <- str_split("Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF-cluster7.txt", "\\-|\\_|\\.")[[1]][11]
 
 module_counts <- subset(counts, rownames(counts) %in% genes)

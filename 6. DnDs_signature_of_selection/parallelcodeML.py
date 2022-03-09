@@ -74,7 +74,7 @@ def makeCtl(gene, outfile, tempctl, treefile, ctl):
 #-----------------------------------------------------------------------------
 
 def parallelize(ap, outdir, finished, completed, multiple, cpu, ctl,
-				forward, treefile, gene):
+ 				forward, treefile, gene):
 	filename = gene.split("/")[-1]
 	geneid = filename.split(".")[0]
 	if (geneid + "\n") in completed:
@@ -106,7 +106,7 @@ def parallelize(ap, outdir, finished, completed, multiple, cpu, ctl,
 					os.chdir(wd)
 					# Call CodeML
 					with open("codemlLog.txt", "w") as tmpout:
-						cm = Popen(split("/home/fs71400/grootcrego/software/AlignmentProcessor/paml/bin/codeml"),
+						cm = Popen(split("/home/fs71400/grootcrego/software/AlignmentProcessor/paml/bin/codeml " + tempctl),
 								shell = True, stdout = tmpout, stderr = tmpout,
 								stdin=PIPE)
 						cm.communicate(input=b'\n')
