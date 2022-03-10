@@ -20,7 +20,7 @@ def makeTree(ap, gene, wd, treefile, forward):
 	'''Calls PhyML to create a gene tree.'''
 	# Call PhyML to make gene tree
 	passed = True
-	phy = Popen(split(ap + "PhyML/PhyML -q -i " + gene), stdout = DEVNULL)
+	phy = Popen(split("/home/fs71400/grootcrego/software/AlignmentProcessor/PhyML/src/" + "phyml -i " + gene), stdout = DEVNULL)
 	phy.wait()
 	# Move PhyML output to temp directory
 	output = glob(gene + "_phyml_*")

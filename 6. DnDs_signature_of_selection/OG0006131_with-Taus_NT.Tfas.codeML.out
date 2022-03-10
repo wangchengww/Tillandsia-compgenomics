@@ -1,0 +1,152 @@
+CODONML (in paml version 4.9j, February 2020)  /gpfs/data/fs71400/grootcrego/REFERENCES_TILLANDSIA/dnds/dnds_branch-specific_outgroups/phylip_files/OG0006131_with-Taus_NT.phylip
+Model: several dN/dS ratios for branches, 
+Codon frequency model: F3x4
+Site-class models:  PositiveSelection
+ns =   3  ls = 786
+
+Codon usage in sequences
+--------------------------------------------------------------------------------------
+Phe TTT  26  28  27 | Ser TCT  26  21  23 | Tyr TAT  18  18  18 | Cys TGT   5   5   5
+    TTC  15  15  18 |     TCC   9   7   7 |     TAC  17  14  14 |     TGC   3   3   3
+Leu TTA  11   9   9 |     TCA  12  11  12 | *** TAA   0   0   0 | *** TGA   0   0   0
+    TTG  14  15  15 |     TCG  12  11  11 |     TAG   0   0   0 | Trp TGG   9   8   8
+--------------------------------------------------------------------------------------
+Leu CTT  16  14  15 | Pro CCT  16  17  17 | His CAT   6   6   7 | Arg CGT   1   1   1
+    CTC  17  16  13 |     CCC   6   5   5 |     CAC   5   3   5 |     CGC   1   2   1
+    CTA   7   7   7 |     CCA  12  13  14 | Gln CAA  14  15  13 |     CGA   6   5   6
+    CTG  10  10   9 |     CCG   8   8   8 |     CAG  12  10  10 |     CGG   0   0   0
+--------------------------------------------------------------------------------------
+Ile ATT  32  33  32 | Thr ACT  16  13  14 | Asn AAT  23  23  23 | Ser AGT  12  12  11
+    ATC   8   8   8 |     ACC  15  15  17 |     AAC  20  19  20 |     AGC  13  15  16
+    ATA  12  12  12 |     ACA  16  15  14 | Lys AAA  18  18  17 | Arg AGA  14  12  12
+Met ATG  11  11   9 |     ACG   4   6   4 |     AAG  17  14  17 |     AGG   3   3   2
+--------------------------------------------------------------------------------------
+Val GTT  20  22  23 | Ala GCT  30  27  27 | Asp GAT  40  40  41 | Gly GGT  14  15  13
+    GTC  12  13  10 |     GCC  16  14  16 |     GAC  11   9  11 |     GGC   9   8   9
+    GTA  12  11  12 |     GCA  17  18  16 | Glu GAA   6   6   5 |     GGA  12  10  12
+    GTG  15  13  13 |     GCG   6   5   5 |     GAG  10  11   9 |     GGG   7   7   8
+--------------------------------------------------------------------------------------
+
+Codon position x base (3x4) table for each sequence.
+
+#1: Tfas           
+position  1:    T:0.22548    C:0.17452    A:0.29809    G:0.30191
+position  2:    T:0.30318    C:0.28153    A:0.27643    G:0.13885
+position  3:    T:0.38344    C:0.22548    A:0.21529    G:0.17580
+Average         T:0.30403    C:0.22718    A:0.26327    G:0.20552
+
+#2: Taus           
+position  1:    T:0.21854    C:0.17483    A:0.30331    G:0.30331
+position  2:    T:0.31391    C:0.27285    A:0.27285    G:0.14040
+position  3:    T:0.39073    C:0.21987    A:0.21457    G:0.17483
+Average         T:0.30773    C:0.22252    A:0.26358    G:0.20618
+
+#3: Tlei           
+position  1:    T:0.22398    C:0.17260    A:0.30040    G:0.30303
+position  2:    T:0.30567    C:0.27668    A:0.27668    G:0.14097
+position  3:    T:0.39130    C:0.22793    A:0.21212    G:0.16864
+Average         T:0.30698    C:0.22574    A:0.26307    G:0.20422
+
+Sums of codon usage counts
+------------------------------------------------------------------------------
+Phe F TTT      81 | Ser S TCT      70 | Tyr Y TAT      54 | Cys C TGT      15
+      TTC      48 |       TCC      23 |       TAC      45 |       TGC       9
+Leu L TTA      29 |       TCA      35 | *** * TAA       0 | *** * TGA       0
+      TTG      44 |       TCG      34 |       TAG       0 | Trp W TGG      25
+------------------------------------------------------------------------------
+Leu L CTT      45 | Pro P CCT      50 | His H CAT      19 | Arg R CGT       3
+      CTC      46 |       CCC      16 |       CAC      13 |       CGC       4
+      CTA      21 |       CCA      39 | Gln Q CAA      42 |       CGA      17
+      CTG      29 |       CCG      24 |       CAG      32 |       CGG       0
+------------------------------------------------------------------------------
+Ile I ATT      97 | Thr T ACT      43 | Asn N AAT      69 | Ser S AGT      35
+      ATC      24 |       ACC      47 |       AAC      59 |       AGC      44
+      ATA      36 |       ACA      45 | Lys K AAA      53 | Arg R AGA      38
+Met M ATG      31 |       ACG      14 |       AAG      48 |       AGG       8
+------------------------------------------------------------------------------
+Val V GTT      65 | Ala A GCT      84 | Asp D GAT     121 | Gly G GGT      42
+      GTC      35 |       GCC      46 |       GAC      31 |       GGC      26
+      GTA      35 |       GCA      51 | Glu E GAA      17 |       GGA      34
+      GTG      41 |       GCG      16 |       GAG      30 |       GGG      22
+------------------------------------------------------------------------------
+
+(Ambiguity data are not used in the counts.)
+
+
+Codon position x base (3x4) table, overall
+
+position  1:    T:0.22271    C:0.17399    A:0.30057    G:0.30274
+position  2:    T:0.30753    C:0.27708    A:0.27534    G:0.14006
+position  3:    T:0.38843    C:0.22445    A:0.21401    G:0.17312
+Average         T:0.30622    C:0.22517    A:0.26330    G:0.20531
+
+TREE #  1:  ((1, 3), 2);   MP score: -1
+This is a rooted tree.  Please check!
+lnL(ntime:  4  np:  9):  -3644.751311      +0.000000
+   4..5     5..1     5..3     4..2  
+ 0.025717 0.033400 0.029908 0.018199 2.350922 0.201430 0.782346 0.000001 60.754533
+
+Note: Branch length is defined as number of nucleotide substitutions per codon (not per neucleotide site).
+
+tree length =  0.107223
+
+((1: 0.033400, 3: 0.029908): 0.025717, 2: 0.018199);
+
+((Tfas: 0.033400, Tlei: 0.029908): 0.025717, Taus: 0.018199);
+
+Detailed output identifying parameters
+
+kappa (ts/tv) =  2.35092
+
+
+MLEs of dN/dS (w) for site classes (K=4)
+
+site class             0        1       2a       2b
+proportion       0.20143  0.78235  0.00332  0.01290
+background w     0.00000  1.00000  0.00000  1.00000
+foreground w     0.00000  1.00000 60.75453 60.75453
+
+
+Naive Empirical Bayes (NEB) analysis (please use the BEB results.)
+Positive sites for foreground lineages Prob(w>1):
+
+   408 I 0.965*
+   646 V 0.973*
+
+Bayes Empirical Bayes (BEB) analysis (Yang, Wong & Nielsen 2005. Mol. Biol. Evol. 22:1107-1118)
+Positive sites for foreground lineages Prob(w>1):
+    53 N 0.500
+   407 R 0.502
+   408 I 0.837
+   522 E 0.506
+   646 V 0.841
+   756 S 0.507
+
+
+The grid (see ternary graph for p0-p1)
+
+w0:   0.050  0.150  0.250  0.350  0.450  0.550  0.650  0.750  0.850  0.950
+w2:   1.500  2.500  3.500  4.500  5.500  6.500  7.500  8.500  9.500 10.500
+
+
+Posterior on the grid
+
+w0:   0.078  0.080  0.083  0.088  0.095  0.107  0.122  0.131  0.122  0.095
+w2:   0.037  0.075  0.087  0.095  0.102  0.108  0.114  0.120  0.127  0.136
+
+Posterior for p0-p1 (see the ternary graph) (YWN2015, fig. 1)
+
+ 0.015
+ 0.023 0.033 0.020
+ 0.009 0.019 0.037 0.046 0.021
+ 0.005 0.008 0.014 0.030 0.046 0.048 0.017
+ 0.003 0.005 0.007 0.012 0.016 0.031 0.039 0.037 0.012
+ 0.002 0.003 0.005 0.006 0.007 0.011 0.012 0.024 0.028 0.027 0.009
+ 0.002 0.003 0.003 0.004 0.003 0.005 0.005 0.007 0.008 0.017 0.021 0.020 0.007
+ 0.002 0.002 0.002 0.002 0.002 0.002 0.002 0.003 0.003 0.005 0.006 0.013 0.017 0.016 0.006
+ 0.002 0.002 0.001 0.001 0.001 0.001 0.001 0.002 0.002 0.002 0.003 0.004 0.005 0.011 0.014 0.014 0.005
+ 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.002 0.002 0.003 0.004 0.009 0.012 0.012 0.004
+
+sum of density on p0-p1 =   1.000000
+
+Time used:  0:13
