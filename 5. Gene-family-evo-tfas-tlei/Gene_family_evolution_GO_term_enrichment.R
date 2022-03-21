@@ -3,7 +3,7 @@
 library(ggplot2)
 library(dplyr)
 
-setwd("Documents/GitHub/Tillandsia-compgenomics/Gene-family-evo-tfas-tlei/")
+setwd("Documents/GitHub/Tillandsia-compgenomics/5. Gene-family-evo-tfas-tlei/")
 setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/Gene-family-evo-tfas-tlei/")
 counts <- read.table("orthogroups_Tfas_Tlei_Acom.counts.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.blastandsearch.txt", sep = '\t')
 colnames(counts) <- c("og_id", "Acom", "Tfas", "Tlei")
@@ -36,6 +36,11 @@ IQR(counts_Tfas_Tlei_multi$Tlei)
 
 counts_more_Tlei <- counts_Tfas_Tlei_multi[(counts_Tfas_Tlei_multi$Tfas < counts_Tfas_Tlei_multi$Tlei),]
 counts_more_Tfas <- counts_Tfas_Tlei_multi[(counts_Tfas_Tlei_multi$Tfas > counts_Tfas_Tlei_multi$Tlei),]
+
+counts_multi_Tfas<- counts_Tfas_Tlei[counts_Tfas_Tlei$Tfas >1,]
+counts_multi_Tlei<- counts_Tfas_Tlei[counts_Tfas_Tlei$Tlei >1,]
+sum(counts_Tfas_Tlei_multi$Tfas)
+sum(counts_Tfas_Tlei_multi$Tlei)
 
 write.table(counts_Tfas_Tlei_multi, file = "orthogroup_selection_multicopy_for_GO_term_all.txt", sep = "\t", quote = F, row.names = F)
 write.table(counts_more_Tfas, file = "orthogroup_selection_multicopy_larger_in_Tfas.txt", sep = "\t", quote = F, row.names = F)
