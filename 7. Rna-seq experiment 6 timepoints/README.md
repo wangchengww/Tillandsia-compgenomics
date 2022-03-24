@@ -149,8 +149,23 @@ Out of the 917 genes, 102 are not present in the orthologs file, meaning that th
 
 I researched the percentage of different orthology classes in the subset of orthogroups the DGE belonged to for the whole subset and each cluster using the script `get_duplication_stats.sh`. The results can be found in the final results table of the paper draft.
 
+IMPORTANT: At some point I researched the expression of specific families and noticed that multiple copies were sometimes expressed, when the annotation only reported one copy in that genome. This led me to investigate the alignments in that region with JBrowse, which then lead to the discovery that some of the RNA-seq was mapping to intronic regions, sometimes even to TEs in the introns. This is probably because of discrepancies in the annotation, leading to exons being labelled as TEs and vice versa. In any case, I decided to rerun feature counts on the exonic level with the script `count_exon.sh`, for this I had to slighlty modify the GFF file, otherwise featureCounts would not cooperate:
+
+    Tfas_chr3	maker	gene	37217	38618	.	+	.	ID=Tfasc_v1.03352
+    Tfas_chr3	maker	mRNA	37217	38618	.	+	.	ID=Tfasc_v1.03352-RA
+    Tfas_chr3	maker	exon	37217	37242	.	+	.	ID=Tfasc_v1.03352-RA:exon:9800
+    Tfas_chr3	maker	exon	37476	37567	.	+	.	ID=Tfasc_v1.03352-RA:exon:9801
+    Tfas_chr3	maker	exon	37892	38216	.	+	.	ID=Tfasc_v1.03352-RA:exon:9802
+    Tfas_chr3	maker	exon	38329	38380	.	+	.	ID=Tfasc_v1.03352-RA:exon:9803
+    Tfas_chr3	maker	exon	38509	38618	.	+	.	ID=Tfasc_v1.03352-RA:exon:9804
+    Tfas_chr3	maker	five_prime_UTR	37217	37242	.	+	.	ID=Tfasc_v1.03352-RA:five_prime_utr
+    Tfas_chr3	maker	five_prime_UTR	37476	37567	.	+	.	ID=Tfasc_v1.03352-RA:five_prime_utr
+    Tfas_chr3	maker	five_prime_UTR	37892	37895	.	+	.	ID=Tfasc_v1.03352-RA:five_prime_utr
+
+I then edited the count data to a more readable level and finally summed up the counts over all exons per gene with the python script `script_sum-up_featurecounts_exon.py`. Using this new version of counts, I reran maSigPro and all other downstream analyses. The new subset of significant genes contains 907 genes of which 784 were present in the previous subset (run with counts across the full gene). So, there's is a large overlap but also a non-negligible difference.
+
 # Researching TE insertions around DE Genes
 
 Insertion of transposable elements in promotor regions or in introns can change expression levels and splicing of genes. Since we see important differences in TE dynamics between the two genomes, it would be an interesting avenue to explore. Here, I will calculate the number of genes with a TE insertion in introns and in promotors, both for the whole genome and for the 917 genes that are differentially expressed. I will start by doing this in T. fasciculata, but it would also be interesting to do the same research in Tillandsia leiboldiana.
 
-First, I used the EDTA output file "*.EDTA.TEanno.gff3" and removed all unknown TEs by `grep -v "unknown" [file] > *.EDTA.TEanno.no-unknown.gff3`. Using this file and the gene annotation file containing only curated orthologous genes (*25chrom.curated-orthologs.genes.gff), I ran bedtools intersect with the script `bedtools_intersect.sh`. This creates two files, one containing the number of insertions for each gene, and another one containing the name of each TE insertion in each gene. I manually curated these files to make them more readable. 
+First, I used the EDTA output file "*.EDTA.TEanno.gff3" and removed all unknown TEs by `grep -v "unknown" [file] > *.EDTA.TEanno.no-unknown.gff3`. Using this file and the gene annotation file containing only curated orthologous genes (*25chrom.curated-orthologs.genes.gff), I ran bedtools intersect with the script `bedtools_intersect.sh`. This creates two files, one containing the number of insertions for each gene, and another one containing the name of each TE insertion in each gene. I manually curated these files to make them more readable.
