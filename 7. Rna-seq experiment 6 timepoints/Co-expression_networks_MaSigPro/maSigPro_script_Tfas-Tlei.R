@@ -11,9 +11,14 @@ library(edgeR)
 library(maSigPro)
 library(mclust)
 library(stringr)
+library("WGCNA")
 
+# For full-gene analysis
 counts <- read.table("../counts.Tfas_Tlei_6_timepoints.forR.txt", header = T, row.names = 1)
 counts <- counts[,-c(1:5)]
+
+# For exonic-only analysis
+counts <- read.table("../counts.Tfas_Tlei_6_timepoints.exons.edited.forR.sum.txt", header = T, row.names = 1)
 
 #set up edgeR object
 groups_list <- data.table::transpose(str_split(colnames(counts), "_"))[c(1,3,4)]
@@ -24,10 +29,10 @@ normd <- cpm(dyg, normalized.lib.sizes = T)
 # Here we trim lowly-expressed genes. This doesn't change the results much but vastly shortens 
 # run time
 normd_trim <- normd[rowMeans(normd)>1,]
-write.table(normd_trim, file = "counts.Tfas_Tlei_6_timepoints.normalized-cpm.EdgeR.txt", sep = "\t", quote = F)
+write.table(normd_trim, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.txt", sep = "\t", quote = F)
 normd_log <- cpm(dyg, normalized.lib.sizes = T, log = T)
 normd_trim_log <- normd_log[row.names(normd_log) %in% row.names(normd_trim),]
-write.table(normd_trim_log, file = "counts.Tfas_Tlei_6_timepoints.normalized-cpm.EdgeR.logtransformed.txt", sep = "\t", quote = F)
+write.table(normd_trim_log, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.logtransformed.txt", sep = "\t", quote = F)
 
 ##remove genes that have all zero read counts
 normd_trim <- normd_trim[ rowSums(normd_trim)!=0, ]
@@ -54,17 +59,24 @@ normd<-normd[!rownames(normd) %in% inf.genenames, ]
 
 # Get significant genes 
 sigs <- get.siggenes(NBt, rsq = 0.7, vars = "groups")
+sigs2 <- get.siggenes(NBt, rsq = 0.7, vars = "each")
 dim(sigs$summary)
 genes <- sigs$summary
 suma2Venn(sigs$summary[, c(1:2)])
-write.table(sigs$summary$TfasvsTlei, file = "Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.txt", quote = F, sep = "\t", row.names = F)
+write.table(sigs$summary$TfasvsTlei, file = "Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.exonic.txt", quote = F, sep = "\t", row.names = F)
 
-save(sigs, d, normd, NBp, NBt, file = "maSigPro_data_run_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.RData")
-dat <- load("maSigPro_data_run_Tfas-vs-Tlei_0.7-pretrimming.RData")  
+# Get expressional direction
+coefficients <- sigs[["sig.genes"]][["TfasvsTlei"]][["coefficients"]][["betatimexTfas"]]
+overexpressedTlei <- coefficients[coefficients > 0]
+underexpressedTlei <- coefficients[coefficients < 0]
+
+save(sigs, d, normd, NBp, NBt, file = "maSigPro_data_run_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.exonic.RData")
+dat <- load("maSigPro_data_run_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.RData")  
 
 ##pick k
-old.par <- par(mar = c(0, 0, 0, 0))
-par(old.par)
+sizeGrWindow(9, 5)
+par(mfrow = c(1,1));
+cex1 = 0.9;
 wss<-(nrow(NBp$SELEC)-1)*sum(apply(NBp$SELEC,2,var))
 for (i in 2:15) wss[i]<- sum(kmeans(NBp$SELEC, centers=i, iter.max=20)$withinss)
 plot(1:15, wss, type="b")
@@ -81,10 +93,7 @@ for (i in 1:k){
   genes <- normd_trim[rownames(normd_trim) %in% genes, ]
   genelist = rownames(genes)
   # Write them into a file
-  fileName = paste("Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF-cluster", i, ".txt", sep="");
+  fileName = paste("Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.exonic-cluster", i, ".txt", sep="");
   write.table(as.data.frame(genelist), file = fileName,
               row.names = FALSE, col.names = FALSE, quote = F)
 }
-cut[row.names(cut) == "Tfas_v1.03126",]
-dim(cut)
-genes
