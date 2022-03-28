@@ -1,0 +1,70 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0032958	inositol phosphate biosynthetic process	0.00071		Tfasc_v1.04834-RA, Tfasc_v1.04836-RA
+BP	GO:0006020	inositol metabolic process	0.00152		Tfasc_v1.04834-RA, Tfasc_v1.04836-RA
+BP	GO:0042538	hyperosmotic salinity response	0.00152		Tfasc_v1.09668-RA, Tfasc_v1.14287-RA
+BP	GO:0006357	regulation of transcription by RNA polymerase II	0.00222		Tfasc_v1.08834-RA, Tfasc_v1.14807-RA, Tfasc_v1.22245-RA, Tfasc_v1.23793-RA, Tfasc_v1.28439-RA
+BP	GO:0000398	mRNA splicing, via spliceosome	0.00245		Tfasc_v1.07221-RA, Tfasc_v1.07222-RA, Tfasc_v1.18497-RA, Tfasc_v1.22830-RA, Tfasc_v1.24424-RA
+BP	GO:0010335	response to non-ionic osmotic stress	0.00452		Tfasc_v1.14287-RA
+BP	GO:1903335	regulation of vacuolar transport	0.00452		Tfasc_v1.09150-RA
+BP	GO:0006982	response to lipid hydroperoxide	0.00452		Tfasc_v1.14287-RA
+BP	GO:0048255	mRNA stabilization	0.00452		Tfasc_v1.07867-RA
+BP	GO:0010289	homogalacturonan biosynthetic process	0.00902		Tfasc_v1.30570-RA
+BP	GO:0080001	mucilage extrusion from seed coat	0.00902		Tfasc_v1.09150-RA
+BP	GO:0006424	glutamyl-tRNA aminoacylation	0.00902		Tfasc_v1.06437-RA
+BP	GO:0008615	pyridoxine biosynthetic process	0.0135		Tfasc_v1.14287-RA
+BP	GO:0015713	phosphoglycerate transmembrane transport	0.0135		Tfasc_v1.02314-RA
+BP	GO:0009584	detection of visible light	0.0135		Tfasc_v1.27664-RA
+BP	GO:1900426	positive regulation of defense response to bacterium	0.01796		Tfasc_v1.09150-RA
+BP	GO:2000762	regulation of phenylpropanoid metabolic process	0.01796		Tfasc_v1.27779-RA
+BP	GO:0035436	triose phosphate transmembrane transport	0.01796		Tfasc_v1.02314-RA
+BP	GO:2000033	regulation of seed dormancy process	0.0224		Tfasc_v1.09668-RA
+BP	GO:0017006	protein-tetrapyrrole linkage	0.0224		Tfasc_v1.27664-RA
+BP	GO:0032786	positive regulation of DNA-templated transcription, elongation	0.02641		Tfasc_v1.08834-RA, Tfasc_v1.22245-RA
+BP	GO:0043966	histone H3 acetylation	0.02682		Tfasc_v1.25607-RA
+BP	GO:0043967	histone H4 acetylation	0.02682		Tfasc_v1.25607-RA
+BP	GO:0042128	nitrate assimilation	0.02682		Tfasc_v1.08668-RA
+BP	GO:0010158	abaxial cell fate specification	0.03122		Tfasc_v1.04378-RA
+BP	GO:0010187	negative regulation of seed germination	0.03122		Tfasc_v1.09668-RA
+BP	GO:0006120	mitochondrial electron transport, NADH to ubiquinone	0.03122		Tfasc_v1.13221-RA
+BP	GO:0042823	pyridoxal phosphate biosynthetic process	0.03122		Tfasc_v1.14287-RA
+BP	GO:0009585	red, far-red light phototransduction	0.03122		Tfasc_v1.27664-RA
+BP	GO:0009938	negative regulation of gibberellic acid mediated signaling pathway	0.03122		Tfasc_v1.09668-RA
+BP	GO:0000160	phosphorelay signal transduction system	0.043		Tfasc_v1.22830-RA, Tfasc_v1.27664-RA
+BP	GO:0010167	response to nitrate	0.0443		Tfasc_v1.08668-RA
+BP	GO:0045892	negative regulation of transcription, DNA-templated	0.04624		Tfasc_v1.19943-RA, Tfasc_v1.28439-RA
+BP	GO:0010223	secondary shoot formation	0.04862		Tfasc_v1.25607-RA
+MF	GO:0033857	diphosphoinositol-pentakisphosphate kinase activity	4e-05		Tfasc_v1.04834-RA, Tfasc_v1.04836-RA
+MF	GO:0000832	inositol hexakisphosphate 5-kinase activity	4e-05		Tfasc_v1.04834-RA, Tfasc_v1.04836-RA
+MF	GO:0052723	inositol hexakisphosphate 1-kinase activity	4e-05		Tfasc_v1.04834-RA, Tfasc_v1.04836-RA
+MF	GO:0052724	inositol hexakisphosphate 3-kinase activity	4e-05		Tfasc_v1.04834-RA, Tfasc_v1.04836-RA
+MF	GO:0102092	5-diphosphoinositol pentakisphosphate 3-kinase activity	4e-05		Tfasc_v1.04834-RA, Tfasc_v1.04836-RA
+MF	GO:0000829	inositol heptakisphosphate kinase activity	4e-05		Tfasc_v1.04834-RA, Tfasc_v1.04836-RA
+MF	GO:0042803	protein homodimerization activity	0.0018		Tfasc_v1.09150-RA, Tfasc_v1.14287-RA, Tfasc_v1.27664-RA
+MF	GO:0047958	glycine:2-oxoglutarate aminotransferase activity	0.0037		Tfasc_v1.03489-RA
+MF	GO:0036381	pyridoxal 5'-phosphate synthase (glutamine hydrolysing) activity	0.0037		Tfasc_v1.14287-RA
+MF	GO:0048307	ferredoxin-nitrite reductase activity	0.0037		Tfasc_v1.08668-RA
+MF	GO:0004021	L-alanine:2-oxoglutarate aminotransferase activity	0.0074		Tfasc_v1.03489-RA
+MF	GO:1990465	aldehyde oxygenase (deformylating) activity	0.0074		Tfasc_v1.06756-RA
+MF	GO:0009924	octadecanal decarbonylase activity	0.0074		Tfasc_v1.06756-RA
+MF	GO:0004818	glutamate-tRNA ligase activity	0.0074		Tfasc_v1.06437-RA
+MF	GO:0015120	phosphoglycerate transmembrane transporter activity	0.011		Tfasc_v1.02314-RA
+MF	GO:0080048	GDP-D-glucose phosphorylase activity	0.011		Tfasc_v1.04456-RA
+MF	GO:0008453	alanine-glyoxylate transaminase activity	0.011		Tfasc_v1.03489-RA
+MF	GO:0071917	triose-phosphate transmembrane transporter activity	0.0147		Tfasc_v1.02314-RA
+MF	GO:0005542	folic acid binding	0.0147		Tfasc_v1.01059-RA
+MF	GO:0000254	C-4 methylsterol oxidase activity	0.0147		Tfasc_v1.06756-RA
+MF	GO:0042393	histone binding	0.0181		Tfasc_v1.15577-RA, Tfasc_v1.25607-RA
+MF	GO:0008195	phosphatidate phosphatase activity	0.0219		Tfasc_v1.24776-RA
+MF	GO:0061575	cyclin-dependent protein serine/threonine kinase activator activity	0.0219		Tfasc_v1.08834-RA
+MF	GO:0016817	hydrolase activity, acting on acid anhydrides	0.0222		Tfasc_v1.25341-RA, Tfasc_v1.25343-RA
+MF	GO:0051539	4 iron, 4 sulfur cluster binding	0.0267		Tfasc_v1.08668-RA, Tfasc_v1.13221-RA
+MF	GO:0008296	3'-5'-exodeoxyribonuclease activity	0.0291		Tfasc_v1.04391-RA
+MF	GO:0009881	photoreceptor activity	0.0291		Tfasc_v1.27664-RA
+MF	GO:0090447	glycerol-3-phosphate 2-O-acyltransferase activity	0.0362		Tfasc_v1.13108-RA
+MF	GO:0016888	endodeoxyribonuclease activity, producing 5'-phosphomonoesters	0.0398		Tfasc_v1.04391-RA
+MF	GO:0016985	mannan endo-1,4-beta-mannosidase activity	0.0398		Tfasc_v1.16264-RA
+MF	GO:0008137	NADH dehydrogenase (ubiquinone) activity	0.0469		Tfasc_v1.13221-RA
+CC	GO:0005689	U12-type spliceosomal complex	0.0035		Tfasc_v1.07221-RA, Tfasc_v1.07222-RA
+CC	GO:0034515	proteasome storage granule	0.0132		Tfasc_v1.08072-RB
+CC	GO:0008024	cyclin/CDK positive transcription elongation factor complex	0.0176		Tfasc_v1.08834-RA
+CC	GO:0000221	vacuolar proton-transporting V-type ATPase, V1 domain	0.0434		Tfasc_v1.24696-RA
