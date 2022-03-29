@@ -1,0 +1,9 @@
+Module total one_one larger_Tfas larger_Tlei equal uniq_Tfas uniq_Tlei
+cluster1 79 .72 .10 .02 .08 .06 0
+cluster2 98 .46 .38 .05 .04 .05 0
+cluster3 32 .84 .06 0 .03 .06 0
+cluster4 87 .73 .11 .05 .02 .06 0
+cluster5 184 .68 .13 .01 .07 .09 0
+cluster6 113 .54 .23 .01 .11 .07 0
+cluster7 162 .68 .13 .03 .10 .04 0
+all 738 .66 .16 .02 .07 .06 0
