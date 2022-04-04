@@ -1,11 +1,13 @@
 library(tidyverse)
 library(rstatix)
 library(ggpubr)
+library(reshape2)
 
 setwd("/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/")
-counts <- read.table("counts.Tfas_Tlei_6_timepoints.normalized-cpm.EdgeR.logtransformed.txt", header = T, row.names = 1)
-genes <- scan("Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF-cluster5.txt", character(), quote = "")
-module <- str_split("Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF-cluster5.txt", "\\-|\\_|\\.")[[1]][11]
+setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/")
+counts <- read.table("counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.logtransformed.txt", header = T, row.names = 1)
+genes <- scan("Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.exonic-cluster7.txt", character(), quote = "")
+module <- str_split("Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.exonic-cluster7.txt", "\\-|\\_|\\.")[[1]][12]
 
 module_counts <- subset(counts, rownames(counts) %in% genes)
 module_counts_Tfas <- module_counts[, c(1:36)]
@@ -49,10 +51,12 @@ for (i in c(1:6)){
   mean_Tfas <- round(mean(x[x$species == "Tfas",]$count), 2)
   mean_Tlei <- round(mean(x[x$species == "Tlei",]$count), 2)
   wilcox <- wilcox.test(count ~ species, data=x)
-  line <- c(t, mean_Tfas, mean_Tlei, round(wilcox$p.value, 5))
+  line <- c(t, mean_Tfas, mean_Tlei, wilcox$p.value)
   cluster_stats <- rbind(cluster_stats, line)
   colnames(cluster_stats) <- c("Time", "Mean_log(CPM)_Tfas", "Mean_log(CPM)_Tlei", "p-value")
 }
-write.table(cluster_stats, file = paste0("Mean_Expression_per_Timepoint_", module, ".txt"),
+cluster_stats$Difference <- as.numeric(cluster_stats$`Mean_log(CPM)_Tfas`) - as.numeric(cluster_stats$`Mean_log(CPM)_Tlei`)
+mean(cluster_stats$Difference)
+write.table(cluster_stats, file = paste0("Mean_Expression_per_Timepoint_", module, ".EXONIC.txt"),
             quote = F, sep = "\t")
             

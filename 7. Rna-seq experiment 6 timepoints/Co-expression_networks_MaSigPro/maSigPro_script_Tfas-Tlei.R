@@ -20,18 +20,24 @@ counts <- counts[,-c(1:5)]
 # For exonic-only analysis
 counts <- read.table("../counts.Tfas_Tlei_6_timepoints.exons.edited.forR.sum.txt", header = T, row.names = 1)
 
+
+
 #set up edgeR object
 groups_list <- data.table::transpose(str_split(colnames(counts), "_"))[c(1,3,4)]
 groups <- paste0(groups_list[[1]], "_", groups_list[[2]], "_", groups_list[[3]])
 dyg<-DGEList(counts, group=groups)
 dyg<-calcNormFactors(dyg, method="TMM")
-normd <- cpm(dyg, normalized.lib.sizes = T)
 # Here we trim lowly-expressed genes. This doesn't change the results much but vastly shortens 
 # run time
 normd_trim <- normd[rowMeans(normd)>1,]
 write.table(normd_trim, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.txt", sep = "\t", quote = F)
+
+# median centering, log transform
 normd_log <- cpm(dyg, normalized.lib.sizes = T, log = T)
 normd_trim_log <- normd_log[row.names(normd_log) %in% row.names(normd_trim),]
+rowmed <- apply(normd_trim_log,1,median)
+counts_medcentered <- normd_trim_log - rowmed
+write.table(counts_medcentered, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.logtransformed.mediancentered.txt", sep = "\t", quote = F)
 write.table(normd_trim_log, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.logtransformed.txt", sep = "\t", quote = F)
 
 ##remove genes that have all zero read counts
