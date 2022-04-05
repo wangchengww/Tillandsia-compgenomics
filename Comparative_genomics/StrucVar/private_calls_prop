@@ -1,0 +1,13 @@
+type	cov	perc
+SVIM	5x	90.98
+delly	5x	7.45
+lumpy	5x	1.57
+SVIM	10x	82.58
+delly	10x	13.49
+lumpy	10x	3.93
+SVIM	20x	70.61
+delly	20x	21.09
+lumpy	20x	8.3
+SVIM	50x	60.76
+delly	50x	26.59
+lumpy	50x	12.64

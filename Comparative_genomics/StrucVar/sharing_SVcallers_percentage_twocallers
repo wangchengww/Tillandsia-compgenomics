@@ -1,0 +1,13 @@
+sharing	perc	cov
+SVIM-delly	41.09	5x
+SVIM-lumpy	18.43	5x
+delly-lumpy	40.48	5x
+SVIM-delly	27.89	10x
+SVIM-lumpy	22.02	10x
+delly-lumpy	50.09	10x
+SVIM-delly	18.15	20x
+SVIM-lumpy	21.35	20x
+delly-lumpy	60.5	20x
+SVIM-delly	13.19	50x
+SVIM-lumpy	19.05	50x
+delly-lumpy	67.76	50x

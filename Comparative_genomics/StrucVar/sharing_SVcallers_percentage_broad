@@ -1,0 +1,13 @@
+sharing	perc	cov
+all	2.47	5x
+two	3.83	5x
+private	93.7	5x
+all	3.74	10x
+two	6.24	10x
+private	90.02	10x
+all	4.11	20x
+two	8.94	20x
+private	86.95	20x
+all	3.86	50x
+two	10.95	50x
+private	85.19	50x

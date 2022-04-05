@@ -1,0 +1,87 @@
+#### Summary of Negative binomial fit ####
+
+Call:
+glm.nb(formula = gene_count ~ species, data = counts_Tfas_Tlei_t,
+    init.theta = 18.48764143, link = log)
+
+Deviance Residuals:
+    Min       1Q   Median       3Q      Max
+-0.3106  -0.3106  -0.1570  -0.1570  20.2872
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)
+(Intercept)  0.304542   0.006942   43.87   <2e-16 ***
+speciesTlei -0.147126   0.010174  -14.46   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for Negative Binomial(18.4876) family taken to be 1)
+
+    Null deviance: 14023  on 32847  degrees of freedom
+Residual deviance: 13813  on 32846  degrees of freedom
+AIC: 85234
+
+Number of Fisher Scoring iterations: 1
+
+
+              Theta:  18.488
+          Std. Err.:  0.901
+
+ 2 x log-likelihood:  -85228.023
+
+
+ #### Summary of Poisson fit ####
+
+ Call:
+glm(formula = gene_count ~ species, family = "poisson", data = counts_Tfas_Tlei_t)
+
+Deviance Residuals:
+    Min       1Q   Median       3Q      Max
+-0.3208  -0.3208  -0.1617  -0.1617  24.9015
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)
+(Intercept)  0.304542   0.006701   45.45   <2e-16 ***
+speciesTlei -0.147126   0.009845  -14.95   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 16940  on 32847  degrees of freedom
+Residual deviance: 16716  on 32846  degrees of freedom
+AIC: 86001
+
+Number of Fisher Scoring iterations: 5
+
+
+#### Summary of NB fit, no 1-1 orthogroups ####
+
+Call:
+glm.nb(formula = gene_count ~ species, data = counts_Tfas_Tlei_multi_t,
+    init.theta = 4.1675832, link = log)
+
+Deviance Residuals:
+    Min       1Q   Median       3Q      Max
+-1.0048  -0.5858  -0.3869   0.0905  11.9981
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)  1.02028    0.01350   75.59   <2e-16 ***
+speciesTlei -0.40536    0.02047  -19.80   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for Negative Binomial(4.1676) family taken to be 1)
+
+    Null deviance: 5223.3  on 6591  degrees of freedom
+Residual deviance: 4827.5  on 6590  degrees of freedom
+AIC: 24313
+
+Number of Fisher Scoring iterations: 1
+
+
+              Theta:  4.168
+          Std. Err.:  0.149
+
+ 2 x log-likelihood:  -24306.647

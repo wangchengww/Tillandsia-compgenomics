@@ -1,0 +1,13 @@
+agreement	perc	cov
+SVIM-delly	90.29	5x
+SVIM-lumpy	95.15	5x
+delly-lumpy	99.42	5x
+SVIM-delly	87.09	10x
+SVIM-lumpy	92.37	10x
+delly-lumpy	98.92	10x
+SVIM-delly	85.93	20x
+SVIM-lumpy	89.52	20x
+delly-lumpy	97.88	20x
+SVIM-delly	86.44	50x
+SVIM-lumpy	87.46	50x
+delly-lumpy	97.52	50x

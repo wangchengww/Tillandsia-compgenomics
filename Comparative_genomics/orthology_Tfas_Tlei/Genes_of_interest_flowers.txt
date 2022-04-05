@@ -1,0 +1,57 @@
+gene	seqname	Single_copy.Broc_Anan_Tilla.	Low_copy.Broc_Anan_Tilla.	High_copy.Broc_Anan_Tilla.	Diff_expressed_CAMC3	pos_selection_CAM_shifts	gene_families_CAMC3	Angiosperm_gene	CAM-related_Acomosus_Ming2015	stomata_func	aquaporin_reg	draught_res	markers	anthocyanin_SI_Ananas	circadian_metabolism_Wai2017	malateTransferase_Assimilation_Carbohydrates	fllavonoid_anthocyanin_Pitcairnia_PS	pos_sel_portullugo	glucogenesis_glycolysis	circadian_clock	type	average_exon_size	nr_exons_per_gene	total_exonic_size	min_exon_size
+Aco000319	LG12	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	STA_L_flavonol synthase	NA	yes	no	11_Glycolysis_night_C4_malate_pathway	429.5	2	859	329
+Aco000551	LG12	no	no	yes	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_leucoanthocyanidin dioxygenase	NA	no	no	NA	294.5	4	1178	78
+Aco000637	LG12	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_L_dihydroflavonol 4-reductase	NA	yes	no	10_Glucogenesis_specific_dayC3	254	7	1778	42
+Aco000717	LG02	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_L_bifunctional dihydroflavonol 4-reductase flavanone 4-reductase	NA	no	no	NA	1.794.285.714	7	1256	137
+Aco000868	LG02	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	NA	NA	no	no	00_#Ming2019_SI_gene	1151	1	1151	1151
+Aco000907	LG02	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_UDP-glycosyltransferase	NA	no	no	NA	564	3	1692	98
+Aco001100	LG02	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	NA	NA	no	no	00_#Ming2019_SI_gene	237.5	4	950	155
+Aco001216	LG02	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	NA	NA	no	no	00_#Ming2019_SI_gene	474	5	2370	54
+Aco001858	LG18	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_acyl-glucose-dependent anthocyanin 7-o-glucosyltransferase	NA	no	no	NA	115.75	12	1389	25
+Aco002683	LG06	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_flavonol synthase	NA	no	no	NA	459	3	1377	327
+Aco003857	LG15	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_L_Flavonoid 3- hydroxylase	NA	no	no	NA	4.003.333.333	6	2402	165
+Aco003873	LG15	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	NA	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	230	9	2070	65
+Aco003885	LG15	no	yes	no	yes	NA	NA	NA	no	no	no	no	no	yes	no	no	ALB_F_Flavonoid 3- hydroxylase	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	313.4	5	1567	11
+Aco005239	LG07	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_anthocyanidin 3-O-glucosyltransferase	NA	no	no	NA	1433	1	1433	1433
+Aco005393	LG11	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_anthocyanin 3 -o-beta-glucosyltransferase	NA	no	no	NA	729.5	6	4377	39
+Aco005397	LG11	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_dihydroflavonol 4-reductase	NA	no	no	NA	288	5	1440	153
+Aco005562	LG11	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_L_anthocyanidin 3-O-glucosyltransferase	NA	no	no	NA	1481	1	1481	1481
+Aco005564	LG11	NA	NA	NA	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_isoflavone reductase	NA	no	no	NA	160	6	960	18
+Aco006755	LG01	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	NA	NA	no	no	NA	635	2	1270	210
+Aco006769	LG01	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	ALB_L_dihydroflavonol 4-reductase	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	226.5	6	1359	125
+Aco007046	LG23	no	no	yes	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_leucoanthocyanidin dioxygenase	NA	no	no	NA	363	3	1089	257
+Aco007699	LG08	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	NA	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	593	2	1186	198
+Aco008872	LG09	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	NA	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	420	3	1260	204
+Aco008881	LG09	NA	NA	NA	NA	NA	NA	NA	no	no	no	no	no	no	no	no	STA_F_coumaroyl- :anthocyanidin 3-o-glucoside-6 -o-coumaroyltransferase 2	NA	no	no	NA	554	2	1108	512
+Aco008882	LG09	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_anthocyanin 5-aromatic acyltransferase	NA	no	no	NA	794.5	2	1589	506
+Aco009322	LG22	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_flavone 3 -o-methyltransferase 1	NA	no	no	NA	5.273.333.333	3	1582	64
+Aco009807	LG10	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	STA_L_flavonoid glucosyl-transferase	NA	no	no	NA	458	4	1832	113
+Aco010217	LG25	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_malonyl-coenzyme a: anthocyanin 3-o-glucoside-6 -o-malonyltransferase	NA	no	no	NA	1358	1	1358	1358
+Aco010710	LG10	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_dihydroflavonol 4-reductase	NA	yes	no	10_Glucogenesis_specific_dayC3	259.6	5	1298	169
+Aco011051	LG04	no	no	yes	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_anthocyanidin synthase	NA	no	no	NA	256.25	4	1025	157
+Aco011709	LG08	NA	NA	NA	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_L_malonyl-coenzyme a: anthocyanin 3-o-glucoside-6 -o-malonyltransferase	NA	no	no	NA	526	3	1578	367
+Aco012471	LG13	no	no	yes	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_leucoanthocyanidin dioxygenase	NA	yes	no	11_Glycolysis_night_C4_malate_pathway	4.236.666.667	3	1271	330
+Aco012547	LG13	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_chalcone isomerase	NA	no	no	NA	210	4	840	83
+Aco012745	LG05	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_L_flavonoid glucosyl-transferase	NA	no	no	NA	5.966.666.667	3	1790	257
+Aco012772	LG05	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_isoflavone reductase	NA	yes	no	10_Glucogenesis_specific_dayC3	193.25	12	2319	41
+Aco013473	LG15	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_leucoanthocyanidin reductase	NA	no	no	NA	213.2	5	1066	140
+Aco014061	LG03	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_anthocyanidin synthase	NA	no	no	NA	4.081.428.571	7	2857	224
+Aco014232	LG13	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	ALB_L_chalcone isomerase	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	269	4	1076	158
+Aco014301	LG05	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_L_flavonoid glucosyl-transferase	NA	no	no	NA	790.5	2	1581	647
+Aco014304	LG05	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_L_flavonoid glucosyl-transferase	NA	no	no	NA	1457	1	1457	1457
+Aco014334	LG05	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_L_cyanidin 3-o-rutinoside 5-o-glucosyltransferase	NA	no	no	NA	3.138.076.923	26	8159	50
+Aco014888	LG14	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_anthocyanidin reductase	NA	yes	no	10_Glucogenesis_specific_dayC3	175.5	6	1053	144
+Aco016200	LG17	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	ALB_F_chalcone synthase	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	407	4	1628	155
+Aco016393	LG10	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_isoflavone reductase	NA	no	no	NA	2.092.857.143	7	1465	46
+Aco017169	LG18	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	STA_L_Flavonoid 3- hydroxylase	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	572	3	1716	194
+Aco017939	LG09	NA	NA	NA	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_flavonol synthase	NA	no	no	NA	338	3	1014	194
+Aco018141	LG12	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	NA	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	1400	1	1400	1400
+Aco018609	LG22	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	ALB_F_flavanone 3-hydroxylase	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	572	2	1144	440
+Aco019068	LG20	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_dihydroflavonol 4-reductase	NA	no	no	NA	165.875	8	1327	39
+Aco019275	LG13	no	yes	no	yes	NA	NA	NA	no	no	no	no	no	yes	no	no	STA_F_Flavonoid 3- hydroxylase	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	5.783.333.333	3	1735	329
+Aco022172	LG08	NA	NA	NA	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_anthocyanin 5-aromatic acyltransferase	NA	no	no	NA	428	3	1284	105
+Aco023087	LG09	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	NA	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	666.5	2	1333	457
+Aco023089	LG09	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	NA	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	644	2	1288	585
+Aco024663	LG19	no	yes	no	NA	NA	NA	NA	no	no	no	no	no	yes	no	no	NA	NA	no	no	00_#Ming2019_Anthocyanin_biosynthesis	1388	1	1388	1388
+Aco025098	LG10	yes	no	no	NA	NA	NA	NA	no	no	no	no	no	no	no	no	ALB_F_chalcone isomerase	NA	no	no	NA	222.6	5	1113	101
+																								3156223	

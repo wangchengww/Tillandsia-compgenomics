@@ -1,0 +1,5 @@
+﻿species;time;malate_transport;photosynthesis_regulation;carbon_fixation;circadian_rhythm;water_deprivation
+T.fas;am;0;7;5;4;NA
+T.lei;am;7;0;1;7;NA
+T.fas;pm;NA;NA;5;4;10
+T.lei;pm;NA;NA;0;10;7

@@ -1,0 +1,17 @@
+count	cov	sharing
+12591	5x	all
+7273	5x	lumpy-delly
+2576	5x	lumpy-svim
+9883	5x	delly-svim
+21273	10x	all
+16126	10x	lumpy-delly
+6112	10x	lumpy-svim
+10758	10x	delly-svim
+28058	20x	all
+32868	20x	lumpy-delly
+10694	20x	lumpy-svim
+10283	20x	delly-svim
+31623	50x	all
+53115	50x	lumpy-delly
+14307	50x	lumpy-svim
+9645	50x	delly-svim
