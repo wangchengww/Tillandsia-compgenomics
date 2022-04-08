@@ -9,21 +9,23 @@ if (!require("pacman")) install.packages("pacman", repos = "
 http://cran.us.r-project.org")
 pacman::p_load("circlize", "stringr", "RColorBrewer")
 
-setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure")
+#setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure")
+#setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure')
 
 # Load arguments
-# 1 is counts, 2 is the subset of genes of each module, 3 is the GOterms
+# 1 is chromosome list, 2 is the gene density, 3 is tTE density, 4 is DE genes, 5 is synteny,
+# 6 is output name
 args <- commandArgs(trailingOnly = TRUE)
-output_name <- args[[5]]
+output_name <- args[[6]]
 # Read in the complete list of chromosomes with all needed info:
 #chrom <- read.table("chromosomes_Tfas_Tlei.coordinates-circle.txt", header = T, sep = "\t")
 chrom <- read.table(args[[1]], header = T, sep = "\t")
 
 # Make matrix of start and end position to initialize the circular plot
-pos <- cbind(rep(0, 51), chrom$size)
+pos <- cbind(rep(0, dim(chrom)[1]), chrom$size)
 
 # Make plot
-pdf(paste0(output_name, ".pdf"))
+pdf(paste0(output_name, ".pdf"), width = 10, height = 8)
 print("Initializing the plot...")
 circos.clear()
 # Plot initialization
@@ -43,14 +45,14 @@ for (i in 1:nrow(chrom)){
   name=chrom[i,1]
   if (is.even(i) == TRUE){
     if (chrom[i,3] == "Tfas") {
-      circos.text(chrom$size/2 - n, 2, str_split(name, "_")[[1]][2], sector.index=name,
+      circos.text(chrom$size/2 - n, 2.2, str_split(name, "_")[[1]][2], sector.index=name,
                   col="olivedrab",cex=0.6, facing = "inside", niceFacing = T)
       n = n + 220000
       if (i > 21 & i < 26){
         n = n + 600000
       }
     } else {
-      circos.text(chrom$size - n, 2, str_split(name, "_")[[1]][2], sector.index=name,
+      circos.text(chrom$size - n, 2.2, str_split(name, "_")[[1]][2], sector.index=name,
                   col="darkgreen",cex=0.6, facing = "inside", niceFacing = T)
       n = n + 20000
       if (i > 38){
@@ -70,11 +72,11 @@ for (i in 1:nrow(chrom)){
       }
     } else {
       if (chrom[i,3] == "Tfas") {
-        circos.text(chrom$size/2 - n , 2, str_split(name, "_")[[1]][2], sector.index=name,
+        circos.text(chrom$size/2 - n , 2.2, str_split(name, "_")[[1]][2], sector.index=name,
                     col="olivedrab",cex=0.6, facing = "inside", niceFacing = T)
         n = n + 220000
       } else {
-        circos.text(chrom$size - n, 2, str_split(name, "_")[[1]][2], sector.index=name,
+        circos.text(chrom$size - n, 2.2, str_split(name, "_")[[1]][2], sector.index=name,
                     col="darkgreen",cex=0.6, facing = "inside", niceFacing = T)
         n = n + 20000
         if (i > 38){
@@ -137,16 +139,21 @@ for(sn in get.all.sector.index()) {
 
 #-------------------TRACK 3: DE genes-------------------#
 
-#DE_genes <- read.table("DE_genes_Tfas.txt", header = T)
+#DE_genes <- read.table("DE_genes_Tfas-Tlei.txt", header = T)
 print("Drawing third track: DE genes...")
-DE_genes <- read.table(args[[3]], header = T)
+DE_genes <- read.table(args[[4]], header = T)
 DE_genes <- DE_genes[,c(2:4)]
-DE_genes$value <- 1
+
+n_tfas_genes = sum(grepl("Tfas", DE_genes$chr))
+n_tlei_genes = sum(grepl("Tlei", DE_genes$chr))
+DE_genes$value <- c(rep(1,n_tfas_genes),rep(2,n_tlei_genes))
 colnames(DE_genes) <- c("chr", "start", "end", "value1")
 
+f = colorRamp2(breaks = c(0, 1), colors = c("olivedrab", "darkgreen"))
 circos.genomicTrack(DE_genes, ylim = c(0,10), panel.fun = function(region,value,...)  {
-  circos.genomicRect(region, value, ytop = 10, ybottom = 0, col = "yellow", lwd = .01)
-}, track.height = 0.17)
+  i = getI(...)
+  circos.genomicRect(region, value, ytop = 10, ybottom = 0, col = ifelse(value[[1]] == 1, "olivedrab", "darkgreen"), border = ifelse(value[[1]] == 1, "olivedrab", "darkgreen"), lwd = .0000001)
+}, track.height = 0.1)
 
 
 #-------------------TRACK 4: SYNTENY-------------------#
@@ -154,7 +161,7 @@ circos.genomicTrack(DE_genes, ylim = c(0,10), panel.fun = function(region,value,
 ### Add links from Tfas to Tlei
 #synteny_genes <- read.table("orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.one-to-one.circlize.txt", 
 #                            header = T,sep = "\t")
-synteny_genes <- read.table(args[[4]], header = T,sep = "\t")
+synteny_genes <- read.table(args[[5]], header = T,sep = "\t")
 print("Drawing fourth track: Synteny...")
 # Create color palette for links
 nb.cols <- 25
