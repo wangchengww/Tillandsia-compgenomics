@@ -20,13 +20,12 @@ counts <- counts[,-c(1:5)]
 # For exonic-only analysis
 counts <- read.table("../counts.Tfas_Tlei_6_timepoints.exons.edited.forR.sum.txt", header = T, row.names = 1)
 
-
-
 #set up edgeR object
 groups_list <- data.table::transpose(str_split(colnames(counts), "_"))[c(1,3,4)]
 groups <- paste0(groups_list[[1]], "_", groups_list[[2]], "_", groups_list[[3]])
 dyg<-DGEList(counts, group=groups)
 dyg<-calcNormFactors(dyg, method="TMM")
+normd <- cpm(dyg, normalized.lib.sizes = T)
 # Here we trim lowly-expressed genes. This doesn't change the results much but vastly shortens 
 # run time
 normd_trim <- normd[rowMeans(normd)>1,]
@@ -35,11 +34,31 @@ write.table(normd_trim, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normaliz
 # median centering, log transform
 normd_log <- cpm(dyg, normalized.lib.sizes = T, log = T)
 normd_trim_log <- normd_log[row.names(normd_log) %in% row.names(normd_trim),]
-rowmed <- apply(normd_trim_log,1,median)
-counts_medcentered <- normd_trim_log - rowmed
-write.table(counts_medcentered, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.logtransformed.mediancentered.txt", sep = "\t", quote = F)
+rowmed_Tfas <- apply(normd_trim_log[, c(1:36)],1,median)
+rowmed_Tlei <- apply(normd_trim_log[, c(37:72)],1,median)
+
+counts_medcentered_Tfas <- normd_trim_log[, c(1:36)] - rowmed_Tfas
+counts_medcentered_Tlei <- normd_trim_log[, c(37:72)] - rowmed_Tlei
+
+normd_trim_log_medcentered <- cbind(counts_medcentered_Tfas, counts_medcentered_Tlei)
+
+write.table(normd_trim_log_medcentered, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.logtransformed.mediancentered.txt", sep = "\t", quote = F)
 write.table(normd_trim_log, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.logtransformed.txt", sep = "\t", quote = F)
 
+
+cluster3 <- scan("Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.exonic-cluster3.txt", character())
+module_counts_medcent <- subset(counts_medcentered, rownames(counts_medcentered) %in% cluster3)
+module_counts_medcent_Tfas <- module_counts_medcent[, c(1:36)]
+mean_count_medcent_Tfas <- as.data.frame(sapply(seq(1, 6, 1), function(j) rowMeans(module_counts_medcent_Tfas[, c(j,j+6,j+12,j+18,j+24,j+30)])))
+colnames(mean_count_Tfas) <- c("0100", "0500", "0900","1300", "1700", "2100")
+
+module_counts_log <- subset(normd_trim_log, rownames(normd_trim_log) %in% cluster3)
+module_counts_log_Tfas <- module_counts_log[, c(1:36)]
+mean_count_log_Tfas <- as.data.frame(sapply(seq(1, 6, 1), function(j) rowMeans(module_counts_log_Tfas[, c(j,j+6,j+12,j+18,j+24,j+30)])))
+rowmed <- as.data.frame(rowmed)
+rowmed$names <- rownames(rowmed)
+
+# median of Tfasc_v1.08799-RA is 1.301019, median of Tfasc_v1.15626-RA is -0.6
 ##remove genes that have all zero read counts
 normd_trim <- normd_trim[ rowSums(normd_trim)!=0, ]
 ##load design object for masigpro. row order must be the same as the order of libraries in count matrix
