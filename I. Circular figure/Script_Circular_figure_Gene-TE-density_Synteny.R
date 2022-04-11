@@ -18,7 +18,7 @@ pacman::p_load("circlize", "stringr", "RColorBrewer")
 args <- commandArgs(trailingOnly = TRUE)
 output_name <- args[[6]]
 # Read in the complete list of chromosomes with all needed info:
-#chrom <- read.table("chromosomes_Tfas_Tlei.coordinates-circle.txt", header = T, sep = "\t")
+#chrom <- read.table("chromosomes_Tfas_Tlei.coordinates-circle.txt.no-Tlei_chr2526", header = T, sep = "\t")
 chrom <- read.table(args[[1]], header = T, sep = "\t")
 
 # Make matrix of start and end position to initialize the circular plot
@@ -90,8 +90,8 @@ for (i in 1:nrow(chrom)){
 
 
 # Add species lines
-draw.sector(91, 290, rou1 = 1.07, rou2 = 1.08, col = "olivedrab", border="NA")
-draw.sector(288, 93, rou1 = 1.07, rou2 = 1.08, col = "darkgreen", border="NA")
+draw.sector(90, 302, rou1 = 1.07, rou2 = 1.08, col = "olivedrab", border="NA")
+draw.sector(301, 91, rou1 = 1.07, rou2 = 1.08, col = "darkgreen", border="NA")
 circos.text(chrom$size/2, 8, "T. fasciculata", sector.index="Tfas_chr11",col="olivedrab",cex=0.9, facing = "bending.inside")
 circos.text(chrom$size/2, 8, "T. leiboldiana", sector.index="Tlei_chr11",col="darkgreen",cex=0.9, facing = "bending.inside")
 
@@ -99,11 +99,15 @@ circos.text(chrom$size/2, 8, "T. leiboldiana", sector.index="Tlei_chr11",col="da
 
 ## Read in gene content files
 # All gene counts
-#gene_counts_per_mb_windows <- read.table("Gene_counts_per_1MB_windows.Tfas-Tlei.mainScaffolds.curatedOGs.txt", header = T)
+#gene_counts_per_mb_windows <- read.table("Gene_counts_per_1MB_windows.Tfas-Tlei.mainScaffolds.curatedOGs.txt.no-Tlei_chr2526", header = T)
 gene_counts_per_mb_windows <- read.table(args[[2]], header = T)
 print("Darwing first track: Gene density...")
-circos.track(gene_counts_per_mb_windows$chrom, y = gene_counts_per_mb_windows$gene_counts, x = gene_counts_per_mb_windows$start_window, 
-              bg.col = "grey92", panel.fun = function(x, y) {
+#length_Tfas <- sum(grepl("Tfas", gene_counts_per_mb_windows$chrom))
+#length_Tlei <- sum(grepl("Tlei", gene_counts_per_mb_windows$chrom))
+#color_gene_density <- c(rep("seagreen3", length_Tfas), rep("seagreen", length_Tlei))
+circos.track(gene_counts_per_mb_windows$chrom, y = gene_counts_per_mb_windows$gene_counts, 
+             x = gene_counts_per_mb_windows$start_window, 
+             bg.col = "grey92", panel.fun = function(x, y) {
                circos.lines(x, y, area = T, col = "seagreen")
                circos.yaxis(c("left"), sector.index = "Tfas_chr1", labels = F, at = c(0,70,146),
                             labels.cex = 0.3, labels.col="khaki4", tick.length = 2)
@@ -118,7 +122,7 @@ for(sn in get.all.sector.index()) {
 
 #-------------------TRACK 3: TE DENSITY-------------------#
 
-#TE_content_per_mb_windows <- read.table("TE_content_Tfas-Tlei_per1MB-window_python.txt", header = T, sep = "\t")
+#TE_content_per_mb_windows <- read.table("TE_content_Tfas-Tlei_per1MB-window_python.txt.no-Tlei_chr2526", header = T, sep = "\t")
 TE_content_per_mb_windows <- read.table(args[[3]], header = T,sep = "\t")
 print("Drawing second track: TE density...")
 circos.track(TE_content_per_mb_windows$chrom, x = TE_content_per_mb_windows$start_window,
@@ -139,7 +143,7 @@ for(sn in get.all.sector.index()) {
 
 #-------------------TRACK 3: DE genes-------------------#
 
-#DE_genes <- read.table("DE_genes_Tfas-Tlei.txt", header = T)
+#DE_genes <- read.table("DE_genes_Tfas-Tlei.txt.no-Tlei_chr2526", header = T)
 print("Drawing third track: DE genes...")
 DE_genes <- read.table(args[[4]], header = T)
 DE_genes <- DE_genes[,c(2:4)]
@@ -148,8 +152,6 @@ n_tfas_genes = sum(grepl("Tfas", DE_genes$chr))
 n_tlei_genes = sum(grepl("Tlei", DE_genes$chr))
 DE_genes$value <- c(rep(1,n_tfas_genes),rep(2,n_tlei_genes))
 colnames(DE_genes) <- c("chr", "start", "end", "value1")
-
-f = colorRamp2(breaks = c(0, 1), colors = c("olivedrab", "darkgreen"))
 circos.genomicTrack(DE_genes, ylim = c(0,10), panel.fun = function(region,value,...)  {
   i = getI(...)
   circos.genomicRect(region, value, ytop = 10, ybottom = 0, col = ifelse(value[[1]] == 1, "olivedrab", "darkgreen"), border = ifelse(value[[1]] == 1, "olivedrab", "darkgreen"), lwd = .0000001)
@@ -159,13 +161,13 @@ circos.genomicTrack(DE_genes, ylim = c(0,10), panel.fun = function(region,value,
 #-------------------TRACK 4: SYNTENY-------------------#
 
 ### Add links from Tfas to Tlei
-#synteny_genes <- read.table("orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.one-to-one.circlize.txt", 
-#                            header = T,sep = "\t")
+synteny_genes <- read.table("orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.one-to-one.circlize.txt.no-Tlei_chr2526", 
+                            header = T,sep = "\t")
 synteny_genes <- read.table(args[[5]], header = T,sep = "\t")
 print("Drawing fourth track: Synteny...")
 # Create color palette for links
 nb.cols <- 25
-mycolors <- sample(colorRampPalette(brewer.pal(8, "Set1"))(nb.cols))
+mycolors <- add_transparency(sample(colorRampPalette(brewer.pal(8, "Set1"))(nb.cols)), 0.5)
 
 ### Add links from Tfas to Tlei
 for (j in 1:25){
@@ -173,7 +175,7 @@ for (j in 1:25){
   genes <- synteny_genes[synteny_genes$Tfas_chrom == loc,]
   for (i in 1:nrow(genes)){
     circos.link(sector.index1=genes[i,3], genes[i,4], sector.index2=genes[i,7], 
-                genes[i,8],col=mycolors[j], lwd = .1)
+                genes[i,8],col=mycolors[j], lwd = .01)
   }
 }
 
