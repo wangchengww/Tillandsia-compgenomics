@@ -89,3 +89,9 @@ To remove noise, I wrote a python script that will eliminate all alignments whic
     python2 script_filter_alignments_by_uniqness_threshold.py Tlei_vs_Tfas_allchrom_lastz.coord 0.9
 
  The LastZ alignments seem to support the rearrangements observed in dotplot and orthology analyses. In some cases, the breakpoints are clear-cut, in others not so much. I decided to zoom in on the clear breakpoints to find out a range in which the breakpoint may exist, and then look at the pacbio alignments in that region.
+
+# dN/dS rates across rearranged chromosomes
+
+To see what sort of effect rearrangements may have had on nearby genes, we decided to map the dN/dS rates obtained in 6. to the chromosomal location. We also use this opportunity to obtain some general stats and distributions of dN/dS.
+
+First, I filtered all alignments 5 or less variant sites (1286 out of 10,363) to avoid skew in these distributions. I calculated the number of variant sites using [AMAS](https://github.com/marekborowiec/AMAS): `python AMAS.py summary -f phylip -d dna -i *.phylip` which created summary.txt. Then I selected every orthogroup with more than 5 variant sites: `awk 'BEGIN { FS = "\t" } ; $7 > 5 {print $0}' summary.txt | cut -f 1 | sed 's/_NT.phylip//g' > orthogroups_to_keep.5variant-sites.txt`.
