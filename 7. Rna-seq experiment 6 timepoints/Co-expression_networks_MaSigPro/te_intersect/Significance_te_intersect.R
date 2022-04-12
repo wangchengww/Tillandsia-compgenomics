@@ -2,6 +2,8 @@ library(tidyverse)
 library(rstatix)
 
 setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/te_intersect/')
+setwd('/home/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/te_intersect/')
+
 
 counts <- read.table('Tillandsia_fasciculata_GENE-TE-intersection.counts.txt', sep = '\t')
 colnames(counts) <- c('chr', 'start', 'end', 'dir','name', 'te_counts')
