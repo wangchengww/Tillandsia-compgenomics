@@ -33,6 +33,8 @@ mean_count_Tfas_m <- melt(mean_count_Tfas, id.vars = "gene_id")
 colnames(mean_count_Tfas_m) <- c("gene_id", "time", "count")
 mean_count_Tlei_m <- melt(mean_count_Tlei, id.vars = "gene_id")
 colnames(mean_count_Tlei_m) <- c("gene_id", "time", "count")
+write.table(mean_count_Tfas_m, file = paste0("Mean_Expression_counts_T.fasciculata-", module, ".txt"))
+write.table(mean_count_Tlei_m, file = paste0("Mean_Expression_counts_T.leiboldiana-", module, ".txt"))
 
 malate <- goterms[grep("malate", goterms$Term), 6]
 malate <- unlist(str_split(malate, ", "))

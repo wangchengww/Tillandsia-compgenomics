@@ -9,8 +9,8 @@ if (!require("pacman")) install.packages("pacman", repos = "
 http://cran.us.r-project.org")
 pacman::p_load("circlize", "stringr", "RColorBrewer")
 
-#setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure")
-setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure')
+setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure")
+#setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure')
 
 # Load arguments
 # 1 is chromosome list, 2 is the gene density, 3 is tTE density, 4 is DE genes, 5 is synteny,
@@ -102,13 +102,13 @@ circos.text(chrom$size/2, 8, "T. leiboldiana", sector.index="Tlei_chr11",col="da
 gene_counts_per_mb_windows <- read.table("Gene_counts_per_1MB_windows.Tfas-Tlei.mainScaffolds.curatedOGs.txt.no-Tlei_chr2526", header = T)
 gene_counts_per_mb_windows <- read.table(args[[2]], header = T)
 print("Darwing first track: Gene density...")
-#length_Tfas <- sum(grepl("Tfas", gene_counts_per_mb_windows$chrom))
-#length_Tlei <- sum(grepl("Tlei", gene_counts_per_mb_windows$chrom))
-#color_gene_density <- c(rep("seagreen3", length_Tfas), rep("seagreen", length_Tlei))
+length_Tfas <- sum(grepl("Tfas", gene_counts_per_mb_windows$chrom))
+length_Tlei <- sum(grepl("Tlei", gene_counts_per_mb_windows$chrom))
+color_gene_density <- c(rep("seagreen3", length_Tfas), rep("seagreen", length_Tlei))
 circos.track(gene_counts_per_mb_windows$chrom, y = gene_counts_per_mb_windows$gene_counts, 
              x = gene_counts_per_mb_windows$start_window, 
              bg.col = "grey92", panel.fun = function(x, y) {
-               circos.lines(x, y, area = T, col = "seagreen")
+               circos.lines(x, y, area = T, col = color_gene_density[])
                circos.yaxis(c("left"), sector.index = "Tfas_chr1", labels = F, at = c(0,70,146),
                             labels.cex = 0.3, labels.col="khaki4", tick.length = 2)
              }, track.height = 0.15, bg.border = "black")
@@ -167,7 +167,7 @@ synteny_genes <- read.table(args[[5]], header = T,sep = "\t")
 print("Drawing fourth track: Synteny...")
 # Create color palette for links
 nb.cols <- 25
-mycolors <- add_transparency(sample(colorRampPalette(brewer.pal(8, "Set1"))(nb.cols)), 0.5)
+mycolors <- sample(colorRampPalette(brewer.pal(8, "Set1"))(nb.cols))
 
 ### Add links from Tfas to Tlei
 for (j in 1:25){

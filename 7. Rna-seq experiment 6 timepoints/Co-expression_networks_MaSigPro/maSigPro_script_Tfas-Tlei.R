@@ -35,16 +35,12 @@ write.table(normd_trim, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normaliz
 # log transform
 normd_log <- cpm(dyg, normalized.lib.sizes = T, log = T)
 normd_trim_log <- normd_log[row.names(normd_log) %in% row.names(normd_trim),]
-rowmed_Tfas <- apply(normd_trim_log[, c(1:36)],1,median)
-rowmed_Tlei <- apply(normd_trim_log[, c(37:72)],1,median)
+rowmed <- apply(normd_trim_log,1,median)
 
 # Median centering, just for visuals
-counts_medcentered_Tfas <- normd_trim_log[, c(1:36)] - rowmed_Tfas
-counts_medcentered_Tlei <- normd_trim_log[, c(37:72)] - rowmed_Tlei
+counts_medcentered_log <- normd_trim_log - rowmed
 
-normd_trim_log_medcentered <- cbind(counts_medcentered_Tfas, counts_medcentered_Tlei)
-
-write.table(normd_trim_log_medcentered, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.logtransformed.mediancentered.txt", sep = "\t", quote = F)
+write.table(counts_medcentered_log, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.logtransformed.mediancentered.txt", sep = "\t", quote = F)
 write.table(normd_trim_log, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.logtransformed.txt", sep = "\t", quote = F)
 
 ##remove genes that have all zero read counts
