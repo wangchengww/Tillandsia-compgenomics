@@ -90,8 +90,8 @@ for (i in 1:nrow(chrom)){
 
 
 # Add species lines
-draw.sector(90, 302, rou1 = 1.07, rou2 = 1.08, col = "olivedrab", border="NA")
-draw.sector(301, 91, rou1 = 1.07, rou2 = 1.08, col = "darkgreen", border="NA")
+draw.sector(90, 299, rou1 = 1.07, rou2 = 1.08, col = "olivedrab", border="NA")
+draw.sector(298, 91, rou1 = 1.07, rou2 = 1.08, col = "darkgreen", border="NA")
 circos.text(chrom$size/2, 8, "T. fasciculata", sector.index="Tfas_chr11",col="olivedrab",cex=0.9, facing = "bending.inside")
 circos.text(chrom$size/2, 8, "T. leiboldiana", sector.index="Tlei_chr11",col="darkgreen",cex=0.9, facing = "bending.inside")
 
