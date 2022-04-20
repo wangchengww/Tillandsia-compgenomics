@@ -30,7 +30,7 @@ print("Initializing the plot...")
 circos.clear()
 # Plot initialization
 circos.par("track.height"=0.05, cell.padding=c(0.02, 0, 0.02, 0),
-           start.degree=90,gap.degree=1,points.overflow.warning=FALSE,
+           start.degree=90,gap.degree=1.5,points.overflow.warning=FALSE,
            track.margin=c(0,0))
 circos.initialize(sectors = chrom$name, xlim = pos)
 
@@ -102,15 +102,29 @@ circos.text(chrom$size/2, 8, "T. leiboldiana", sector.index="Tlei_chr11",col="da
 gene_counts_per_mb_windows <- read.table("Gene_counts_per_1MB_windows.Tfas-Tlei.mainScaffolds.curatedOGs.txt.no-Tlei_chr2526", header = T)
 gene_counts_per_mb_windows <- read.table(args[[2]], header = T)
 print("Darwing first track: Gene density...")
-length_Tfas <- sum(grepl("Tfas", gene_counts_per_mb_windows$chrom))
-length_Tlei <- sum(grepl("Tlei", gene_counts_per_mb_windows$chrom))
-color_gene_density <- c(rep("seagreen3", length_Tfas), rep("seagreen", length_Tlei))
+color_gene_density <- c(Tfas_chr1 = "palegreen3", Tfas_chr2 = "palegreen3", Tfas_chr3 = "palegreen3",
+                        Tfas_chr4 = "palegreen3", Tfas_chr5 = "palegreen3", Tfas_chr6 = "palegreen3",
+                        Tfas_chr7 = "palegreen3", Tfas_chr8 = "palegreen3", Tfas_chr9 = "palegreen3",
+                        Tfas_chr10 = "palegreen3", Tfas_chr11 = "palegreen3", Tfas_chr12 = "palegreen3",
+                        Tfas_chr13 = "palegreen3", Tfas_chr14 = "palegreen3", Tfas_chr15 = "palegreen3",
+                        Tfas_chr16 = "palegreen3", Tfas_chr17 = "palegreen3", Tfas_chr18 = "palegreen3",
+                        Tfas_chr19 = "palegreen3", Tfas_chr20 = "palegreen3", Tfas_chr21 = "palegreen3",
+                        Tfas_chr22 = "palegreen3", Tfas_chr23 = "palegreen3", Tfas_chr24 = "palegreen3",
+                        Tfas_chr25 = "palegreen3", Tlei_chr1 = "seagreen", Tlei_chr2 = "seagreen", 
+                        Tlei_chr3 = "seagreen", Tlei_chr4 = "seagreen", Tlei_chr5 = "seagreen", 
+                        Tlei_chr6 = "seagreen", Tlei_chr7 = "seagreen", Tlei_chr8 = "seagreen", 
+                        Tlei_chr9 = "seagreen", Tlei_chr10 = "seagreen", Tlei_chr11 = "seagreen", 
+                        Tlei_chr12 = "seagreen", Tlei_chr13 = "seagreen", Tlei_chr14 = "seagreen", 
+                        Tlei_chr15 = "seagreen",Tlei_chr16 = "seagreen", Tlei_chr17 = "seagreen", 
+                        Tlei_chr18 = "seagreen",Tlei_chr19 = "seagreen", Tlei_chr20 = "seagreen", 
+                        Tlei_chr21 = "seagreen",Tlei_chr22 = "seagreen", Tlei_chr23 = "seagreen", 
+                        Tlei_chr24 = "seagreen")
 circos.track(gene_counts_per_mb_windows$chrom, y = gene_counts_per_mb_windows$gene_counts, 
              x = gene_counts_per_mb_windows$start_window, 
              bg.col = "grey92", panel.fun = function(x, y) {
-               circos.lines(x, y, area = T, col = color_gene_density[])
-               circos.yaxis(c("left"), sector.index = "Tfas_chr1", labels = F, at = c(0,70,146),
-                            labels.cex = 0.3, labels.col="khaki4", tick.length = 2)
+               circos.lines(x, y, area = T, col = color_gene_density[CELL_META$sector.index])
+               circos.yaxis(c("left"), sector.index = "Tfas_chr1", labels = T, at = seq(0, CELL_META$ylim[2], by = 50),
+                            labels.cex = 0.15, labels.col="khaki4", tick.length = 2)
              }, track.height = 0.15, bg.border = "black")
 for(sn in get.all.sector.index()) {
   set.current.cell(sector.index = sn, track.index = get.current.track.index())
@@ -119,20 +133,37 @@ for(sn in get.all.sector.index()) {
     circos.lines(CELL_META$cell.xlim, rep(b, 2), lty = 3, col = "#00000040")
   }
 }
-
 #-------------------TRACK 3: TE DENSITY-------------------#
 
 TE_content_per_mb_windows <- read.table("TE_content_Tfas-Tlei_per1MB-window_python.txt.no-Tlei_chr2526", header = T, sep = "\t")
 TE_content_per_mb_windows <- read.table(args[[3]], header = T,sep = "\t")
 print("Drawing second track: TE density...")
+
+color_te_density <- c(Tfas_chr1 = "goldenrod1", Tfas_chr2 = "goldenrod1", Tfas_chr3 = "goldenrod1",
+                        Tfas_chr4 = "goldenrod1", Tfas_chr5 = "goldenrod1", Tfas_chr6 = "goldenrod1",
+                        Tfas_chr7 = "goldenrod1", Tfas_chr8 = "goldenrod1", Tfas_chr9 = "goldenrod1",
+                        Tfas_chr10 = "goldenrod1", Tfas_chr11 = "goldenrod1", Tfas_chr12 = "goldenrod1",
+                        Tfas_chr13 = "goldenrod1", Tfas_chr14 = "goldenrod1", Tfas_chr15 = "goldenrod1",
+                        Tfas_chr16 = "goldenrod1", Tfas_chr17 = "goldenrod1", Tfas_chr18 = "goldenrod1",
+                        Tfas_chr19 = "goldenrod1", Tfas_chr20 = "goldenrod1", Tfas_chr21 = "goldenrod1",
+                        Tfas_chr22 = "goldenrod1", Tfas_chr23 = "goldenrod1", Tfas_chr24 = "goldenrod1",
+                        Tfas_chr25 = "goldenrod1", Tlei_chr1 = "orange2", Tlei_chr2 = "orange2", 
+                        Tlei_chr3 = "orange2", Tlei_chr4 = "orange2", Tlei_chr5 = "orange2", 
+                        Tlei_chr6 = "orange2", Tlei_chr7 = "orange2", Tlei_chr8 = "orange2", 
+                        Tlei_chr9 = "orange2", Tlei_chr10 = "orange2", Tlei_chr11 = "orange2", 
+                        Tlei_chr12 = "orange2", Tlei_chr13 = "orange2", Tlei_chr14 = "orange2", 
+                        Tlei_chr15 = "orange2",Tlei_chr16 = "orange2", Tlei_chr17 = "orange2", 
+                        Tlei_chr18 = "orange2",Tlei_chr19 = "orange2", Tlei_chr20 = "orange2", 
+                        Tlei_chr21 = "orange2",Tlei_chr22 = "orange2", Tlei_chr23 = "orange2", 
+                        Tlei_chr24 = "orange2")
+
 circos.track(TE_content_per_mb_windows$chrom, x = TE_content_per_mb_windows$start_window,
              y = TE_content_per_mb_windows$perc_te, bg.col = "grey92", ylim = c(0,100),
              panel.fun = function(x, y) {
-               circos.lines(x, y, area = T, col = "orange")
-               circos.yaxis(c("left"), sector.index = "Tfas_chr1", labels = F, at = c(0,10,20),
-                            labels.cex = 0.3, labels.col="khaki4", tick.length = 2)
+               circos.lines(x, y, area = T, col = color_te_density[CELL_META$sector.index])
+               circos.yaxis(c("left"), sector.index = "Tfas_chr1", labels = T, at = seq(0, CELL_META$ylim[2], by = 20),
+                            labels.cex = 0.15, labels.col="khaki4", tick.length = 2)
              }, track.height = 0.17, bg.border = "black")
-
 for(sn in get.all.sector.index()) {
   set.current.cell(sector.index = sn, track.index = get.current.track.index())
   breaks = seq(0, CELL_META$ylim[2], by = 20)
