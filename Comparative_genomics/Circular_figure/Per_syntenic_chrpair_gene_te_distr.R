@@ -4,39 +4,38 @@
 ## The idea here is to create per-chromosome pair flat plots to see more clearly whether gene-rich 
 ## areas have shifted between both species
 
-setwd('/Users/clara/bio-info_phd/Comparative_genomics/Circular_figure/')
-
+setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure/')
+library("grid")
+library("gridExtra")
 # Read in genic content
-Tfas_onetoone <- read.table("Tfas_one-to-one_gene_counts_1Mb_windows_curated_ogs.25scaffolds.txt", header = T)
-Tlei_onetoone <- read.table("Tlei_one-to-one_gene_counts_1Mb_windows_curated_ogs.25scaffolds.txt", header = T)
-Tfas_onetoone$V2 <- (Tfas_onetoone$V2)/1000000
-Tlei_onetoone$start_window <- (Tlei_onetoone$start_window)/1000000
+gene_content <- read.table("Gene_counts_per_1MB_windows.Tfas-Tlei.mainScaffolds.curatedOGs.txt", header = T)
+gene_content$start_window <- (gene_content$start_window)/1000000
 
 # Read in repetitive content
-Tfas_rep <- read.table("TE_content_Tfas_per1MBwindow_py.txt", header = T)
-Tfas_rep$start_window <- (Tfas_rep$start_window)/1000000
-Tlei_rep <- read.table("TE_content_Tlei_per1MBwindow_py.txt", header = T)
-Tlei_rep$start_window <- (Tlei_rep$start_window)/1000000
-summary(Tfas_rep)
-# Chr1 Tfas
+rep_content <- read.table("TE_content_Tfas-Tlei_per1MB-window_python.txt", header = T)
+rep_content$start_window <- (rep_content$start_window)/1000000
+
+# Chr18 Tfas
 # Genic content
-chr1 <- Tfas_onetoone[Tfas_onetoone$chrom == "Scaffold_2199",]
-plot(chr1$V4~chr1$V2, type="l", lwd=2.5,lty=1, ylim=c(0,100), 
+chr18 <- gene_content[gene_content$chrom == "Tfas_chr18",]
+par(mfrow=c(1,1))
+plot(chr18$gene_counts~chr18$start_window, type="l", lwd=2.5,lty=1, ylim=c(0,130), 
      xlab="position (MB)",
      ylab="Gene count", 
      xaxs = "i",
      yaxs = "i",
      col="seagreen",xaxt="n")+
-  title(main = "Gene count per 1 MB window on Tfas_chr1",)
+  title(main = "Gene count per 1 MB window on Tfas_chr18",)  
 axis(1, xaxp  = c(0, 32, 8), las=1)
 axis(1, tck=-0.015, col.ticks="black", xaxp = c(0,32, 32), labels = F)
-polygon(c(chr1$V2[chr1$V2>=0], max(chr1$V2), 0), c(chr1$V4[chr1$V2>=0], 0, 0), 
+polygon(c(chr18$start_window[chr18$start_window>=0], max(chr18$start_window), 0), c(chr18$gene_counts[chr18$start_window>=0], 0, 0), 
         col=adjustcolor("seagreen",alpha.f=0.7))
 grid(nx = 8, ny = 5)
-
+rect(xleft= 5.6,xright = 11,,ybottom=0,ytop=130, density=10, col = "blue")
+rect(xleft= 17,xright = 21,,ybottom=0,ytop=130, density=10, col = "blue")
 # Repetitive content
-Tfas_chr1_rep <- Tfas_rep[Tfas_rep$chrom == "Tfas_chr1",]
-plot(Tfas_chr1_rep$perc_te~Tfas_chr1_rep$start_window, type="l", lwd=2.5,lty=1, ylim=c(0,100), 
+Tfas_chr18_rep <- rep_content[rep_content$chrom == "Tfas_chr18",]
+ plot(Tfas_chr18_rep$perc_te~Tfas_chr18_rep$start_window, type="l", lwd=2.5,lty=1, ylim=c(0,100), 
      xlab="position (MB)",
      ylab="Proportion of masked bases", 
      xaxs = "i",
@@ -48,8 +47,10 @@ axis(1, tck=-0.015, col.ticks="black", xaxp = c(0,32, 32), labels = F)
 polygon(c(Tfas_chr1_rep$start_window[Tfas_chr1_rep$start_window>=0], max(Tfas_chr1_rep$start_window), 0), c(Tfas_chr1_rep$perc_te[Tfas_chr1_rep$start_window>=0], 0, 0), 
         col=adjustcolor("orange",alpha.f=0.7))
 grid(nx = 8, ny = 5)
+rect(xleft= 5.6,xright = 11,,ybottom=0,ytop=130, density=10, col = "blue")
+rect(xleft= 17,xright = 21,,ybottom=0,ytop=130, density=10, col = "blue")
 
-
+grid.arrange(p1, p2, nrow = 1)
 # Chr2 Tlei
 # Genic content
 chr2_lei <- Tlei_onetoone[Tlei_onetoone$chrom == "Scaffold_10370",]

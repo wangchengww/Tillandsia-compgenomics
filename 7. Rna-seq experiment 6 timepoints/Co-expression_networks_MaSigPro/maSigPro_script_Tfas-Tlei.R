@@ -76,8 +76,8 @@ write.table(sigs$summary$TfasvsTlei, file = "Genes_Significant_Tfas-vs-Tlei_0.7-
 
 # Get expressional direction
 coefficients <- sigs[["sig.genes"]][["TfasvsTlei"]][["coefficients"]][["betatimexTfas"]]
-overexpressedTlei <- coefficients[coefficients > 0] # 268 genes
-underexpressedTlei <- coefficients[coefficients < 0] # 236 genes
+underexpressedTlei <- coefficients[coefficients > 0] # 268 genes
+overexpressedTlei <- coefficients[coefficients < 0] # 236 genes
 
 save(sigs, d, normd, NBp, NBt, file = "maSigPro_data_run_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.exonic.RData")
 dat <- load("maSigPro_data_run_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.exonic.RData")  
