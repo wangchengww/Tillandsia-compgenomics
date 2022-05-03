@@ -15,8 +15,8 @@ get_legend<-function(myggplot){
 }
 
 # Load data
-setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/II. Expression figure/B-Expression-curves-multicopy/')
-counts <- read.table("counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.logtransformed.txt", header = T, row.names = 1)
+setwd('/home/clara/Documents/GitHub/Tillandsia-compgenomics/II. Expression figure/B-Expression-curves-multicopy/')
+counts <- read.table("counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.txt", header = T, row.names = 1)
 genes <- scan("OG0001504_PEPC_gene_list.txt", character(), quote = "")
 
 module_counts <- subset(counts, rownames(counts) %in% genes)
@@ -76,10 +76,10 @@ total_Tlei <- merge(mean_count_Tlei_m, sd_count_Tlei_m, by=c("gene_id", "time"))
 
 
 # Calculate scale
-max_Tfas <- max(mean_count_Tfas_m$mean_count)
-min_Tfas <- min(mean_count_Tfas_m$mean_count)
-max_Tlei <- max(mean_count_Tlei_m$mean_count)
-min_Tlei <- min(mean_count_Tlei_m$mean_count)
+max_Tfas <- max(total_Tfas$mean_count+total_Tfas$sd)
+min_Tfas <- min(total_Tfas$mean_count-total_Tfas$sd)
+max_Tlei <- max(total_Tlei$mean_count+total_Tlei$sd)
+min_Tlei <- min(total_Tlei$mean_count+total_Tlei$sd)
 
 if (max_Tfas > max_Tlei){
   ymax = max_Tfas + 1
@@ -105,7 +105,8 @@ p1 <- ggplot(total_Tfas, aes(x=time, y=mean_count, group = gene_id)) +
   ylim(c(ymin, ymax)) +
   ylab("log(CPM)") +
   xlab("Time") +
-  ggtitle("1) OG0001504: Phosphenolcarboxylase (PEPC)", subtitle =  "T. fasciculata")
+  ggtitle(label = "T. fasciculata") + theme(
+    plot.title = element_text(size = 11))
 
 p2 <- ggplot(total_Tlei, aes(x=time, y=mean_count, group = gene_id)) +
   geom_point(aes(color=gene_id)) +
@@ -118,14 +119,16 @@ p2 <- ggplot(total_Tlei, aes(x=time, y=mean_count, group = gene_id)) +
   ylim(ymin, ymax) +
   ylab("log(CPM)") +
   xlab("Time") +
-  ggtitle(" ", subtitle = "T. leiboldiana")
+  ggtitle(label = "T. leiboldiana") + theme(
+    plot.title = element_text(size = 11))
 # Extract legend
 legend1 <- get_legend(p1)
 #Remove the legend from the box plot
 p1 <- p1 + theme(legend.position="none")
 p2 <- p2 + theme(legend.position="none")
 # Arrange ggplot2 graphs with a specific width
-plot1 <- grid.arrange(p1, p2, legend1, nrow = 1, widths=c(2.3, 2.3, 1))
+plot1 <- grid.arrange(p1, p2, legend1, nrow = 1, widths=c(2.3, 2.3, 1), 
+                      top = grid::textGrob("1) OG0001504: Phosphenolcarboxylase (PEPC)", x = 0.035, hjust = 0, gp=gpar(fontsize=13)))
 
 ###################### NEXT PLOT #########################
 
@@ -188,10 +191,10 @@ total_Tlei <- merge(mean_count_Tlei_m, sd_count_Tlei_m, by=c("gene_id", "time"))
 
 
 # Calculate scale
-max_Tfas <- max(mean_count_Tfas_m$mean_count)
-min_Tfas <- min(mean_count_Tfas_m$mean_count)
-max_Tlei <- max(mean_count_Tlei_m$mean_count)
-min_Tlei <- min(mean_count_Tlei_m$mean_count)
+max_Tfas <- max(total_Tfas$mean_count+total_Tfas$sd)
+min_Tfas <- min(total_Tfas$mean_count-total_Tfas$sd)
+max_Tlei <- max(total_Tlei$mean_count+total_Tlei$sd)
+min_Tlei <- min(total_Tlei$mean_count+total_Tlei$sd)
 
 if (max_Tfas > max_Tlei){
   ymax = max_Tfas + 1
@@ -217,7 +220,8 @@ p3 <- ggplot(total_Tfas, aes(x=time, y=mean_count, group = gene_id)) +
   ylab("log(CPM)") +
   xlab("Time") +
   labs(fill='Gene ID') +
-  ggtitle("2) OG0000580: Pyrophosphate--fructose 6-phosphate 1-phosphotransferase (PFP)", subtitle =  "T. fasciculata")
+  ggtitle(label = "T. fasciculata") + theme(
+    plot.title = element_text(size = 11))
 
 p4 <- ggplot(total_Tlei, aes(x=time, y=mean_count, group = gene_id)) +
   geom_point(aes(color=gene_id)) +
@@ -230,14 +234,16 @@ p4 <- ggplot(total_Tlei, aes(x=time, y=mean_count, group = gene_id)) +
   ylim(ymin, ymax) +
   ylab("log(CPM)") +
   xlab("Time")  +
-  ggtitle(" ", subtitle = "T. leiboldiana")
+  ggtitle(label = "T. leiboldiana") + theme(
+    plot.title = element_text(size = 11))
 # Extract legend
 legend2 <- get_legend(p3)
 #Remove the legend from the box plot
 p3 <- p3 + theme(legend.position="none")
 p4 <- p4 + theme(legend.position="none")
 # Arrange ggplot2 graphs with a specific width
-plot2 <- grid.arrange(p3, p4, legend2, nrow = 1, widths=c(2.3, 2.3, 1))
+plot2 <- grid.arrange(p3, p4, legend2, nrow = 1, widths=c(2.3, 2.3, 1), 
+                      top = grid::textGrob("2) OG0000580: Pyrophosphate--fructose 6-phosphate 1-phosphotransferase (PFP)", x = 0.035, hjust = 0, gp=gpar(fontsize=13)))
 
 ###################### NEXT PLOT ####################
 genes <- scan("OG0005044_XCT_list_genes.txt", character(), quote = "")
@@ -299,10 +305,10 @@ total_Tlei <- merge(mean_count_Tlei_m, sd_count_Tlei_m, by=c("gene_id", "time"))
 
 
 # Calculate scale
-max_Tfas <- max(mean_count_Tfas_m$mean_count)
-min_Tfas <- min(mean_count_Tfas_m$mean_count)
-max_Tlei <- max(mean_count_Tlei_m$mean_count)
-min_Tlei <- min(mean_count_Tlei_m$mean_count)
+max_Tfas <- max(total_Tfas$mean_count+total_Tfas$sd)
+min_Tfas <- min(total_Tfas$mean_count-total_Tfas$sd)
+max_Tlei <- max(total_Tlei$mean_count+total_Tlei$sd)
+min_Tlei <- min(total_Tlei$mean_count+total_Tlei$sd)
 
 if (max_Tfas > max_Tlei){
   ymax = max_Tfas + 1
@@ -328,7 +334,8 @@ p5 <- ggplot(total_Tfas, aes(x=time, y=mean_count, group = gene_id)) +
   ylab("log(CPM)") +
   xlab("Time") +
   labs(fill='Gene ID') +
-  ggtitle("3) OG0005044: CAP5 CIRCADIAN TIMEKEEPER", subtitle =  "T. fasciculata")
+  ggtitle(label = "T. fasciculata") + theme(
+    plot.title = element_text(size = 11))
 
 p6 <- ggplot(total_Tlei, aes(x=time, y=mean_count, group = gene_id)) +
   geom_point(aes(color=gene_id)) +
@@ -341,14 +348,16 @@ p6 <- ggplot(total_Tlei, aes(x=time, y=mean_count, group = gene_id)) +
   ylim(ymin, ymax) +
   ylab("log(CPM)") +
   xlab("Time") +
-  ggtitle(" ", subtitle = "T. leiboldiana")
+  ggtitle(label = "T. leiboldiana") + theme(
+    plot.title = element_text(size = 11))
 # Extract legend
 legend3 <- get_legend(p5)
 #Remove the legend from the box plot
 p5 <- p5 + theme(legend.position="none")
 p6 <- p6 + theme(legend.position="none")
 # Arrange ggplot2 graphs with a specific width
-plot3 <- grid.arrange(p5, p6, legend3, nrow = 1, widths=c(2.3, 2.3, 1))
+plot3 <- grid.arrange(p5, p6, legend3, nrow = 1, widths=c(2.3, 2.3, 1), 
+                      top = grid::textGrob("3) OG0005044: XAP5 CIRCADIAN TIMEKEEPER", x = 0.035, hjust = 0, gp=gpar(fontsize=13)))
 
 grid.arrange(plot1, plot2, plot3, ncol = 1, nrow = 3)
 

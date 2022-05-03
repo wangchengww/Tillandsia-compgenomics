@@ -13,6 +13,8 @@ args <- commandArgs(trailingOnly = TRUE)
 # Load data
 setwd('/home/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/')
 counts <- read.table(args[[1]], header = T, row.names = 1)
+counts <- read.table("counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.logtransformed.txt", header = T, 
+                     row.names = 1)
 
 genes <- scan(args[[2]], character(), quote = "")
 module <- str_split(args[[2]], "_")[[1]][1]
