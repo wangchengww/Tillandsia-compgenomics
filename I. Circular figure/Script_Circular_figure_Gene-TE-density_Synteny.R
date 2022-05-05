@@ -10,7 +10,7 @@ http://cran.us.r-project.org")
 pacman::p_load("circlize", "stringr", "RColorBrewer")
 
 #setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure")
-#setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure')
+setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure')
 
 # Load arguments
 # 1 is chromosome list, 2 is the gene density, 3 is tTE density, 4 is DE genes, 5 is synteny,
@@ -18,7 +18,7 @@ pacman::p_load("circlize", "stringr", "RColorBrewer")
 args <- commandArgs(trailingOnly = TRUE)
 output_name <- args[[6]]
 # Read in the complete list of chromosomes with all needed info:
-#chrom <- read.table("chromosomes_Tfas_Tlei.coordinates-circle.txt.no-Tlei_chr2526", header = T, sep = "\t")
+chrom <- read.table("chromosomes_Tfas_Tlei.coordinates-circle.txt.no-Tlei_chr2526", header = T, sep = "\t")
 chrom <- read.table(args[[1]], header = T, sep = "\t")
 
 # Make matrix of start and end position to initialize the circular plot
@@ -34,8 +34,9 @@ circos.par("track.height"=0.05, cell.padding=c(0.02, 0, 0.02, 0),
            track.margin=c(0,0))
 circos.initialize(sectors = chrom$name, xlim = pos)
 
+
 # Add blocks representing the chromosomes
-circos.track(chrom$name, ylim = c(0, 1))
+circos.track(chrom$name, ylim = c(0, 1), bg.border = "white", track.height = .05)
 
 # Add chromosome names
 is.even <- function(x) x %% 2 == 0
@@ -45,38 +46,38 @@ for (i in 1:nrow(chrom)){
   name=chrom[i,1]
   if (is.even(i) == TRUE){
     if (chrom[i,3] == "Tfas") {
-      circos.text(chrom$size/2 - n, 2.2, str_split(name, "_")[[1]][2], sector.index=name,
+      circos.text(chrom$size/2 - n, 1.1, str_split(name, "_")[[1]][2], sector.index=name,
                   col="olivedrab",cex=0.6, facing = "inside", niceFacing = T)
       n = n + 220000
       if (i > 21 & i < 26){
         n = n + 600000
       }
     } else {
-      circos.text(chrom$size - n, 2.2, str_split(name, "_")[[1]][2], sector.index=name,
+      circos.text(chrom$size - n, 1.1, str_split(name, "_")[[1]][2], sector.index=name,
                   col="darkgreen",cex=0.6, facing = "inside", niceFacing = T)
       n = n + 20000
       if (i > 38){
         n = n + 2400000
-        }
+      } 
     }
-    } else {
+  } else {
     if ((i > 22 & i < 26) | i > 45){
       if (chrom[i,3] == "Tfas") {
-        circos.text(chrom$size/2 - n, 3, str_split(name, "_")[[1]][2], sector.index=name,
+        circos.text(chrom$size/2 - n, 2.2, str_split(name, "_")[[1]][2], sector.index=name,
                     col="olivedrab",cex=0.6, facing = "inside", niceFacing = T)
         n = n + 600000
       } else {
-        circos.text(chrom$size - n, 3, str_split(name, "_")[[1]][2], sector.index=name,
+        circos.text(chrom$size - n, 2.2, str_split(name, "_")[[1]][2], sector.index=name,
                     col="darkgreen",cex=0.6, facing = "inside", niceFacing = T)
         n = n + 600000
       }
     } else {
       if (chrom[i,3] == "Tfas") {
-        circos.text(chrom$size/2 - n , 2.2, str_split(name, "_")[[1]][2], sector.index=name,
+        circos.text(chrom$size/2 - n , 1.1, str_split(name, "_")[[1]][2], sector.index=name,
                     col="olivedrab",cex=0.6, facing = "inside", niceFacing = T)
         n = n + 220000
       } else {
-        circos.text(chrom$size - n, 2.2, str_split(name, "_")[[1]][2], sector.index=name,
+        circos.text(chrom$size - n, 1.1, str_split(name, "_")[[1]][2], sector.index=name,
                     col="darkgreen",cex=0.6, facing = "inside", niceFacing = T)
         n = n + 20000
         if (i > 38){
@@ -90,16 +91,16 @@ for (i in 1:nrow(chrom)){
 
 
 # Add species lines
-draw.sector(90, 299, rou1 = 1.07, rou2 = 1.08, col = "olivedrab", border="NA")
-draw.sector(298, 91, rou1 = 1.07, rou2 = 1.08, col = "darkgreen", border="NA")
-circos.text(chrom$size/2, 8, "T. fasciculata", sector.index="Tfas_chr11",col="olivedrab",cex=0.9, facing = "bending.inside")
-circos.text(chrom$size/2, 8, "T. leiboldiana", sector.index="Tlei_chr11",col="darkgreen",cex=0.9, facing = "bending.inside")
+draw.sector(90, 299, rou1 = 1.05, rou2 = 1.06, col = "olivedrab", border="NA")
+draw.sector(298, 91, rou1 = 1.05, rou2 = 1.06, col = "darkgreen", border="NA")
+circos.text(chrom$size/2, 6, "T. fasciculata", sector.index="Tfas_chr11",col="olivedrab",cex=0.9, facing = "bending.inside")
+circos.text(chrom$size/2, 6, "T. leiboldiana", sector.index="Tlei_chr11",col="darkgreen",cex=0.9, facing = "bending.inside")
 
 #-------------------TRACK 1: GENE DENSITY-------------------#
 
 ## Read in gene content files
 # All gene counts
-#gene_counts_per_mb_windows <- read.table("Gene_counts_per_1MB_windows.Tfas-Tlei.mainScaffolds.curatedOGs.txt.no-Tlei_chr2526", header = T)
+gene_counts_per_mb_windows <- read.table("Gene_counts_per_1MB_windows.Tfas-Tlei.mainScaffolds.curatedOGs.txt.no-Tlei_chr2526", header = T)
 gene_counts_per_mb_windows <- read.table(args[[2]], header = T)
 print("Darwing first track: Gene density...")
 color_gene_density <- c(Tfas_chr1 = "palegreen3", Tfas_chr2 = "palegreen3", Tfas_chr3 = "palegreen3",

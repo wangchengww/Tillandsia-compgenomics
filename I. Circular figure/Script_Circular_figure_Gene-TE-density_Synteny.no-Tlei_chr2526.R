@@ -10,7 +10,7 @@ http://cran.us.r-project.org")
 pacman::p_load("circlize", "stringr", "RColorBrewer")
 
 #setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure")
-#setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure')
+setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure')
 
 # Load arguments
 # 1 is chromosome list, 2 is the gene density, 3 is tTE density, 4 is DE genes, 5 is synteny,
@@ -18,7 +18,7 @@ pacman::p_load("circlize", "stringr", "RColorBrewer")
 args <- commandArgs(trailingOnly = TRUE)
 output_name <- args[[6]]
 # Read in the complete list of chromosomes with all needed info:
-#chrom <- read.table("chromosomes_Tfas_Tlei.coordinates-circle.txt", header = T, sep = "\t")
+chrom <- read.table("chromosomes_Tfas_Tlei.coordinates-circle.txt", header = T, sep = "\t")
 chrom <- read.table(args[[1]], header = T, sep = "\t")
 
 # Make matrix of start and end position to initialize the circular plot

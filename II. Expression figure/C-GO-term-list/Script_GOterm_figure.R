@@ -1,4 +1,6 @@
 setwd('/home/clara/Documents/GitHub/Tillandsia-compgenomics/II. Expression figure/C-GO-term-list/')
+setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/II. Expression figure/C-GO-term-list/')
+
 library("GOplot")
 library(stringr)
 go <- read.delim("GO-term_enrichment_mod_TLEI-REF_exonic.txt", header = T, sep = "\t")
@@ -50,19 +52,17 @@ GOBar <- function(data, display, order.by.zscore = T, title, zsc.col){
   colnames(data) <- tolower(colnames(data))
   data$adj_pval <- -log(data$adj_pval, 10)
   sub <- data[!duplicated(data$term), ]
-  
   if (order.by.zscore == T) {
     sub <- sub[order(sub$zscore, decreasing = T), ]
-    leg <- theme(legend.position = 'bottom')
-    g <-  ggplot(sub, aes(x = factor(term, levels = stats::reorder(term, adj_pval)), y = adj_pval, fill = zscore)) +
+    g <-  ggplot(sub, aes(y = factor(term, levels = rev(stats::reorder(term, adj_pval))), x = adj_pval, fill = zscore)) +
       geom_bar(stat = 'identity', colour = 'black') +
-      scale_fill_gradient2('z-score', space = 'Lab', low = zsc.col[3], mid = zsc.col[2], high = zsc.col[1], guide = guide_colourbar(title.position = "top", title.hjust = 0.5), 
-                           breaks = c(min(sub$zscore), max(sub$zscore)), labels = c('decreasing', 'increasing')) +
-      labs(title = title, x = '', y = '-log (adj p-value)') +
-      leg
+      scale_fill_gradient2('Per-family\ngene count\n(z-score)\n', space = 'Lab', low = zsc.col[3], mid = zsc.col[2], high = zsc.col[1], guide = guide_colourbar(title.position = "top", title.hjust = 0), 
+                           breaks = c(min(sub$zscore), max(sub$zscore)), labels = c('T.fas = T. lei', 'T.fas > T. lei')) +
+      labs(title = title, y = '', x = '-log (adj p-value)') +
+      geom_text(aes(y=term, x=-0.25, label=count))
   }else{
     sub <- sub[order(sub$adj_pval, decreasing = T), ]
-    leg <- theme(legend.justification = c(1, 1), legend.position = c(0.98, 0.995), legend.background = element_rect(fill = 'transparent'),
+    leg <- theme(legend.justification = c(1, 1), legend.position = c(2, 2.1), legend.background = element_rect(fill = 'transparent'),
                  legend.box = 'vertical', legend.direction = 'horizontal')
     g <-  ggplot(sub, aes( x = factor(id, levels = reorder(id, adj_pval)), y = zscore, fill = adj_pval)) +
       geom_bar(stat = 'identity', colour = 'black') +
@@ -71,12 +71,12 @@ GOBar <- function(data, display, order.by.zscore = T, title, zsc.col){
       leg
   }
   if (display == 'single'){
-    g + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1), axis.line = element_line(colour = 'grey80'), axis.ticks = element_line(colour = 'grey80'),
-              axis.title = element_text(size = 14, face = 'bold'), axis.text = element_text(size = 14), panel.background = element_blank(), 
+    g + theme(axis.text.x = element_text(angle = 360, vjust = 0.5, hjust=1), axis.line = element_line(colour = 'grey80'), axis.ticks = element_line(colour = 'grey80'),
+              axis.title = element_text(size = 12, face = 'bold'), axis.text = element_text(size = 12), panel.background = element_blank(), 
               panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), plot.background = element_blank())        
   }else{
     g + facet_grid(.~category, space = 'free_x', scales = 'free_x')+
-      theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1), axis.line = element_line(colour = 'grey80'), axis.ticks = element_line(colour = 'grey80'),
+      theme(axis.text.x = element_text(angle = 180, vjust = 0.5, hjust=1), axis.line = element_line(colour = 'grey80'), axis.ticks = element_line(colour = 'grey80'),
             axis.title = element_text(size = 14, face = 'bold'), axis.text = element_text(size = 14), panel.background = element_blank(), 
             panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), plot.background = element_blank())
   }
@@ -90,6 +90,43 @@ circ_sub <- circ[grepl("oxaloacetate", circ$term) | grepl("glycoly", circ$term) 
                  | grepl("fructo", circ$term) | grepl("malate", circ$term) | grepl("starch", circ$term) 
                  | grepl("vacuol", circ$term)| grepl("tricarboxylic", circ$term) | grepl("heat", circ$term)
                  | grepl("ATPase", circ$term),]
-circ <- circ[circ$count > 1,]
+pdf("GOterm_CAM_list.pdf", width = 12, height = 9)
 GOBar(circ_sub, zsc.col = c("#1e6091", "#52b69a", "#d9ed92"))
+dev.off()
 GOBubble(circ, labels = 3)
+
+
+ggplot(circ_sub, aes(y=term, x=-log(adj_pval,10))) +
+  # add bars
+  geom_col(aes(fill=zscore), colour="black") +
+  
+  # colour bars with gradient
+  scale_fill_gradient2('z-score \nper-family gene count\n',low="#d9ed92", mid = "#52b69a", 
+                       high="#1e6091",labels=c('T.fas = T. lei', 'T.fas > T. lei'),
+                       breaks=c(min(circ_sub$zsc), max(circ_sub$zsc)), limits=c(min(circ_sub$zsc), max(circ_sub$zsc))) +
+  # add Count of genes
+  geom_text(aes(y=term, x=-0.25, label=count))
+  
+  # add grouping of GO terms
+  geom_point(data=d[!(is.na(d$GO_cl)),], aes(y=Term, x=-0.6, colour=GO_cl, shape=GO_cl), size=4) +
+  
+  # change shape and colour of GO term groupings and merge into one legend
+  scale_shape_manual(name="Grouping of GO terms", values=rep(c(15,16,17), each=3)) +
+  scale_colour_manual(name = "Grouping of GO terms", values = rep(c("grey65", "gold", "black"),3))
+
+# modify area to place labels outside axis lines 
+coord_cartesian(clip = 'off', ylim = c(0, nrow(d)+1), xlim=c(0, 5.7)) +
+  
+  # change space around the plot area
+  scale_y_discrete(expand = c(0,0)) +
+  scale_x_continuous(expand=c(t=0, r=0.75, b=0, l=0)) +
+  
+  # set the theme
+  theme(plot.margin=unit(c(t=10, r=10, b=10, l=1),"mm"),
+        panel.background=element_rect(colour="white", fill="white", size=0.5),
+        panel.grid.major=element_blank(), panel.grid.minor=element_blank(),
+        axis.ticks.y=element_blank(), axis.title=element_blank(),
+        axis.text.y=element_text(size=14), axis.text.x=element_text(size=14),
+        legend.text=element_text(size=14), legend.title=element_text(size=16, face="bold"),
+        legend.key=element_blank(), legend.margin=margin(unit(c(t=40, r=1, b=1, l=1),"mm")),
+        legend.spacing = unit(5, "mm"))
