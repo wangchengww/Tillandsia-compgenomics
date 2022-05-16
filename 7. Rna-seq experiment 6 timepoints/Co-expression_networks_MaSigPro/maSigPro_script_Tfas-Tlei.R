@@ -78,7 +78,9 @@ write.table(sigs$summary$TfasvsTlei, file = "Genes_Significant_Tfas-vs-Tlei_0.7-
 coefficients <- sigs[["sig.genes"]][["TfasvsTlei"]][["coefficients"]][["betatimexTfas"]]
 underexpressedTlei <- coefficients[coefficients > 0] # 268 genes
 overexpressedTlei <- coefficients[coefficients < 0] # 236 genes
-
+genes_underexpressedTlei <- sigs$summary$TfasvsTlei[which(coefficients > 0)]
+write.table(genes_underexpressedTlei, "Genelist_UnderExpressed_Tlei.EXONIC.txt",
+            quote = F, row.names = F)
 save(sigs, d, normd, NBp, NBt, file = "maSigPro_data_run_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.exonic.RData")
 dat <- load("maSigPro_data_run_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.exonic.RData")  
 

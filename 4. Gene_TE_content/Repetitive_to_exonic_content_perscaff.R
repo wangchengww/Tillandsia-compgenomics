@@ -25,7 +25,6 @@ ratios <- as.data.frame(cbind(c(tfas$Scaffold, tlei$Scaffold),
                               c(rep("T.fasciculata", 25), rep("T.leiboldiana", 26))))
 ratios$rep_to_exon_ratio <- as.numeric(ratios$rep_to_exon_ratio)
 colnames(ratios) <- c("scaff", "rep_to_exon_ratio", "species")
-
 ggplot(ratios, aes(x = species,y = rep_to_exon_ratio)) + geom_boxplot()
 ggplot(ratios, aes(x = rep_to_exon_ratio, color = species)) + geom_histogram(binwidth = 1)
 
@@ -65,3 +64,5 @@ mean(tfas$ratio2) #27.6
 mean(tlei$ratio2) #46.8
 mean(tfas$total_exonic_length)
 mean(tlei$total_exonic_length)
+
+write.table(tlei, "Tlei_exonic-to-repetitive_content_perscaff.txt", quote = F, sep = "\t")
