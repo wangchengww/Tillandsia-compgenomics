@@ -1,0 +1,73 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0061615	glycolytic process through fructose-6-phosphate	0.00056	OG0007811, OG0008818	Tfasc_v1.20370, Tfasc_v1.24086
+BP	GO:1902600	proton transmembrane transport	0.00099	OG0000601, OG0013670, OG0015039, OG0004020, OG0001562	Tfasc_v1.01733, Tfasc_v1.03307, Tfasc_v1.14724, Tfasc_v1.21510, Tfasc_v1.26998
+BP	GO:0006904	vesicle docking involved in exocytosis	0.00144	OG0001565	Tfasc_v1.07146, Tfasc_v1.30451
+BP	GO:0006096	glycolytic process	0.00171	OG0010362, OG0000320, OG0007811, OG0008818, OG0001525	Tfasc_v1.07854, Tfasc_v1.17763, Tfasc_v1.20370, Tfasc_v1.24086, Tfasc_v1.26860
+BP	GO:0006002	fructose 6-phosphate metabolic process	0.00176	OG0007811, OG0008818	Tfasc_v1.20370, Tfasc_v1.24086
+BP	GO:0033528	S-methylmethionine cycle	0.00597	OG0007878	Tfasc_v1.20494
+BP	GO:0000024	maltose biosynthetic process	0.00597	OG0001339	Tfasc_v1.27353
+BP	GO:0006099	tricarboxylic acid cycle	0.00864	OG0001504, OG0016150	Tfasc_v1.16311, Tfasc_v1.17156
+BP	GO:1900027	regulation of ruffle assembly	0.00894	OG0012501	Tfasc_v1.04956
+BP	GO:0009448	gamma-aminobutyric acid metabolic process	0.00894	OG0001525	Tfasc_v1.26860
+BP	GO:0015713	phosphoglycerate transmembrane transport	0.00894	OG0015738	Tfasc_v1.26941
+BP	GO:0035436	triose phosphate transmembrane transport	0.0119	OG0015738	Tfasc_v1.26941
+BP	GO:0016540	protein autoprocessing	0.0119	OG0008455	Tfasc_v1.04317
+BP	GO:0007035	vacuolar acidification	0.01485	OG0013670	Tfasc_v1.03307
+BP	GO:0009102	biotin biosynthetic process	0.01485	OG0001525	Tfasc_v1.26860
+BP	GO:0006101	citrate metabolic process	0.02073	OG0016150	Tfasc_v1.17156
+BP	GO:0015977	carbon fixation	0.02073	OG0001504	Tfasc_v1.16311
+BP	GO:0006429	leucyl-tRNA aminoacylation	0.02658	OG0002074	Tfasc_v1.17192
+BP	GO:0001678	cellular glucose homeostasis	0.03528	OG0010362	Tfasc_v1.07854
+BP	GO:0005983	starch catabolic process	0.03816	OG0001339	Tfasc_v1.27353
+BP	GO:0006465	signal peptide processing	0.03816	OG0004957	Tfasc_v1.05519
+BP	GO:0016126	sterol biosynthetic process	0.04962	OG0012804	Tfasc_v1.21912
+MF	GO:0046961	proton-transporting ATPase activity, rotational mechanism	4.2e-05	OG0000601, OG0013670, OG0004020	Tfasc_v1.01733, Tfasc_v1.03307, Tfasc_v1.21510
+MF	GO:0003872	6-phosphofructokinase activity	0.00051	OG0007811, OG0008818	Tfasc_v1.20370, Tfasc_v1.24086
+MF	GO:0008398	sterol 14-demethylase activity	0.00284	OG0012804	Tfasc_v1.21912
+MF	GO:0004737	pyruvate decarboxylase activity	0.00284	OG0001330	Tfasc_v1.27863
+MF	GO:0047150	betaine-homocysteine S-methyltransferase activity	0.00567	OG0007878	Tfasc_v1.20494
+MF	GO:0034387	4-aminobutyrate:pyruvate transaminase activity	0.00567	OG0001525	Tfasc_v1.26860
+MF	GO:0008898	S-adenosylmethionine-homocysteine S-methyltransferase activity	0.00567	OG0007878	Tfasc_v1.20494
+MF	GO:0102351	gamma-aminobutyrate transaminase (glyoxylate dependent) activity	0.00567	OG0001525	Tfasc_v1.26860
+MF	GO:0015120	phosphoglycerate transmembrane transporter activity	0.00849	OG0015738	Tfasc_v1.26941
+MF	GO:0008964	phosphoenolpyruvate carboxylase activity	0.00849	OG0001504	Tfasc_v1.16311
+MF	GO:0004015	adenosylmethionine-8-amino-7-oxononanoate transaminase activity	0.00849	OG0001525	Tfasc_v1.26860
+MF	GO:0008798	beta-aspartyl-peptidase activity	0.00849	OG0008455	Tfasc_v1.04317
+MF	GO:0004067	asparaginase activity	0.00849	OG0008455	Tfasc_v1.04317
+MF	GO:0071917	triose-phosphate transmembrane transporter activity	0.0113	OG0015738	Tfasc_v1.26941
+MF	GO:0102250	linear malto-oligosaccharide phosphorylase activity	0.0113	OG0008084	Tfasc_v1.15186
+MF	GO:0003994	aconitate hydratase activity	0.0113	OG0016150	Tfasc_v1.17156
+MF	GO:0047780	citrate dehydratase activity	0.0113	OG0016150	Tfasc_v1.17156
+MF	GO:0102499	SHG alpha-glucan phosphorylase activity	0.0113	OG0008084	Tfasc_v1.15186
+MF	GO:0004618	phosphoglycerate kinase activity	0.01411	OG0001525	Tfasc_v1.26860
+MF	GO:0004556	alpha-amylase activity	0.01691	OG0008388	Tfasc_v1.09380
+MF	GO:0004365	glyceraldehyde-3-phosphate dehydrogenase (NAD+) (phosphorylating) activity	0.01691	OG0000320	Tfasc_v1.17763
+MF	GO:0103025	alpha-amylase activity (releasing maltohexaose)	0.01691	OG0008388	Tfasc_v1.09380
+MF	GO:0004340	glucokinase activity	0.0197	OG0010362	Tfasc_v1.07854
+MF	GO:0004645	1,4-alpha-oligoglucan phosphorylase activity	0.0197	OG0008084	Tfasc_v1.15186
+MF	GO:0019158	mannokinase activity	0.0197	OG0010362	Tfasc_v1.07854
+MF	GO:0004823	leucine-tRNA ligase activity	0.02526	OG0002074	Tfasc_v1.17192
+MF	GO:0016161	beta-amylase activity	0.02526	OG0001339	Tfasc_v1.27353
+MF	GO:0030976	thiamine pyrophosphate binding	0.02526	OG0001330	Tfasc_v1.27863
+MF	GO:0102229	amylopectin maltohydrolase activity	0.02526	OG0001339	Tfasc_v1.27353
+MF	GO:0005536	glucose binding	0.02802	OG0010362	Tfasc_v1.07854
+MF	GO:0046933	proton-transporting ATP synthase activity, rotational mechanism	0.03628	OG0001562	Tfasc_v1.26998
+MF	GO:0008137	NADH dehydrogenase (ubiquinone) activity	0.03628	OG0002398	Tfasc_v1.19899
+MF	GO:0004867	serine-type endopeptidase inhibitor activity	0.03902	OG0001562	Tfasc_v1.26998
+MF	GO:0032440	2-alkenal reductase [NAD(P)+] activity	0.03902	OG0001504	Tfasc_v1.16311
+MF	GO:0008865	fructokinase activity	0.03902	OG0010362	Tfasc_v1.07854
+MF	GO:0003743	translation initiation factor activity	0.04021	OG0000553, OG0015646	Tfasc_v1.08115, Tfasc_v1.30413
+MF	GO:0004032	alditol:NADP+ 1-oxidoreductase activity	0.04447	OG0002930	Tfasc_v1.13968
+MF	GO:0019905	syntaxin binding	0.04447	OG0001565	Tfasc_v1.07146
+CC	GO:0033180	proton-transporting V-type ATPase, V1 domain	0.00071	OG0015039, OG0004020	Tfasc_v1.14724, Tfasc_v1.21510
+CC	GO:0000220	vacuolar proton-transporting V-type ATPase, V0 domain	0.00615	OG0013670	Tfasc_v1.03307
+CC	GO:0032587	ruffle membrane	0.00921	OG0012501	Tfasc_v1.04956
+CC	GO:0030141	secretory granule	0.01226	OG0001565	Tfasc_v1.07146
+CC	GO:0043227	membrane-bounded organelle	0.01687	OG0000601, OG0013670, OG0013578, OG0016108, OG0008701, OG0004957, OG0011897, OG0001565, OG0010362, OG0015690, OG0008388, OG0004709, OG0001504, OG0016150, OG0000558, OG0001814, OG0004020, OG0012804, OG0001309, OG0005486, OG0008876, OG0001525, OG0015738, OG0001339	Tfasc_v1.01733, Tfasc_v1.03307, Tfasc_v1.03613, Tfasc_v1.04121, Tfasc_v1.04767, Tfasc_v1.05519, Tfasc_v1.06021, Tfasc_v1.07146, Tfasc_v1.07854, Tfasc_v1.07903, Tfasc_v1.09380, Tfasc_v1.11669, Tfasc_v1.16311, Tfasc_v1.17156, Tfasc_v1.20786, Tfasc_v1.21206, Tfasc_v1.21510, Tfasc_v1.21912, Tfasc_v1.23181, Tfasc_v1.23596, Tfasc_v1.24213, Tfasc_v1.26860, Tfasc_v1.26941, Tfasc_v1.27353
+CC	GO:0005774	vacuolar membrane	0.02142	OG0000601, OG0013670, OG0011897, OG0004020	Tfasc_v1.01733, Tfasc_v1.03307, Tfasc_v1.06021, Tfasc_v1.21510
+CC	GO:0005787	signal peptidase complex	0.02437	OG0004957	Tfasc_v1.05519
+CC	GO:0033179	proton-transporting V-type ATPase, V0 domain	0.02672	OG0000601, OG0013670	Tfasc_v1.01733, Tfasc_v1.03307
+CC	GO:0042555	MCM complex	0.03037	OG0013670	Tfasc_v1.03307
+CC	GO:0010494	cytoplasmic stress granule	0.03633	OG0000553	Tfasc_v1.08115
+CC	GO:0005829	cytosol	0.039	OG0008455, OG0010362, OG0002930, OG0001504, OG0016150, OG0000320, OG0001330	Tfasc_v1.04317, Tfasc_v1.07854, Tfasc_v1.13968, Tfasc_v1.16311, Tfasc_v1.17156, Tfasc_v1.17763, Tfasc_v1.27863
+CC	GO:0005682	U5 snRNP	0.04521	OG0015690	Tfasc_v1.07903

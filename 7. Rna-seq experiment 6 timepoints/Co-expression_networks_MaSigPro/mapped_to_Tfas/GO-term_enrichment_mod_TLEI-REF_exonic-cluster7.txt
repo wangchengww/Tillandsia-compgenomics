@@ -1,0 +1,76 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0017186	peptidyl-pyroglutamic acid biosynthetic process, using glutaminyl-peptide cyclotransferase	0.008		Tfasc_v1.20771-RA
+BP	GO:0035998	7,8-dihydroneopterin 3'-triphosphate biosynthetic process	0.008		Tfasc_v1.15129-RA
+BP	GO:0006103	2-oxoglutarate metabolic process	0.008		Tfasc_v1.17586-RA
+BP	GO:0016598	protein arginylation	0.008		Tfasc_v1.12130-RA
+BP	GO:0006522	alanine metabolic process	0.008		Tfasc_v1.17586-RA
+BP	GO:0009062	fatty acid catabolic process	0.016		Tfasc_v1.01974-RA, Tfasc_v1.16730-RA
+BP	GO:0017014	protein nitrosylation	0.016		Tfasc_v1.21339-RA
+BP	GO:0006398	mRNA 3'-end processing by stem-loop binding and cleavage	0.016		Tfasc_v1.02322-RA
+BP	GO:0006531	aspartate metabolic process	0.016		Tfasc_v1.17586-RA
+BP	GO:0033484	nitric oxide homeostasis	0.016		Tfasc_v1.21339-RA
+BP	GO:0009650	UV protection	0.024		Tfasc_v1.10901-RB
+BP	GO:0046825	regulation of protein export from nucleus	0.024		Tfasc_v1.29247-RA
+BP	GO:0010136	ureide catabolic process	0.024		Tfasc_v1.25105-RA
+BP	GO:0006145	purine nucleobase catabolic process	0.024		Tfasc_v1.25105-RA
+BP	GO:0050665	hydrogen peroxide biosynthetic process	0.024		Tfasc_v1.21339-RA
+BP	GO:0090116	C-5 methylation of cytosine	0.024		Tfasc_v1.27234-RA
+BP	GO:0009410	response to xenobiotic stimulus	0.024		Tfasc_v1.21339-RA
+BP	GO:0006729	tetrahydrobiopterin biosynthetic process	0.024		Tfasc_v1.15129-RA
+BP	GO:0051131	chaperone-mediated protein complex assembly	0.032		Tfasc_v1.17555-RA
+BP	GO:1900034	regulation of cellular response to heat	0.04		Tfasc_v1.21339-RA
+BP	GO:0051014	actin filament severing	0.04		Tfasc_v1.05402-RC
+BP	GO:0016560	protein import into peroxisome matrix, docking	0.04		Tfasc_v1.06380-RA
+BP	GO:0006816	calcium ion transport	0.047		Tfasc_v1.09969-RA, Tfasc_v1.09970-RB
+BP	GO:0070863	positive regulation of protein exit from endoplasmic reticulum	0.047		Tfasc_v1.29084-RA
+BP	GO:0090307	mitotic spindle assembly	0.047		Tfasc_v1.03499-RA
+BP	GO:0009910	negative regulation of flower development	0.047		Tfasc_v1.12091-RA
+BP	GO:0010048	vernalization response	0.047		Tfasc_v1.12091-RA
+BP	GO:0042276	error-prone translesion synthesis	0.047		Tfasc_v1.10901-RB
+BP	GO:0006048	UDP-N-acetylglucosamine biosynthetic process	0.047		Tfasc_v1.09168-RA
+BP	GO:1902074	response to salt	0.047		Tfasc_v1.21339-RA
+BP	GO:0033353	S-adenosylmethionine cycle	0.047		Tfasc_v1.30560-RA
+BP	GO:0030242	autophagy of peroxisome	0.047		Tfasc_v1.30467-RA
+BP	GO:0006513	protein monoubiquitination	0.047		Tfasc_v1.16730-RA
+BP	GO:0070979	protein K11-linked ubiquitination	0.047		Tfasc_v1.08074-RA
+MF	GO:0005245	voltage-gated calcium channel activity	5.7e-05		Tfasc_v1.09969-RA, Tfasc_v1.09970-RB
+MF	GO:0000287	magnesium ion binding	0.00079		Tfasc_v1.01242-RA, Tfasc_v1.02154-RA, Tfasc_v1.08503-RA, Tfasc_v1.11787-RA, Tfasc_v1.17064-RA, Tfasc_v1.30467-RA
+MF	GO:0047652	allantoate deiminase activity	0.00761		Tfasc_v1.25105-RA
+MF	GO:0005052	peroxisome matrix targeting signal-1 binding	0.00761		Tfasc_v1.06380-RA
+MF	GO:0016603	glutaminyl-peptide cyclotransferase activity	0.00761		Tfasc_v1.20771-RA
+MF	GO:0003934	GTP cyclohydrolase I activity	0.00761		Tfasc_v1.15129-RA
+MF	GO:0004057	arginyltransferase activity	0.00761		Tfasc_v1.12130-RA
+MF	GO:0032216	glucosaminyl-phosphatidylinositol O-acyltransferase activity	0.00761		Tfasc_v1.23022-RA
+MF	GO:0004013	adenosylhomocysteinase activity	0.01516		Tfasc_v1.30560-RA
+MF	GO:0004506	squalene monooxygenase activity	0.01516		Tfasc_v1.19411-RA
+MF	GO:0004831	tyrosine-tRNA ligase activity	0.02265		Tfasc_v1.01152-RA
+MF	GO:0008864	formyltetrahydrofolate deformylase activity	0.02265		Tfasc_v1.01152-RA
+MF	GO:0004343	glucosamine 6-phosphate N-acetyltransferase activity	0.02265		Tfasc_v1.09168-RA
+MF	GO:1990269	RNA polymerase II C-terminal domain phosphoserine binding	0.02265		Tfasc_v1.12091-RA
+MF	GO:0102148	N-acetyl-beta-D-galactosaminidase activity	0.03009		Tfasc_v1.17218-RA
+MF	GO:0004096	catalase activity	0.03009		Tfasc_v1.21339-RA
+MF	GO:0003886	DNA (cytosine-5-)-methyltransferase activity	0.03009		Tfasc_v1.27234-RA
+MF	GO:0000340	RNA 7-methylguanosine cap binding	0.03747		Tfasc_v1.07535-RA
+MF	GO:0008889	glycerophosphodiester phosphodiesterase activity	0.03747		Tfasc_v1.26649-RA
+MF	GO:0004449	isocitrate dehydrogenase (NAD+) activity	0.03747		Tfasc_v1.30467-RA
+MF	GO:0004563	beta-N-acetylhexosaminidase activity	0.03747		Tfasc_v1.17218-RA
+MF	GO:0080019	fatty-acyl-CoA reductase (alcohol-forming) activity	0.04479		Tfasc_v1.15747-RA
+MF	GO:0004714	transmembrane receptor protein tyrosine kinase activity	0.04479		Tfasc_v1.16456-RA
+MF	GO:0047617	acyl-CoA hydrolase activity	0.04479		Tfasc_v1.01974-RA
+MF	GO:0045551	cinnamyl-alcohol dehydrogenase activity	0.04479		Tfasc_v1.11028-RA
+MF	GO:0004351	glutamate decarboxylase activity	0.04479		Tfasc_v1.23614-RA
+MF	GO:0005049	nuclear export signal receptor activity	0.04479		Tfasc_v1.29247-RA
+MF	GO:0008253	5'-nucleotidase activity	0.04479		Tfasc_v1.01242-RA
+MF	GO:0047216	inositol 3-alpha-galactosyltransferase activity	0.04479		Tfasc_v1.09728-RA
+CC	GO:0000325	plant-type vacuole	0.00041		Tfasc_v1.09969-RA, Tfasc_v1.09970-RB, Tfasc_v1.19737-RA, Tfasc_v1.29220-RA, Tfasc_v1.29221-RA
+CC	GO:0000127	transcription factor TFIIIC complex	0.00234		Tfasc_v1.13783-RA, Tfasc_v1.29240-RA
+CC	GO:0034399	nuclear periphery	0.00354		Tfasc_v1.08074-RA, Tfasc_v1.12764-RA
+CC	GO:0042565	RNA nuclear export complex	0.00826		Tfasc_v1.29247-RA
+CC	GO:0005774	vacuolar membrane	0.03165		Tfasc_v1.09969-RA, Tfasc_v1.09970-RB, Tfasc_v1.24279-RA, Tfasc_v1.29220-RA, Tfasc_v1.29221-RA
+CC	GO:0005847	mRNA cleavage and polyadenylation specificity factor complex	0.03263		Tfasc_v1.02322-RA
+CC	GO:0031595	nuclear proteasome complex	0.03263		Tfasc_v1.17532-RA
+CC	GO:0031209	SCAR complex	0.04062		Tfasc_v1.07535-RA
+CC	GO:0005655	nucleolar ribonuclease P complex	0.04062		Tfasc_v1.13080-RA
+CC	GO:0030122	AP-2 adaptor complex	0.04062		Tfasc_v1.07759-RA
+CC	GO:0043036	starch grain	0.04855		Tfasc_v1.06816-RA
+CC	GO:0009514	glyoxysome	0.04855		Tfasc_v1.21339-RA

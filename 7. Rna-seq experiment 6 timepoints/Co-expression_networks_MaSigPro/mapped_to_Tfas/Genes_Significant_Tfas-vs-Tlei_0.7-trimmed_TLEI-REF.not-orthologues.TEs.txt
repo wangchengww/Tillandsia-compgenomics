@@ -1,0 +1,7 @@
+Tfasc_v1.10642-RA	Scaffold_2317	25404855	25427876	NA	Description=Retrotransposon gag protein	OG0000037	5	46	2
+Tfasc_v1.23851-RA	Scaffold_2321	19026127	19033468	GO:0003676,GO:0008270,GO:0016021,GO:0005794	Description=transmembrane protein 87B	OG0000078	0	34	1
+Tfasc_v1.03863-RA	Scaffold_2318	7440781	7442107	NA	Description=uncharacterized protein LOC109713250	OG0000064	3	15	22
+Tfasc_v1.20633-RA	Scaffold_15	821747	826066	GO:0016021	Description=Tobamovirus multiplication protein 2A	OG0004597	1	2	1
+Tfasc_v1.04054-RA	Scaffold_2318	17661314	17672099	NA	no_blast-ips	OG0000277	0	15	0
+Tfasc_v1.13668-RA	Scaffold_1174	15307722	15309745	NA	Description=ribonuclease H	OG0000160	2	18	1
+Tfasc_v1.08611-RA	Scaffold_2315	23658593	23665097	GO:0005635,GO:0005829,GO:0008536,GO:0006606	Description=importin-9 isoform X1	OG0000464	0	10	1
