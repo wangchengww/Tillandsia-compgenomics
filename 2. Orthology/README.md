@@ -122,3 +122,9 @@ There were 1034 genes with these descriptions belonging to 264 orthogroups. I ob
 
 This removed a total of 6042 genes.
 The file `orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.txt` is the final set of curated orthogroups that has been used in downstream analysis. It contains 70,963 genes and 19,101 orthogroups (26325 for Tfas, 23584 for Tlei, 21055 for Aco). Additional statistics on the orthology analysis can be found [here](https://docs.google.com/spreadsheets/d/1hv_Oe6MvV1fBuBkGIhvM1ihDwYviuY-LcYUGYKnIwNQ/edit#gid=324678736).
+
+# Re-evaluation of multi-copy families
+
+I decided to re-evaluate our curated orthogroups based on other criteria than the ones previously used (annotation, coverage), to further ascertain to validity of multi-copy genes. For this, I decided to calculate per gene the number of exons, the length, absence of start and stop codon, and expression in both species. Then, I made comparative measures by taking the ratio of the largest member in the gene family (of the same species) to each gene both for full exonic length and the number of exons. This should give us an idea how many multi-copy genes are "incorrect" or incomplete and are perhaps transposed or falsely assembled genes.
+
+The measures were taken from many different input files (gff, fasta sequence, orthology and expression) and compiled in the script `script_checklist_curated_ogs.py`
