@@ -1,0 +1,41 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0006421	asparaginyl-tRNA aminoacylation	0.0077		Tlei_v1.09292-RA
+BP	GO:0006429	leucyl-tRNA aminoacylation	0.0077		Tlei_v1.04953-RA
+BP	GO:0009610	response to symbiotic fungus	0.0077		Tlei_v1.10342-RA
+BP	GO:0006425	glutaminyl-tRNA aminoacylation	0.0103		Tlei_v1.20422-RA
+BP	GO:0009590	detection of gravity	0.0103		Tlei_v1.22226-RA
+BP	GO:1902626	assembly of large subunit precursor of preribosome	0.0103		Tlei_v1.29570-RA
+BP	GO:0042256	mature ribosome assembly	0.0154		Tlei_v1.29570-RA
+BP	GO:0009660	amyloplast organization	0.023		Tlei_v1.22226-RA
+BP	GO:0042752	regulation of circadian rhythm	0.0255		Tlei_v1.18839-RA
+BP	GO:0006488	dolichol-linked oligosaccharide biosynthetic process	0.0306		Tlei_v1.10260-RA
+BP	GO:0000054	ribosomal subunit export from nucleus	0.0331		Tlei_v1.29570-RA
+BP	GO:0009959	negative gravitropism	0.0381		Tlei_v1.22226-RA
+BP	GO:0106074	aminoacyl-tRNA metabolism involved in translational fidelity	0.0381		Tlei_v1.04953-RA
+BP	GO:0061615	glycolytic process through fructose-6-phosphate	0.0406		Tlei_v1.13809-RA
+BP	GO:0006833	water transport	0.043		Tlei_v1.09227-RA
+MF	GO:0005506	iron ion binding	0.00041		Tlei_v1.01541-RA, Tlei_v1.11069-RA, Tlei_v1.14619-RA, Tlei_v1.27475-RA, Tlei_v1.27476-RA
+MF	GO:0032440	2-alkenal reductase [NAD(P)+] activity	0.00076		Tlei_v1.17974-RA, Tlei_v1.20706-RA
+MF	GO:0016705	oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen	0.00174		Tlei_v1.01541-RA, Tlei_v1.11069-RA, Tlei_v1.14619-RA, Tlei_v1.27475-RA, Tlei_v1.27476-RA
+MF	GO:0004577	N-acetylglucosaminyldiphosphodolichol N-acetylglucosaminyltransferase activity	0.00516		Tlei_v1.10260-RA
+MF	GO:0020037	heme binding	0.00691		Tlei_v1.01541-RA, Tlei_v1.11069-RA, Tlei_v1.27475-RA, Tlei_v1.27476-RA
+MF	GO:0004823	leucine-tRNA ligase activity	0.00773		Tlei_v1.04953-RA
+MF	GO:1990465	aldehyde oxygenase (deformylating) activity	0.00773		Tlei_v1.14619-RA
+MF	GO:0004816	asparagine-tRNA ligase activity	0.00773		Tlei_v1.09292-RA
+MF	GO:0009924	octadecanal decarbonylase activity	0.00773		Tlei_v1.14619-RA
+MF	GO:0004819	glutamine-tRNA ligase activity	0.0103		Tlei_v1.20422-RA
+MF	GO:0004069	L-aspartate:2-oxoglutarate aminotransferase activity	0.01285		Tlei_v1.04110-RA
+MF	GO:0047334	diphosphate-fructose-6-phosphate 1-phosphotransferase activity	0.02049		Tlei_v1.13809-RA
+MF	GO:0000254	C-4 methylsterol oxidase activity	0.02302		Tlei_v1.14619-RA
+MF	GO:0043023	ribosomal large subunit binding	0.02807		Tlei_v1.29570-RA
+MF	GO:0008097	5S rRNA binding	0.02807		Tlei_v1.09306-RA
+MF	GO:0005388	P-type calcium transporter activity	0.03559		Tlei_v1.29705-RA
+MF	GO:0002161	aminoacyl-tRNA editing activity	0.03808		Tlei_v1.04953-RA
+MF	GO:0015250	water channel activity	0.03808		Tlei_v1.09227-RA
+MF	GO:0016307	phosphatidylinositol phosphate kinase activity	0.04057		Tlei_v1.05046-RA
+MF	GO:0003872	6-phosphofructokinase activity	0.04057		Tlei_v1.13809-RA
+CC	GO:0043541	UDP-N-acetylglucosamine transferase complex	0.01		Tlei_v1.10260-RA
+CC	GO:0042406	extrinsic component of endoplasmic reticulum membrane	0.013		Tlei_v1.10260-RA
+CC	GO:0000127	transcription factor TFIIIC complex	0.02		Tlei_v1.25871-RA
+CC	GO:0016020	membrane	0.036		Tlei_v1.01541-RA, Tlei_v1.06446-RA, Tlei_v1.06450-RA, Tlei_v1.06451-RA, Tlei_v1.08954-RA, Tlei_v1.09227-RA, Tlei_v1.10260-RA, Tlei_v1.10396-RA, Tlei_v1.11069-RA, Tlei_v1.13809-RA, Tlei_v1.14570-RA, Tlei_v1.14619-RA, Tlei_v1.17970-RA, Tlei_v1.19587-RA, Tlei_v1.22226-RA, Tlei_v1.27261-RA, Tlei_v1.27475-RA, Tlei_v1.27476-RA, Tlei_v1.28097-RA, Tlei_v1.29705-RA
+CC	GO:0010319	stromule	0.046		Tlei_v1.04110-RA

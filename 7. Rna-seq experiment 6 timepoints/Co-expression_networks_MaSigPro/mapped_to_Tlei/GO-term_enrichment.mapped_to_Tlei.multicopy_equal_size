@@ -1,0 +1,82 @@
+Category	ID	Term	adj_pval	Orthogroups	Genes
+BP	GO:0006624	vacuolar protein processing	0.00018		Tlei_v1.29197-RA, Tlei_v1.29211-RA
+BP	GO:0001682	tRNA 5'-leader removal	0.00027		Tlei_v1.10917-RA, Tlei_v1.15908-RA
+BP	GO:0006538	glutamate catabolic process	0.00038		Tlei_v1.13491-RA, Tlei_v1.23012-RA
+BP	GO:0009809	lignin biosynthetic process	0.0016		Tlei_v1.12479-RA, Tlei_v1.15794-RA
+BP	GO:0033484	nitric oxide homeostasis	0.00859		Tlei_v1.17388-RA
+BP	GO:0017014	protein nitrosylation	0.00859		Tlei_v1.17388-RA
+BP	GO:0043617	cellular response to sucrose starvation	0.00859		Tlei_v1.09935-RA
+BP	GO:0006099	tricarboxylic acid cycle	0.01042		Tlei_v1.03837-RA, Tlei_v1.06877-RA
+BP	GO:0050665	hydrogen peroxide biosynthetic process	0.01286		Tlei_v1.17388-RA
+BP	GO:0070981	L-asparagine biosynthetic process	0.01286		Tlei_v1.09935-RA
+BP	GO:0016104	triterpenoid biosynthetic process	0.01286		Tlei_v1.12149-RA
+BP	GO:0009410	response to xenobiotic stimulus	0.01286		Tlei_v1.17388-RA
+BP	GO:1900034	regulation of cellular response to heat	0.01711		Tlei_v1.17388-RA
+BP	GO:0009750	response to fructose	0.02134		Tlei_v1.09935-RA
+BP	GO:0019853	L-ascorbic acid biosynthetic process	0.02134		Tlei_v1.05227-RA
+BP	GO:0010236	plastoquinone biosynthetic process	0.02134		Tlei_v1.28551-RA
+BP	GO:0045454	cell redox homeostasis	0.02332		Tlei_v1.13443-RA, Tlei_v1.17388-RA
+BP	GO:0016094	polyprenol biosynthetic process	0.02556		Tlei_v1.14186-RA
+BP	GO:1902074	response to salt	0.02556		Tlei_v1.17388-RA
+BP	GO:0009631	cold acclimation	0.02556		Tlei_v1.17388-RA
+BP	GO:0015977	carbon fixation	0.02556		Tlei_v1.06877-RA
+BP	GO:0033353	S-adenosylmethionine cycle	0.02556		Tlei_v1.21155-RA
+BP	GO:2000904	regulation of starch metabolic process	0.02556		Tlei_v1.13018-RA
+BP	GO:0006607	NLS-bearing protein import into nucleus	0.02975		Tlei_v1.01913-RA
+BP	GO:0070534	protein K63-linked ubiquitination	0.02975		Tlei_v1.25752-RA
+BP	GO:0006107	oxaloacetate metabolic process	0.02975		Tlei_v1.03837-RA
+BP	GO:0010039	response to iron ion	0.02975		Tlei_v1.25752-RA
+BP	GO:0006096	glycolytic process	0.03361		Tlei_v1.17263-RA, Tlei_v1.26369-RA
+BP	GO:0035672	oligopeptide transmembrane transport	0.03393		Tlei_v1.26991-RA
+BP	GO:0006048	UDP-N-acetylglucosamine biosynthetic process	0.03393		Tlei_v1.12864-RA
+BP	GO:0030388	fructose 1,6-bisphosphate metabolic process	0.04224		Tlei_v1.26369-RA
+BP	GO:0006734	NADH metabolic process	0.04224		Tlei_v1.03837-RA
+BP	GO:0009607	response to biotic stimulus	0.04231		Tlei_v1.04936-RA, Tlei_v1.17388-RA
+BP	GO:0006364	rRNA processing	0.04574		Tlei_v1.08549-RA, Tlei_v1.10917-RA, Tlei_v1.15908-RA
+BP	GO:0097428	protein maturation by iron-sulfur cluster transfer	0.04636		Tlei_v1.22774-RA
+MF	GO:0004351	glutamate decarboxylase activity	7.4e-05		Tlei_v1.13491-RA, Tlei_v1.23012-RA
+MF	GO:0004737	pyruvate decarboxylase activity	0.0036		Tlei_v1.30143-RA
+MF	GO:0004013	adenosylhomocysteinase activity	0.0071		Tlei_v1.21155-RA
+MF	GO:0008864	formyltetrahydrofolate deformylase activity	0.0071		Tlei_v1.02312-RA
+MF	GO:0004831	tyrosine-tRNA ligase activity	0.0071		Tlei_v1.02312-RA
+MF	GO:0047918	GDP-mannose 3,5-epimerase activity	0.0071		Tlei_v1.05227-RA
+MF	GO:0031072	heat shock protein binding	0.0093		Tlei_v1.08225-RA, Tlei_v1.15740-RA
+MF	GO:0000287	magnesium ion binding	0.0102		Tlei_v1.13018-RA, Tlei_v1.17263-RA, Tlei_v1.30143-RA
+MF	GO:0004343	glucosamine 6-phosphate N-acetyltransferase activity	0.0106		Tlei_v1.12864-RA
+MF	GO:0004802	transketolase activity	0.0106		Tlei_v1.18018-RA
+MF	GO:0008964	phosphoenolpyruvate carboxylase activity	0.0106		Tlei_v1.06877-RA
+MF	GO:0050347	trans-octaprenyltranstransferase activity	0.0106		Tlei_v1.28551-RA
+MF	GO:0004066	asparagine synthase (glutamine-hydrolyzing) activity	0.0106		Tlei_v1.09935-RA
+MF	GO:0000250	lanosterol synthase activity	0.0106		Tlei_v1.12149-RA
+MF	GO:0042300	beta-amyrin synthase activity	0.0106		Tlei_v1.12149-RA
+MF	GO:0052923	all-trans-nonaprenyl-diphosphate synthase (geranyl-diphosphate specific) activity	0.0106		Tlei_v1.28551-RA
+MF	GO:0004096	catalase activity	0.0142		Tlei_v1.17388-RA
+MF	GO:0002094	polyprenyltransferase activity	0.0177		Tlei_v1.14186-RA
+MF	GO:0004332	fructose-bisphosphate aldolase activity	0.0212		Tlei_v1.26369-RA
+MF	GO:0045551	cinnamyl-alcohol dehydrogenase activity	0.0212		Tlei_v1.12479-RA
+MF	GO:0030976	thiamine pyrophosphate binding	0.0212		Tlei_v1.30143-RA
+MF	GO:0035673	oligopeptide transmembrane transporter activity	0.0281		Tlei_v1.26991-RA
+MF	GO:0004311	farnesyltranstransferase activity	0.0281		Tlei_v1.28551-RA
+MF	GO:0030060	L-malate dehydrogenase activity	0.0316		Tlei_v1.03837-RA
+MF	GO:0004427	inorganic diphosphatase activity	0.0385		Tlei_v1.13018-RA
+MF	GO:0010329	auxin efflux transmembrane transporter activity	0.0385		Tlei_v1.21895-RA
+MF	GO:0030170	pyridoxal phosphate binding	0.0392		Tlei_v1.13491-RA, Tlei_v1.23012-RA
+MF	GO:0003712	transcription coregulator activity	0.04		Tlei_v1.05227-RA, Tlei_v1.26202-RA
+MF	GO:0004743	pyruvate kinase activity	0.0453		Tlei_v1.17263-RA
+MF	GO:0030955	potassium ion binding	0.0453		Tlei_v1.17263-RA
+MF	GO:0051082	unfolded protein binding	0.0485		Tlei_v1.08225-RA, Tlei_v1.15740-RA
+MF	GO:0008139	nuclear localization sequence binding	0.0487		Tlei_v1.01913-RA
+MF	GO:0004467	long-chain fatty acid-CoA ligase activity	0.0487		Tlei_v1.30665-RA
+MF	GO:0016887	ATP hydrolysis activity	0.05		Tlei_v1.15740-RA, Tlei_v1.24288-RA, Tlei_v1.31722-RA
+CC	GO:0005655	nucleolar ribonuclease P complex	0.00012		Tlei_v1.10917-RA, Tlei_v1.15908-RA
+CC	GO:0000172	ribonuclease MRP complex	0.00088		Tlei_v1.10917-RA, Tlei_v1.15908-RA
+CC	GO:0005829	cytosol	0.00101		Tlei_v1.05227-RA, Tlei_v1.06877-RA, Tlei_v1.08225-RA, Tlei_v1.09935-RA, Tlei_v1.13018-RA, Tlei_v1.13491-RA, Tlei_v1.18018-RA, Tlei_v1.21155-RA, Tlei_v1.23012-RA, Tlei_v1.25752-RA, Tlei_v1.26369-RA, Tlei_v1.30143-RA
+CC	GO:0005783	endoplasmic reticulum	0.00195		Tlei_v1.07012-RA, Tlei_v1.12864-RA, Tlei_v1.13443-RA, Tlei_v1.14186-RA, Tlei_v1.15740-RA, Tlei_v1.18075-RA, Tlei_v1.21895-RA, Tlei_v1.29197-RA, Tlei_v1.30665-RA
+CC	GO:0005788	endoplasmic reticulum lumen	0.00396		Tlei_v1.13443-RA, Tlei_v1.15740-RA
+CC	GO:0031372	UBC13-MMS2 complex	0.00899		Tlei_v1.25752-RA
+CC	GO:0016592	mediator complex	0.01137		Tlei_v1.05227-RA, Tlei_v1.26202-RA
+CC	GO:0030141	secretory granule	0.01345		Tlei_v1.14952-RA
+CC	GO:0034663	endoplasmic reticulum chaperone complex	0.02231		Tlei_v1.15740-RA
+CC	GO:0070847	core mediator complex	0.0311		Tlei_v1.26202-RA
+CC	GO:0005887	integral component of plasma membrane	0.03358		Tlei_v1.26991-RA, Tlei_v1.31722-RA
+CC	GO:0005811	lipid droplet	0.04845		Tlei_v1.12149-RA
