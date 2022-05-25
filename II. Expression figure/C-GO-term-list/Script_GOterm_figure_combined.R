@@ -51,8 +51,6 @@ circle_dat <- function(terms, genes){
 data <- circ_sub
 GOBar <- function(data, display, order.by.zscore = T, title, zsc.col){
   id <- adj_pval <- zscore <- NULL
-  if (missing(display)) display <- 'single'
-  if (missing(title)) title <- ''
   if (missing(zsc.col)) zsc.col <- c('firebrick1', 'white', 'dodgerblue1')
   colnames(data) <- tolower(colnames(data))
   data$adj_pval <- -log(data$adj_pval, 10)
@@ -66,30 +64,27 @@ GOBar <- function(data, display, order.by.zscore = T, title, zsc.col){
     geom_bar(stat = 'identity', position=position_dodge()) +
     scale_fill_gradient2('Per-family\ngene count\n(z-score)\n', space = 'Lab', low = zsc.col[3], mid = zsc.col[2], high = zsc.col[1], guide = guide_colourbar(title.position = "top", title.hjust = 0), 
                          breaks = c(min(sub$zscore), max(sub$zscore)), labels = c('T.fas < T. lei', 'T.fas > T. lei')) +
-    scale_color_manual(values=c("black", "black", "black")) +
-    labs(title = title, y = '', x = '-log (adj p-value)') +
-    geom_text(aes(y=term, x=-0.25, label=count, color = "black"))
-  if (display == 'single'){
-    g + theme(axis.text.x = element_text(angle = 360, vjust = 0.5, hjust=1), axis.line = element_line(colour = 'grey80'), axis.ticks = element_line(colour = 'grey80'),
-              axis.title = element_text(size = 12, face = 'bold'), axis.text = element_text(size = 12), panel.background = element_blank(), 
-              panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), plot.background = element_blank())        
-  }else{
-    g + facet_grid(.~category, space = 'free_x', scales = 'free_x')+
-      theme(axis.text.x = element_text(angle = 180, vjust = 0.5, hjust=1), axis.line = element_line(colour = 'grey80'), axis.ticks = element_line(colour = 'grey80'),
-            axis.title = element_text(size = 14, face = 'bold'), axis.text = element_text(size = 14), panel.background = element_blank(), 
-            panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), plot.background = element_blank())
-  }
+    scale_color_manual(values=c("black", "black", "black"), guide = "none") +
+    labs(title = '', y = '', x = '-log (adj p-value)') +
+    geom_text(aes(y=term, x=-0.25, label=count, color = "black")) +
+    annotate("text", x=2.55, y=length(sub$term)/2+0.25, label="p-value in T. leiboldiana", color = "black", 
+             size= 3, hjust = 0) +
+    annotate("text", x=2.55, y=length(sub$term)/2-0.25, label="p-value in T. fasciculata", color = "black", 
+             size= 3, hjust = 0)
+  g
 }
 genes <- genes[,c(1,9,10)]
 genes$difference <- genes$count_Tfas - genes$count_Tlei
 genes <- genes[,c(1,4)]
 colnames(genes) <- c("ID", "logFC")
 circ <- circle_dat(go, genes)
-circ_sub <- circ[grepl("oxaloacetate", circ$term) | grepl("glycoly", circ$term) | grepl("circadian", circ$term)
+circ_sub <- circ[(grepl("oxaloacetate", circ$term) | grepl("glycoly", circ$term) | grepl("circadian", circ$term)
                  | grepl("fructo", circ$term) | grepl("malate", circ$term) | grepl("starch", circ$term) 
                  | grepl("vacuol", circ$term)| grepl("tricarboxylic", circ$term) | grepl("heat", circ$term)
-                 | grepl("ATPase", circ$term),]
-pdf("GOterm_CAM_list.pdf", width = 12, height = 9)
+                 | grepl("ATPase", circ$term)| grepl("salt", circ$term)| grepl("photoperiodism", circ$term)| 
+                   grepl("osmotic", circ$term)) & (circ$category == "BP" | circ$category == "MF"),]
+circ_sub <- circ_sub[!(grepl("protein processing", circ_sub$term)),]
+pdf("GOterm_ALL_Tfas-Tlei_COMBINED.pdf", width = 12, height = 9)
 GOBar(circ_sub, zsc.col = c("#1e6091", "#52b69a", "#d9ed92"))
 dev.off()
 GOBubble(circ, labels = 3)

@@ -26,7 +26,7 @@ normd <- cpm(dyg, normalized.lib.sizes = T)
 # Here we trim lowly-expressed genes. This doesn't change the results much but vastly shortens 
 # run time
 normd_trim <- normd[rowMeans(normd)>1,]
-write.table(normd_trim, file = "counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.txt", sep = "\t", quote = F)
+write.table(normd_trim, file = "counts.Tfas_Tlei_6_timepoints.exons.toTLEI.sum.normalized-cpm.EdgeR.txt", sep = "\t", quote = F)
 
 # log transform
 normd_log <- cpm(dyg, normalized.lib.sizes = T, log = T)

@@ -3,7 +3,7 @@ setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/II. Expression figu
 
 library("GOplot")
 library(stringr)
-go <- read.delim("GO-term_enrichment_mod_TLEI-REF_exonic.txt", header = T, sep = "\t")
+go <- read.delim("GO-term_enrichment.mapped_to_Tlei.txt", header = T, sep = "\t")
 ortho_info <- read.delim("orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.blastandsearch_noAcom.txt",
                           sep = "\t")
 colnames(ortho_info) <- c("gene_ID", "chr", "start", "end", "GOterm", "Description", "orthogroup", "count_Acom", 
@@ -43,11 +43,9 @@ circle_dat <- function(terms, genes){
   }
   return(df)
 }
-
+data <- circ
 GOBar <- function(data, display, order.by.zscore = T, title, zsc.col){
   id <- adj_pval <- zscore <- NULL
-  if (missing(display)) display <- 'single'
-  if (missing(title)) title <- ''
   if (missing(zsc.col)) zsc.col <- c('firebrick1', 'white', 'dodgerblue1')
   colnames(data) <- tolower(colnames(data))
   data$adj_pval <- -log(data$adj_pval, 10)
@@ -57,28 +55,11 @@ GOBar <- function(data, display, order.by.zscore = T, title, zsc.col){
     g <-  ggplot(sub, aes(y = factor(term, levels = rev(stats::reorder(term, adj_pval))), x = adj_pval, fill = zscore)) +
       geom_bar(stat = 'identity', colour = 'black') +
       scale_fill_gradient2('Per-family\ngene count\n(z-score)\n', space = 'Lab', low = zsc.col[3], mid = zsc.col[2], high = zsc.col[1], guide = guide_colourbar(title.position = "top", title.hjust = 0), 
-                           breaks = c(min(sub$zscore), max(sub$zscore)), labels = c('T.fas = T. lei', 'T.fas > T. lei')) +
-      labs(title = title, y = '', x = '-log (adj p-value)') +
-      geom_text(aes(y=term, x=-0.25, label=count))
-  }else{
-    sub <- sub[order(sub$adj_pval, decreasing = T), ]
-    leg <- theme(legend.justification = c(1, 1), legend.position = c(2, 2.1), legend.background = element_rect(fill = 'transparent'),
-                 legend.box = 'vertical', legend.direction = 'horizontal')
-    g <-  ggplot(sub, aes( x = factor(id, levels = reorder(id, adj_pval)), y = zscore, fill = adj_pval)) +
-      geom_bar(stat = 'identity', colour = 'black') +
-      scale_fill_gradient2('Significance', space = 'Lab', low = zsc.col[3], mid = zsc.col[2], high = zsc.col[1], guide = guide_colourbar(title.position = "top", title.hjust = 0.5), breaks = c(min(sub$adj_pval), max(sub$adj_pval)), labels = c('low', 'high')) +
-      labs(title = title, x = '', y = 'z-score') +
-      leg
-  }
-  if (display == 'single'){
-    g + theme(axis.text.x = element_text(angle = 360, vjust = 0.5, hjust=1), axis.line = element_line(colour = 'grey80'), axis.ticks = element_line(colour = 'grey80'),
-              axis.title = element_text(size = 12, face = 'bold'), axis.text = element_text(size = 12), panel.background = element_blank(), 
-              panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), plot.background = element_blank())        
-  }else{
-    g + facet_grid(.~category, space = 'free_x', scales = 'free_x')+
-      theme(axis.text.x = element_text(angle = 180, vjust = 0.5, hjust=1), axis.line = element_line(colour = 'grey80'), axis.ticks = element_line(colour = 'grey80'),
-            axis.title = element_text(size = 14, face = 'bold'), axis.text = element_text(size = 14), panel.background = element_blank(), 
-            panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), plot.background = element_blank())
+                           breaks = c(min(sub$zscore), max(sub$zscore)), labels = c('T.fas < T. lei', 'T.fas > T. lei')) +
+      labs(title = '', y = '', x = '-log (adj p-value)') +
+      geom_text(aes(y=term, x=-0.25, label=count),size = 2) +
+      theme(axis.text=element_text(size=7.5))
+    g
   }
 }
 genes <- genes[,c(1,9,10)]
@@ -86,11 +67,8 @@ genes$difference <- genes$count_Tfas - genes$count_Tlei
 genes <- genes[,c(1,4)]
 colnames(genes) <- c("ID", "logFC")
 circ <- circle_dat(go, genes)
-circ_sub <- circ[grepl("oxaloacetate", circ$term) | grepl("glycoly", circ$term) | grepl("circadian", circ$term)
-                 | grepl("fructo", circ$term) | grepl("malate", circ$term) | grepl("starch", circ$term) 
-                 | grepl("vacuol", circ$term)| grepl("tricarboxylic", circ$term) | grepl("heat", circ$term)
-                 | grepl("ATPase", circ$term),]
-pdf("GOterm_CAM_list.pdf", width = 12, height = 9)
+circ_sub <- circ[circ$category == "BP" | circ$category == "MF",]
+pdf("GOterm_ALL_Tlei.pdf", width = 12, height = 18)
 GOBar(circ_sub, zsc.col = c("#1e6091", "#52b69a", "#d9ed92"))
 dev.off()
 GOBubble(circ, labels = 3)
