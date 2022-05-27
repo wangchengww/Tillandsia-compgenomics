@@ -1,6 +1,6 @@
-modules='Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.exonic.txt'
-ortho_info='orthogroup-info_Significant_Genes-Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.size-corrected.noplastid-mito_EXONIC.txt'
-ortho_counts='orthogroup-counts_Significant_Genes-Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.size-corrected.noplastid-mito_EXONIC.txt'
+modules='../Genes_Significant_Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.exonic.txt'
+ortho_info='../orthogroup-info_Significant_Genes-Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.size-corrected.noplastid-mito_EXONIC.txt'
+ortho_counts='../orthogroup-counts_Significant_Genes-Tfas-vs-Tlei_0.7-trimmed_TLEI-REF.size-corrected.noplastid-mito_EXONIC.txt'
 
 echo "Module total one_one larger_Tfas larger_Tlei equal uniq_Tfas uniq_Tlei" > duplication_stats.per-orthogroup_EXONIC.txt
 for i in $modules; do

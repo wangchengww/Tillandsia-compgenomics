@@ -22,11 +22,12 @@ groups <- paste0(groups_list[[1]], "_", groups_list[[2]], "_", groups_list[[3]])
 dyg<-DGEList(counts, group=groups)
 dyg<-calcNormFactors(dyg, method="TMM")
 normd <- cpm(dyg, normalized.lib.sizes = T)
+write.table(normd, file = "counts.Tfas_Tlei_6_timepoints.exons.toTLEI.sum.normalized-cpm.EdgeR.txt", sep = "\t", quote = F)
 
 # Here we trim lowly-expressed genes. This doesn't change the results much but vastly shortens 
 # run time
 normd_trim <- normd[rowMeans(normd)>1,]
-write.table(normd_trim, file = "counts.Tfas_Tlei_6_timepoints.exons.toTLEI.sum.normalized-cpm.EdgeR.txt", sep = "\t", quote = F)
+write.table(normd_trim, file = "counts.Tfas_Tlei_6_timepoints.exons.toTLEI.sum.normalized-cpm.trimmed.EdgeR.txt", sep = "\t", quote = F)
 
 # log transform
 normd_log <- cpm(dyg, normalized.lib.sizes = T, log = T)
