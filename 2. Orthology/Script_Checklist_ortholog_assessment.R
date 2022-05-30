@@ -68,9 +68,30 @@ dim(tfas_multicopy[tfas_multicopy$startcodon == "True" & tfas_multicopy$stopcodo
 dim(tfas_multicopy[(tfas_multicopy$startcodon == "True" & tfas_multicopy$stopcodon == "False") | 
                      (tfas_multicopy$startcodon == "False" & tfas_multicopy$stopcodon == "True"),]) # 1373 (11.4 % of multicopy genes)
 dim(tfas_multicopy[tfas_multicopy$startcodon == "False" & tfas_multicopy$stopcodon == "False",]) # 310 genes (2.58 % of multicopy genes)
-
+tfas_multicopy_incomplete <- tfas_multicopy[!(tfas_multicopy$startcodon == "True" & tfas_multicopy$stopcodon == "True"),]
+write.table(tfas_multicopy_incomplete[,c(1,2)], file = "Incomplete_multicopy_genes_start-stopcodon_Tfas.txt", 
+            quote = F, row.names = F)
 # How many multicopy genes have both a start & stopcodon, either or none in Tlei
 dim(tlei_multicopy[tlei_multicopy$startcodon == "True" & tlei_multicopy$stopcodon == "True",]) # 4011 (50 % of multicopy genes)
 dim(tlei_multicopy[(tlei_multicopy$startcodon == "True" & tlei_multicopy$stopcodon == "False") | 
                      (tlei_multicopy$startcodon == "False" & tlei_multicopy$stopcodon == "True"),]) # 3382 (42 %)
 dim(tlei_multicopy[tlei_multicopy$startcodon == "False" & tlei_multicopy$stopcodon == "False",]) # 618 (7.71 %)
+tlei_multicopy_incomplete <- tlei_multicopy[!(tlei_multicopy$startcodon == "True" & tlei_multicopy$stopcodon == "True"),]
+write.table(tlei_multicopy_incomplete[,c(1,2)], file = "Incomplete_multicopy_genes_start-stopcodon_Tlei.txt", 
+            quote = F, row.names = F, sep = "\t")
+
+tfas_de_genes <- read.table("checklist_curated_orthologs_Tfas-Tlei.DEgenes_Tfas.txt", header = F)
+colnames(tfas_de_genes) <- c("Gene_id",	"orthogroup",	"CDS_length",	"exon_count",	"startcodon",	"stopcodon",	
+              "expressed_Tfas",	"expressed_Tlei",	"diff_largest_exon_count", "diff_longest_CDS")
+dim(tfas_de_genes[tfas_de_genes$startcodon == "True" & tfas_de_genes$stopcodon == "True",]) # 725 (90.8 % of DE genes)
+dim(tfas_de_genes[(tfas_de_genes$startcodon == "True" & tfas_de_genes$stopcodon == "False") | 
+                     (tfas_de_genes$startcodon == "False" & tfas_de_genes$stopcodon == "True"),]) # 70 (8.77 % of DE genes)
+dim(tfas_de_genes[tfas_de_genes$startcodon == "False" & tfas_de_genes$stopcodon == "False",]) # 3 genes (0.3 % of DE genes)
+
+tlei_de_genes <- read.table("checklist_curated_orthologs_Tfas-Tlei.DEgenes_Tlei.txt", header = F)
+colnames(tlei_de_genes) <- c("Gene_id",	"orthogroup",	"CDS_length",	"exon_count",	"startcodon",	"stopcodon",	
+                             "expressed_Tfas",	"expressed_Tlei",	"diff_largest_exon_count", "diff_longest_CDS")
+dim(tlei_de_genes[tlei_de_genes$startcodon == "True" & tlei_de_genes$stopcodon == "True",]) # 544 (75.3 % of DE genes)
+dim(tlei_de_genes[(tlei_de_genes$startcodon == "True" & tlei_de_genes$stopcodon == "False") | 
+                    (tlei_de_genes$startcodon == "False" & tlei_de_genes$stopcodon == "True"),]) # 169 (23.4 % of DE genes)
+dim(tlei_de_genes[tlei_de_genes$startcodon == "False" & tlei_de_genes$stopcodon == "False",]) # 9 genes (1.2 % of DE genes)
