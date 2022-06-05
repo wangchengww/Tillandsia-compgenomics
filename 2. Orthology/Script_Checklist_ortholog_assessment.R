@@ -20,9 +20,14 @@ library(dplyr)
 library(ggplot2)
 library(grid)
 library(gridExtra)
-tfas_data <- data[startsWith(data$Gene_id, "Tfas"),] 
+tfas_data <- data[startsWith(data$Gene_id, "Tfas"),]
+dim(tfas_data[tfas_data$startcodon == "True" & tfas_data$stopcodon == "True",]) # 23,618 (89.7 % of all genes are complete)
 tlei_data <- data[startsWith(data$Gene_id, "Tlei"),]
-# How many multicopy genes are complete in exon count and length in Tfas
+dim(tlei_data[tlei_data$startcodon == "True" & tlei_data$stopcodon == "True",]) # 14,924 (63,3 % of all genes are complete)
+tlei_incomplete <- tlei_data[!(tlei_data$startcodon == "True" & tlei_data$stopcodon == "True"),]
+write.table(tlei_incomplete, file = "Incomplete_genes_start-stopcodon_Tlei.txt", 
+            quote = F, row.names = F, sep = "\t")
+ # How many multicopy genes are complete in exon count and length in Tfas
 tfas_multicopy <-  tfas_data %>% group_by(orthogroup) %>% filter(n()>1) # 12014 genes
 length(unique(tfas_multicopy$orthogroup)) # 3331 orthogroups, meaning that there are 8683 secondary copies
 dim(tfas_multicopy[tfas_multicopy$diff_largest_exon_count == 0,]) # 5427 (45 %) of which 2096 (24 %) are a secondary copy
@@ -79,6 +84,9 @@ dim(tlei_multicopy[tlei_multicopy$startcodon == "False" & tlei_multicopy$stopcod
 tlei_multicopy_incomplete <- tlei_multicopy[!(tlei_multicopy$startcodon == "True" & tlei_multicopy$stopcodon == "True"),]
 write.table(tlei_multicopy_incomplete[,c(1,2)], file = "Incomplete_multicopy_genes_start-stopcodon_Tlei.txt", 
             quote = F, row.names = F, sep = "\t")
+# How many incomplete multicopy genes are expressed?
+dim(tlei_multicopy_incomplete[tlei_multicopy_incomplete$expressed_Tfas == "True",]) # 2844 (71 % of incomplete genes)
+dim(tlei_multicopy_incomplete[tlei_multicopy_incomplete$expressed_Tlei == "True",]) # 3014 (75 % of incomplete genes)
 
 tfas_de_genes <- read.table("checklist_curated_orthologs_Tfas-Tlei.DEgenes_Tfas.txt", header = F)
 colnames(tfas_de_genes) <- c("Gene_id",	"orthogroup",	"CDS_length",	"exon_count",	"startcodon",	"stopcodon",	
@@ -87,6 +95,9 @@ dim(tfas_de_genes[tfas_de_genes$startcodon == "True" & tfas_de_genes$stopcodon =
 dim(tfas_de_genes[(tfas_de_genes$startcodon == "True" & tfas_de_genes$stopcodon == "False") | 
                      (tfas_de_genes$startcodon == "False" & tfas_de_genes$stopcodon == "True"),]) # 70 (8.77 % of DE genes)
 dim(tfas_de_genes[tfas_de_genes$startcodon == "False" & tfas_de_genes$stopcodon == "False",]) # 3 genes (0.3 % of DE genes)
+tfas_de_incomplete <- tfas_de_genes[!(tfas_de_genes$startcodon == "True" & tfas_de_genes$stopcodon == "True"),]
+write.table(tfas_de_incomplete[,c(1,2)], file = "Incomplete_DE_genes_start-stopcodon_Tfas.txt", 
+            quote = F, row.names = F, sep = "\t")
 
 tlei_de_genes <- read.table("checklist_curated_orthologs_Tfas-Tlei.DEgenes_Tlei.txt", header = F)
 colnames(tlei_de_genes) <- c("Gene_id",	"orthogroup",	"CDS_length",	"exon_count",	"startcodon",	"stopcodon",	
@@ -95,3 +106,7 @@ dim(tlei_de_genes[tlei_de_genes$startcodon == "True" & tlei_de_genes$stopcodon =
 dim(tlei_de_genes[(tlei_de_genes$startcodon == "True" & tlei_de_genes$stopcodon == "False") | 
                     (tlei_de_genes$startcodon == "False" & tlei_de_genes$stopcodon == "True"),]) # 169 (23.4 % of DE genes)
 dim(tlei_de_genes[tlei_de_genes$startcodon == "False" & tlei_de_genes$stopcodon == "False",]) # 9 genes (1.2 % of DE genes)
+tlei_de_incomplete <- tlei_de_genes[!(tlei_de_genes$startcodon == "True" & tlei_de_genes$stopcodon == "True"),]
+write.table(tlei_de_incomplete[,c(1,2)], file = "Incomplete_DE_genes_start-stopcodon_Tlei.txt", 
+            quote = F, row.names = F, sep = "\t")
+# How many incomplete genes are expressed?

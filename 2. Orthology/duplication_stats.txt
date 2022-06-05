@@ -1,0 +1,3 @@
+total one_one larger_Tfas larger_Tlei equal uniq_Tfas uniq_Tlei
+6016 4219 376 378 264 0 779
+6016 .70 .06 .06 .04 0 .12
