@@ -1,7 +1,6 @@
 setwd("/Users/clara/Documents/GitHub/Tillandsia-compgenomics/2. Orthology/")
 setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/2. Orthology/")
 
-
 data <- read.delim("checklist_curated_orthologs_Tfas-Tlei.txt", header = T, sep = "\t")
 # Count number of genes in T. fasciculata with the same number of exons and the same 
 # length as the largest gene in the orthogroup
@@ -110,3 +109,79 @@ tlei_de_incomplete <- tlei_de_genes[!(tlei_de_genes$startcodon == "True" & tlei_
 write.table(tlei_de_incomplete[,c(1,2)], file = "Incomplete_DE_genes_start-stopcodon_Tlei.txt", 
             quote = F, row.names = F, sep = "\t")
 # How many incomplete genes are expressed?
+
+
+### WITH NEW DATA FORMAT
+data <- read.delim("checklist_curated_orthologs_Tfas-Tlei.new062022.txt", header = T, sep = "\t")
+tfas_data <- data[startsWith(data$Gene_id, "Tfas"),]
+dim(tfas_data[tfas_data$startcodon == "True" & tfas_data$stopcodon == "one_stopcodon",]) # 23,618 (89.7 % of all genes are complete)
+dim(tfas_data[tfas_data$stopcodon == "multiple_stopcodons",]) # Only one gene has multiple stopcodons. It is a unique gene of T. fasciculata
+dim(tfas_data[tfas_data$stopcodon == "no_stopcodon",]) # 720 genes don't have a stopcodon
+dim(tfas_data[tfas_data$startcodon == "False",]) # 2318 genes don't have a startcodon
+
+
+tlei_data <- data[startsWith(data$Gene_id, "Tlei"),]
+dim(tlei_data[tlei_data$startcodon == "True" & tlei_data$stopcodon == "True",]) # 14,924 (63,3 % of all genes are complete)
+dim(tlei_data[tlei_data$stopcodon == "multiple_stopcodons",]) # No genes with multiple stopcodons
+dim(tlei_data[tlei_data$stopcodon == "no_stopcodon",]) # 6500 genes don't have a stopcodon
+dim(tlei_data[tlei_data$startcodon == "False",]) # 2955 genes don't have a startcodon
+dim(tlei_data[tlei_data$startcodon == "False" & tlei_data$stopcodon == "no_stopcodon",]) # 795 genes are fully incomplete
+
+
+tlei_incomplete <- tlei_data[!(tlei_data$startcodon == "True" & tlei_data$stopcodon == "one_stopcodon"),]
+write.table(tlei_incomplete, file = "Incomplete_genes_start-stopcodon_Tlei.txt", 
+            quote = F, row.names = F, sep = "\t")
+tlei_incomplete$expressed_Tlei <- as.numeric(tlei_incomplete$expressed_Tlei)
+dim(tlei_incomplete[tlei_incomplete$expressed_Tlei == 1,]) # 8524 genes (98.4 % of all incomplete genes) have expression in all exons
+
+counts_tlei <- read.delim("/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/counts.Tfas_Tlei_6_timepoints.exons.ToTLEI.edited.txt", 
+                          header = T, sep = "\t")
+counts_tfas <- read.delim("/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/mapped_to_Tfas/counts.Tfas_Tlei_6_timepoints.exons.edited.txt"
+                          , header = T, sep = "\t")
+# Using EdgeR, I calculate CPM for the exons and find a threshold for
+# further filtering of lowly expressed genes
+library(edgeR)
+library(stringr)
+row.names(counts_tfas) <- counts_tfas[,1]
+counts <- counts_tfas[,-1]
+groups_list <- data.table::transpose(str_split(colnames(counts), "_"))[c(1,3,4)]
+groups <- paste0(groups_list[[1]], "_", groups_list[[2]], "_", groups_list[[3]])
+dyg<-DGEList(counts, group=groups)
+dyg<-calcNormFactors(dyg, method="TMM")
+normd <- cpm(dyg, normalized.lib.sizes = T)
+normd_Tfas <- normd[,c(1:36)]
+normd_Tlei <- normd[,c(37:72)]
+# Here I explore the distribution of mean CPM per exon
+x <- as.data.frame(rowMeans(normd_Tfas))
+summary(x) # On average, an exon has 6 CPM, but the median is 0.6.
+quantile(x$`rowMeans(normd_Tfas)`,probs = c(.1,.12,.5))
+y <- as.data.frame(rowMeans(normd_Tlei))
+summary(y) # On average, an exon has 6 CPM, but the median is 0.6.
+quantile(y$`rowMeans(normd_Tlei)`,probs = c(.1,.14,.5))
+# I only count as expressed the exons that have a mean CPM > 0.6. 
+# I chose the median because that was a similar choice when filtering genes
+write.table(normd, file = "/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/mapped_to_Tlei/counts.Tfas_Tlei_6_timepoints.exons.toTLEI.normalized-cpm.EdgeR.txt", 
+            sep = "\t", quote = F, )
+
+row.names(counts_tlei) <- counts_tlei[,1]
+counts <- counts_tlei[,-1]
+groups_list <- data.table::transpose(str_split(colnames(counts), "_"))[c(1,3,4)]
+groups <- paste0(groups_list[[1]], "_", groups_list[[2]], "_", groups_list[[3]])
+dyg<-DGEList(counts, group=groups)
+dyg<-calcNormFactors(dyg, method="TMM")
+normd <- cpm(dyg, normalized.lib.sizes = T)
+normd_Tfas <- normd[,c(1:36)]
+normd_Tlei <- normd[,c(37:72)]
+# Here I explore the distribution of mean CPM per exon
+x <- as.data.frame(rowMeans(normd_Tfas))
+summary(x) # On average, an exon has 6 CPM, but the median is 0.6.
+quantile(x$`rowMeans(normd_Tfas)`,probs = c(.1,.15,.5))
+y <- as.data.frame(rowMeans(normd_Tlei))
+summary(y) # On average, an exon has 6 CPM, but the median is 0.6.
+quantile(y$`rowMeans(normd_Tlei)`,probs = c(.1,.15,.5))
+# I only count as expressed the exons that have a mean CPM > 0.6. 
+# I chose the median because that was a similar choice when filtering genes
+write.table(normd, file = "/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/mapped_to_Tlei/counts.Tfas_Tlei_6_timepoints.exons.toTFAS.normalized-cpm.EdgeR.txt", 
+            sep = "\t", quote = F, )
+
+

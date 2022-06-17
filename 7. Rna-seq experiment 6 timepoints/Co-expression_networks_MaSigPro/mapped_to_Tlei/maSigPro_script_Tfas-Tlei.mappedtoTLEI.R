@@ -6,7 +6,7 @@
 
 #load data and libraries
 setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/mapped_to_Tlei/")
-setwd("/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/")
+setwd("/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/mapped_to_Tlei/")
 library(edgeR)
 library(maSigPro)
 library(mclust)
@@ -22,11 +22,15 @@ groups <- paste0(groups_list[[1]], "_", groups_list[[2]], "_", groups_list[[3]])
 dyg<-DGEList(counts, group=groups)
 dyg<-calcNormFactors(dyg, method="TMM")
 normd <- cpm(dyg, normalized.lib.sizes = T)
+x <- as.data.frame(rowMeans(normd))
+summary(x) # average of row means is 30 CPM, median is 1.1
 write.table(normd, file = "counts.Tfas_Tlei_6_timepoints.exons.toTLEI.sum.normalized-cpm.EdgeR.txt", sep = "\t", quote = F)
 
 # Here we trim lowly-expressed genes. This doesn't change the results much but vastly shortens 
 # run time
 normd_trim <- normd[rowMeans(normd)>1,]
+dim(normd)
+dim(normd_trim)
 write.table(normd_trim, file = "counts.Tfas_Tlei_6_timepoints.exons.toTLEI.sum.normalized-cpm.trimmed.EdgeR.txt", sep = "\t", quote = F)
 
 # log transform

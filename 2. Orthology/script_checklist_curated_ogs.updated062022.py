@@ -66,7 +66,7 @@ for line1 in ortho_info.readlines():
                 splitted_line = line.split('\t')
                 if splitted_line[2] == "exon":
                     exon_count=exon_count+1
-        # Extract info on expression, the gene is only marked as unexpressed in a species when counts are 0 everywhere
+        # Extract info on expression, the gene is only marked as unexpressed in a species when counts are 0 everywhere. Modification 17.06.2022: from now on, exons will be marked as not expressed when the average CPM across saples is < 0.001 (1000 counts in total)
         line = expression_Tfas[expression_Tfas['Geneid'].str.contains(gene)]
         if line.empty:
             expressed_Tfas = "No features"
@@ -78,8 +78,8 @@ for line1 in ortho_info.readlines():
                 exons = Tfas_expression_exon[Tfas_expression_exon['Geneid'].str.contains(gene)]
                 expressed_exons = 0
                 for row in exons.iterrows():
-                    sum = int(line.iloc[:, 1:37].sum(axis=1))
-                    if sum > 0:
+					avg = int(line.iloc[:, 1:37].mean(axis=1))
+                    if avg >= 0.001:
                         expressed_exons = expressed_exons + 1
                 expressed_Tfas = int(expressed_exons)/exon_count
             else:
@@ -88,8 +88,8 @@ for line1 in ortho_info.readlines():
                 exons = Tfas_expression_exon[Tfas_expression_exon['Geneid'].str.contains(gene)]
                 expressed_exons = 0
                 for row in exons.iterrows():
-                    sum = int(line.iloc[:, 36:72].sum(axis=1))
-                    if sum > 0:
+					avg = int(line.iloc[:, 36:72].mean(axis=1))
+                    if avg >= 0.001:
                         expressed_exons = expressed_exons + 1
                 expressed_Tlei = int(expressed_exons)/exon_count
             else:
@@ -121,8 +121,8 @@ for line1 in ortho_info.readlines():
                 exons = Tlei_expression_exon[Tlei_expression_exon['Geneid'].str.contains(gene)]
                 expressed_exons = 0
                 for row in exons.iterrows():
-                    sum = int(line.iloc[:, 1:37].sum(axis=1))
-                    if sum > 0:
+                    avg = int(line.iloc[:, 1:37].mean(axis=1))
+                    if avg >= 0.001:
                         expressed_exons = expressed_exons + 1
                 expressed_Tfas = int(expressed_exons)/exon_count
             else:
@@ -131,8 +131,8 @@ for line1 in ortho_info.readlines():
                 exons = Tlei_expression_exon[Tlei_expression_exon['Geneid'].str.contains(gene)]
                 expressed_exons = 0
                 for row in exons.iterrows():
-                    sum = int(line.iloc[:, 36:72].sum(axis=1))
-                    if sum > 0:
+                    avg = int(line.iloc[:, 36:72].mean(axis=1))
+                    if avg >= 0.001:
                         expressed_exons = expressed_exons + 1
                 expressed_Tlei = int(expressed_exons)/exon_count
             else:
