@@ -108,38 +108,61 @@ dim(tlei_de_genes[tlei_de_genes$startcodon == "False" & tlei_de_genes$stopcodon 
 tlei_de_incomplete <- tlei_de_genes[!(tlei_de_genes$startcodon == "True" & tlei_de_genes$stopcodon == "True"),]
 write.table(tlei_de_incomplete[,c(1,2)], file = "Incomplete_DE_genes_start-stopcodon_Tlei.txt", 
             quote = F, row.names = F, sep = "\t")
-# How many incomplete genes are expressed?
 
 
-### WITH NEW DATA FORMAT
+### WITH NEW DATA FORMAT: looking at multiple stop codons and expression 
+# on the exon level. Everything that is derived from "data" has expression
+# values with relaxed filtering, any counts are seen as expression. Everything
+# derived from "data2" has more stringent filtering and should be seen as the
+# final result: here exons are only regarded as expressed when the mean CPM
+# per sample is 0.001. CPM distributions were evaluated at the end of this file.
 data <- read.delim("checklist_curated_orthologs_Tfas-Tlei.new062022.txt", header = T, sep = "\t")
+
+data2 <- read.delim("checklist_curated_orthologs_Tfas-Tlei.new062022-2.txt",
+                    header=T, sep="\t")
 tfas_data <- data[startsWith(data$Gene_id, "Tfas"),]
+tfas_data2 <- data2[startsWith(data2$Gene_id, "Tfas"),]
 dim(tfas_data[tfas_data$startcodon == "True" & tfas_data$stopcodon == "one_stopcodon",]) # 23,618 (89.7 % of all genes are complete)
 dim(tfas_data[tfas_data$stopcodon == "multiple_stopcodons",]) # Only one gene has multiple stopcodons. It is a unique gene of T. fasciculata
 dim(tfas_data[tfas_data$stopcodon == "no_stopcodon",]) # 720 genes don't have a stopcodon
 dim(tfas_data[tfas_data$startcodon == "False",]) # 2318 genes don't have a startcodon
 
-
 tlei_data <- data[startsWith(data$Gene_id, "Tlei"),]
+tlei_data2 <- data2[startsWith(data2$Gene_id, "Tlei"),]
 dim(tlei_data[tlei_data$startcodon == "True" & tlei_data$stopcodon == "True",]) # 14,924 (63,3 % of all genes are complete)
 dim(tlei_data[tlei_data$stopcodon == "multiple_stopcodons",]) # No genes with multiple stopcodons
 dim(tlei_data[tlei_data$stopcodon == "no_stopcodon",]) # 6500 genes don't have a stopcodon
 dim(tlei_data[tlei_data$startcodon == "False",]) # 2955 genes don't have a startcodon
 dim(tlei_data[tlei_data$startcodon == "False" & tlei_data$stopcodon == "no_stopcodon",]) # 795 genes are fully incomplete
 
-
 tlei_incomplete <- tlei_data[!(tlei_data$startcodon == "True" & tlei_data$stopcodon == "one_stopcodon"),]
 write.table(tlei_incomplete, file = "Incomplete_genes_start-stopcodon_Tlei.txt", 
             quote = F, row.names = F, sep = "\t")
 tlei_incomplete$expressed_Tlei <- as.numeric(tlei_incomplete$expressed_Tlei)
 dim(tlei_incomplete[tlei_incomplete$expressed_Tlei == 1,]) # 8524 genes (98.4 % of all incomplete genes) have expression in all exons
+tlei_incomplete2 <- tlei_data2[!(tlei_data2$startcodon == "True" & tlei_data2$stopcodon == "one_stopcodon"),]
+dim(tlei_incomplete2[tlei_incomplete2$expressed_Tlei == "1.0",]) # After stronger filtering of expression, 5710 (65.9 %) of the incomplete genes are expressed across all exons.
+dim(tlei_incomplete2[tlei_incomplete2$expressed_Tlei == "not_expressed",]) # After stronger filtering of expression, 2856 (32.9 %) of the incomplete genes are marked as not_expressed. This means that the majority of genes to filter out were not expressed or very lowly expressed across ALL exons.
+dim(tlei_data2[tlei_data2$expressed_Tlei == "1.0",]) # 79.1 % of all Tlei genes are fully expressed in Tlei
+dim(tlei_data2[tlei_data2$expressed_Tlei == "not_expressed",]) # 20 % of all Tlei genes are not at all expressed in Tlei
 
+tfas_incomplete2 <- tfas_data2[!(tfas_data2$startcodon == "True" & tfas_data2$stopcodon == "one_stopcodon"),]
+dim(tfas_incomplete2[tfas_incomplete2$expressed_Tfas == "1.0",]) # After stronger filtering of expression, 1798 (66.4 %) of the incomplete genes are expressed across all exons.
+dim(tfas_incomplete2[tfas_incomplete2$expressed_Tfas == "not_expressed",]) # After stronger filtering of expression, 904 (33.4 %) of the incomplete genes are marked as not_expressed. This means that the majority of genes to filter out were not expressed or very lowly expressed across ALL exons.
+dim(tfas_data2[tfas_data2$expressed_Tfas == "1.0",]) # 77.3 % of all tfas genes are fully expressed in tfas
+dim(tfas_data2[tfas_data2$expressed_Tfas == "not_expressed",]) # 22.1 % of all Tlei genes are not at all expressed in Tlei
+
+
+
+
+##############################
+# Using EdgeR, I calculate CPM for the exons and find a threshold for
+# further filtering of lowly expressed genes. This resulted in the checklist 
+# 2, which then indicated which genes were incomplete and not expressed (less than 0.001 CPM)
 counts_tlei <- read.delim("/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/counts.Tfas_Tlei_6_timepoints.exons.ToTLEI.edited.txt", 
                           header = T, sep = "\t")
 counts_tfas <- read.delim("/Users/clara/Documents/GitHub/Tillandsia-compgenomics/7. Rna-seq experiment 6 timepoints/Co-expression_networks_MaSigPro/mapped_to_Tfas/counts.Tfas_Tlei_6_timepoints.exons.edited.txt"
                           , header = T, sep = "\t")
-# Using EdgeR, I calculate CPM for the exons and find a threshold for
-# further filtering of lowly expressed genes
 library(edgeR)
 library(stringr)
 row.names(counts_tfas) <- counts_tfas[,1]

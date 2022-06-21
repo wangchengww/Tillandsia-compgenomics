@@ -6,12 +6,12 @@ from Bio import SeqIO
 import re
 import pandas as pd
 
-outputfilename="test.checklist"
+outputfilename="checklist_curated_orthologs_Tfas-Tlei.new062022-2.txt"
 
-ortho_info = open('/gpfs/data/fs71400/grootcrego/REFERENCES_TILLANDSIA/test')
+ortho_info = open('/gpfs/data/fs71400/grootcrego/REFERENCES_TILLANDSIA/orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.txt')
 expression_Tfas = pd.read_table('/gpfs/data/fs71400/grootcrego/REFERENCES_TILLANDSIA/RNA_experiment_6timepoints/3_counts/mapped_to_Tfas/counts.Tfas_Tlei_6_timepoints.exons.edited.forR.sum.txt')
-Tfas_expression_exon = pd.read_table("/gpfs/data/fs71400/grootcrego/REFERENCES_TILLANDSIA/RNA_experiment_6timepoints/3_counts/mapped_to_Tfas/counts.Tfas_Tlei_6_timepoints.exons.edited.txt")
-Tlei_expression_exon = pd.read_table("/gpfs/data/fs71400/grootcrego/REFERENCES_TILLANDSIA/RNA_experiment_6timepoints/3_counts/mapped_to_Tlei/counts.Tfas_Tlei_6_timepoints.exons.ToTLEI.edited.txt")
+Tfas_expression_exon = pd.read_table("/gpfs/data/fs71400/grootcrego/REFERENCES_TILLANDSIA/RNA_experiment_6timepoints/3_counts/mapped_to_Tfas/counts.Tfas_Tlei_6_timepoints.exons.toTFAS.normalized-cpm.EdgeR.txt")
+Tlei_expression_exon = pd.read_table("/gpfs/data/fs71400/grootcrego/REFERENCES_TILLANDSIA/RNA_experiment_6timepoints/3_counts/mapped_to_Tlei/counts.Tfas_Tlei_6_timepoints.exons.toTLEI.normalized-cpm.EdgeR.txt")
 expression_Tlei = pd.read_table('/gpfs/data/fs71400/grootcrego/REFERENCES_TILLANDSIA/RNA_experiment_6timepoints/3_counts/mapped_to_Tlei/counts.Tfas_Tlei_6_timepoints.exons.ToTLEI.edited.forR.sum.txt')
 directory_fasta_Tlei = '/gpfs/data/fs71400/grootcrego/REFERENCES_TILLANDSIA/Tlei_assembly/assembly_26_scaffolds/fasta_seqs_curated_orthologs/'
 directory_fasta_Tfas = '/gpfs/data/fs71400/grootcrego/REFERENCES_TILLANDSIA/Tfas_assembly/assembly_25_scaffolds/fasta_seq_curated_orthologs_CDS/'
@@ -78,20 +78,24 @@ for line1 in ortho_info.readlines():
                 exons = Tfas_expression_exon[Tfas_expression_exon['Geneid'].str.contains(gene)]
                 expressed_exons = 0
                 for row in exons.iterrows():
-					avg = int(line.iloc[:, 1:37].mean(axis=1))
+                    avg = int(line.iloc[:, 1:37].mean(axis=1))
                     if avg >= 0.001:
                         expressed_exons = expressed_exons + 1
                 expressed_Tfas = int(expressed_exons)/exon_count
+                if expressed_Tfas == 0:
+                    expressed_Tfas = "not_expressed"
             else:
                 expressed_Tfas = "not_expressed"
             if sum_Tlei > 0:
                 exons = Tfas_expression_exon[Tfas_expression_exon['Geneid'].str.contains(gene)]
                 expressed_exons = 0
                 for row in exons.iterrows():
-					avg = int(line.iloc[:, 36:72].mean(axis=1))
+                    avg = int(line.iloc[:, 36:72].mean(axis=1))
                     if avg >= 0.001:
                         expressed_exons = expressed_exons + 1
                 expressed_Tlei = int(expressed_exons)/exon_count
+                if expressed_Tlei == 0:
+                    expressed_Tlei = "not_expressed"
             else:
                 expressed_Tlei = "not_expressed"
     # Repeated operation for Tlei genes
@@ -125,6 +129,8 @@ for line1 in ortho_info.readlines():
                     if avg >= 0.001:
                         expressed_exons = expressed_exons + 1
                 expressed_Tfas = int(expressed_exons)/exon_count
+                if expressed_Tfas == 0:
+                    expressed_Tfas = "not_expressed"
             else:
                 expressed_Tfas = "not_expressed"
             if sum_Tlei > 0:
@@ -135,6 +141,8 @@ for line1 in ortho_info.readlines():
                     if avg >= 0.001:
                         expressed_exons = expressed_exons + 1
                 expressed_Tlei = int(expressed_exons)/exon_count
+                if expressed_Tlei == 0:
+                    expressed_Tlei = "not_expressed"
             else:
                 expressed_Tlei = "not_expressed"
 
