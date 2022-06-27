@@ -2,11 +2,12 @@
 # coding: utf-8
 
 import sys
+from Bio import SeqIO
 import re
+import pandas as pd
 
 gff = open(sys.argv[1])
 genes = open(sys.argv[2])
-ortho_info = open(sys.argv[3])
 expression = pd.read_table(sys.argv[4])
 expression_exon = pd.read_table(sys.argv[5])
 directory_fasta = sys.argv[6]
@@ -44,79 +45,80 @@ def multiple_stopcodon(seq):
 # OR
 # - The gene has a start and stopcodon
 
-first_line = "Gene_id\torthogroup\trobust\n"
+first_line = "Gene_id\torthology\tCDS_length\tstartcodon\tstopcodon\texpression\trobust\n"
 output2.write(first_line)
 
 gene_dict = {}
 for line1 in genes.readlines():
     gene = line1.replace('\n','') # rm the return carriage
     print(gene)
-	i = 0
-	for line in ortho_info:
-		if re.search(gene, line):
-			i = 1
-			og = line.split('\t')[6]
-		if i == 0:
-			og = "NO_ORTHOLOGY"
+    ortho_info = open(sys.argv[3])
+    i = 0
+    for line in ortho_info:
+        if re.search(gene, line):
+            i = 1
+            og = line.split('\t')[6]
+    if i == 0:
+        og = "NO_ORTHOLOGY"
         # Extract info on length, start and stop codon from fasta sequence
-    fasta_sequences = SeqIO.parse(open(directory_fasta_Tfas+gene+":cds.fst"),'fasta')
+    fasta_sequences = SeqIO.parse(open(directory_fasta+gene+":cds.fst"),'fasta')
     for fasta in fasta_sequences:
-		sequence = str(fasta.seq)
-		startcodon = has_startcodon(sequence)
-		multiple_stop = multiple_stopcodon(sequence)
-		length = len(sequence)
-        # Extract info on exon number from gff
-        exon_count = 0
+        sequence = str(fasta.seq)
+        startcodon = has_startcodon(sequence)
+        multiple_stop = multiple_stopcodon(sequence)
+        length = len(sequence)
+    # Extract info on exon number from gff
+    exon_count = 0
     gff_Tfas = open(sys.argv[1])
     for line in gff_Tfas:
-            if re.search(gene, line):
-                line = line.replace('\n','') # rm the return carriage
-                splitted_line = line.split('\t')
-                if splitted_line[2] == "exon":
-                    exon_count=exon_count+1
-        # Extract info on expression, the gene is only marked as unexpressed in a species when counts are 0 everywhere. Modification 17.06.2022: from now on, exons will be marked as not expressed when the average CPM across saples is < 0.001 (1000 counts in total)
-        line = expression[expression['Geneid'].str.contains(gene)]
-        if line.empty:
-            expressed = "not_expressed"
+        if re.search(gene, line):
+            line = line.replace('\n','') # rm the return carriage
+            splitted_line = line.split('\t')
+            if splitted_line[2] == "exon":
+                exon_count=exon_count+1
+# Extract info on expression, the gene is only marked as unexpressed in a species when counts are 0 everywhere. Modification 17.06.2022: from now on, exons will be marked as not expressed when the average CPM across saples is < 0.001 (1000 counts in total)
+    line = expression[expression['Geneid'].str.contains(gene)]
+    if line.empty:
+        expressed = "no_features"
+    else:
+        sum_Tfas = int(line.iloc[:, 1:37].sum(axis=1))
+        if sum_Tfas > 0:
+            exons = expression_exon[expression_exon['Geneid'].str.contains(gene)]
+            expressed_exons = 0
+            for row in exons.iterrows():
+                avg = int(line.iloc[:, 1:37].mean(axis=1))
+                if avg >= 0.001:
+                    expressed_exons = expressed_exons + 1
+            expressed = int(expressed_exons)/exon_count
+            if expressed == 0:
+                expressed = "not_expressed_0_exons"
         else:
-            sum_Tfas = int(line.iloc[:, 1:37].sum(axis=1))
-            if sum_Tfas > 0:
-                exons = expression_exon[expression_exon['Geneid'].str.contains(gene)]
-                expressed_exons = 0
-                for row in exons.iterrows():
-                    avg = int(line.iloc[:, 1:37].mean(axis=1))
-                    if avg >= 0.001:
-                        expressed_exons = expressed_exons + 1
-                expressed = int(expressed_exons)/exon_count
-                if expressed == 0:
-                    expressed = "not_expressed"
-            else:
-                expressed = "not_expressed"
-	if expressed == 1:
-		robust = "ROBUST"
-	elif startcodon == True and stopcodon == "one_stopcodon" && length >= 150:
-		robust = "ROBUST"
-	else:
-		robust = "NOT_ROBUST"
+            expressed = "not_expressed_0_gene"
+    if expressed == 1:
+        robust = "ROBUST"
+    elif startcodon == True and multiple_stop == "one_stopcodon" and length >= 150:
+        robust = "ROBUST"
+    else:
+        robust = "NOT_ROBUST"
 
     gene_list = [og, length, startcodon, multiple_stop, expressed, robust]
     gene_dict[gene] = gene_list
-	to_write = gene+"\t"+og+"\t"+length+"\t"+startcodon+"\t"+multiple_stop+"\t"+expressed+"\t"+robrobust+"\n"
-	output2.write(to_write)
+    to_write = gene+"\t"+og+"\t"+str(length)+"\t"+str(startcodon)+"\t"+multiple_stop+"\t"+str(expressed)+"\t"+robust+"\n"
+    output2.write(to_write)
 
 #2nd step, iterate over each line of the gff and check if the ID is in the description dictionnary. If yes, print line + functional descriptions, if no just print the original line
 for line2 in gff.readlines():
-	line2 = line2.replace('\n','') # rm the return carriage
-	splitted_line2 = line2.split('\t') # split the line regarding the tabulations
-	annotation=splitted_line2[8]  # note that in python, it starts from 0, so the 9th field is [8]
-	annotation2 = re.split('; | :', annotation)
-	ID=annotation2[0].split('=')[1]
-	if splitted_line2[2] == "gene":
-		gene_key = any(key.startswith(ID) for key in gene_dict)
-		stats = gene_dict[gene_key]
-		line_to_write=line2+";"+stats[0]+";"+stats[4]+";"+stats[5]
-		output.write(line_to_write)
-	else:
-		stats = gene_dict[ID]
-		line_to_write=line2+";"+stats[0]+";"+stats[4]+";"+stats[5]
-		output.write(line_to_write)
+    line2 = line2.replace('\n','') # rm the return carriage
+    splitted_line2 = line2.split('\t') # split the line regarding the tabulations
+    annotation=splitted_line2[8]  # note that in python, it starts from 0, so the 9th field is [8]
+    annotation2 = re.split(';|:', annotation)
+    ID=annotation2[0].split('=')[1]
+    if splitted_line2[2] == "gene":
+        gene_key = any(key.startswith(ID) for key in gene_dict)
+        stats = gene_dict[gene_key]
+        line_to_write=line2+";Orthogroup="+stats[0]+";Expression="+str(stats[4])+";"+stats[5]+'\n'
+        output.write(line_to_write)
+    else:
+        stats = gene_dict[ID]
+        line_to_write=line2+";Orthogroup="+stats[0]+";Expression="+str(stats[4])+";"+stats[5]+'\n'
+        output.write(line_to_write)
