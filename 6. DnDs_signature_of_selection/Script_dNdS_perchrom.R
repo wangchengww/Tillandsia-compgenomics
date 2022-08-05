@@ -11,18 +11,19 @@ data$chrom_Tlei <- factor(data$chrom_Tlei, levels=mixedsort(unique(data$chrom_Tl
 data_sign <- data[data$pvalue < 0.05,]
 mean(data_sign$dN.dS) 
 
-mean(data$dN.dS) # 1.986
-median(data$dN.dS) 
+mean(data$dN.dS) # 0.758
+median(data$dN.dS) # 0.3551
 mean(data$dN)
 mean(data$dS)
 
+data2 <- data[data$dN.dS < 99,]
 avgs_Tfas <- data %>%
   group_by(chrom_Tfas) %>%
-  dplyr::summarize(Median = median(dN.dS, na.rm=TRUE))
+  dplyr::summarize(Mean = median(dN.dS, na.rm=TRUE))
 
 avgs_Tlei <- data %>%
   group_by(chrom_Tlei) %>%
-  dplyr::summarize(Median = median(dN.dS, na.rm=TRUE))
+  dplyr::summarize(Mean = median(dN.dS, na.rm=TRUE))
 
 ggplot(data, aes(x=dN.dS)) + geom_density() +
   xlim(c(0,6)) + theme_linedraw()
@@ -30,12 +31,33 @@ ggplot(data, aes(x=dN.dS)) + geom_density() +
 ggplot(data, aes(x=dN.dS)) + geom_histogram() +
   xlim(c(0,6)) + theme_linedraw()
 
-p1 <- ggplot(data, aes(x=(chrom_Tfas), y=dN.dS)) + 
-  geom_boxplot() + ylim(c(0,2))
-p2 <- ggplot(data, aes(x=(chrom_Tlei), y=dN.dS)) + 
-  geom_boxplot() + ylim(c(0,2))
+pdf("Per-chromosome_distribution_dNdS.pdf", width = 10, height = 4)
+p1 <- ggplot(data, aes(x=chrom_Tfas, y=dN.dS)) + 
+  geom_boxplot() + ylim(c(0,5)) +
+  theme_bw() +
+  xlab("") + ylab("dN/dS") + 
+  ggtitle("T. fasciculata") +
+  theme(plot.title = element_text(size = 10, face = "italic")) +
+  annotate("rect", xmin = 9.5, xmax = 10.5, ymin = 0, ymax = 5,
+           alpha = .1,fill = "blue") +
+  annotate("rect", xmin = 23.5, xmax = 24.5, ymin = 0, ymax = 5,
+           alpha = .1,fill = "blue")
+p2 <- ggplot(data, aes(x=chrom_Tlei, y=dN.dS)) + 
+  theme_bw() +
+  geom_boxplot() + ylim(c(0,5)) +
+  xlab("") + ylab("dN/dS") + 
+  theme(plot.title = element_text(size = 10, face = "italic")) +
+  ggtitle("T. leiboldiana") +
+  annotate("rect", xmin = 13.5, xmax = 14.5, ymin = 0, ymax = 5,
+           alpha = .1,fill = "green") +
+  annotate("rect", xmin = 12.5, xmax = 13.5, ymin = 0, ymax = 5,
+           alpha = .1,fill = "blue") +
+  annotate("rect", xmin = 22.5, xmax = 23.5, ymin = 0, ymax = 5,
+           alpha = .1,fill = "blue")
 
-grid.arrange(p1, p2, nrow = 2, top = "Per-chromosome dN/dS ratio distribution for T. fasciculata and T. leiboldiana")
+grid.arrange(p1, p2, nrow = 2, top = "Per-chromosome distribution of dN/dS")
+dev.off()
+
 
 ggplot(data_sign, aes(x=(chrom_Tfas), y=dN.dS)) + 
   geom_boxplot() + ylim(c(0,2))

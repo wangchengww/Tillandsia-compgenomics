@@ -11,8 +11,8 @@ library(dplyr)
 library(wesanderson)
 library(reshape2)
 
-setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/Gene-family-evo-tfas-tlei/")
-setwd("/Users/clara/Documents/GitHub/Tillandsia-compgenomics/Gene-family-evo-tfas-tlei/")
+setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/5")
+setwd("/Users/clara/Documents/GitHub/Tillandsia-compgenomics/5. Gene-family-evo-tfas-tlei/")
 
 tfas_genes <- read.table("Tfas_pergene_mediancov_and_orthoinfo.txt", header = T)
 
@@ -42,21 +42,21 @@ mean(tfas_genes$mean_cov) # 48.04
 #tfas_genes$duplicated <- dup
 
 # simplified categories
-dup <- c()
+dup_tfas <- c()
 for (i in 1:nrow(tfas_genes)){
   if (tfas_genes[i,6] == 1 && tfas_genes[i,5] == 1 && tfas_genes[i,7] ==1){
-    dup <- c(dup, "ancestral-single-copy")
+    dup_tfas <- c(dup_tfas, "ancestral-single-copy")
   } else if (tfas_genes[i,6] == 1){
-    dup <- c(dup, "single-copy")
+    dup_tfas <- c(dup_tfas, "single-copy")
   } else if (tfas_genes[i,6] > 1 && tfas_genes[i,5] == 0 && tfas_genes[i,7] == 0){
-    dup <- c(dup, "unique-multi-copy")
+    dup_tfas <- c(dup_tfas, "unique-multi-copy")
   } else if (tfas_genes[i,6] > 1 && tfas_genes[i,6] == tfas_genes[i,5] && tfas_genes[i,6] == tfas_genes[i,7]){
-    dup <- c(dup, "ancestral-multi-copy")
+    dup_tfas <- c(dup_tfas, "ancestral-multi-copy")
   } else {
-    dup <- c(dup, "multi-copy")
+    dup_tfas <- c(dup_tfas, "multi-copy")
   }
 }
-tfas_genes$duplicated <- dup
+tfas_genes$duplicated <- dup_tfas
 
 # Obtain average coverage for each category
 mu <- ddply(tfas_genes, "dup", summarise, grp.mean=mean(median_cov))
@@ -295,21 +295,21 @@ mean(tlei_genes$mean_cov) # 66.73
 # tlei_genes$duplicated <- dup
 
 # simplified
-dup <- c()
+dup_tlei <- c()
 for (i in 1:nrow(tlei_genes)){
   if (tlei_genes[i,7] == 1 && tlei_genes[i,5] == 1 && tlei_genes[i,6] ==1){
-    dup <- c(dup, "ancestral-single-copy")
+    dup_tlei <- c(dup_tlei, "ancestral-single-copy")
   } else if (tlei_genes[i,7] == 1){
-    dup <- c(dup, "single-copy")
+    dup_tlei <- c(dup_tlei, "single-copy")
   } else if (tlei_genes[i,7] > 1 && tlei_genes[i,5] == 0 && tlei_genes[i,6] == 0){
-    dup <- c(dup, "unique-multi-copy")
+    dup_tlei <- c(dup_tlei, "unique-multi-copy")
   } else if (tlei_genes[i,7] > 1 && tlei_genes[i,7] == tlei_genes[i,5] && tlei_genes[i,7] == tlei_genes[i,6]){
-    dup <- c(dup, "ancestral-multi-copy")
+    dup_tlei <- c(dup_tlei, "ancestral-multi-copy")
   } else {
-    dup <- c(dup, "multi-copy")
+    dup_tlei <- c(dup_tlei, "multi-copy")
   }
 }
-tlei_genes$duplicated <- dup
+tlei_genes$duplicated <- dup_tlei
 
 mu <- ddply(tlei_genes, "dup", summarise, grp.mean=mean(mean_cov))
 head(mu)
@@ -327,7 +327,7 @@ ggplot(tlei_genes, aes(x=mean_cov, colour=duplicated)) +
   scale_color_manual(values = mycolors) +
   scale_fill_manual(values = mycolors)
 
-ggplot(tlei_genes, aes(x=median_cov, color=dup)) +
+ggplot(tlei_genes, aes(x=median_cov, color=dup_tlei)) +
   geom_density() +
   xlim(0,150) +
   geom_vline(xintercept = 53.34, linetype = "longdash", colour = "gray28") +
@@ -361,3 +361,71 @@ colnames(corr_Tlei) <- c("og_id", "correction_factor", "corr_Tlei_count","old_Tl
 
 write.table(corr_Tlei, file = "corrected_family_sizes_Tlei.txt", sep = "\t", 
             quote = F, row.names = F)
+
+### Making supplementary figure ###
+
+pacman::p_load("ggplot2","grid", "gridExtra","RColorBrewer")
+
+# Extract legend to plot legend for multiple plots
+get_legend<-function(myggplot){
+  tmp <- ggplot_gtable(ggplot_build(myggplot))
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+  legend <- tmp$grobs[[leg]]
+  return(legend)
+}
+
+# Extract x-axis
+titleGrob <- function(label, margin=unit(c(b=1, l=1, t=0.1, r=1), "line"), ..., debug=FALSE){
+  library(gtable)
+  tg <- textGrob(label, ...)
+  w <- grobWidth(tg)
+  h <- grobHeight(tg)
+  
+  g <- gtable("title",
+              widths = unit.c(margin[2], w, margin[4]), 
+              heights = unit.c(margin[3], h, margin[1]), respect = FALSE)
+  if(debug){
+    rg <- rectGrob()
+    pos <- expand.grid(x=1:3, y=1:3)[-5,]
+    g <- gtable_add_grob(g, list(rg, rg, rg, rg, rg, rg, rg, rg), t=pos$y, l=pos$x)
+  }
+  gtable_add_grob(g, tg, t=2, l = 2)
+}
+
+p1 <- ggplot(tfas_genes, aes(x=mean_cov, color=dup_tfas)) +
+  geom_density() +
+  theme_bw() +
+  xlim(0,150) +
+  ggtitle(label = "T. fasciculata") + 
+  theme(plot.title = element_text(size = 11, face = "italic"))  +
+  geom_vline(xintercept = 46.1712, linetype = "longdash", colour = "gray28") +
+  scale_color_manual(values = mycolors, name = "Duplication state") +
+  scale_fill_manual(values = mycolors) +
+  xlab("") +
+  theme(legend.title = element_text(size=9, 
+                                    face="bold")) +
+  theme(legend.text = element_text(size=9)) +
+  theme(plot.margin = unit(c(.1,.1,.001,.1), "cm"))
+
+p2 <- ggplot(tlei_genes, aes(x=mean_cov, colour=duplicated)) +
+  geom_density() +
+  theme_bw() +
+  xlim(0,150) +
+  ggtitle(label = "T. leiboldiana") + 
+  theme(plot.title = element_text(size = 11, face = "italic"))  +
+  geom_vline(xintercept = 53.34, linetype = "longdash", color = "gray28") +
+  scale_color_manual(values = mycolors, name = "Duplication state") +
+  scale_fill_manual(values = mycolors) +
+  xlab("") + ylab("") +
+  theme(plot.margin = unit(c(.1,.1,.001,.1), "cm"))
+
+# Extract legend
+legend1 <- get_legend(p1)
+#Remove the legend from the box plot
+p1 <- p1 + theme(legend.position="none")
+p2 <- p2 + theme(legend.position="none")
+pdf(paste0("FigureS1_Multi-copy_gene_assessment.pdf"), width = 12, height = 5)
+plot1 <- grid.arrange(p1, p2, nrow = 1, legend1, 
+                      bottom=titleGrob("Mean per-gene coverage", gp=gpar(fontsize=10)),
+                      widths=c(20,20,10))
+dev.off()
