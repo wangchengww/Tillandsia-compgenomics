@@ -5,7 +5,7 @@ library("GOplot")
 library(stringr)
 library(reshape2)
 library(data.table)
-go <- read.delim("GO-term_enrichment.COMBINED.Tfas-Tlei.txt", header = T, sep = "\t")
+go1 <- read.delim("GO-term_enrichment.COMBINED.Tfas-Tlei.txt", header = T, sep = "\t")
 ortho_info <- read.delim("orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.size_corrections.no_plastid-mito-ribo.blastandsearch_noAcom.txt",
                           sep = "\t")
 colnames(ortho_info) <- c("gene_ID", "chr", "start", "end", "GOterm", "Description", "orthogroup", "count_Acom", 
@@ -125,3 +125,28 @@ coord_cartesian(clip = 'off', ylim = c(0, nrow(d)+1), xlim=c(0, 5.7)) +
         legend.text=element_text(size=14), legend.title=element_text(size=16, face="bold"),
         legend.key=element_blank(), legend.margin=margin(unit(c(t=40, r=1, b=1, l=1),"mm")),
         legend.spacing = unit(5, "mm"))
+
+
+id <- adj_pval <- zscore <- NULL
+data <- circ_sub
+zsc.col <- c("#1e6091", "#52b69a", "#d9ed92")
+colnames(data) <- tolower(colnames(data))
+data$adj_pval <- -log(data$adj_pval, 10)
+subset_tfas <- subset(data, data$species == "adj_pval_tfas")
+subset_tlei <- subset(data, data$species == "adj_pval_tlei")
+sub_tfas <- subset_tfas[(!duplicated(subset_tfas$term)), ]
+sub_tlei <- subset_tlei[(!duplicated(subset_tlei$term)), ]
+sub <- rbind(sub_tfas,sub_tlei)
+sub <- sub[order(sub$zscore, decreasing = T), ]
+g <-  ggplot(sub, aes(y = factor(term, levels = rev(unique(stats::reorder(term, adj_pval)))), x = adj_pval, fill = zscore, color = species)) +
+  geom_bar(stat = 'identity', position=position_dodge()) +
+  scale_fill_gradient2('Per-family\ngene count\n(z-score)\n', space = 'Lab', low = zsc.col[3], mid = zsc.col[2], high = zsc.col[1], guide = guide_colourbar(title.position = "top", title.hjust = 0), 
+                       breaks = c(min(sub$zscore), max(sub$zscore)), labels = c('T.fas < T. lei', 'T.fas > T. lei')) +
+  scale_color_manual(values=c("black", "black", "black"), guide = "none") +
+  labs(title = '', y = '', x = '-log (adj p-value)') +
+  geom_text(aes(y=term, x=-0.25, label=count, color = "black")) +
+  annotate("text", x=2.55, y=length(sub$term)/2+0.25, label="p-value in T. leiboldiana", color = "black", 
+           size= 3, hjust = 0) +
+  annotate("text", x=2.55, y=length(sub$term)/2-0.25, label="p-value in T. fasciculata", color = "black", 
+           size= 3, hjust = 0)
+g
