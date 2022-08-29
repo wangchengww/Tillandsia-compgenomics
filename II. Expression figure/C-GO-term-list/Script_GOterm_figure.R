@@ -106,6 +106,6 @@ circ_sub <- circ[(grepl("oxaloacetate", circ$term) | grepl("glycoly", circ$term)
                     grepl("osmotic", circ$term)) & (circ$category == "BP" | circ$category == "MF"),]
 
 ### Plot figure
-pdf("GOterm_CAM_list_Tfas-Tlei_COMBINED.onepvalue.pdf", width = 10, height = 8)
+pdf("GOterm_CAM_list_Tfas-Tlei_COMBINED.onepvalue2.pdf", width = 8, height = 12)
 GOBar(circ_sub, zsc.col = c("#1e6091", "#52b69a", "#d9ed92"))
 dev.off()

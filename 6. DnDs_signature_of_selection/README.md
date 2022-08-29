@@ -199,7 +199,7 @@ To choose which individual to use for each gene, I counted the number of N's: `s
 
 For the test, I decided to work with orthogroup OG0006131. Here, in T. australis, individual C has the fewest N's (7), and for T.sphaerocephala, the number of N's is equal in all individuals so I decided to work with A as it has the highest mapping rates.
 
-
+This part of the work was eventually dropped.
 
 # Running dN/dS for 1:1:2 and 1:2:1 paralogs
 
@@ -231,3 +231,7 @@ And run as above with a null and alt model in codeML. I compiled the results and
 # dN/dS of Phosphoenolpyruvate carboxylase (PEPC)
 
 PEPC occurs in 2:2:2 conformation and only shows significant expression in both species in one of the two copies. Therefore, one could hypothesize that the other copy is not functional anymore. I thought that I could run dN/dS calculations between all four gene sequences (2 for Tlei and 2 for Tfas) to see if we see major deviation from dN/dS, especially between the highly expressed copy in Tfas and the two copies in Tlei.
+
+# Obtaining per-chromosome dN/dS statistics
+
+Apart from candidate genes, I also wanted to see the general dN/dS distribution across chromosomes. To look at this, I decided to only work with alignments that had at least 5 variant sites. I obtained this information with AMAS and created a list of orthogroups to keep. This resulted in 9,077 orthogroups.
