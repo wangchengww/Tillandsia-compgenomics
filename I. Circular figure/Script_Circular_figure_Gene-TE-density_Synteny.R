@@ -1,7 +1,10 @@
 #!/usr/bin/Rscript --vanilla
 
 # Code for large circular figure - Genome Paper T.fasciculata / T. leiboldiana
-# This Rcode creates a circular figure with the 25 / 26 main scaffolds of both assemblies as halves of the circle. The circle has 3 tracks, a Gene density, a TE density and a synteny plot
+# This Rcode creates a circular figure with the 25 / 24 (scaffolds 25-26 were removed as they are too small) main scaffolds of both assemblies as halves of the circle. The circle has 3 tracks, a Gene density, a TE density and a synteny plot. A 4th track with DE genes was added but then removed again.
+
+# Run this script the following way:
+# Rscript Script_Circular_figure_Gene-TE-desnity_Synteny.R chromosomes_Tfas_Tlei.coordinates-circle.txt.no-Tlei_chr2526 Gene_counts_per_1MB_windows.Tfas-Tlei.mainScaffolds.curatedOGs.txt.no-Tlei_chr2526 TE_content_Tfas-Tlei_per1MB-window_python.txt.no-Tlei_chr2526 orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.one-to-one.circlize.txt.no-Tlei_chr2526 [file name]
 
 # Installation and loading
 # Pacman will only install missing packages
@@ -16,7 +19,7 @@ pacman::p_load("circlize", "stringr", "RColorBrewer")
 # 1 is chromosome list, 2 is the gene density, 3 is tTE density, 4 is DE genes, 5 is synteny,
 # 6 is output name
 args <- commandArgs(trailingOnly = TRUE)
-output_name <- args[[6]]
+output_name <- args[[5]]
 # Read in the complete list of chromosomes with all needed info:
 #chrom <- read.table("chromosomes_Tfas_Tlei.coordinates-circle.txt.no-Tlei_chr2526", header = T, sep = "\t")
 chrom <- read.table(args[[1]], header = T, sep = "\t")
@@ -58,7 +61,7 @@ for (i in 1:nrow(chrom)){
       n = n + 20000
       if (i > 38){
         n = n + 2400000
-      } 
+      }
     }
   } else {
     if ((i > 23 & i < 26) | i > 45){
@@ -177,8 +180,7 @@ for(sn in get.all.sector.index()) {
 
 #DE_genes <- read.table("DE_genes_Tfas-Tlei.txt.no-Tlei_chr2526", header = T)
 #DE_genes_density <- read.table("DE_genes_Tfas-Tlei.txt.no-Tlei_chr2526.PER-WINDOW.txt", header = T, sep = "\t")
-print("Drawing third track: DE genes...")
-DE_genes_density <- read.table(args[[4]], header = T)
+#DE_genes_density <- read.table(args[[4]], header = T)
 #DE_genes <- DE_genes[,c(2:4)]
 
 # Calculate density
@@ -221,46 +223,46 @@ DE_genes_density <- read.table(args[[4]], header = T)
 #  circos.genomicRect(region, value, ytop = 10, ybottom = 0, col = ifelse(value[[1]] == 1, "olivedrab", "darkgreen"), border = ifelse(value[[1]] == 1, "olivedrab", "darkgreen"), lwd = .0000001)
 #}, track.height = 0.1)
 
-color_de_density <- c(Tfas_chr1 = "olivedrab3", Tfas_chr2 = "olivedrab3", Tfas_chr3 = "olivedrab3",
-                        Tfas_chr4 = "olivedrab3", Tfas_chr5 = "olivedrab3", Tfas_chr6 = "olivedrab3",
-                        Tfas_chr7 = "olivedrab3", Tfas_chr8 = "olivedrab3", Tfas_chr9 = "olivedrab3",
-                        Tfas_chr10 = "olivedrab3", Tfas_chr11 = "olivedrab3", Tfas_chr12 = "olivedrab3",
-                        Tfas_chr13 = "olivedrab3", Tfas_chr14 = "olivedrab3", Tfas_chr15 = "olivedrab3",
-                        Tfas_chr16 = "olivedrab3", Tfas_chr17 = "olivedrab3", Tfas_chr18 = "olivedrab3",
-                        Tfas_chr19 = "olivedrab3", Tfas_chr20 = "olivedrab3", Tfas_chr21 = "olivedrab3",
-                        Tfas_chr22 = "olivedrab3", Tfas_chr23 = "olivedrab3", Tfas_chr24 = "olivedrab3",
-                        Tfas_chr25 = "olivedrab3", Tlei_chr1 = "forestgreen", Tlei_chr2 = "forestgreen",
-                        Tlei_chr3 = "forestgreen", Tlei_chr4 = "forestgreen", Tlei_chr5 = "forestgreen",
-                        Tlei_chr6 = "forestgreen", Tlei_chr7 = "forestgreen", Tlei_chr8 = "forestgreen",
-                        Tlei_chr9 = "forestgreen", Tlei_chr10 = "forestgreen", Tlei_chr11 = "forestgreen",
-                        Tlei_chr12 = "forestgreen", Tlei_chr13 = "forestgreen", Tlei_chr14 = "forestgreen",
-                        Tlei_chr15 = "forestgreen",Tlei_chr16 = "forestgreen", Tlei_chr17 = "forestgreen",
-                        Tlei_chr18 = "forestgreen",Tlei_chr19 = "forestgreen", Tlei_chr20 = "forestgreen",
-                        Tlei_chr21 = "forestgreen",Tlei_chr22 = "forestgreen", Tlei_chr23 = "forestgreen",
-                        Tlei_chr24 = "forestgreen")
+#color_de_density <- c(Tfas_chr1 = "olivedrab3", Tfas_chr2 = "olivedrab3", Tfas_chr3 = "olivedrab3",
+#                        Tfas_chr4 = "olivedrab3", Tfas_chr5 = "olivedrab3", Tfas_chr6 = "olivedrab3",
+#                        Tfas_chr7 = "olivedrab3", Tfas_chr8 = "olivedrab3", Tfas_chr9 = "olivedrab3",
+#                        Tfas_chr10 = "olivedrab3", Tfas_chr11 = "olivedrab3", Tfas_chr12 = "olivedrab3",
+#                        Tfas_chr13 = "olivedrab3", Tfas_chr14 = "olivedrab3", Tfas_chr15 = "olivedrab3",
+#                        Tfas_chr16 = "olivedrab3", Tfas_chr17 = "olivedrab3", Tfas_chr18 = "olivedrab3",
+#                        Tfas_chr19 = "olivedrab3", Tfas_chr20 = "olivedrab3", Tfas_chr21 = "olivedrab3",
+#                        Tfas_chr22 = "olivedrab3", Tfas_chr23 = "olivedrab3", Tfas_chr24 = "olivedrab3",
+#                        Tfas_chr25 = "olivedrab3", Tlei_chr1 = "forestgreen", Tlei_chr2 = "forestgreen",
+#                        Tlei_chr3 = "forestgreen", Tlei_chr4 = "forestgreen", Tlei_chr5 = "forestgreen",
+#                        Tlei_chr6 = "forestgreen", Tlei_chr7 = "forestgreen", Tlei_chr8 = "forestgreen",
+#                        Tlei_chr9 = "forestgreen", Tlei_chr10 = "forestgreen", Tlei_chr11 = "forestgreen",
+#                        Tlei_chr12 = "forestgreen", Tlei_chr13 = "forestgreen", Tlei_chr14 = "forestgreen",
+#                        Tlei_chr15 = "forestgreen",Tlei_chr16 = "forestgreen", Tlei_chr17 = "forestgreen",
+#                        Tlei_chr18 = "forestgreen",Tlei_chr19 = "forestgreen", Tlei_chr20 = "forestgreen",
+#                        Tlei_chr21 = "forestgreen",Tlei_chr22 = "forestgreen", Tlei_chr23 = "forestgreen",
+#                        Tlei_chr24 = "forestgreen")
 
-circos.track(DE_genes_density$chrom, y = DE_genes_density$DE_counts,
-             x = DE_genes_density$start_window, ylim = c(0,7.5),
-             bg.col = "grey92", panel.fun = function(x, y) {
-               circos.lines(x, y, area = T, col = color_de_density[CELL_META$sector.index],
-                            lwd = .8)
-               circos.yaxis(c("left"), sector.index = "Tfas_chr1", labels = T, at = seq(0, CELL_META$ylim[2], by = 2.5),
-                            labels.cex = 0.25, labels.col="khaki4", tick.length = 2)
-             }, track.height = 0.12, bg.border = "black")
-for(sn in get.all.sector.index()) {
-  set.current.cell(sector.index = sn, track.index = get.current.track.index())
-  breaks = seq(0, CELL_META$ylim[2], by = 2.5)
-  for(b in breaks) {
-    circos.lines(CELL_META$cell.xlim, rep(b, 2), lty = 3, col = "#00000040")
-  }
-}
+#circos.track(DE_genes_density$chrom, y = DE_genes_density$DE_counts,
+#             x = DE_genes_density$start_window, ylim = c(0,7.5),
+#             bg.col = "grey92", panel.fun = function(x, y) {
+#               circos.lines(x, y, area = T, col = color_de_density[CELL_META$sector.index],
+#                            lwd = .8)
+#               circos.yaxis(c("left"), sector.index = "Tfas_chr1", labels = T, at = seq(0, CELL_META$ylim[2], by = 2.5),
+#                            labels.cex = 0.25, labels.col="khaki4", tick.length = 2)
+#             }, track.height = 0.12, bg.border = "black")
+#for(sn in get.all.sector.index()) {
+#  set.current.cell(sector.index = sn, track.index = get.current.track.index())
+#  breaks = seq(0, CELL_META$ylim[2], by = 2.5)
+#  for(b in breaks) {
+#    circos.lines(CELL_META$cell.xlim, rep(b, 2), lty = 3, col = "#00000040")
+#  }
+#}
 
 #-------------------TRACK 4: SYNTENY-------------------#
 
 ### Add links from Tfas to Tlei
 #synteny_genes <- read.table("orthogroups_Tfas_Tlei_Acom.per_gene.with_functional_info.no_TEs.one-to-one.circlize.txt.no-Tlei_chr2526",
 #                            header = T,sep = "\t")
-synteny_genes <- read.table(args[[5]], header = T,sep = "\t")
+synteny_genes <- read.table(args[[4]], header = T,sep = "\t")
 print("Drawing fourth track: Synteny...")
 # Create color palette for links
 nb.cols <- 25
