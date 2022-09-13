@@ -4,7 +4,7 @@ if (!require("pacman")) install.packages("pacman", repos = "
 http://cran.us.r-project.org")
 pacman::p_load("circlize", "stringr", "RColorBrewer", "gridGraphics", "gridExtra", "cowplot")
 
-#setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure")
+setwd("/home/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure/Supp_DE_density/")
 setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/I. Circular figure/Supp_DE_density/')
 
 chrom <- read.table("../chromosomes_Tfas_Tlei.coordinates-circle.txt", header = T, sep = "\t")
@@ -12,43 +12,72 @@ chrom$species <- c(rep(c("Tfas"), 25), rep(c("Tlei"), 26))
 Tfas_chrom <- chrom[chrom$species=="Tfas",]
 Tlei_chrom <- chrom[chrom$species=="Tlei",]
 
+############## CALCULATE DENSITY OF ALL ROBUST GENES ##############
+Tfas_genes <- read.delim("Tillandsia_fasciculata.GeneList.25chrom.ROBUSTonly.txt", sep = "\t", header = F)
+Tlei_genes <- read.delim("Tillandsia_leiboldiana.GeneList.26chrom.ROBUSTonly.txt", sep = "\t", header = F)
+
+colnames(Tlei_genes) <- c("gene_id", "chrom", "start", "end")
+Tlei_gene_counts <- data.frame()
+for (i in 1:nrow(Tlei_chrom)){
+  chrom = Tlei_chrom[i,1]
+  print(chrom)
+  starts_win <- seq(1, Tlei_chrom[i,2], by = 1000000)
+  n <- length(starts_win)
+  genes = Tlei_genes[Tlei_genes$chrom == chrom,]
+  for (n in 1:n){
+    seq = seq(starts_win[n], starts_win[n]+999999)
+    counts = 0
+    for (i in 1:nrow(genes)){
+      in_window <- genes[i,3] %in% seq
+      if (in_window == "TRUE"){
+        counts = counts + 1
+      } else {
+        counts = counts
+      }
+    }
+    window_entry <- cbind(chrom, starts_win[n], starts_win[n]+999999, counts)
+    Tlei_gene_counts <- rbind(Tlei_gene_counts, window_entry)
+  }
+}
+colnames(Tlei_gene_counts) <- c("chrom", "start", "end", "gene_counts")
+write.table(x = Tlei_gene_counts , file = "Tlei_gene_counts_1Mb_windows.25scaffolds.ROBUSTonly.txt", sep = "\t")
+
+
+
 ############## CALCULATE DENSITY OF DE GENES ##############
 
-#all_genes <- read.table("../Gene_counts_per_1MB_windows.Tfas-Tlei.mainScaffolds.curatedOGs.txt", header = T)
-#all_genes$gene_counts <- as.numeric(all_genes$gene_counts)
-#all_genes_Tfas <- all_genes[startsWith(all_genes$chrom, "Tfas"),]
-#all_genes_Tlei <- all_genes[startsWith(all_genes$chrom, "Tlei"),]
-#DE_genes_Tfas <- read.table("DE_genes.mapped_to_Tfas.ROBUSTonly.txt", header = T)
-#DE_genes_Tlei <- read.table("DE_genes.mapped_to_Tlei.ROBUSTonly.txt", header = T)
-#DE_genes_Tlei <- DE_genes_Tlei[,c(2:4)]
-#DE_genes_density <- data.frame()
-#for (i in 1:nrow(Tlei_chrom)){
-#  chr = Tlei_chrom[i,1]
-#  print(chr)
-#  starts_win <- seq(1, Tlei_chrom[i,2], by = 1000000)
-#  n <- length(starts_win)
-#  genes = DE_genes_Tlei[DE_genes_Tlei$chrom == chr,]
-#  for (n in 1:n){
-#    seq = seq(starts_win[n], starts_win[n]+999999)
-#    counts = 0
-#    for (i in 1:nrow(genes)){
-#      in_window <- genes[i,3] %in% seq
-#      if (in_window == "TRUE"){
-#        counts = counts + 1
-#      } else {
-#        counts = counts
-#      }
-#    }
-#    window_entry <- cbind(chr, starts_win[n], starts_win[n]+999999, counts)
-#    DE_genes_density <- rbind(DE_genes_density, window_entry)
-#  }
-#}
-#colnames(DE_genes_density) <- c("chrom", "start_window", "end_window", "DE_counts")
-#DE_genes_density$DE_counts <- as.numeric(DE_genes_density$DE_counts)
-#DE_genes_density$start_window <- as.numeric(DE_genes_density$start_window)
-#DE_genes_density$proportion <- DE_genes_density$DE_counts/all_genes_Tlei$gene_counts
-#DE_genes_density[is.na(DE_genes_density)] <- 0
-#write.table(DE_genes_density, file = "DE_genes.mapped_to_Tlei.PER-WINDOW.density.txt", quote = F, sep = "\t")
+all_genes_Tfas <- read.delim("Tfas_gene_counts_1Mb_windows.25scaffolds.ROBUSTonly.txt", sep = "\t", header = T)
+all_genes_Tlei <- read.delim("Tlei_gene_counts_1Mb_windows.25scaffolds.ROBUSTonly.txt", sep = "\t", header = T)
+DE_genes_Tfas <- read.table("DE_genes.mapped_to_Tfas.ROBUSTonly.txt", header = T)
+DE_genes_Tlei <- read.table("DE_genes.mapped_to_Tlei.ROBUSTonly.txt", header = T)
+DE_genes_density <- data.frame()
+for (i in 1:nrow(Tlei_chrom)){
+  chr = Tlei_chrom[i,1]
+  print(chr)
+  starts_win <- seq(1, Tlei_chrom[i,2], by = 1000000)
+  n <- length(starts_win)
+  genes = DE_genes_Tlei[DE_genes_Tlei$chrom == chr,]
+  for (n in 1:n){
+    seq = seq(starts_win[n], starts_win[n]+999999)
+    counts = 0
+    for (i in 1:nrow(genes)){
+      in_window <- genes[i,3] %in% seq
+      if (in_window == "TRUE"){
+        counts = counts + 1
+      } else {
+        counts = counts
+      }
+    }
+    window_entry <- cbind(chr, starts_win[n], starts_win[n]+999999, counts)
+    DE_genes_density <- rbind(DE_genes_density, window_entry)
+  }
+}
+colnames(DE_genes_density) <- c("chrom", "start_window", "end_window", "DE_counts")
+DE_genes_density$DE_counts <- as.numeric(DE_genes_density$DE_counts)
+DE_genes_density$start_window <- as.numeric(DE_genes_density$start_window)
+DE_genes_density$proportion <- DE_genes_density$DE_counts/all_genes_Tlei$counts
+DE_genes_density[is.na(DE_genes_density)] <- 0
+write.table(DE_genes_density, file = "DE_genes.mapped_to_Tlei.PER-WINDOW.density.txt", quote = F, sep = "\t")
 
 ############## CIRCLE TFASCICULATA ##############
 
