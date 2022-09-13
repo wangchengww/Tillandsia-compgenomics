@@ -1,3 +1,4 @@
+gene_id	chrom	start	end
 Tfasc_v1.03365-RA	Tfas_chr3	184619	190310
 Tfasc_v1.03377-RA	Tfas_chr3	300968	303717
 Tfasc_v1.03457-RA	Tfas_chr3	1090478	1091484

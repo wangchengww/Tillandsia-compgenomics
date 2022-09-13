@@ -1,3 +1,4 @@
+gene_id	chrom	start	end
 Tlei_v1.09775-RA	Tlei_chr7	365596	366910
 Tlei_v1.09777-RA	Tlei_chr7	384980	388046
 Tlei_v1.09798-RA	Tlei_chr7	508981	511362
