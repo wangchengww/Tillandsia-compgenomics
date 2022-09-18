@@ -1,0 +1,90 @@
+setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/Supplementary_figures/Assembly_stats/')
+ortho_tfas <- read.delim("Tfas_orthology_info.per_scaffold.txt", header = F, sep = "\t")
+colnames(ortho_tfas) <- c('geneID', 'scaffold', 'scaffold_length', 'startpos','endpos','ogID','Acom_count', 'Tfas_count', 'Tlei_count', 'GOterms', 'Description')
+# Same for Tlei
+ortho_tlei <- read.delim("Tlei_orthology_info.per_scaffold.txt", header = F, sep = "\t")
+colnames(ortho_tlei) <- c('geneID', 'scaffold', 'scaffold_length', 'startpos','endpos','ogID','Acom_count', 'Tfas_count', 'Tlei_count', 'GOterms', 'Description')
+
+##
+# Calculate the number of orthologous genes on each scaffold (all relations)
+count_per_scaffold_Tfas <- data.frame(matrix(ncol=3))
+c <- c()
+for (scaffold in unique(ortho_tfas$scaffold)){
+  count <- (nrow(ortho_tfas[ortho_tfas$scaffold == paste0(scaffold),]))
+  length <- unique(ortho_tfas[ortho_tfas$scaffold == paste0(scaffold),3])
+  c <- c(scaffold,length, count)
+  count_per_scaffold_Tfas <- rbind(count_per_scaffold_Tfas,c)
+  colnames(count_per_scaffold_Tfas) <- c("scaffold", "length", "ortholog_count")
+}
+count_per_scaffold_Tfas <- count_per_scaffold_Tfas[-1,]
+# Same for Tlei
+count_per_scaffold_Tlei <- data.frame(matrix(ncol=3))
+c <- c()
+for (scaffold in unique(ortho_tlei$scaffold)){
+  count <- (nrow(ortho_tlei[ortho_tlei$scaffold == paste0(scaffold),]))
+  length <- unique(ortho_tlei[ortho_tlei$scaffold == paste0(scaffold),3])
+  c <- c(scaffold,length, count)
+  count_per_scaffold_Tlei <- rbind(count_per_scaffold_Tlei,c)
+  colnames(count_per_scaffold_Tlei) <- c("scaffold", "length", "ortholog_count")
+}
+count_per_scaffold_Tlei <- count_per_scaffold_Tlei[-1,]
+count_per_scaffold_Tlei$ortholog_count <- as.numeric(count_per_scaffold_Tlei$ortholog_count)
+##
+# Select orthologues with 1:1 relation
+oneone_Tfas <- ortho_tfas[(ortho_tfas$Tfas_count==1 & (ortho_tfas$Tlei_count==1)),]
+# Calculate count of 1:1 orthologs per scaffold
+oneone_count_per_scaffold_Tfas <- data.frame(matrix(ncol=3))
+c <- c()
+for (scaffold in unique(oneone_Tfas$scaffold)){
+  count <- (nrow(oneone_Tfas[oneone_Tfas$scaffold == paste0(scaffold),]))
+  length <- unique(oneone_Tfas[oneone_Tfas$scaffold == paste0(scaffold),3])
+  c <- c(scaffold,length, count)
+  oneone_count_per_scaffold_Tfas <- rbind(oneone_count_per_scaffold_Tfas,c)
+  colnames(oneone_count_per_scaffold_Tfas) <- c("scaffold", "length", "ortholog_count")
+}
+oneone_count_per_scaffold_Tfas <- oneone_count_per_scaffold_Tfas[-1,]
+#Same for Tlei
+oneone_Tlei <- ortho_tlei[(ortho_tlei$Tfas_count==1 & (ortho_tlei$Tlei_count==1)),]
+oneone_count_per_scaffold_Tlei <- data.frame(matrix(ncol=3))
+c <- c()
+for (scaffold in unique(oneone_Tlei$scaffold)){
+  count <- (nrow(oneone_Tlei[oneone_Tlei$scaffold == paste0(scaffold),]))
+  length <- unique(oneone_Tlei[oneone_Tlei$scaffold == paste0(scaffold),3])
+  c <- c(scaffold,length, count)
+  oneone_count_per_scaffold_Tlei <- rbind(oneone_count_per_scaffold_Tlei,c)
+  colnames(oneone_count_per_scaffold_Tlei) <- c("scaffold", "length", "ortholog_count")
+}
+oneone_count_per_scaffold_Tlei <- oneone_count_per_scaffold_Tlei[-1,]
+
+##
+# Merge 1:1 counts with all orthologous counts and compute ratio between all counts and 1:1 counts
+c2 <- merge(count_per_scaffold_Tfas, oneone_count_per_scaffold_Tfas, by = "scaffold", all = T)
+c2 <- c2[,c(1:3,5)]
+c2[is.na(c2)] <- 0
+count_table_Tfas <- c2
+colnames(count_table_Tfas) <- c("scaffold", "length", "orthocount_all", "orthocount_one")
+count_table_Tfas$length <- as.numeric(count_table_Tfas$length)
+count_table_Tfas$orthocount_all <- as.numeric(count_table_Tfas$orthocount_all)
+count_table_Tfas$orthocount_one <- as.numeric(count_table_Tfas$orthocount_one)
+count_table_Tfas$ratio <- (count_table_Tfas$orthocount_one)/(count_table_Tfas$orthocount_all)
+count_table_Tfas <- count_table_Tfas[order(count_table_Tfas$length, decreasing = T),]
+row.names(count_table_Tfas) <- NULL #resets row index
+count_table_Tfas$order <- c(1:1155)
+write.table(count_table_Tfas, "Tfas_perScaffold_Orthogenes_count.txt",
+            sep = "\t", quote = F, row.names = F)
+
+# Same for Tlei
+c2lei <- merge(count_per_scaffold_Tlei, oneone_count_per_scaffold_Tlei, by = "scaffold", all = T)
+c2lei <- c2lei[,c(1:3,5)]
+c2lei[is.na(c2lei)] <- 0
+count_table_Tlei <- c2lei
+colnames(count_table_Tlei) <- c("scaffold", "length", "orthocount_all", "orthocount_one")
+count_table_Tlei$length <- as.numeric(count_table_Tlei$length)
+count_table_Tlei$orthocount_all <- as.numeric(count_table_Tlei$orthocount_all)
+count_table_Tlei$orthocount_one <- as.numeric(count_table_Tlei$orthocount_one)
+count_table_Tlei$ratio <- (count_table_Tlei$orthocount_one)/(count_table_Tlei$orthocount_all)
+count_table_Tlei <- count_table_Tlei[order(count_table_Tlei$length, decreasing = T),]
+row.names(count_table_Tlei) <- NULL #resets row index
+count_table_Tlei$order <- c(1:2210)
+write.table(count_table_Tlei, "Tlei_perScaffold_Orthogenes_count.txt",
+            sep = "\t", quote = F, row.names = F)
