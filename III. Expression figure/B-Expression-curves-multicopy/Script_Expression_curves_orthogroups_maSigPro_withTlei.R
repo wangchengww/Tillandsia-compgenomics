@@ -4,7 +4,7 @@
 # Pacman will only install missing packages
 if (!require("pacman")) install.packages("pacman", repos = "
 http://cran.us.r-project.org")
-pacman::p_load("ggplot2", "reshape2", "stringr","grid", "gridExtra", "matrixStats", "cowplot")
+pacman::p_load("ggplot2", "reshape2", "stringr","grid", "gridExtra", "matrixStats", "cowplot", "forcats")
 
 # Extract legend to plot legend for multiple plots
 get_legend<-function(myggplot){
@@ -15,11 +15,11 @@ get_legend<-function(myggplot){
 }
 
 # Load data
-setwd('/home/clara/Documents/GitHub/Tillandsia-compgenomics/II. Expression figure/B-Expression-curves-multicopy/')
+setwd('/Users/clara/Documents/GitHub/Tillandsia-compgenomics/III. Expression figure/B-Expression-curves-multicopy/')
 counts_Tfas <- read.table("counts.Tfas_Tlei_6_timepoints.exons.sum.normalized-cpm.EdgeR.txt", header = T, row.names = 1)
 counts_Tlei <- read.table("counts.Tfas_Tlei_6_timepoints.exons.toTLEI.sum.normalized-cpm.EdgeR.txt", header = T, row.names = 1)
 
-genes <- scan("OG0001504_PEPC_gene_list_withTlei.txt", character(), quote = "")
+genes <- scan("OG0001504_PEPC_gene_list.txt", character(), quote = "")
 
 module_counts_Tfas <- subset(counts_Tfas, rownames(counts_Tfas) %in% genes)
 module_counts_Tfas <- module_counts_Tfas[, c(1:36)]
@@ -31,8 +31,8 @@ mod_size_Tlei <- nrow(module_counts_Tlei)
 # Melt the count data
 module_counts_Tfas$gene_id <- row.names(module_counts_Tfas)
 module_counts_Tfas_m <- melt(module_counts_Tfas, id.vars = "gene_id")
-module_counts_Tfas_m$time <- c(rep("0100", mod_size_Tfas), rep("0500",mod_size_Tfas), rep("0900",mod_size_Tfas),
-                               rep("1300",mod_size_Tfas), rep("1700",mod_size_Tfas), rep("2100",mod_size_Tfas))
+module_counts_Tfas_m$time <- c(rep("N+9", mod_size_Tfas), rep("D+1",mod_size_Tfas), rep("D+5",mod_size_Tfas),
+                               rep("D+9",mod_size_Tfas), rep("N+1",mod_size_Tfas), rep("N+5",mod_size_Tfas))
 module_counts_Tfas_m$sample <- c(rep("A", as.numeric(mod_size_Tfas)*6), rep("B",as.numeric(mod_size_Tfas)*6),
                                  rep("C",as.numeric(mod_size_Tfas)*6), rep("D",as.numeric(mod_size_Tfas)*6),
                                  rep("E",as.numeric(mod_size_Tfas)*6), rep("F",as.numeric(mod_size_Tfas)*6))
@@ -40,8 +40,8 @@ colnames(module_counts_Tfas_m) <- c("gene_id", "id", "count", "time", "sample")
 
 module_counts_Tlei$gene_id <- row.names(module_counts_Tlei)
 module_counts_Tlei_m <- melt(module_counts_Tlei, id.vars = "gene_id")
-module_counts_Tlei_m$time <- c(rep("0100", mod_size_Tlei), rep("0500",mod_size_Tlei), rep("0900",mod_size_Tlei),
-                               rep("1300",mod_size_Tlei), rep("1700",mod_size_Tlei), rep("2100",mod_size_Tlei))
+module_counts_Tlei_m$time <- c(rep("N+9", mod_size_Tlei), rep("D+1",mod_size_Tlei), rep("D+5",mod_size_Tlei),
+                               rep("D+9",mod_size_Tlei), rep("N+1",mod_size_Tlei), rep("N+5",mod_size_Tlei))
 module_counts_Tlei_m$sample <- c(rep("A", as.numeric(mod_size_Tlei)*6), rep("B",as.numeric(mod_size_Tlei)*6),
                                  rep("C",as.numeric(mod_size_Tlei)*6), rep("D",as.numeric(mod_size_Tlei)*6),
                                  rep("E",as.numeric(mod_size_Tlei)*6), rep("F",as.numeric(mod_size_Tlei)*6))
@@ -49,15 +49,15 @@ colnames(module_counts_Tlei_m) <- c("gene_id", "id", "count", "time", "sample")
 
 # Calculate mean counts per time point
 mean_count_Tfas <- as.data.frame(sapply(seq(1, 6, 1), function(j) rowMeans(module_counts_Tfas[, c(j,j+6,j+12,j+18,j+24,j+30)])))
-colnames(mean_count_Tfas) <- c("0100", "0500", "0900","1300", "1700", "2100")
+colnames(mean_count_Tfas) <- c("N+9", "D+1", "D+5","D+9", "N+1", "N+5")
 mean_count_Tlei <- as.data.frame(sapply(seq(1, 6, 1), function(j) rowMeans(module_counts_Tlei[, c(j,j+6,j+12,j+18,j+24,j+30)])))
-colnames(mean_count_Tlei) <- c("0100", "0500", "0900","1300", "1700", "2100")
+colnames(mean_count_Tlei) <- c("N+9", "D+1", "D+5","D+9", "N+1", "N+5")
 
 sd_count_Tfas <- sapply(seq(1, 6, 1), function(j) rowSds(as.matrix(module_counts_Tfas[, c(j,j+6,j+12,j+18,j+24,j+30)])))
-colnames(sd_count_Tfas) <- c("0100", "0500", "0900","1300", "1700", "2100")
+colnames(sd_count_Tfas) <- c("N+9", "D+1", "D+5","D+9", "N+1", "N+5")
 sd_count_Tfas <- as.data.frame(sd_count_Tfas)
 sd_count_Tlei <- sapply(seq(1, 6, 1), function(j) rowSds(as.matrix(module_counts_Tlei[, c(j,j+6,j+12,j+18,j+24,j+30)])))
-colnames(sd_count_Tlei) <- c("0100", "0500", "0900","1300", "1700", "2100")
+colnames(sd_count_Tlei) <- c("N+9", "D+1", "D+5","D+9", "N+1", "N+5")
 sd_count_Tlei <- as.data.frame(sd_count_Tlei)
 
 mean_count_Tfas$gene_id <- row.names(mean_count_Tfas)
@@ -99,15 +99,17 @@ if (min_Tfas < min_Tlei){
 }
 
 # Make plot 
+
 total <- rbind(total_Tfas, total_Tlei)
+total$order <- rep(c(4,5,6,1,2,3), 4)
 nb.cols <- 4
 mycolors <- brewer.pal(6, "Paired")
-p1 <- ggplot(total, aes(x=time, y=mean_count, group = gene_id)) +
+p1 <- ggplot(total, aes(x=fct_reorder(time, order), y=mean_count, group = gene_id)) +
   geom_point(aes(color=species)) +
   geom_line(aes(color=species, linetype = species), lwd = 1, ) +
   scale_linetype_manual(values=c("solid", "dotdash"))+
-  geom_vline(xintercept = 4.75, linetype = "dashed") +
-  geom_vline(xintercept = 1.75, linetype = "dashed") +
+  geom_vline(xintercept = 3.5, linetype = "dashed") +
+  #geom_vline(xintercept = 1.75, linetype = "dashed") +
   geom_errorbar(aes(ymin=mean_count-sd, ymax=mean_count+sd, color = species), width=.2,
                 position=position_dodge(0.05)) +
   scale_color_manual(values=c("#3fc1c0", "#1a759f")) +
@@ -118,9 +120,12 @@ p1 <- ggplot(total, aes(x=time, y=mean_count, group = gene_id)) +
     plot.title = element_text(size = 11)) +
   theme_bw()
 
+pdf("Expression_curve.OG0001504_PEPC.27092022.pdf", width = 9, height = 6)
+p1
+dev.off()
 ###################### NEXT PLOT #########################
 
-genes <- scan("OG0000580_PFP_gene_list_withTlei.txt", character(), quote = "")
+genes <- scan("OG0000580_Pyrophosphate−−fructose-6−phosphate-1−phosphotransferase-PFP_genelist.txt", character(), quote = "")
 
 module_counts_Tfas <- subset(counts_Tfas, rownames(counts_Tfas) %in% genes)
 module_counts_Tfas <- module_counts_Tfas[, c(1:36)]
@@ -132,8 +137,8 @@ mod_size_Tlei <- nrow(module_counts_Tlei)
 # Melt the count data
 module_counts_Tfas$gene_id <- row.names(module_counts_Tfas)
 module_counts_Tfas_m <- melt(module_counts_Tfas, id.vars = "gene_id")
-module_counts_Tfas_m$time <- c(rep("0100", mod_size_Tfas), rep("0500",mod_size_Tfas), rep("0900",mod_size_Tfas),
-                               rep("1300",mod_size_Tfas), rep("1700",mod_size_Tfas), rep("2100",mod_size_Tfas))
+module_counts_Tfas_m$time <- c(rep("N+9", mod_size_Tfas), rep("D+1",mod_size_Tfas), rep("D+5",mod_size_Tfas),
+                               rep("D+9",mod_size_Tfas), rep("N+1",mod_size_Tfas), rep("N+5",mod_size_Tfas))
 module_counts_Tfas_m$sample <- c(rep("A", as.numeric(mod_size_Tfas)*6), rep("B",as.numeric(mod_size_Tfas)*6),
                                  rep("C",as.numeric(mod_size_Tfas)*6), rep("D",as.numeric(mod_size_Tfas)*6),
                                  rep("E",as.numeric(mod_size_Tfas)*6), rep("F",as.numeric(mod_size_Tfas)*6))
@@ -141,8 +146,8 @@ colnames(module_counts_Tfas_m) <- c("gene_id", "id", "count", "time", "sample")
 
 module_counts_Tlei$gene_id <- row.names(module_counts_Tlei)
 module_counts_Tlei_m <- melt(module_counts_Tlei, id.vars = "gene_id")
-module_counts_Tlei_m$time <- c(rep("0100", mod_size_Tlei), rep("0500",mod_size_Tlei), rep("0900",mod_size_Tlei),
-                               rep("1300",mod_size_Tlei), rep("1700",mod_size_Tlei), rep("2100",mod_size_Tlei))
+module_counts_Tlei_m$time <- c(rep("N+9", mod_size_Tlei), rep("D+1",mod_size_Tlei), rep("D+5",mod_size_Tlei),
+                               rep("D+9",mod_size_Tlei), rep("N+1",mod_size_Tlei), rep("N+5",mod_size_Tlei))
 module_counts_Tlei_m$sample <- c(rep("A", as.numeric(mod_size_Tlei)*6), rep("B",as.numeric(mod_size_Tlei)*6),
                                  rep("C",as.numeric(mod_size_Tlei)*6), rep("D",as.numeric(mod_size_Tlei)*6),
                                  rep("E",as.numeric(mod_size_Tlei)*6), rep("F",as.numeric(mod_size_Tlei)*6))
@@ -150,15 +155,15 @@ colnames(module_counts_Tlei_m) <- c("gene_id", "id", "count", "time", "sample")
 
 # Calculate mean counts per time point
 mean_count_Tfas <- as.data.frame(sapply(seq(1, 6, 1), function(j) rowMeans(module_counts_Tfas[, c(j,j+6,j+12,j+18,j+24,j+30)])))
-colnames(mean_count_Tfas) <- c("0100", "0500", "0900","1300", "1700", "2100")
+colnames(mean_count_Tfas) <- c("N+9", "D+1", "D+5","D+9", "N+1", "N+5")
 mean_count_Tlei <- as.data.frame(sapply(seq(1, 6, 1), function(j) rowMeans(module_counts_Tlei[, c(j,j+6,j+12,j+18,j+24,j+30)])))
-colnames(mean_count_Tlei) <- c("0100", "0500", "0900","1300", "1700", "2100")
+colnames(mean_count_Tlei) <- c("N+9", "D+1", "D+5","D+9", "N+1", "N+5")
 
 sd_count_Tfas <- sapply(seq(1, 6, 1), function(j) rowSds(as.matrix(module_counts_Tfas[, c(j,j+6,j+12,j+18,j+24,j+30)])))
-colnames(sd_count_Tfas) <- c("0100", "0500", "0900","1300", "1700", "2100")
+colnames(sd_count_Tfas) <- c("N+9", "D+1", "D+5","D+9", "N+1", "N+5")
 sd_count_Tfas <- as.data.frame(sd_count_Tfas)
 sd_count_Tlei <- sapply(seq(1, 6, 1), function(j) rowSds(as.matrix(module_counts_Tlei[, c(j,j+6,j+12,j+18,j+24,j+30)])))
-colnames(sd_count_Tlei) <- c("0100", "0500", "0900","1300", "1700", "2100")
+colnames(sd_count_Tlei) <- c("N+9", "D+1", "D+5","D+9", "N+1", "N+5")
 sd_count_Tlei <- as.data.frame(sd_count_Tlei)
 
 mean_count_Tfas$gene_id <- row.names(mean_count_Tfas)
@@ -201,12 +206,12 @@ if (min_Tfas < min_Tlei){
 
 # Make plot 
 total <- rbind(total_Tfas, total_Tlei)
-p2 <- ggplot(total, aes(x=time, y=mean_count, group = gene_id)) +
+total$order <- rep(c(4,5,6,1,2,3), 5)
+p2 <- ggplot(total, aes(x=fct_reorder(time, order), y=mean_count, group = gene_id)) +
   geom_point(aes(color=species)) +
   geom_line(aes(color=species, linetype = species), lwd = 1, ) +
   scale_linetype_manual(values=c("solid", "dotdash"))+
-  geom_vline(xintercept = 4.75, linetype = "dashed") +
-  geom_vline(xintercept = 1.75, linetype = "dashed") +
+  geom_vline(xintercept = 3.5, linetype = "dashed") +
   geom_errorbar(aes(ymin=mean_count-sd, ymax=mean_count+sd, color = species), width=.2,
                 position=position_dodge(0.05)) +
   scale_color_manual(values=c("#a4133c", "#f6aa1c")) +
@@ -217,8 +222,11 @@ p2 <- ggplot(total, aes(x=time, y=mean_count, group = gene_id)) +
     plot.title = element_text(size = 11)) +
   theme_bw()
 
+pdf("Expression_curve.OG0000580_PFP.27092022.pdf", width = 9, height = 6)
+p2
+dev.off()
 ###################### NEXT PLOT ####################
-genes <- scan("OG0005044_XCT_list_genes_withTlei.txt", character(), quote = "")
+genes <- scan("OG0005044_XAP5-CIRCADIAN-TIMEKEEPER_genelist.txt", character(), quote = "")
 
 module_counts_Tfas <- subset(counts_Tfas, rownames(counts_Tfas) %in% genes)
 module_counts_Tfas <- module_counts_Tfas[, c(1:36)]
@@ -230,8 +238,8 @@ mod_size_Tlei <- nrow(module_counts_Tlei)
 # Melt the count data
 module_counts_Tfas$gene_id <- row.names(module_counts_Tfas)
 module_counts_Tfas_m <- melt(module_counts_Tfas, id.vars = "gene_id")
-module_counts_Tfas_m$time <- c(rep("0100", mod_size_Tfas), rep("0500",mod_size_Tfas), rep("0900",mod_size_Tfas),
-                               rep("1300",mod_size_Tfas), rep("1700",mod_size_Tfas), rep("2100",mod_size_Tfas))
+module_counts_Tfas_m$time <- c(rep("N+9", mod_size_Tfas), rep("D+1",mod_size_Tfas), rep("D+5",mod_size_Tfas),
+                               rep("D+9",mod_size_Tfas), rep("N+1",mod_size_Tfas), rep("N+5",mod_size_Tfas))
 module_counts_Tfas_m$sample <- c(rep("A", as.numeric(mod_size_Tfas)*6), rep("B",as.numeric(mod_size_Tfas)*6),
                                  rep("C",as.numeric(mod_size_Tfas)*6), rep("D",as.numeric(mod_size_Tfas)*6),
                                  rep("E",as.numeric(mod_size_Tfas)*6), rep("F",as.numeric(mod_size_Tfas)*6))
@@ -239,8 +247,8 @@ colnames(module_counts_Tfas_m) <- c("gene_id", "id", "count", "time", "sample")
 
 module_counts_Tlei$gene_id <- row.names(module_counts_Tlei)
 module_counts_Tlei_m <- melt(module_counts_Tlei, id.vars = "gene_id")
-module_counts_Tlei_m$time <- c(rep("0100", mod_size_Tlei), rep("0500",mod_size_Tlei), rep("0900",mod_size_Tlei),
-                               rep("1300",mod_size_Tlei), rep("1700",mod_size_Tlei), rep("2100",mod_size_Tlei))
+module_counts_Tlei_m$time <- c(rep("N+9", mod_size_Tlei), rep("D+1",mod_size_Tlei), rep("D+5",mod_size_Tlei),
+                               rep("D+9",mod_size_Tlei), rep("N+1",mod_size_Tlei), rep("N+5",mod_size_Tlei))
 module_counts_Tlei_m$sample <- c(rep("A", as.numeric(mod_size_Tlei)*6), rep("B",as.numeric(mod_size_Tlei)*6),
                                  rep("C",as.numeric(mod_size_Tlei)*6), rep("D",as.numeric(mod_size_Tlei)*6),
                                  rep("E",as.numeric(mod_size_Tlei)*6), rep("F",as.numeric(mod_size_Tlei)*6))
@@ -248,19 +256,19 @@ colnames(module_counts_Tlei_m) <- c("gene_id", "id", "count", "time", "sample")
 
 # Calculate mean counts per time point
 mean_count_Tfas <- as.data.frame(sapply(seq(1, 6, 1), function(j) rowMeans(module_counts_Tfas[, c(j,j+6,j+12,j+18,j+24,j+30)])))
-colnames(mean_count_Tfas) <- c("0100", "0500", "0900","1300", "1700", "2100")
+colnames(mean_count_Tfas) <- c("N+9", "D+1", "D+5","D+9", "N+1", "N+5")
 mean_count_Tlei <- as.data.frame(sapply(seq(1, 6, 1), function(j) rowMeans(module_counts_Tlei[, c(j,j+6,j+12,j+18,j+24,j+30)])))
 mean_count_Tlei <- t(mean_count_Tlei)
-colnames(mean_count_Tlei) <- c("0100", "0500", "0900","1300", "1700", "2100")
+colnames(mean_count_Tlei) <- c("N+9", "D+1", "D+5","D+9", "N+1", "N+5")
 rownames(mean_count_Tlei) <- rownames(module_counts_Tlei)
 mean_count_Tlei <- as.data.frame(mean_count_Tlei)
 
 sd_count_Tfas <- sapply(seq(1, 6, 1), function(j) rowSds(as.matrix(module_counts_Tfas[, c(j,j+6,j+12,j+18,j+24,j+30)])))
-colnames(sd_count_Tfas) <- c("0100", "0500", "0900","1300", "1700", "2100")
+colnames(sd_count_Tfas) <- c("N+9", "D+1", "D+5","D+9", "N+1", "N+5")
 sd_count_Tfas <- as.data.frame(sd_count_Tfas)
 sd_count_Tlei <- as.data.frame(sapply(seq(1, 6, 1), function(j) rowSds(as.matrix(module_counts_Tlei[, c(j,j+6,j+12,j+18,j+24,j+30)]))))
 sd_count_Tlei <- t(sd_count_Tlei)
-colnames(sd_count_Tlei) <- c("0100", "0500", "0900","1300", "1700", "2100")
+colnames(sd_count_Tlei) <- c("N+9", "D+1", "D+5","D+9", "N+1", "N+5")
 rownames(sd_count_Tlei) <- rownames(module_counts_Tlei)
 sd_count_Tlei <- as.data.frame(sd_count_Tlei)
 
@@ -309,12 +317,12 @@ if (min_Tfas < min_Tlei){
 
 # Make plot
 total <- rbind(total_Tfas, total_Tlei)
-p3 <- ggplot(total, aes(x=time, y=mean_count, group = gene_id)) +
+total$order <- rep(c(4,5,6,1,2,3), 3)
+p3 <- ggplot(total, aes(x=fct_reorder(time, order), y=mean_count, group = gene_id)) +
   geom_point(aes(color=species)) +
   geom_line(aes(color=species, linetype = species), lwd = 1, ) +
   scale_linetype_manual(values=c("solid", "dotdash"))+
-  geom_vline(xintercept = 4.75, linetype = "dashed") +
-  geom_vline(xintercept = 1.75, linetype = "dashed") +
+  geom_vline(xintercept = 3.5, linetype = "dashed") +
   geom_errorbar(aes(ymin=mean_count-sd, ymax=mean_count+sd, color = species), width=.2,
                 position=position_dodge(0.05)) +
   scale_color_manual(values=c("#c77dff", "#7b2cbf")) +
@@ -324,6 +332,10 @@ p3 <- ggplot(total, aes(x=time, y=mean_count, group = gene_id)) +
   ggtitle(label = "3) OG0005044: XAP5 CIRCADIAN TIMEKEEPER (2:1)") + theme(
     plot.title = element_text(size = 11)) +
   theme_bw()
+
+pdf("Expression_curve.OG0005044_XAP5.27092022.pdf", width = 9, height = 6)
+p3
+dev.off()
 
 pdf("Expression_curve_MULTICOPY_withTlei.pdf", width = 8, height = 12)
 grid.arrange(p1, p2, p3, ncol = 1, nrow = 3)
